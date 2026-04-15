@@ -340,6 +340,12 @@ a:hover { text-decoration: underline; }
 .rel-type-badge.type-related { background: #e8f5e9; color: #2e7d32; }
 .rel-type-badge.type-next { background: #fff3e0; color: #e65100; }
 .rel-type-badge.type-prev { background: #e3f2fd; color: #1565c0; }
+.rel-stage-badge { font-size: 10px; padding: 1px 5px; border-radius: 3px; background: #f5f5f5; color: #666; }
+
+/* ---------- 下一步推荐 ---------- */
+.next-step { border: 1px solid #ffe0b2; background: #fffbf5; }
+.next-step h3 { color: #bf360c; }
+.next-step-hint { font-size: 13px; color: #888; margin: -5px 0 10px; }
 
 /* ---------- 更新记录增强 ---------- */
 .update-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 13px; }

@@ -136,6 +136,27 @@ class QuestionService:
             ORDER BY qr.display_order
         """, (q['id'],))
 
+        # 下一步推荐（同module + 下一stage，最接近生命周期下一步的问题）
+        next_stage_sub = """
+            SELECT t2.tag_code
+            FROM tag_dict t1
+            JOIN tag_dict t2 ON t2.display_order > t1.display_order
+                             AND t2.tag_category = 'stage'
+                             AND t1.tag_category = 'stage'
+            WHERE t1.tag_code = ?
+            ORDER BY t2.display_order
+            LIMIT 1
+        """
+        next_step_questions = self._query(f"""
+            SELECT question_code, question_title, one_line_answer, stage_code
+            FROM question_master
+            WHERE module_code = ?
+              AND status = 'active'
+              AND stage_code = ({next_stage_sub})
+            ORDER BY updated_at DESC
+            LIMIT 3
+        """, (q['module_code'], q['stage_code']))
+
         # 更新记录
         updates = self._query("""
             SELECT version_no, update_date, update_type, update_reason,
@@ -158,6 +179,7 @@ class QuestionService:
             'policies': policies,
             'tags': tags,
             'relations': relations,
+            'next_step_questions': next_step_questions,
             'updates': updates,
             'local_notes': local_notes
         }

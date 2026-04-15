@@ -240,6 +240,27 @@
 </div>
 {% endif %}
 
+{# ========== 下一步推荐 ========== #}
+{% if detail.next_step_questions %}
+<div class="detail-section next-step">
+    <h3>下一步推荐</h3>
+    <p class="next-step-hint">以下是该业务线的下一个生命周期阶段问题</p>
+    <ul class="relation-list">
+        {% for r in detail.next_step_questions %}
+        <li>
+            <a href="/question/{{ r.question_code }}" class="relation-link">
+                <span class="rel-type-badge type-next">下一步</span>
+                <span class="rel-code">{{ r.question_code }}</span>
+                <span class="rel-stage-badge">{{ r.stage_code }}</span>
+                <span class="rel-title">{{ r.question_title }}</span>
+                <span class="rel-answer">{{ r.one_line_answer }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
 {# ========== 更新记录 ========== #}
 {% if detail.updates %}
 <details class="detail-section updates" open>
