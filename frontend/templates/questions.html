@@ -7,7 +7,7 @@
 <div class="page-header">
     <h1>问题列表</h1>
     <form action="/questions" method="get" class="search-form">
-        <input type="text" name="keyword" placeholder="搜索问题…" class="search-input" value="{{ request.args.get('keyword', '') }}">
+        <input type="text" name="keyword" placeholder="搜索问题…" class="search-input" value="{{ keyword }}">
         <button type="submit" class="search-btn">搜索</button>
     </form>
 </div>
@@ -15,18 +15,39 @@
 {# ========== 筛选器 ========== #}
 <div class="filters">
     <span class="filter-label">阶段：</span>
-    <a href="/questions{% if current_module %}?module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
+    <a href="/questions{% if current_module %}?module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
     {% for s in stages %}
-    <a href="/questions?stage={{ s.tag_code }}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
+    <a href="/questions?stage={{ s.tag_code }}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
     {% endfor %}
 </div>
 
 <div class="filters">
     <span class="filter-label">模块：</span>
-    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
+    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
     {% for m in modules %}
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}module={{ m.tag_code }}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}module={{ m.tag_code }}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
     {% endfor %}
+</div>
+
+{# ========== 业务标签筛选 ========== #}
+{% if all_tags %}
+{% set business_tags = all_tags | selectattr('tag_category', 'equalto', 'business') | list %}
+{% if business_tags %}
+<div class="filters">
+    <span class="filter-label">标签：</span>
+    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_tag %}active{% endif %}">全部</a>
+    {% for t in business_tags %}
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}tag={{ t.tag_code }}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_tag == t.tag_code %}active{% endif %}">{{ t.tag_name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %}
+
+{# ========== 快捷筛选 ========== #}
+<div class="filters filters-quick">
+    <span class="filter-label">快捷：</span>
+    <a href="/questions?hf=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
+    <a href="/questions?newbie=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
 </div>
 
 {# ========== 列表 ========== #}
@@ -57,13 +78,14 @@
 
 {# ========== 分页 ========== #}
 {% if total > page_size %}
+{% set total_pages = ((total - 1) // page_size) + 1 %}
 <div class="pagination">
     {% if page > 1 %}
-    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ request.args.get('keyword', '') }}" class="page-btn">上一页</a>
+    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}" class="page-btn">上一页</a>
     {% endif %}
-    <span class="page-info">第 {{ page }} / {{ ((total - 1) // page_size) + 1 }} 页</span>
+    <span class="page-info">第 {{ page }} / {{ total_pages }} 页</span>
     {% if page * page_size < total %}
-    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ request.args.get('keyword', '') }}" class="page-btn">下一页</a>
+    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}" class="page-btn">下一页</a>
     {% endif %}
 </div>
 {% endif %}

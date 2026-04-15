@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}新建问题 - 企业税务知识库{% endblock %}
+
+{% block main %}
+<div class="page-header">
+    <h1>新建问题</h1>
+    <a href="/questions" class="back-link">返回列表</a>
+</div>
+
+<form action="/question/new" method="POST" class="question-form">
+    {# ========== 基本信息 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>基本信息</legend>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="stage_code">生命周期阶段 *</label>
+                <select name="stage_code" id="stage_code" required>
+                    <option value="">请选择阶段</option>
+                    {% for s in stages %}
+                    <option value="{{ s.tag_code }}">{{ s.tag_code }} - {{ s.tag_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="module_code">主题模块 *</label>
+                <select name="module_code" id="module_code" required>
+                    <option value="">请选择模块</option>
+                    {% for m in modules %}
+                    <option value="{{ m.tag_code }}">{{ m.tag_code }} - {{ m.tag_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="question_title">问题标题 *</label>
+            <input type="text" name="question_title" id="question_title" required placeholder="如：企业没有收入，是否必须申报纳税？">
+        </div>
+
+        <div class="form-group">
+            <label for="one_line_answer">一句话结论 *</label>
+            <input type="text" name="one_line_answer" id="one_line_answer" required placeholder="用一句话回答这个问题">
+        </div>
+    </fieldset>
+
+    {# ========== 答案详情 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>答案详情</legend>
+
+        <div class="form-group">
+            <label for="detailed_answer">详细解答</label>
+            <textarea name="detailed_answer" id="detailed_answer" rows="4" placeholder="完整的解答内容"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="core_definition">核心定义</label>
+            <textarea name="core_definition" id="core_definition" rows="2" placeholder="涉及的核心概念解释"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="applicable_conditions">适用条件</label>
+            <textarea name="applicable_conditions" id="applicable_conditions" rows="2" placeholder="在什么条件下适用这个结论"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="exceptions_boundary">例外与边界</label>
+            <textarea name="exceptions_boundary" id="exceptions_boundary" rows="2" placeholder="哪些情况不适用或需要注意的边界"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="practical_steps">实务处理步骤</label>
+            <textarea name="practical_steps" id="practical_steps" rows="3" placeholder="实际操作步骤或流程"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="risk_warning">风险提示</label>
+            <textarea name="risk_warning" id="risk_warning" rows="2" placeholder="操作不当会有什么风险"></textarea>
+        </div>
+    </fieldset>
+
+    {# ========== 分类属性 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>分类属性</legend>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="answer_certainty">结论稳定度</label>
+                <select name="answer_certainty" id="answer_certainty">
+                    <option value="certain_clear">明确（无附加条件）</option>
+                    <option value="certain_condition">有条件（明确条件下成立）</option>
+                    <option value="certain_dispute">有争议（实务中存在分歧）</option>
+                    <option value="certain_practice">实务做法（仅为经验总结）</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="scope_level">适用范围</label>
+                <select name="scope_level" id="scope_level">
+                    <option value="national">全国通用</option>
+                    <option value="provincial">省级口径</option>
+                    <option value="local">地方口径</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="question_type">问题类型</label>
+            <select name="question_type" id="question_type">
+                <option value="practical">实务问题</option>
+                <option value="theory">理论问题</option>
+                <option value="policy">政策解读</option>
+                <option value="procedure">流程手续</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>标记</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="high_frequency_flag" value="1"> 高频问题
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="newbie_flag" value="1"> 新手必看
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="keywords">关键词</label>
+            <input type="text" name="keywords" id="keywords" placeholder="用逗号分隔，如：零申报,申报,无收入">
+        </div>
+    </fieldset>
+
+    {# ========== 标签 ========== #}
+    {% if business_tags %}
+    <fieldset class="form-fieldset">
+        <legend>业务标签</legend>
+        <div class="tag-checkboxes">
+            {% for t in business_tags %}
+            <label class="checkbox-label tag-checkbox">
+                <input type="checkbox" name="tags" value="{{ t.tag_code }}"> {{ t.tag_name }}
+            </label>
+            {% endfor %}
+        </div>
+    </fieldset>
+    {% endif %}
+
+    {# ========== 提交 ========== #}
+    <div class="form-actions">
+        <button type="submit" class="btn-submit">创建问题</button>
+        <a href="/questions" class="btn-cancel">取消</a>
+    </div>
+</form>
+{% endblock %}

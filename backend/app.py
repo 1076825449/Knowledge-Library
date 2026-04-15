@@ -50,16 +50,24 @@ def create_app():
         page = int(request.args.get('page', 1))
         page_size = 10
 
-        result = svc.list_questions(stage=stage, module=module, tag=tag, page=page, page_size=page_size)
+        result = svc.list_questions(
+            stage=stage, module=module, tag=tag,
+            page=page, page_size=page_size,
+            hf=request.args.get('hf'),
+            newbie=request.args.get('newbie'),
+            keyword=request.args.get('keyword')
+        )
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
+        keyword = request.args.get('keyword', '')
 
         return render_template('questions.html',
                                stages=stages, modules=modules, all_tags=all_tags,
                                questions=result['questions'], total=result['total'],
                                page=page, page_size=page_size,
-                               current_stage=stage, current_module=module, current_tag=tag)
+                               current_stage=stage, current_module=module, current_tag=tag,
+                               keyword=keyword)
 
     @app.route('/question/<question_code>')
     def question_detail(question_code):
@@ -72,6 +80,33 @@ def create_app():
         modules = svc.get_modules()
         return render_template('detail.html',
                                detail=detail, stages=stages, modules=modules)
+
+    # ---------- 新增问题页面 ----------
+    @app.route('/question/new', methods=['GET', 'POST'])
+    def new_question():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        stages = svc.get_stages()
+        modules = svc.get_modules()
+        all_tags = svc.get_all_tags()
+        business_tags = [t for t in all_tags if t['tag_category'] == 'business']
+
+        if request.method == 'POST':
+            data = request.form.to_dict()
+            # 处理多选标签
+            tag_codes = request.form.getlist('tags')
+            try:
+                code = svc.create_question(data)
+                return f"<script>alert('问题 {code} 创建成功！');window.location.href='/question/{code}';</script>"
+            except Exception as e:
+                return f"<script>alert('创建失败：{e}');window.history.back();</script>"
+
+        return render_template('new_question.html',
+                               stages=stages, modules=modules,
+                               business_tags=business_tags)
+
+    # ---------- 导航条加新增入口 ----------
+    # （导航条在 base.html 里直接写死，这里不需要改动）
 
     return app
 

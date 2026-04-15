@@ -30,7 +30,7 @@ class QuestionService:
         return rows[0] if rows else None
 
     # ---------- 问题列表 ----------
-    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20):
+    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None):
         offset = (page - 1) * page_size
         conditions = ["q.status = 'active'"]
         params = []
@@ -50,6 +50,16 @@ class QuestionService:
                 )
             """)
             params.append(tag)
+        if hf:
+            conditions.append("q.high_frequency_flag = 1")
+        if newbie:
+            conditions.append("q.newbie_flag = 1")
+        if keyword:
+            pattern = f"%{keyword}%"
+            conditions.append("""
+                (q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)
+            """)
+            params.extend([pattern, pattern, pattern])
 
         where_clause = " AND ".join(conditions)
 
@@ -256,3 +266,81 @@ class QuestionService:
             WHERE tag_category = 'business' AND status = 'active'
             ORDER BY display_order
         """)
+
+    # ---------- 新增问题 ----------
+    def _generate_code(self, stage_code, module_code):
+        """生成下一个问题编码，如 OPR-DEC-003"""
+        prefix = f"{stage_code}-{module_code}-"
+        rows = self._query(
+            "SELECT question_code FROM question_master WHERE question_code LIKE ? ORDER BY question_code DESC LIMIT 1",
+            (f"{prefix}%",)
+        )
+        if not rows:
+            return f"{prefix}001"
+        last = rows[0]['question_code']
+        num = int(last.split('-')[-1]) + 1
+        return f"{prefix}{num:03d}"
+
+    def create_question(self, data):
+        """新增一条问题，返回 question_code"""
+        import datetime
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+
+        # 生成编码
+        code = self._generate_code(data['stage_code'], data['module_code'])
+
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        cur.execute("""
+            INSERT INTO question_master (
+                question_code, question_title, question_plain,
+                stage_code, module_code, question_type,
+                one_line_answer, detailed_answer, core_definition,
+                applicable_conditions, exceptions_boundary,
+                practical_steps, risk_warning,
+                scope_level, local_region,
+                answer_certainty, keywords,
+                high_frequency_flag, newbie_flag,
+                status, version_no, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft', 1, ?, ?)
+        """, (
+            code,
+            data['question_title'],
+            data.get('question_plain', data['question_title']),
+            data['stage_code'],
+            data['module_code'],
+            data.get('question_type', 'practical'),
+            data['one_line_answer'],
+            data.get('detailed_answer', ''),
+            data.get('core_definition', ''),
+            data.get('applicable_conditions', ''),
+            data.get('exceptions_boundary', ''),
+            data.get('practical_steps', ''),
+            data.get('risk_warning', ''),
+            data.get('scope_level', 'national'),
+            data.get('local_region', ''),
+            data.get('answer_certainty', 'clear'),
+            data.get('keywords', ''),
+            1 if data.get('high_frequency_flag') else 0,
+            1 if data.get('newbie_flag') else 0,
+            now, now
+        ))
+        question_id = cur.lastrowid
+
+        # 写入更新记录
+        cur.execute("""
+            INSERT INTO question_update_log (
+                question_id, version_no, update_date, update_type,
+                update_reason, updated_by, reviewed_by, change_summary
+            ) VALUES (?, 1, ?, 'create', ?, ?, ?, ?)
+        """, (
+            question_id, now,
+            data.get('update_reason', '新增问题'),
+            data.get('created_by', 'system'),
+            data.get('reviewed_by', ''),
+            data.get('change_summary', f'创建问题 {code}')
+        ))
+
+        conn.commit()
+        conn.close()
+        return code
