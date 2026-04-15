@@ -1,9 +1,36 @@
 {% extends "base.html" %}
 
+{# ---- 辅助宏 ---- #}
+{% macro certainty_label(code) %}
+    {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
+    {% elif code == 'certain_condition' %}<span class="certainty-tag condition">有条件</span>
+    {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
+    {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
+    {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
+{% endmacro %}
+
+{% macro policy_level_label(code) %}
+    {% if code == 'level_law' %}法律
+    {% elif code == 'level_admin' %}行政法规
+    {% elif code == 'level_department' %}部门规章
+    {% elif code == 'level_bulletin' %}规范性文件
+    {% elif code == 'level_provincial' %}省级文件
+    {% elif code == 'level_local' %}地方文件
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
+{% macro support_type_label(code) %}
+    {% if code == 'support_direct' %}直接依据
+    {% elif code == 'support_procedure' %}办理依据
+    {% elif code == 'support_reference' %}参考依据
+    {% elif code == 'support_interpretation' %}政策解读
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
 {% block title %}{{ detail.question_title }} - 企业税务知识库{% endblock %}
 
 {% block main %}
-{# ========== 面包屑 + 问题编码 ========== #}
+{# ========== 面包屑 + 问题编码 + 版本 ========== #}
 <div class="detail-header">
     <div class="breadcrumb">
         <a href="/">首页</a> &gt; <a href="/questions">问题列表</a> &gt; <span>{{ detail.question_code }}</span>
@@ -18,7 +45,9 @@
         {% if detail.newbie_flag %}
         <span class="q-badge newbie">新手</span>
         {% endif %}
-        <span class="q-badge certainty {{ detail.answer_certainty }}">{{ detail.answer_certainty }}</span>
+        {{ certainty_label(detail.answer_certainty) }}
+        <span class="q-badge version">v{{ detail.version_no }}</span>
+        <span class="q-badge status-{{ detail.status }}">{{ detail.status }}</span>
     </div>
 </div>
 
@@ -32,10 +61,12 @@
 </div>
 
 {# ========== 详细解答 ========== #}
+{% if detail.detailed_answer %}
 <div class="detail-section">
     <h3>详细解答</h3>
     <div class="detail-text">{{ detail.detailed_answer }}</div>
 </div>
+{% endif %}
 
 {# ========== 核心定义 ========== #}
 {% if detail.core_definition %}
@@ -77,31 +108,85 @@
 </div>
 {% endif %}
 
-{# ========== 政策依据（可折叠） ========== #}
+{# ========== 适用范围 ========== #}
+{% if detail.scope_level == 'national' %}
+<div class="scope-note">适用地区：全国通用</div>
+{% elif detail.local_region %}
+<div class="scope-note local">地区：{{ detail.local_region }}</div>
+{% endif %}
+
+{# ========== 政策依据（分组展示） ========== #}
 {% if detail.policies %}
-<details class="detail-section policies" open>
-    <summary class="section-summary">政策依据 ({{ detail.policies|length }} 条)</summary>
-    <ul class="policy-list">
-        {% for p in detail.policies %}
-        <li class="policy-item">
-            <div class="policy-title">{{ p.policy_name }}{% if p.policy_number %}（文号：{{ p.policy_number }}）{% endif %}</div>
-            {% if p.article_location %}
-            <div class="policy-article">条款：{{ p.article_location }}</div>
-            {% endif %}
-            {% if p.support_note %}
-            <div class="policy-note">{{ p.support_note }}</div>
-            {% endif %}
-            <div class="policy-meta">
-                <span class="policy-level">{{ p.policy_level }}</span>
-                <span class="policy-status">{{ p.policy_status }}</span>
-                {% if p.source_url %}
-                <a href="{{ p.source_url }}" target="_blank" class="policy-link">查看原文</a>
-                {% endif %}
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-</details>
+{% set direct_policies = [] %}
+{% set procedure_policies = [] %}
+{% set other_policies = [] %}
+{% for p in detail.policies %}
+    {% if p.support_type == 'support_direct' %}{{ direct_policies.append(p) }}{% endif %}
+    {% if p.support_type == 'support_procedure' %}{{ procedure_policies.append(p) }}{% endif %}
+    {% if p.support_type not in ['support_direct', 'support_procedure'] %}{{ other_policies.append(p) }}{% endif %}
+{% endfor %}
+
+<div class="detail-section policies-section">
+    <h3>政策依据</h3>
+
+    {% if direct_policies %}
+    <div class="policy-group">
+        <div class="policy-group-label">直接依据</div>
+        <ul class="policy-list">
+            {% for p in direct_policies %}
+            <li class="policy-item type-direct">
+                <div class="policy-title">
+                    {{ p.policy_name }}
+                    {% if p.article_ref %}（文号：{{ p.document_no }}）{% endif %}
+                </div>
+                {% if p.article_ref %}<div class="policy-article">条款：{{ p.article_ref }}</div>{% endif %}
+                {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
+                <div class="policy-meta">
+                    <span class="policy-level-badge level-{{ p.policy_level }}">{{ policy_level_label(p.policy_level) }}</span>
+                    {% if p.effective_date %}<span class="policy-effective">生效：{{ p.effective_date }}</span>{% endif %}
+                    {% if p.current_status == 'pol_effective' %}<span class="policy-stat effective">现行有效</span>
+                    {% elif p.current_status == 'pol_expired' %}<span class="policy-stat expired">已失效</span>
+                    {% elif p.current_status == 'pol_partial' %}<span class="policy-stat partial">部分失效</span>{% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if procedure_policies %}
+    <div class="policy-group">
+        <div class="policy-group-label">办理依据</div>
+        <ul class="policy-list">
+            {% for p in procedure_policies %}
+            <li class="policy-item type-procedure">
+                <div class="policy-title">{{ p.policy_name }}{% if p.article_ref %}（文号：{{ p.document_no }}）{% endif %}</div>
+                {% if p.article_ref %}<div class="policy-article">条款：{{ p.article_ref }}</div>{% endif %}
+                {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
+                <div class="policy-meta">
+                    <span class="policy-level-badge level-{{ p.policy_level }}">{{ policy_level_label(p.policy_level) }}</span>
+                    {% if p.current_status == 'pol_effective' %}<span class="policy-stat effective">现行有效</span>{% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if other_policies %}
+    <div class="policy-group">
+        <div class="policy-group-label">参考依据</div>
+        <ul class="policy-list">
+            {% for p in other_policies %}
+            <li class="policy-item type-other">
+                <div class="policy-title">{{ p.policy_name }}{% if p.article_ref %}（文号：{{ p.document_no }}）{% endif %}</div>
+                {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 {% endif %}
 
 {# ========== 地方口径 ========== #}
@@ -111,7 +196,10 @@
     <ul class="local-list">
         {% for ln in detail.local_notes %}
         <li class="local-item">
-            <div class="local-region">{{ ln.region_name }}</div>
+            <div class="local-header">
+                <span class="local-region">{{ ln.region_name }}</span>
+                {% if ln.effective_date %}<span class="local-effective">{{ ln.effective_date }}</span>{% endif %}
+            </div>
             <div class="local-content">{{ ln.local_content }}</div>
             {% if ln.authority_name %}<div class="local-authority">来源：{{ ln.authority_name }}</div>{% endif %}
         </li>
@@ -140,7 +228,7 @@
         {% for r in detail.relations %}
         <li>
             <a href="/question/{{ r.question_code }}" class="relation-link">
-                <span class="rel-type">{{ r.relation_type }}</span>
+                <span class="rel-type-badge type-{{ r.relation_type }}">{{ r.relation_type }}</span>
                 <span class="rel-code">{{ r.question_code }}</span>
                 <span class="rel-title">{{ r.question_title }}</span>
                 <span class="rel-answer">{{ r.one_line_answer }}</span>
@@ -153,15 +241,18 @@
 
 {# ========== 更新记录 ========== #}
 {% if detail.updates %}
-<details class="detail-section updates">
+<details class="detail-section updates" open>
     <summary class="section-summary">更新记录 ({{ detail.updates|length }} 条)</summary>
     <ul class="update-list">
         {% for u in detail.updates %}
         <li class="update-item">
+            <span class="update-version">v{{ u.version_no }}</span>
             <span class="update-date">{{ u.update_date }}</span>
-            <span class="update-type">{{ u.update_type }}</span>
+            <span class="update-type-badge type-{{ u.update_type }}">{{ u.update_type }}</span>
+            {% if u.update_reason %}<span class="update-reason">{{ u.update_reason }}</span>{% endif %}
             <span class="update-summary">{{ u.change_summary }}</span>
-            {% if u.updated_by %}<span class="update-by">by {{ u.updated_by }}</span>{% endif %}
+            {% if u.updated_by %}<span class="update-by">{{ u.updated_by }}</span>{% endif %}
+            {% if u.reviewed_by %}<span class="update-reviewed">审核：{{ u.reviewed_by }}</span>{% endif %}
         </li>
         {% endfor %}
     </ul>
@@ -169,6 +260,6 @@
 {% endif %}
 
 <div class="detail-footer">
-    <span>更新时间：{{ detail.updated_at }}</span>
+    <span>版本 v{{ detail.version_no }} · 更新于 {{ detail.updated_at }}</span>
 </div>
 {% endblock %}

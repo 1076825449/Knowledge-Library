@@ -276,6 +276,89 @@ a:hover { text-decoration: underline; }
 
 .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 
+/* ---------- 结论稳定度标签（Phase 7） ---------- */
+.certainty-tag {
+    font-size: 12px; padding: 3px 8px; border-radius: 3px; font-weight: 600;
+}
+.certainty-tag.clear { background: #c8e6c9; color: #2e7d32; }
+.certainty-tag.condition { background: #fff9c4; color: #f57f17; }
+.certainty-tag.dispute { background: #ffcdd2; color: #c62828; }
+.certainty-tag.practice { background: #e1f5fe; color: #0277bd; }
+
+/* ---------- 版本/状态标签 ---------- */
+.q-badge.version { background: #f5f5f5; color: var(--text-secondary); font-family: monospace; }
+.q-badge.status-active { background: #c8e6c9; color: #2e7d32; }
+.q-badge.status-draft { background: #fff9c4; color: #f57f17; }
+.q-badge.status-archived { background: #ffcdd2; color: #c62828; }
+
+/* ---------- 适用范围提示 ---------- */
+.scope-note { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; padding: 8px 12px; background: #f5f5f5; border-radius: 4px; display: inline-block; }
+.scope-note.local { background: #fff8e1; border: 1px solid #ffe082; }
+
+/* ---------- 政策依据分组（Phase 7） ---------- */
+.policies-section h3 { margin-bottom: 12px; }
+.policy-group { margin-bottom: 16px; }
+.policy-group-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--text-light); margin-bottom: 8px; padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+}
+.policy-list { list-style: none; }
+.policy-item {
+    padding: 12px 14px; background: #fafafa; border: 1px solid var(--border);
+    border-radius: 4px; margin-bottom: 8px; border-left-width: 3px;
+}
+.policy-item.type-direct { border-left-color: #2e7d32; }
+.policy-item.type-procedure { border-left-color: #1565c0; }
+.policy-item.type-other { border-left-color: #9e9e9e; }
+
+.policy-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.policy-article { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+.policy-note { font-size: 13px; color: var(--text-secondary); font-style: italic; margin-bottom: 6px; }
+.policy-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.policy-level-badge { font-size: 11px; padding: 2px 7px; border-radius: 3px; font-weight: 600; }
+.level-level_law { background: #e8f5e9; color: #2e7d32; }
+.level-level_admin { background: #e3f2fd; color: #1565c0; }
+.level-level_department { background: #f3e5f5; color: #6a1b9a; }
+.level-level_bulletin { background: #fff3e0; color: #e65100; }
+.level-level_provincial { background: #fce4ec; color: #c62828; }
+.level-level_local { background: #f5f5f5; color: #616161; }
+.policy-effective { font-size: 11px; color: var(--text-light); }
+.policy-stat { font-size: 11px; padding: 2px 6px; border-radius: 3px; }
+.policy-stat.effective { background: #c8e6c9; color: #2e7d32; }
+.policy-stat.expired { background: #ffcdd2; color: #c62828; }
+.policy-stat.partial { background: #fff9c4; color: #f57f17; }
+
+/* ---------- 关联类型标签 ---------- */
+.rel-type-badge { font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: 600; background: #e8f0fe; color: var(--accent); }
+.rel-type-badge.type-related { background: #e8f5e9; color: #2e7d32; }
+.rel-type-badge.type-next { background: #fff3e0; color: #e65100; }
+.rel-type-badge.type-prev { background: #e3f2fd; color: #1565c0; }
+
+/* ---------- 更新记录增强 ---------- */
+.update-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 13px; }
+.update-item:last-child { border-bottom: none; }
+.update-version { font-size: 11px; font-weight: 700; padding: 2px 6px; background: #e8f0fe; color: var(--accent); border-radius: 3px; font-family: monospace; }
+.update-type-badge { font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.update-type-badge.type-create { background: #c8e6c9; color: #2e7d32; }
+.update-type-badge.type-update { background: #e8f0fe; color: var(--accent); }
+.update-type-badge.type-policy_change { background: #fff9c4; color: #f57f17; }
+.update-type-badge.type-revisit { background: #f3e5f5; color: #6a1b9a; }
+.update-type-badge.type-status { background: #ffebee; color: #c62828; }
+.update-date { color: var(--text-light); font-family: monospace; white-space: nowrap; }
+.update-reason { color: var(--text-secondary); font-weight: 600; }
+.update-summary { flex: 1 0 100%; color: var(--text-secondary); padding-left: 72px; }
+.update-by, .update-reviewed { font-size: 12px; color: var(--text-light); }
+.update-reviewed { margin-left: auto; }
+
+/* ---------- 地方口径增强 ---------- */
+.local-item { padding: 12px; background: #fff8e1; border: 1px solid #ffe082; border-radius: 4px; margin-bottom: 8px; }
+.local-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.local-region { font-weight: 700; color: #e65100; }
+.local-effective { font-size: 11px; color: var(--text-light); font-family: monospace; }
+.local-content { font-size: 14px; line-height: 1.6; }
+.local-authority { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
 /* ---------- 列表页快捷筛选标签区 ---------- */
 .tags-section.filters-in-detail { background: var(--surface); padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; margin-bottom: 16px; }
 
