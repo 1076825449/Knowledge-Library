@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-本项目用于建设一个"企业全生命周期税务问题知识库"，特点是以"实际问题—答案"的形式组织内容，而非按文件罗列。
+本项目用于建设一个"企业全生命周期税务问题知识库网站"，特点是以"实际问题—答案"的形式组织内容，而非按文件罗列。
 
 覆盖企业从**设立、开业、日常经营、变更、风险异常、停业、注销**的全生命周期。
 
@@ -45,20 +45,100 @@
 - CLEAR = 清税注销
 - ETAX = 电子税务局/系统办理
 
-## 文件说明
+## 项目文件结构
 
-- `schema_tax_knowledge_base.sql` - 完整建表语句 + 字典数据 + 示例数据
+```
+project-root/
+├─ README.md              # 本文件
+├─ AGENTS.md              # agent 行为约束
+├─ TASKS.md               # 项目任务清单
+├─ CONTENT_SPEC.md        # 问题卡片写作规范
+├─ PROJECT_MANIFEST.md     # 项目总纲
+├─ PROJECT_STRUCTURE.md    # 目录结构规范
+├─ .gitignore
+├─ .env.example
+│
+├─ database/              # 数据库
+│   ├─ schema/            # 建表 SQL（按顺序执行）
+│   ├─ seed/              # 初始化数据
+│   ├─ queries/           # 常用查询示例
+│   ├─ db/                # 数据库文件（.gitignore 忽略）
+│   └─ README.md
+│
+├─ frontend/              # 前端（骨架）
+├─ backend/               # 后端（骨架）
+├─ scripts/              # 辅助脚本（骨架）
+├─ docs/                 # 补充文档（骨架）
+├─ tests/                # 测试（骨架）
+├─ data/                 # 导入导出数据（骨架）
+└─ assets/               # 静态资源（骨架）
+```
 
-## 使用方式
+## 快速起步
+
+### 1. 初始化数据库
 
 ```bash
-# 在 SQLite 中执行
-sqlite3 tax_knowledge.db < schema_tax_knowledge_base.sql
+cd /Volumes/外接硬盘/vibe\ coding/知识库
 
-# 或进入 SQLite 交互界面
-sqlite3 tax_knowledge.db
-.read schema_tax_knowledge_base.sql
+# 创建数据库文件
+sqlite3 database/db/tax_knowledge.db
+
+# 按顺序执行建表 SQL
+.read database/schema/001_create_core_tables.sql
+.read database/schema/002_create_relation_tables.sql
+.read database/schema/003_create_indexes.sql
+
+# 初始化字典和示例数据
+.read database/seed/001_seed_dicts.sql
+.read database/seed/002_seed_sample_data.sql
 ```
+
+### 2. 或一键初始化
+
+```bash
+sqlite3 database/db/tax_knowledge.db <<'EOF'
+.read database/schema/001_create_core_tables.sql
+.read database/schema/002_create_relation_tables.sql
+.read database/schema/003_create_indexes.sql
+.read database/seed/001_seed_dicts.sql
+.read database/seed/002_seed_sample_data.sql
+EOF
+```
+
+## 常用查询
+
+```sql
+-- 按阶段查询问题
+SELECT question_code, question_title, one_line_answer
+FROM question_master
+WHERE stage_code = 'SET' AND status = 'active';
+
+-- 查询问题详情与政策依据
+SELECT q.question_title, p.policy_name, p.document_no, qpl.support_type
+FROM question_master q
+JOIN question_policy_link qpl ON q.id = qpl.question_id
+JOIN policy_basis p ON qpl.policy_id = p.id
+WHERE q.question_code = 'SET-REG-001';
+
+-- 查询高频问题
+SELECT question_code, question_title FROM question_master
+WHERE high_frequency_flag = 1 AND status = 'active';
+
+-- 查询最近更新
+SELECT question_code, question_title, updated_at
+FROM question_master ORDER BY updated_at DESC LIMIT 10;
+```
+
+## 核心文档说明
+
+| 文档 | 作用 |
+|------|------|
+| `PROJECT_MANIFEST.md` | 项目总纲，介绍项目定位、愿景、设计原则 |
+| `AGENTS.md` | 给 agent 立规则，规定优先级、禁止事项、决策顺序 |
+| `TASKS.md` | 任务拆解清单，8 个 Phase，可逐阶段验收 |
+| `CONTENT_SPEC.md` | 问题卡片写作规范，保证内容质量标准 |
+| `PROJECT_STRUCTURE.md` | 目录结构规范，规定文件摆放位置 |
 
 ## 设计原则
 
@@ -67,6 +147,26 @@ sqlite3 tax_knowledge.db
 3. **结构稳定可扩展** - 新增问题通过新增记录实现，不破坏整体结构
 4. **便于后续扩展** - 支持网站展示、AI检索、向量化的结构化清洗
 
-## 创建时间
+## 当前阶段完成状态
 
-2026-04-15
+| Phase | 内容 | 状态 |
+|-------|------|------|
+| Phase 1 | 数据库与数据底座 | ✅ 已完成 |
+| Phase 2 | 示例数据与内容模型验证 | ✅ 已完成 |
+| Phase 3 | 后端读取能力 | 🔲 待完成 |
+| Phase 4 | 网站最小可用前端 | 🔲 待完成 |
+| Phase 5 | 检索、筛选增强 | 🔲 待完成 |
+| Phase 6 | 内容录入便利化 | 🔲 待完成 |
+| Phase 7 | 地方口径与更新机制 | 🔲 待完成 |
+| Phase 8 | AI 检索预留 | 🔲 待完成 |
+
+## 技术栈建议
+
+- **数据库**：SQLite（当前）/ MySQL 或 PostgreSQL（后续迁移）
+- **前端**：React / Vue / Next.js（轻量起步）
+- **后端**：Flask / FastAPI / Express（可延后）
+
+---
+
+**创建日期**：2026-04-15
+**最后更新**：2026-04-15
