@@ -53,7 +53,7 @@
 </div>
 
 {# ========== 问题标题 ========== #}
-<h1 class="detail-title">{{ detail.question_title }}</h1>
+<h1 class="detail-title">{{ detail.question_plain }}</h1>
 
 {# ========== 一句话结论（重点突出） ========== #}
 <div class="answer-box">
@@ -110,10 +110,16 @@
 {% endif %}
 
 {# ========== 适用范围 ========== #}
-{% if detail.scope_level == 'national' %}
+{% if detail.scope_level %}
+{% if detail.scope_level == 'scope_national' %}
 <div class="scope-note">适用地区：全国通用</div>
+{% elif detail.scope_level == 'scope_provincial' %}
+<div class="scope-note">适用地区：省级口径</div>
+{% elif detail.scope_level == 'scope_local' %}
+<div class="scope-note">适用地区：地方口径</div>
 {% elif detail.local_region %}
 <div class="scope-note local">地区：{{ detail.local_region }}</div>
+{% endif %}
 {% endif %}
 
 {# ========== 政策依据（分组展示） ========== #}

@@ -80,7 +80,7 @@ class QuestionService:
         # 查询列表
         sql = f"""
             SELECT
-                q.question_code, q.question_title, q.one_line_answer,
+                q.question_code, q.question_title, q.question_plain, q.one_line_answer,
                 q.stage_code, q.module_code, q.answer_certainty,
                 q.high_frequency_flag, q.newbie_flag, q.updated_at
             FROM question_master q

@@ -97,8 +97,9 @@
                 {% endif %}
                 <span class="q-badge certainty {{ q.answer_certainty }}">{{ q.answer_certainty }}</span>
             </div>
-            <div class="q-title">{{ q.question_title }}</div>
+            <div class="q-title">{{ q.question_plain }}</div>
             <div class="q-answer">{{ q.one_line_answer }}</div>
+            {% if q.updated_at %}<div class="q-updated">更新：{{ q.updated_at[:10] }}</div>{% endif %}
         </a>
     </li>
     {% endfor %}
