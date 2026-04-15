@@ -163,6 +163,7 @@ a:hover { text-decoration: underline; }
 
 .q-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 .q-answer { font-size: 14px; color: var(--text-secondary); }
+mark { background: #fff3cd; color: inherit; border-radius: 2px; padding: 0 2px; }
 
 /* ---------- 分页 ---------- */
 .pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }

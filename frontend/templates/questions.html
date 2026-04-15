@@ -97,8 +97,13 @@
                 {% endif %}
                 <span class="q-badge certainty {{ q.answer_certainty }}">{{ q.answer_certainty }}</span>
             </div>
+            {% if keyword %}
+            <div class="q-title">{{ q.question_plain | replace(keyword, '<mark>' ~ keyword ~ '</mark>') | safe }}</div>
+            <div class="q-answer">{{ q.one_line_answer | replace(keyword, '<mark>' ~ keyword ~ '</mark>') | safe }}</div>
+            {% else %}
             <div class="q-title">{{ q.question_plain }}</div>
             <div class="q-answer">{{ q.one_line_answer }}</div>
+            {% endif %}
             {% if q.updated_at %}<div class="q-updated">更新：{{ q.updated_at[:10] }}</div>{% endif %}
         </a>
     </li>
