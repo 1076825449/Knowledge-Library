@@ -30,10 +30,14 @@ class QuestionService:
         return rows[0] if rows else None
 
     # ---------- 问题列表 ----------
-    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None):
+    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None, region=None, status=None):
         offset = (page - 1) * page_size
-        conditions = ["q.status = 'active'"]
-        params = []
+        if status:
+            conditions = ["q.status = ?"]
+            params = [status]
+        else:
+            conditions = ["q.status = 'active'"]
+            params = []
 
         if stage:
             conditions.append("q.stage_code = ?")
@@ -60,6 +64,12 @@ class QuestionService:
                 (q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)
             """)
             params.extend([pattern, pattern, pattern])
+        if region:
+            conditions.append("q.scope_level = ?")
+            params.append(region)
+        if status:
+            conditions.append("q.status = ?")
+            params.append(status)
 
         where_clause = " AND ".join(conditions)
 

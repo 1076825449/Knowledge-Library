@@ -43,11 +43,39 @@
 {% endif %}
 {% endif %}
 
+{# ========== 适用范围筛选 ========== #}
+<div class="filters">
+    <span class="filter-label">地区：</span>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region="
+           class="filter-chip {% if not current_region %}active{% endif %}">全部</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=national"
+           class="filter-chip {% if current_region == 'national' %}active{% endif %}">全国通用</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=provincial"
+           class="filter-chip {% if current_region == 'provincial' %}active{% endif %}">省级口径</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=local"
+           class="filter-chip {% if current_region == 'local' %}active{% endif %}">地方口径</a>
+</div>
+
+{# ========== 状态筛选 ========== #}
+<div class="filters">
+    <span class="filter-label">状态：</span>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status="
+           class="filter-chip {% if not current_status %}active{% endif %}">全部</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=active"
+           class="filter-chip {% if current_status == 'active' %}active{% endif %}">正常</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=draft"
+           class="filter-chip {% if current_status == 'draft' %}active{% endif %}">草稿</a>
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=archived"
+           class="filter-chip {% if current_status == 'archived' %}active{% endif %}">归档</a>
+</div>
+
 {# ========== 快捷筛选 ========== #}
 <div class="filters filters-quick">
     <span class="filter-label">快捷：</span>
-    <a href="/questions?hf=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
-    <a href="/questions?newbie=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
+    <a href="/questions?hf=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_region %}&region={{ current_region }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}"
+       class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
+    <a href="/questions?newbie=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_region %}&region={{ current_region }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}"
+       class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
 </div>
 
 {# ========== 列表 ========== #}
@@ -81,11 +109,11 @@
 {% set total_pages = ((total - 1) // page_size) + 1 %}
 <div class="pagination">
     {% if page > 1 %}
-    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}" class="page-btn">上一页</a>
+    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}&region={{ current_region }}&status={{ current_status }}" class="page-btn">上一页</a>
     {% endif %}
     <span class="page-info">第 {{ page }} / {{ total_pages }} 页</span>
     {% if page * page_size < total %}
-    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}" class="page-btn">下一页</a>
+    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}&region={{ current_region }}&status={{ current_status }}" class="page-btn">下一页</a>
     {% endif %}
 </div>
 {% endif %}

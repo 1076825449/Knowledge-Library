@@ -55,19 +55,24 @@ def create_app():
             page=page, page_size=page_size,
             hf=request.args.get('hf'),
             newbie=request.args.get('newbie'),
-            keyword=request.args.get('keyword')
+            keyword=request.args.get('keyword'),
+            region=request.args.get('region'),
+            status=request.args.get('status')
         )
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
         keyword = request.args.get('keyword', '')
+        current_region = request.args.get('region', '')
+        current_status = request.args.get('status', '')
 
         return render_template('questions.html',
                                stages=stages, modules=modules, all_tags=all_tags,
                                questions=result['questions'], total=result['total'],
                                page=page, page_size=page_size,
                                current_stage=stage, current_module=module, current_tag=tag,
-                               keyword=keyword)
+                               keyword=keyword,
+                               current_region=current_region, current_status=current_status)
 
     @app.route('/question/<question_code>')
     def question_detail(question_code):
