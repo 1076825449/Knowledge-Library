@@ -146,6 +146,46 @@
     </fieldset>
     {% endif %}
 
+    {# ========== 政策依据 ========== #}
+    {% if all_policies %}
+    <fieldset class="form-fieldset">
+        <legend>政策依据（最多关联3条）</legend>
+        <p class="field-hint">每条依据包含：选择政策、选择支撑类型、填写备注说明</p>
+        {% for i in [1, 2, 3] %}
+        <div class="policy-row">
+            <div class="policy-row-num">{{ i }}</div>
+            <div class="policy-row-fields">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="policy_id_{{ i }}">政策依据</label>
+                        <select name="policy_id_{{ i }}" id="policy_id_{{ i }}">
+                            <option value="">请选择政策</option>
+                            {% for p in all_policies %}
+                            <option value="{{ p.id }}">{{ p.policy_name }}{% if p.document_no %}（文号：{{ p.document_no }}）{% endif %}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="support_type_{{ i }}">支撑类型</label>
+                        <select name="support_type_{{ i }}" id="support_type_{{ i }}">
+                            <option value="">请选择</option>
+                            <option value="support_direct">直接依据</option>
+                            <option value="support_procedure">办理依据</option>
+                            <option value="support_reference">参考依据</option>
+                            <option value="support_interpretation">政策解读</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="support_note_{{ i }}">支撑说明（选填）</label>
+                    <input type="text" name="support_note_{{ i }}" id="support_note_{{ i }}" placeholder="说明这条依据支撑哪个结论">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </fieldset>
+    {% endif %}
+
     {# ========== 提交 ========== #}
     <div class="form-actions">
         <button type="submit" class="btn-submit">创建问题</button>

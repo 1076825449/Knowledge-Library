@@ -344,3 +344,46 @@ class QuestionService:
         conn.commit()
         conn.close()
         return code
+
+    # ---------- 政策依据相关 ----------
+
+    def get_all_policies(self):
+        """获取所有政策依据，供录入时选择"""
+        return self._query("""
+            SELECT id, policy_code, policy_name, document_no, policy_level, current_status
+            FROM policy_basis
+            ORDER BY policy_level, policy_name
+        """)
+
+    def add_policy_link(self, question_code, policy_id, support_type, support_note='', display_order=1):
+        """将政策依据关联到问题"""
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT id FROM question_master WHERE question_code = ?",
+            (question_code,)
+        )
+        row = cur.fetchone()
+        if not row:
+            conn.close()
+            raise ValueError(f"问题不存在: {question_code}")
+        question_id = row[0]
+        try:
+            cur.execute("""
+                INSERT INTO question_policy_link (question_id, policy_id, support_type, support_note, display_order)
+                VALUES (?, ?, ?, ?, ?)
+            """, (question_id, policy_id, support_type, support_note, display_order))
+            conn.commit()
+            result = True
+        except sqlite3.IntegrityError:
+            # 已存在则更新
+            cur.execute("""
+                UPDATE question_policy_link
+                SET support_type = ?, support_note = ?, display_order = ?
+                WHERE question_id = ? AND policy_id = ?
+            """, (support_type, support_note, display_order, question_id, policy_id))
+            conn.commit()
+            result = True
+        finally:
+            conn.close()
+        return result

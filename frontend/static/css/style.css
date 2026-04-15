@@ -267,6 +267,12 @@ a:hover { text-decoration: underline; }
 .tag-checkboxes { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag-checkbox { padding: 4px 10px; border: 1px solid var(--border); border-radius: 16px; font-size: 13px; background: #f5f5f5; }
 
+.policy-row { display: flex; gap: 12px; margin-bottom: 16px; padding: 12px; background: #fafafa; border: 1px solid var(--border); border-radius: 4px; }
+.policy-row:last-child { margin-bottom: 0; }
+.policy-row-num { font-size: 20px; font-weight: 700; color: #ccc; width: 28px; flex-shrink: 0; padding-top: 6px; }
+.policy-row-fields { flex: 1; }
+.field-hint { font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
+
 .form-actions { display: flex; gap: 12px; align-items: center; }
 .btn-submit { padding: 10px 28px; background: var(--accent); color: white; border: none; border-radius: 4px; font-size: 15px; cursor: pointer; }
 .btn-submit:hover { background: var(--accent-hover); }

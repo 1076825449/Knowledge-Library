@@ -90,6 +90,7 @@ def create_app():
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
         business_tags = [t for t in all_tags if t['tag_category'] == 'business']
+        all_policies = svc.get_all_policies()
 
         if request.method == 'POST':
             data = request.form.to_dict()
@@ -97,13 +98,21 @@ def create_app():
             tag_codes = request.form.getlist('tags')
             try:
                 code = svc.create_question(data)
+                # 处理政策依据关联（最多3条）
+                for i in range(1, 4):
+                    policy_id = request.form.get(f'policy_id_{i}')
+                    support_type = request.form.get(f'support_type_{i}')
+                    support_note = request.form.get(f'support_note_{i}', '')
+                    if policy_id and support_type:
+                        svc.add_policy_link(code, int(policy_id), support_type, support_note, i)
                 return f"<script>alert('问题 {code} 创建成功！');window.location.href='/question/{code}';</script>"
             except Exception as e:
                 return f"<script>alert('创建失败：{e}');window.history.back();</script>"
 
         return render_template('new_question.html',
                                stages=stages, modules=modules,
-                               business_tags=business_tags)
+                               business_tags=business_tags,
+                               all_policies=all_policies)
 
     # ---------- 导航条加新增入口 ----------
     # （导航条在 base.html 里直接写死，这里不需要改动）
