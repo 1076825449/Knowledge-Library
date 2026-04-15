@@ -10,6 +10,14 @@
         <input type="text" name="keyword" placeholder="输入问题关键词，如：零申报、发票、地址变更…" class="search-input">
         <button type="submit" class="search-btn">搜索</button>
     </form>
+    {% if stats %}
+    <div class="stats-bar">
+        <span><strong>{{ stats.total_questions }}</strong> 问题</span>
+        <span><strong>{{ stats.total_hf }}</strong> 高频</span>
+        <span><strong>{{ stats.total_newbie }}</strong> 新手</span>
+        <span><strong>{{ stats.total_policies }}</strong> 政策依据</span>
+    </div>
+    {% endif %}
 </section>
 
 {# ========== 生命周期阶段入口 ========== #}
@@ -47,7 +55,7 @@
         <li class="question-item">
             <a href="/question/{{ q.question_code }}" class="question-link">
                 <span class="q-code">[{{ q.question_code }}]</span>
-                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-title">{{ q.question_plain }}</span>
                 <span class="q-answer">{{ q.one_line_answer }}</span>
             </a>
         </li>
@@ -66,7 +74,7 @@
             <a href="/question/{{ q.question_code }}" class="question-link">
                 <span class="q-badge newbie">新手</span>
                 <span class="q-code">[{{ q.question_code }}]</span>
-                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-title">{{ q.question_plain }}</span>
                 <span class="q-answer">{{ q.one_line_answer }}</span>
             </a>
         </li>
@@ -84,7 +92,7 @@
         <li class="question-item">
             <a href="/question/{{ q.question_code }}" class="question-link">
                 <span class="q-code">[{{ q.question_code }}]</span>
-                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-title">{{ q.question_plain }}</span>
                 <span class="q-answer">{{ q.one_line_answer }}</span>
             </a>
         </li>

@@ -36,9 +36,11 @@ def create_app():
         high_freq = svc.get_high_frequency(limit=6)
         newbie = svc.get_newbie(limit=6)
         recent = svc.get_recent_updates(limit=6)
+        stats = svc.get_stats()
         return render_template('index.html',
                                stages=stages, modules=modules,
-                               high_freq=high_freq, newbie=newbie, recent=recent)
+                               high_freq=high_freq, newbie=newbie, recent=recent,
+                               stats=stats)
 
     @app.route('/questions')
     def questions_list():

@@ -204,7 +204,7 @@ class QuestionService:
     # ---------- 高频/新手 ----------
     def get_high_frequency(self, limit=10):
         return self._query("""
-            SELECT question_code, question_title, one_line_answer, stage_code
+            SELECT question_code, question_plain, question_title, one_line_answer, stage_code
             FROM question_master
             WHERE status = 'active' AND high_frequency_flag = 1
             ORDER BY updated_at DESC
@@ -213,7 +213,7 @@ class QuestionService:
 
     def get_newbie(self, limit=10):
         return self._query("""
-            SELECT question_code, question_title, one_line_answer, stage_code
+            SELECT question_code, question_plain, question_title, one_line_answer, stage_code
             FROM question_master
             WHERE status = 'active' AND newbie_flag = 1
             ORDER BY updated_at DESC
@@ -224,7 +224,7 @@ class QuestionService:
     def get_recent_updates(self, limit=10):
         return self._query("""
             SELECT DISTINCT
-                q.question_code, q.question_title, q.one_line_answer,
+                q.question_code, q.question_plain, q.question_title, q.one_line_answer,
                 q.stage_code, q.updated_at,
                 qul.change_summary
             FROM question_master q
@@ -298,6 +298,26 @@ class QuestionService:
             WHERE tag_category = 'business' AND status = 'active'
             ORDER BY display_order
         """)
+
+    def get_stats(self):
+        """返回首页统计数字：总问题数、高频数、新手数、政策依据数"""
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+        cur.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active'")
+        total_questions = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active' AND high_frequency_flag = 1")
+        total_hf = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active' AND newbie_flag = 1")
+        total_newbie = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM policy_basis")
+        total_policies = cur.fetchone()[0]
+        conn.close()
+        return {
+            'total_questions': total_questions,
+            'total_hf': total_hf,
+            'total_newbie': total_newbie,
+            'total_policies': total_policies
+        }
 
     # ---------- 新增问题 ----------
     def _generate_code(self, stage_code, module_code):
