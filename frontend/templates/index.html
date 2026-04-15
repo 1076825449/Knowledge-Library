@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}首页 - 企业税务知识库{% endblock %}
+
+{% block main %}
+{# ========== 搜索框 ========== #}
+<section class="search-section">
+    <h1>查税务问题</h1>
+    <form action="/questions" method="get" class="search-form">
+        <input type="text" name="keyword" placeholder="输入问题关键词，如：零申报、发票、地址变更…" class="search-input">
+        <button type="submit" class="search-btn">搜索</button>
+    </form>
+</section>
+
+{# ========== 生命周期阶段入口 ========== #}
+<section class="nav-section">
+    <h2 class="section-title">按生命周期阶段</h2>
+    <div class="card-grid stage-grid">
+        {% for s in stages %}
+        <a href="/questions?stage={{ s.tag_code }}" class="card card-stage">
+            <span class="card-code">{{ s.tag_code }}</span>
+            <span class="card-name">{{ s.tag_name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+{# ========== 主题模块入口 ========== #}
+<section class="nav-section">
+    <h2 class="section-title">按主题模块</h2>
+    <div class="card-grid module-grid">
+        {% for m in modules %}
+        <a href="/questions?module={{ m.tag_code }}" class="card card-module">
+            <span class="card-code">{{ m.tag_code }}</span>
+            <span class="card-name">{{ m.tag_name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+{# ========== 高频问题 ========== #}
+{% if high_freq %}
+<section class="list-section">
+    <h2 class="section-title">高频问题</h2>
+    <ul class="question-list">
+        {% for q in high_freq %}
+        <li class="question-item">
+            <a href="/question/{{ q.question_code }}" class="question-link">
+                <span class="q-code">[{{ q.question_code }}]</span>
+                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-answer">{{ q.one_line_answer }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{# ========== 新手必看 ========== #}
+{% if newbie %}
+<section class="list-section">
+    <h2 class="section-title">新手必看</h2>
+    <ul class="question-list">
+        {% for q in newbie %}
+        <li class="question-item">
+            <a href="/question/{{ q.question_code }}" class="question-link">
+                <span class="q-badge newbie">新手</span>
+                <span class="q-code">[{{ q.question_code }}]</span>
+                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-answer">{{ q.one_line_answer }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{# ========== 最近更新 ========== #}
+{% if recent %}
+<section class="list-section">
+    <h2 class="section-title">最近更新</h2>
+    <ul class="question-list">
+        {% for q in recent %}
+        <li class="question-item">
+            <a href="/question/{{ q.question_code }}" class="question-link">
+                <span class="q-code">[{{ q.question_code }}]</span>
+                <span class="q-title">{{ q.question_title }}</span>
+                <span class="q-answer">{{ q.one_line_answer }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endblock %}

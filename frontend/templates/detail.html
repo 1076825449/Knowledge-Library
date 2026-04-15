@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}{{ detail.question_title }} - 企业税务知识库{% endblock %}
+
+{% block main %}
+{# ========== 面包屑 + 问题编码 ========== #}
+<div class="detail-header">
+    <div class="breadcrumb">
+        <a href="/">首页</a> &gt; <a href="/questions">问题列表</a> &gt; <span>{{ detail.question_code }}</span>
+    </div>
+    <div class="question-meta-top">
+        <span class="q-code-lg">{{ detail.question_code }}</span>
+        <span class="q-badge stage">{{ detail.stage_code }}</span>
+        <span class="q-badge module">{{ detail.module_code }}</span>
+        {% if detail.high_frequency_flag %}
+        <span class="q-badge hf">高频</span>
+        {% endif %}
+        {% if detail.newbie_flag %}
+        <span class="q-badge newbie">新手</span>
+        {% endif %}
+        <span class="q-badge certainty {{ detail.answer_certainty }}">{{ detail.answer_certainty }}</span>
+    </div>
+</div>
+
+{# ========== 问题标题 ========== #}
+<h1 class="detail-title">{{ detail.question_title }}</h1>
+
+{# ========== 一句话结论（重点突出） ========== #}
+<div class="answer-box">
+    <div class="answer-label">一句话结论</div>
+    <div class="answer-content">{{ detail.one_line_answer }}</div>
+</div>
+
+{# ========== 详细解答 ========== #}
+<div class="detail-section">
+    <h3>详细解答</h3>
+    <div class="detail-text">{{ detail.detailed_answer }}</div>
+</div>
+
+{# ========== 核心定义 ========== #}
+{% if detail.core_definition %}
+<div class="detail-section">
+    <h3>核心定义</h3>
+    <div class="detail-text">{{ detail.core_definition }}</div>
+</div>
+{% endif %}
+
+{# ========== 适用条件 ========== #}
+{% if detail.applicable_conditions %}
+<div class="detail-section">
+    <h3>适用条件</h3>
+    <div class="detail-text">{{ detail.applicable_conditions }}</div>
+</div>
+{% endif %}
+
+{# ========== 例外与边界 ========== #}
+{% if detail.exceptions_boundary %}
+<div class="detail-section exception">
+    <h3>例外与边界</h3>
+    <div class="detail-text">{{ detail.exceptions_boundary }}</div>
+</div>
+{% endif %}
+
+{# ========== 实务处理步骤 ========== #}
+{% if detail.practical_steps %}
+<div class="detail-section">
+    <h3>实务处理步骤</h3>
+    <div class="detail-text">{{ detail.practical_steps }}</div>
+</div>
+{% endif %}
+
+{# ========== 风险提示 ========== #}
+{% if detail.risk_warning %}
+<div class="detail-section warning">
+    <h3>风险提示</h3>
+    <div class="detail-text">{{ detail.risk_warning }}</div>
+</div>
+{% endif %}
+
+{# ========== 政策依据（可折叠） ========== #}
+{% if detail.policies %}
+<details class="detail-section policies" open>
+    <summary class="section-summary">政策依据 ({{ detail.policies|length }} 条)</summary>
+    <ul class="policy-list">
+        {% for p in detail.policies %}
+        <li class="policy-item">
+            <div class="policy-title">{{ p.policy_name }}{% if p.policy_number %}（文号：{{ p.policy_number }}）{% endif %}</div>
+            {% if p.article_location %}
+            <div class="policy-article">条款：{{ p.article_location }}</div>
+            {% endif %}
+            {% if p.support_note %}
+            <div class="policy-note">{{ p.support_note }}</div>
+            {% endif %}
+            <div class="policy-meta">
+                <span class="policy-level">{{ p.policy_level }}</span>
+                <span class="policy-status">{{ p.policy_status }}</span>
+                {% if p.source_url %}
+                <a href="{{ p.source_url }}" target="_blank" class="policy-link">查看原文</a>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</details>
+{% endif %}
+
+{# ========== 地方口径 ========== #}
+{% if detail.local_notes %}
+<details class="detail-section local-notes">
+    <summary class="section-summary">地方口径补充 ({{ detail.local_notes|length }} 条)</summary>
+    <ul class="local-list">
+        {% for ln in detail.local_notes %}
+        <li class="local-item">
+            <div class="local-region">{{ ln.region_name }}</div>
+            <div class="local-content">{{ ln.local_content }}</div>
+            {% if ln.authority_name %}<div class="local-authority">来源：{{ ln.authority_name }}</div>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</details>
+{% endif %}
+
+{# ========== 标签 ========== #}
+{% if detail.tags %}
+<div class="detail-section tags-section">
+    <h3>标签</h3>
+    <div class="tag-list">
+        {% for t in detail.tags %}
+        <a href="/questions?tag={{ t.tag_code }}" class="tag-chip {% if t.is_primary %}primary{% endif %}">{{ t.tag_name }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{# ========== 关联问题 ========== #}
+{% if detail.relations %}
+<div class="detail-section relations">
+    <h3>关联问题</h3>
+    <ul class="relation-list">
+        {% for r in detail.relations %}
+        <li>
+            <a href="/question/{{ r.question_code }}" class="relation-link">
+                <span class="rel-type">{{ r.relation_type }}</span>
+                <span class="rel-code">{{ r.question_code }}</span>
+                <span class="rel-title">{{ r.question_title }}</span>
+                <span class="rel-answer">{{ r.one_line_answer }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{# ========== 更新记录 ========== #}
+{% if detail.updates %}
+<details class="detail-section updates">
+    <summary class="section-summary">更新记录 ({{ detail.updates|length }} 条)</summary>
+    <ul class="update-list">
+        {% for u in detail.updates %}
+        <li class="update-item">
+            <span class="update-date">{{ u.update_date }}</span>
+            <span class="update-type">{{ u.update_type }}</span>
+            <span class="update-summary">{{ u.change_summary }}</span>
+            {% if u.updated_by %}<span class="update-by">by {{ u.updated_by }}</span>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</details>
+{% endif %}
+
+<div class="detail-footer">
+    <span>更新时间：{{ detail.updated_at }}</span>
+</div>
+{% endblock %}

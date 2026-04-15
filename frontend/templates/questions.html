@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}问题列表 - 企业税务知识库{% endblock %}
+
+{% block main %}
+{# ========== 页面标题 + 搜索框 ========== #}
+<div class="page-header">
+    <h1>问题列表</h1>
+    <form action="/questions" method="get" class="search-form">
+        <input type="text" name="keyword" placeholder="搜索问题…" class="search-input" value="{{ request.args.get('keyword', '') }}">
+        <button type="submit" class="search-btn">搜索</button>
+    </form>
+</div>
+
+{# ========== 筛选器 ========== #}
+<div class="filters">
+    <span class="filter-label">阶段：</span>
+    <a href="/questions{% if current_module %}?module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
+    {% for s in stages %}
+    <a href="/questions?stage={{ s.tag_code }}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
+    {% endfor %}
+</div>
+
+<div class="filters">
+    <span class="filter-label">模块：</span>
+    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
+    {% for m in modules %}
+    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}module={{ m.tag_code }}{% if current_tag %}&tag={{ current_tag }}{% endif %}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
+    {% endfor %}
+</div>
+
+{# ========== 列表 ========== #}
+{% if questions %}
+<p class="result-count">共 {{ total }} 条结果</p>
+<ul class="question-list">
+    {% for q in questions %}
+    <li class="question-item">
+        <a href="/question/{{ q.question_code }}" class="question-link">
+            <div class="q-meta">
+                <span class="q-code">{{ q.question_code }}</span>
+                <span class="q-badge stage">{{ q.stage_code }}</span>
+                <span class="q-badge module">{{ q.module_code }}</span>
+                {% if q.high_frequency_flag %}
+                <span class="q-badge hf">高频</span>
+                {% endif %}
+                {% if q.newbie_flag %}
+                <span class="q-badge newbie">新手</span>
+                {% endif %}
+                <span class="q-badge certainty {{ q.answer_certainty }}">{{ q.answer_certainty }}</span>
+            </div>
+            <div class="q-title">{{ q.question_title }}</div>
+            <div class="q-answer">{{ q.one_line_answer }}</div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{# ========== 分页 ========== #}
+{% if total > page_size %}
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ request.args.get('keyword', '') }}" class="page-btn">上一页</a>
+    {% endif %}
+    <span class="page-info">第 {{ page }} / {{ ((total - 1) // page_size) + 1 }} 页</span>
+    {% if page * page_size < total %}
+    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ request.args.get('keyword', '') }}" class="page-btn">下一页</a>
+    {% endif %}
+</div>
+{% endif %}
+
+{% else %}
+<p class="empty-state">没有找到符合条件的問題。</p>
+{% endif %}
+{% endblock %}
