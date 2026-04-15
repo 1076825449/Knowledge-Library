@@ -357,6 +357,14 @@ a:hover { text-decoration: underline; }
 .update-by, .update-reviewed { font-size: 12px; color: var(--text-light); }
 .update-reviewed { margin-left: auto; }
 
+/* ---------- 编辑按钮 ---------- */
+.edit-btn {
+    font-size: 13px; padding: 4px 12px; background: #f5f5f5;
+    border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-secondary); text-decoration: none; margin-left: auto;
+}
+.edit-btn:hover { background: #e8e8e8; color: var(--text); text-decoration: none; }
+
 /* ---------- 地方口径增强 ---------- */
 .local-item { padding: 12px; background: #fff8e1; border: 1px solid #ffe082; border-radius: 4px; margin-bottom: 8px; }
 .local-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }

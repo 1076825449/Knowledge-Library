@@ -387,3 +387,84 @@ class QuestionService:
         finally:
             conn.close()
         return result
+
+    # ---------- 更新问题 ----------
+    def update_question(self, question_code, data):
+        """更新问题内容，返回 True"""
+        import datetime
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        # 获取现有 version_no
+        cur.execute("SELECT id, version_no FROM question_master WHERE question_code = ?", (question_code,))
+        row = cur.fetchone()
+        if not row:
+            conn.close()
+            raise ValueError(f"问题不存在: {question_code}")
+        question_id, old_version = row
+        new_version = old_version + 1
+
+        # 构造更新字段（只更新非空字段）
+        field_assigns = []
+        params = []
+        allowed = [
+            'question_title', 'question_plain', 'stage_code', 'module_code',
+            'question_type', 'one_line_answer', 'detailed_answer',
+            'core_definition', 'applicable_conditions', 'exceptions_boundary',
+            'practical_steps', 'risk_warning', 'scope_level', 'local_region',
+            'answer_certainty', 'keywords', 'high_frequency_flag', 'newbie_flag', 'status'
+        ]
+        for f in allowed:
+            if f in data and data[f] is not None:
+                field_assigns.append(f"{f} = ?")
+                val = data[f]
+                # 处理 checkbox 值（字符串 '1'/'0' 转 int）
+                if f in ('high_frequency_flag', 'newbie_flag'):
+                    val = 1 if val == '1' else 0
+                params.append(val)
+
+        if field_assigns:
+            field_assigns.append("updated_at = ?")
+            params.append(now)
+            field_assigns.append("version_no = ?")
+            params.append(new_version)
+            params.append(question_id)
+            sql = f"UPDATE question_master SET {', '.join(field_assigns)} WHERE id = ?"
+            cur.execute(sql, params)
+
+        # 写入更新记录
+        cur.execute("""
+            INSERT INTO question_update_log (
+                question_id, version_no, update_date, update_type,
+                update_reason, updated_by, reviewed_by, change_summary
+            ) VALUES (?, ?, ?, 'update', ?, ?, ?, ?)
+        """, (
+            question_id, new_version, now,
+            data.get('update_reason', '内容更新'),
+            data.get('updated_by', 'system'),
+            data.get('reviewed_by', ''),
+            data.get('change_summary', f'更新问题 {question_code} 至 v{new_version}')
+        ))
+
+        conn.commit()
+        conn.close()
+        return True
+
+    # ---------- 删除政策关联 ----------
+    def remove_policy_link(self, question_code, policy_id):
+        """解除问题与政策的关联"""
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+        cur.execute("SELECT id FROM question_master WHERE question_code = ?", (question_code,))
+        row = cur.fetchone()
+        if not row:
+            conn.close()
+            raise ValueError(f"问题不存在: {question_code}")
+        cur.execute(
+            "DELETE FROM question_policy_link WHERE question_id = ? AND policy_id = ?",
+            (row[0], policy_id)
+        )
+        conn.commit()
+        conn.close()
+        return True

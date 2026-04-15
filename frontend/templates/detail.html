@@ -48,6 +48,7 @@
         {{ certainty_label(detail.answer_certainty) }}
         <span class="q-badge version">v{{ detail.version_no }}</span>
         <span class="q-badge status-{{ detail.status }}">{{ detail.status }}</span>
+        <a href="/question/{{ detail.question_code }}/edit" class="edit-btn">编辑</a>
     </div>
 </div>
 

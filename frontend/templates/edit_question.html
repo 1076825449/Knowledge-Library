@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}编辑问题 - {{ detail.question_code }} - 企业税务知识库{% endblock %}
+
+{% block main %}
+<div class="page-header">
+    <h1>编辑问题 <span class="code-badge">{{ detail.question_code }}</span></h1>
+    <a href="/question/{{ detail.question_code }}" class="back-link">取消，返回详情</a>
+</div>
+
+<form action="/question/{{ detail.question_code }}/edit" method="POST" class="question-form">
+    {# ========== 基本信息 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>基本信息</legend>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="stage_code">生命周期阶段 *</label>
+                <select name="stage_code" id="stage_code" required>
+                    {% for s in stages %}
+                    <option value="{{ s.tag_code }}" {% if s.tag_code == detail.stage_code %}selected{% endif %}>{{ s.tag_code }} - {{ s.tag_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="module_code">主题模块 *</label>
+                <select name="module_code" id="module_code" required>
+                    {% for m in modules %}
+                    <option value="{{ m.tag_code }}" {% if m.tag_code == detail.module_code %}selected{% endif %}>{{ m.tag_code }} - {{ m.tag_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="question_title">问题标题 *</label>
+            <input type="text" name="question_title" id="question_title" required value="{{ detail.question_title }}">
+        </div>
+
+        <div class="form-group">
+            <label for="one_line_answer">一句话结论 *</label>
+            <input type="text" name="one_line_answer" id="one_line_answer" required value="{{ detail.one_line_answer }}">
+        </div>
+    </fieldset>
+
+    {# ========== 答案详情 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>答案详情</legend>
+
+        <div class="form-group">
+            <label for="detailed_answer">详细解答</label>
+            <textarea name="detailed_answer" id="detailed_answer" rows="4">{{ detail.detailed_answer or '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="core_definition">核心定义</label>
+            <textarea name="core_definition" id="core_definition" rows="2">{{ detail.core_definition or '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="applicable_conditions">适用条件</label>
+            <textarea name="applicable_conditions" id="applicable_conditions" rows="2">{{ detail.applicable_conditions or '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="exceptions_boundary">例外与边界</label>
+            <textarea name="exceptions_boundary" id="exceptions_boundary" rows="2">{{ detail.exceptions_boundary or '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="practical_steps">实务处理步骤</label>
+            <textarea name="practical_steps" id="practical_steps" rows="3">{{ detail.practical_steps or '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="risk_warning">风险提示</label>
+            <textarea name="risk_warning" id="risk_warning" rows="2">{{ detail.risk_warning or '' }}</textarea>
+        </div>
+    </fieldset>
+
+    {# ========== 分类属性 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>分类属性</legend>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="answer_certainty">结论稳定度</label>
+                <select name="answer_certainty" id="answer_certainty">
+                    <option value="certain_clear" {% if detail.answer_certainty == 'certain_clear' %}selected{% endif %}>明确（无附加条件）</option>
+                    <option value="certain_condition" {% if detail.answer_certainty == 'certain_condition' %}selected{% endif %}>有条件（明确条件下成立）</option>
+                    <option value="certain_dispute" {% if detail.answer_certainty == 'certain_dispute' %}selected{% endif %}>有争议（实务中存在分歧）</option>
+                    <option value="certain_practice" {% if detail.answer_certainty == 'certain_practice' %}selected{% endif %}>实务做法（仅为经验总结）</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="scope_level">适用范围</label>
+                <select name="scope_level" id="scope_level">
+                    <option value="national" {% if detail.scope_level == 'national' %}selected{% endif %}>全国通用</option>
+                    <option value="provincial" {% if detail.scope_level == 'provincial' %}selected{% endif %}>省级口径</option>
+                    <option value="local" {% if detail.scope_level == 'local' %}selected{% endif %}>地方口径</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="question_type">问题类型</label>
+            <select name="question_type" id="question_type">
+                <option value="practical" {% if detail.question_type == 'practical' %}selected{% endif %}>实务问题</option>
+                <option value="theory" {% if detail.question_type == 'theory' %}selected{% endif %}>理论问题</option>
+                <option value="policy" {% if detail.question_type == 'policy' %}selected{% endif %}>政策解读</option>
+                <option value="procedure" {% if detail.question_type == 'procedure' %}selected{% endif %}>流程手续</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status">条目状态</label>
+            <select name="status" id="status">
+                <option value="active" {% if detail.status == 'active' %}selected{% endif %}>active - 正常</option>
+                <option value="draft" {% if detail.status == 'draft' %}selected{% endif %}>draft - 草稿</option>
+                <option value="archived" {% if detail.status == 'archived' %}selected{% endif %}>archived - 归档</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>标记</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="high_frequency_flag" value="1" {% if detail.high_frequency_flag %}checked{% endif %}> 高频问题
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="newbie_flag" value="1" {% if detail.newbie_flag %}checked{% endif %}> 新手必看
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="keywords">关键词</label>
+            <input type="text" name="keywords" id="keywords" value="{{ detail.keywords or '' }}">
+        </div>
+    </fieldset>
+
+    {# ========== 政策依据 ========== #}
+    {% if all_policies %}
+    <fieldset class="form-fieldset">
+        <legend>政策依据（最多关联3条）</legend>
+        <p class="field-hint">每条依据包含：选择政策、选择支撑类型、填写备注说明</p>
+        {% set existing_policies = detail.policies %}
+        {% for i in [1, 2, 3] %}
+        {% set existing = existing_policies[loop.index0] if loop.index0 < existing_policies|length else none %}
+        <div class="policy-row">
+            <div class="policy-row-num">{{ i }}</div>
+            <div class="policy-row-fields">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="policy_id_{{ i }}">政策依据</label>
+                        <select name="policy_id_{{ i }}" id="policy_id_{{ i }}">
+                            <option value="">请选择政策</option>
+                            {% for p in all_policies %}
+                            <option value="{{ p.id }}" {% if existing and p.id == existing.id %}selected{% endif %}>{{ p.policy_name }}{% if p.document_no %}（文号：{{ p.document_no }}）{% endif %}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="support_type_{{ i }}">支撑类型</label>
+                        <select name="support_type_{{ i }}" id="support_type_{{ i }}">
+                            <option value="">请选择</option>
+                            <option value="support_direct" {% if existing and p.support_type == 'support_direct' %}selected{% endif %}>直接依据</option>
+                            <option value="support_procedure" {% if existing and p.support_type == 'support_procedure' %}selected{% endif %}>办理依据</option>
+                            <option value="support_reference" {% if existing and p.support_type == 'support_reference' %}selected{% endif %}>参考依据</option>
+                            <option value="support_interpretation" {% if existing and p.support_type == 'support_interpretation' %}selected{% endif %}>政策解读</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="support_note_{{ i }}">支撑说明（选填）</label>
+                    <input type="text" name="support_note_{{ i }}" id="support_note_{{ i }}" value="{{ existing.support_note if existing else '' }}" placeholder="说明这条依据支撑哪个结论">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </fieldset>
+    {% endif %}
+
+    {# ========== 提交 ========== #}
+    <div class="form-actions">
+        <button type="submit" class="btn-submit">保存修改</button>
+        <a href="/question/{{ detail.question_code }}" class="btn-cancel">取消</a>
+    </div>
+</form>
+{% endblock %}

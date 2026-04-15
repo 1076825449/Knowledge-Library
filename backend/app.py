@@ -114,6 +114,47 @@ def create_app():
                                business_tags=business_tags,
                                all_policies=all_policies)
 
+    # ---------- 编辑问题页面 ----------
+    @app.route('/question/<question_code>/edit', methods=['GET', 'POST'])
+    def edit_question(question_code):
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        detail = svc.get_question_detail(question_code)
+        if not detail:
+            return "问题不存在", 404
+
+        stages = svc.get_stages()
+        modules = svc.get_modules()
+        all_tags = svc.get_all_tags()
+        business_tags = [t for t in all_tags if t['tag_category'] == 'business']
+        all_policies = svc.get_all_policies()
+
+        if request.method == 'POST':
+            data = request.form.to_dict()
+            try:
+                svc.update_question(question_code, data)
+                # 处理政策关联更新（简化：先删再插）
+                cur_policy_ids = [p['id'] for p in detail.get('policies', [])]
+                for i in range(1, 4):
+                    policy_id_str = request.form.get(f'policy_id_{i}')
+                    support_type = request.form.get(f'support_type_{i}')
+                    support_note = request.form.get(f'support_note_{i}', '')
+                    if policy_id_str and support_type:
+                        policy_id = int(policy_id_str)
+                        if policy_id not in cur_policy_ids:
+                            svc.add_policy_link(question_code, policy_id, support_type, support_note, i)
+                        else:
+                            # 已存在，删掉让 add_policy_link 重插
+                            svc.remove_policy_link(question_code, policy_id)
+                            svc.add_policy_link(question_code, policy_id, support_type, support_note, i)
+                return f"<script>alert('问题 {question_code} 更新成功！');window.location.href='/question/{question_code}';</script>"
+            except Exception as e:
+                return f"<script>alert('更新失败：{e}');window.history.back();</script>"
+
+        return render_template('edit_question.html',
+                               detail=detail, stages=stages, modules=modules,
+                               business_tags=business_tags, all_policies=all_policies)
+
     # ---------- 导航条加新增入口 ----------
     # （导航条在 base.html 里直接写死，这里不需要改动）
 
