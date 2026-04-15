@@ -113,14 +113,32 @@
 {# ========== 分页 ========== #}
 {% if total > page_size %}
 {% set total_pages = ((total - 1) // page_size) + 1 %}
+{# 构建翻页用的基础URL（去掉page参数） #}
+{% set base_url = '/questions?' ~ 'stage=' ~ (current_stage or '') ~ '&module=' ~ (current_module or '') ~ '&tag=' ~ (current_tag or '') ~ '&keyword=' ~ keyword ~ '&region=' ~ current_region ~ '&status=' ~ current_status %}
 <div class="pagination">
     {% if page > 1 %}
-    <a href="?page={{ page-1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}&region={{ current_region }}&status={{ current_status }}" class="page-btn">上一页</a>
+    <a href="{{ base_url }}&page={{ page-1 }}" class="page-btn">上一页</a>
     {% endif %}
-    <span class="page-info">第 {{ page }} / {{ total_pages }} 页</span>
+
+    {# 页码按钮：最多显示7个，两端省略 #}
+    {% set start = [1, page - 3] | max %}
+    {% set end = [total_pages, page + 3] | min %}
+    {% if start > 1 %}
+    <a href="{{ base_url }}&page=1" class="page-btn page-num">1</a>
+    {% if start > 2 %}<span class="page-ellipsis">…</span>{% endif %}
+    {% endif %}
+    {% for p in range(start, end + 1) %}
+    <a href="{{ base_url }}&page={{ p }}" class="page-btn page-num {% if p == page %}active{% endif %}">{{ p }}</a>
+    {% endfor %}
+    {% if end < total_pages %}
+    {% if end < total_pages - 1 %}<span class="page-ellipsis">…</span>{% endif %}
+    <a href="{{ base_url }}&page={{ total_pages }}" class="page-btn page-num">{{ total_pages }}</a>
+    {% endif %}
+
     {% if page * page_size < total %}
-    <a href="?page={{ page+1 }}&stage={{ current_stage or '' }}&module={{ current_module or '' }}&tag={{ current_tag or '' }}&keyword={{ keyword }}&region={{ current_region }}&status={{ current_status }}" class="page-btn">下一页</a>
+    <a href="{{ base_url }}&page={{ page+1 }}" class="page-btn">下一页</a>
     {% endif %}
+    <span class="page-info">第 {{ page }} / {{ total_pages }} 页，共 {{ total }} 条</span>
 </div>
 {% endif %}
 
