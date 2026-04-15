@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS question_master (
     risk_warning    TEXT,
 
     -- 适用范围
-    scope_level     TEXT NOT NULL DEFAULT 'national',
+    scope_level     TEXT NOT NULL DEFAULT 'scope_national',
     local_region    TEXT,
 
     -- 确定性
-    answer_certainty TEXT NOT NULL DEFAULT 'clear',
+    answer_certainty TEXT NOT NULL DEFAULT 'certain_clear',
 
     -- 元数据
     keywords        TEXT,

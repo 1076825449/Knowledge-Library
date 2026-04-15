@@ -23,7 +23,7 @@ INSERT INTO question_master (
     '享受减免税优惠政策的企业，减免税期间也需正常申报。部分小规模纳税人季度30万免增值税政策下，符合条件可零申报但需备案。',
     '1. 登录电子税务局；2. 选择"增值税及附加税费申报"；3. 在销售额栏次填写"0"；4. 检查减免税栏次；5. 确认提交',
     '长期零申报（连续6个月以上）可能被税务机关纳入重点监控，存在偷税漏税风险；零申报不等于不用记账；连续三个月零申报可能触发税务检查。',
-    'national', NULL, 'certain_clear',
+    'scope_national', NULL, 'certain_clear',
     '零申报,无收入,纳税申报,设立登记,小规模纳税人', 1, 1, 'active', 1
 ),
 (
@@ -38,7 +38,7 @@ INSERT INTO question_master (
     '已认定税费种但未发生业务的，必须进行零申报；从未认定税费种的企业，不存在申报义务；享受免税待遇的企业仍需申报。',
     '1. 登录电子税务局；2. 查看当期税费种认定信息；3. 确认是否已发生纳税义务；4. 如有义务则填0提交申报；5. 保存并获取完税凭证',
     '未申报将被处以2000元以下罚款，情节严重的可处2000元以上10000元以下罚款；产生应纳税额的，从滞纳之日起按日加收万分之五滞纳金；连续三个月未申报可能触发非正常户认定。',
-    'national', NULL, 'certain_clear',
+    'scope_national', NULL, 'certain_clear',
     '零申报,未申报,纳税申报,税务违章,非正常户', 1, 1, 'active', 1
 ),
 (
@@ -53,7 +53,7 @@ INSERT INTO question_master (
     '购买方已用于进项抵扣的增值税专用发票，必须由购买方申请开具红字发票；普通发票退款的，是否需要开具红字发票需视情况而定；部分特殊业务有专门的红冲规定。',
     '1. 确认原交易是否已开具发票及发票类型；2. 确认购买方是否已认证抵扣；3. 如已抵扣，由购买方在电子税务局申请红字信息确认单；4. 销售方根据确认单开具红字发票；5. 进行相应的账务处理',
     '未按规定开具红字发票或虚假冲销，可能被认定为偷税；购买方擅自销毁已认证发票的，五年内不得抵扣进项税额；错误开具红字发票可能导致申报异常。',
-    'national', NULL, 'certain_condition',
+    'scope_national', NULL, 'certain_condition',
     '退款,红字发票,发票冲销,退货,进项抵扣', 1, 0, 'active', 1
 ),
 (
@@ -68,7 +68,7 @@ INSERT INTO question_master (
     '跨区迁移（离开原主管税务机关管辖区）需要办理注销迁出流程；变更后的地址如果涉及主管税务机关变化，流程更复杂。',
     '1. 在电子税务局提交"变更税务登记"申请；2. 准备新地址证明材料；3. 缴销原发票；4. 重新领购发票（如需）；5. 确认税费种认定信息；6. 如跨区需办理迁出迁入手续',
     '未按规定办理变更登记可能面临罚款；跨区迁移可能影响企业纳税信用评级；变更期间如需开票需提前规划。',
-    'national', NULL, 'certain_clear',
+    'scope_national', NULL, 'certain_clear',
     '地址变更,经营地址,变更登记,发票管理,跨区迁移', 1, 0, 'active', 1
 ),
 (
@@ -83,8 +83,38 @@ INSERT INTO question_master (
     '特殊行业（如危险化学品、烟花爆竹等）需要先取得行业许可才能申请税务登记；新设分支机构需分别办理税务登记；采用不同计税方式的企业在认定时需注意。',
     '1. 准备营业执照原件及复印件、法人身份证等材料；2. 到主管税务机关或通过电子税务局办理税务登记；3. 完成实名认证和法人绑定；4. 根据经营范围确认税费种认定结果；5. 如需开票则申请发票核定和领购；6. 按规定设置账簿',
     '未在规定期限内办理税务登记可能被处以2000元以下罚款；未进行税费种认定可能导致申报时出现税目错误；未按规定设置账簿可能被处以2000元以下罚款。',
-    'national', NULL, 'certain_clear',
+    'scope_national', NULL, 'certain_clear',
     '新设企业,税务登记,税费种认定,发票申请,设立登记', 1, 1, 'active', 1
+),
+(
+    'OPR-CIT-001',
+    '企业向境外机构支付款项时，如何履行代扣代缴义务？',
+    '公司需要向境外供应商支付技术咨询费，税务机关说要代扣代缴，具体要扣哪些税？怎么算？',
+    'OPR', 'CIT', 'type_how',
+    '向境外支付款项需代扣代缴增值税和预提所得税，税率视情况而定',
+    '境内企业（付款方）向境外单位或个人（收款方）支付款项时，属于增值税和企业所得税的源泉扣缴范围。付款方为扣缴义务人，应在支付时代扣代缴相应税款。增值税适用税率6%，企业所得税适用税率10%（有税收协定的按协定优惠税率）。',
+    '源泉扣缴是指非居民企业在中国境内取得所得时，由支付方在支付款项时代扣代缴税款的征纳方式，是所得税法规定的法定扣缴义务。',
+    '适用于境内企业在境内向境外机构支付特许权使用费、利息、股息、租金等服务贸易款项。',
+    '有双边税收协定的，按协定优惠税率执行（通常可降至5%-10%）；支付款项须在合同签订后5个工作日内向税务机关报告；享受协定待遇需办理备案。',
+    '1. 与境外机构签订合同；2. 在电子税务局办理合同备案；3. 确认所得类型（营业利润/特许权使用费/利息等）；4. 计算应扣缴税额；5. 申报缴纳增值税和预提所得税；6. 取得完税凭证交付境外',
+    '未按规定扣缴税款的，被扣缴人可能面临50%-100%的罚款；境外机构享受协定优惠税率须满足"受益所有人"条件；对外支付须凭完税凭证才能实际汇出。',
+    'scope_national', NULL, 'certain_condition',
+    '代扣代缴,境外支付,源泉扣缴,预提所得税,税收协定', 0, 0, 'draft', 1
+),
+(
+    'CLS-CLEAR-001',
+    '企业注销时，清税证明是怎么办理的？',
+    '公司要注销了，工商那边要清税证明，这个证明怎么办理？需要先结清所有税款吗？',
+    'CLS', 'CLEAR', 'type_how',
+    '注销前需先完成清税，缴销发票和税控设备，取得清税证明后方可注销',
+    '企业申请注销登记前，应当先向税务机关申请清税，税务机关在规定期限内完成税款清算、发票缴销、税控设备注销等事项后，出具清税证明。企业凭清税证明方可向工商部门申请注销登记。',
+    '清税证明是税务机关出具的，证明纳税人所有税务事项已结清的书面凭证，是企业注销的必备材料。',
+    '适用于所有申请注销登记的企业，无论是因为解散、破产、被吊销还是其他原因需要终止纳税义务的。',
+    '存在欠税的企业须先结清欠税才能取得清税证明；有分支机构的须先完成分支机构注销；有出口退税资质的企业须先完成出口退税清算。',
+    '1. 登录电子税务局提交注销申请；2. 税务机关进行税款清算（通常15个工作日内）；3. 缴销剩余发票；4. 注销税控设备；5. 如有欠税则先补缴；6. 取得清税证明；7. 凭清税证明到工商部门办理注销',
+    '未取得清税证明即办理工商注销的，税务机关可依法追缴税款；存在偷税行为的，注销后仍可被追究法律责任；清税清算期间企业仍须按时申报。',
+    'scope_national', NULL, 'certain_clear',
+    '注销,清税证明,税款清算,发票缴销,税控设备', 1, 0, 'active', 2
 );
 
 -- -------------------- 政策依据表示例 --------------------
@@ -164,12 +194,14 @@ INSERT INTO question_policy_link (question_id, policy_id, support_type, support_
 -- SET-REG-002 (id=5)
 (5, 1, 'support_direct', '规定税务登记的基本要求和时限', 1),
 (5, 2, 'support_procedure', '细化税务登记办理流程', 2);
+-- OPR-CIT-001 (id=6) - 代扣代缴问题暂无政策依据示例
+-- CLS-CLEAR-001 (id=7) - 清税注销暂无政策依据示例
 
 -- -------------------- 问题-标签关联表示例 --------------------
 -- 注意：tag_dict 的 auto_increment ID 以实际插入后的 ID 为准
 -- stage tags: SET=1, OPR=2, CHG=3, RSK=4, SUS=5, CLS=6
 -- module tags: REG=7, DEC=8, INV=9, VAT=10, CIT=11, IIT=12, SSF=13, FEE=14, PREF=15, RISK=16, CLEAR=17, ETAX=18
--- business tags (需查询实际ID): tag_zero_report=61, tag_registration=60, tag_invoice=62, tag_change=63, tag_risk=64
+-- business tags: tag_zero_report=61, tag_registration=60, tag_invoice=62, tag_change=63, tag_risk=64
 INSERT INTO question_tag_link (question_id, tag_id, is_primary, display_order) VALUES
 -- SET-REG-001 (id=1) - 零申报, 设立登记
 (1, 1, 1, 1),   -- 设立期 stage
@@ -190,7 +222,14 @@ INSERT INTO question_tag_link (question_id, tag_id, is_primary, display_order) V
 -- SET-REG-002 (id=5) - 登记设立, 新手必看
 (5, 1, 1, 1),   -- 设立期 stage
 (5, 60, 1, 2),  -- 登记设立 tag_registration
-(5, 7, 0, 3);   -- 登记管理 module REG
+(5, 7, 0, 3),   -- 登记管理 module REG
+-- OPR-CIT-001 (id=6) - 代扣代缴/预提所得税
+(6, 2, 1, 1),   -- 开业/日常经营期 stage
+(6, 11, 1, 2),  -- 企业所得税 module CIT
+(6, 12, 0, 3),  -- 个人所得税 module IIT
+-- CLS-CLEAR-001 (id=7) - 清税注销
+(7, 6, 1, 1),   -- 注销期 stage
+(7, 17, 1, 2);  -- 清税注销 module CLEAR
 
 -- -------------------- 更新记录示例 --------------------
 INSERT INTO question_update_log (question_id, version_no, update_type, update_reason, updated_by, reviewed_by, change_summary) VALUES
@@ -203,6 +242,12 @@ INSERT INTO question_update_log (question_id, version_no, update_type, update_re
 (4, 1, 'update_new', '新增问题', '系统管理员', '税务专家', '初始创建问题卡片，涵盖地址变更的完整流程和风险点');
 INSERT INTO question_update_log (question_id, version_no, update_type, update_reason, updated_by, reviewed_by, change_summary) VALUES
 (5, 1, 'update_new', '新增问题', '系统管理员', '税务专家', '初始创建问题卡片，涵盖新设企业税务报道的完整步骤');
+INSERT INTO question_update_log (question_id, version_no, update_type, update_reason, updated_by, reviewed_by, change_summary) VALUES
+(6, 1, 'update_new', '新增问题', '系统管理员', '税务专家', '初始创建问题卡片，涵盖向境外支付款项时代扣代缴的基本流程');
+INSERT INTO question_update_log (question_id, version_no, update_type, update_reason, updated_by, reviewed_by, change_summary) VALUES
+(7, 1, 'update_new', '新增问题', '系统管理员', '税务专家', '初始创建问题卡片，涵盖注销清税证明办理流程');
+INSERT INTO question_update_log (question_id, version_no, update_type, update_reason, updated_by, reviewed_by, change_summary) VALUES
+(7, 2, 'update_revise', '内容修正', '系统管理员', '税务专家', '更新问题 CLS-CLEAR-001 至 v2');
 
 -- -------------------- 关联问题示例 --------------------
 INSERT INTO question_relation (question_id, related_id, relation_type, display_order) VALUES
@@ -214,7 +259,12 @@ INSERT INTO question_relation (question_id, related_id, relation_type, display_o
 -- OPR-INV-001 相关
 (3, 4, 'related', 1),    -- 发票与变更的关联
 -- OPR-CHG-001 相关
-(4, 3, 'related', 1);   -- 变更与发票的关联
+(4, 3, 'related', 1),   -- 变更与发票的关联
+-- OPR-CIT-001 相关（代扣代缴）
+(6, 1, 'related', 1),   -- 代扣代缴与设立期企业的关联
+(6, 2, 'related', 2),   -- 代扣代缴与申报的关联
+-- CLS-CLEAR-001 相关（清税注销）
+(7, 1, 'related', 1);   -- 清税与零申报的关联
 
 -- -------------------- 地方口径表示例 --------------------
 INSERT INTO local_rule_note (
