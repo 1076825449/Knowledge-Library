@@ -164,10 +164,10 @@
                         <label for="support_type_{{ i }}">支撑类型</label>
                         <select name="support_type_{{ i }}" id="support_type_{{ i }}">
                             <option value="">请选择</option>
-                            <option value="support_direct" {% if existing and p.support_type == 'support_direct' %}selected{% endif %}>直接依据</option>
-                            <option value="support_procedure" {% if existing and p.support_type == 'support_procedure' %}selected{% endif %}>办理依据</option>
-                            <option value="support_reference" {% if existing and p.support_type == 'support_reference' %}selected{% endif %}>参考依据</option>
-                            <option value="support_interpretation" {% if existing and p.support_type == 'support_interpretation' %}selected{% endif %}>政策解读</option>
+                            <option value="support_direct" {% if existing and existing.support_type == 'support_direct' %}selected{% endif %}>直接依据</option>
+                            <option value="support_procedure" {% if existing and existing.support_type == 'support_procedure' %}selected{% endif %}>办理依据</option>
+                            <option value="support_reference" {% if existing and existing.support_type == 'support_reference' %}selected{% endif %}>参考依据</option>
+                            <option value="support_interpretation" {% if existing and existing.support_type == 'support_interpretation' %}selected{% endif %}>政策解读</option>
                         </select>
                     </div>
                 </div>
