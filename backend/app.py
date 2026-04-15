@@ -4,23 +4,42 @@
 # ============================================================
 
 import os
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_cors import CORS
+from functools import wraps
 
 from routes.questions import questions_bp
 from routes.search import search_bp
 from routes.tags import tags_bp
+from config import Config
 
 def create_app():
     app = Flask(__name__,
                  template_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend', 'templates'),
                  static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend', 'static'))
+    app.secret_key = Config.SECRET_KEY
     CORS(app)
 
     # 注册蓝图
     app.register_blueprint(questions_bp, url_prefix='/api/questions')
     app.register_blueprint(search_bp, url_prefix='/api/search')
     app.register_blueprint(tags_bp, url_prefix='/api/tags')
+
+    def admin_required(f):
+        """验证管理员密码的装饰器"""
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if session.get('admin_authenticated'):
+                return f(*args, **kwargs)
+            # 显示密码输入页面
+            if request.method == 'POST':
+                password = request.form.get('password', '')
+                if password == Config.ADMIN_PASSWORD:
+                    session['admin_authenticated'] = True
+                    return f(*args, **kwargs)
+                return render_template('admin_login.html', error='密码错误，请重试')
+            return render_template('admin_login.html', error=None)
+        return decorated_function
 
     @app.route('/api/health')
     def health():
@@ -90,6 +109,7 @@ def create_app():
 
     # ---------- 新增问题页面 ----------
     @app.route('/question/new', methods=['GET', 'POST'])
+    @admin_required
     def new_question():
         from services.question_service import QuestionService
         svc = QuestionService()
@@ -123,6 +143,7 @@ def create_app():
 
     # ---------- 编辑问题页面 ----------
     @app.route('/question/<question_code>/edit', methods=['GET', 'POST'])
+    @admin_required
     def edit_question(question_code):
         from services.question_service import QuestionService
         svc = QuestionService()
