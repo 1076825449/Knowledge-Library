@@ -74,37 +74,28 @@ project-root/
 └─ assets/               # 静态资源（骨架）
 ```
 
-## 快速起步
+## 真实运行方式
 
-### 1. 初始化数据库
+```bash
+# 启动服务（无需安装任何依赖）
+cd /Volumes/外接硬盘/vibe\ coding/知识库
+python backend/app.py
+# 访问 http://localhost:5000
+
+# 编辑功能（新建/编辑问题）
+# 首次访问 /question/new 或 /question/<code>/edit 时需输入管理员密码
+# 默认密码：tax2026
+# 修改密码：export ADMIN_PASSWORD=你的密码 && python backend/app.py
+```
+
+### 一键初始化数据库（如需重新创建）
 
 ```bash
 cd /Volumes/外接硬盘/vibe\ coding/知识库
-
-# 创建数据库文件
-sqlite3 database/db/tax_knowledge.db
-
-# 按顺序执行建表 SQL
-.read database/schema/001_create_core_tables.sql
-.read database/schema/002_create_relation_tables.sql
-.read database/schema/003_create_indexes.sql
-
-# 初始化字典和示例数据
-.read database/seed/001_seed_dicts.sql
-.read database/seed/002_seed_sample_data.sql
+bash scripts/db/init_db.sh
 ```
 
-### 2. 或一键初始化
-
-```bash
-sqlite3 database/db/tax_knowledge.db <<'EOF'
-.read database/schema/001_create_core_tables.sql
-.read database/schema/002_create_relation_tables.sql
-.read database/schema/003_create_indexes.sql
-.read database/seed/001_seed_dicts.sql
-.read database/seed/002_seed_sample_data.sql
-EOF
-```
+脚本会自动：建表 → 初始化字典 → 插入示例问题 → 插入扩展问题（15条）→ 插入标签关联与问题关系
 
 ## 常用查询
 
@@ -161,11 +152,12 @@ FROM question_master ORDER BY updated_at DESC LIMIT 10;
 | Phase 7 | 地方口径与专业增强 | ✅ 已完成 |
 | Phase 8 | AI 检索预留 | ✅ 结构预留（内容未实现） |
 
-## 技术栈建议
+## 技术栈（当前实际）
 
-- **数据库**：SQLite（当前）/ MySQL 或 PostgreSQL（后续迁移）
-- **前端**：React / Vue / Next.js（轻量起步）
-- **后端**：Flask / FastAPI / Express（可延后）
+- **数据库**：SQLite（`database/db/tax_knowledge.db`）
+- **后端**：Python Flask（`backend/app.py` 单入口）
+- **前端**：Jinja2 服务端模板（`frontend/templates/`），无前端框架
+- **样式**：原生CSS（`frontend/static/css/style.css`）
 
 ---
 

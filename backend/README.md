@@ -1,54 +1,59 @@
 # backend/ 后端目录
 
-## 技术栈建议
+## 技术栈
 
-当前阶段可选择：
+- **Python Flask** — Web框架
+- **Jinja2** — 模板引擎（服务端渲染）
+- **SQLite** — 数据库（文件位于 `database/db/tax_knowledge.db`）
+- **Werkzeug** — WSGI工具（Flask内置）
 
-- **Python Flask/FastAPI**（轻量）
-- **Node.js Express/Koa**（如果前端用 JS）
-- **直接前端直连 SQLite**（原型阶段最轻量）
-
-后续可迁移到 Django、Spring Boot 等。
-
-## 起步
+## 启动方式
 
 ```bash
-cd backend
-# Python 方案
-pip install -r requirements.txt
-python main.py
-
-# Node.js 方案
-npm install
-node index.js
+cd /Volumes/外接硬盘/vibe\ coding/知识库
+python backend/app.py
+# 服务启动在 http://localhost:5000
 ```
+
+无需安装依赖（标准库足够），无需 `.env` 文件。密码通过环境变量 `ADMIN_PASSWORD` 修改，默认密码为 `tax2026`。
 
 ## 目录结构
 
 ```
 backend/
-├── README.md           # 本文件
-├── app/                # 应用入口
-├── routes/             # 路由层
-├── services/          # 业务逻辑层
-├── models/            # 数据访问层
-├── utils/             # 工具函数
-├── config/            # 配置
-├── requirements.txt   # Python 依赖（如用 Python）
-└── package.json       # Node.js 依赖（如用 Node.js）
+├── app.py              # Flask 唯一入口，所有路由在此定义
+├── config.py           # 数据库路径、密码、密钥配置
+├── requirements.txt    # （预留，当前无需安装额外依赖）
+├── routes/             # API蓝图（前后端分离备用）
+│   ├── questions.py    # 问题列表/详情API
+│   ├── search.py       # 搜索API
+│   └── tags.py         # 标签API
+├── services/           # 业务逻辑层
+│   └── question_service.py  # 问题CRUD、搜索、详情查询
+└── README.md
 ```
 
-## 推荐接口能力
+## 路由一览
 
-| 接口 | 方法 | 说明 |
+| 路径 | 方法 | 说明 |
 |------|------|------|
-| `/api/questions` | GET | 问题列表（支持分页、筛选） |
-| `/api/questions/:code` | GET | 问题详情 |
-| `/api/questions/:code/policies` | GET | 问题关联的政策依据 |
-| `/api/questions/:code/related` | GET | 关联问题 |
-| `/api/questions/stage/:code` | GET | 按阶段查询 |
-| `/api/questions/module/:code` | GET | 按模块查询 |
-| `/api/questions/tag/:code` | GET | 按标签查询 |
-| `/api/search` | GET | 搜索 |
-| `/api/tags` | GET | 标签列表 |
-| `/api/updates` | GET | 最近更新 |
+| `/` | GET | 首页 |
+| `/questions` | GET | 问题列表页（支持stage/module/tag/region/status过滤） |
+| `/question/<code>` | GET | 问题详情页 |
+| `/question/new` | GET/POST | 新建问题（需admin认证） |
+| `/question/<code>/edit` | GET/POST | 编辑问题（需admin认证） |
+| `/api/questions/` | GET | 问题列表API |
+| `/api/questions/<code>` | GET | 问题详情API |
+| `/api/search/` | GET | 搜索API（?keyword=） |
+| `/api/tags/` | GET | 标签字典API |
+| `/admin/login` | POST | 管理员登录 |
+
+## 数据层
+
+所有数据操作在 `services/question_service.py`，通过 `backend/config.py` 中的 `DB_PATH` 指向 SQLite 数据库文件。
+
+## 注意事项
+
+- 编辑/新建问题需要admin密码（默认`tax2026`）
+- `SECRET_KEY` 默认硬编码，生产环境请通过环境变量覆盖
+- 当前为原型阶段，数据库为文件数据库（`tax_knowledge.db`），无并发写入保护
