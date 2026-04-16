@@ -8,6 +8,10 @@
     <a href="/questions" class="back-link">返回列表</a>
 </div>
 
+{% if form_error %}
+<div class="error-banner">{{ form_error }}</div>
+{% endif %}
+
 <form action="/question/new" method="POST" class="question-form">
     {# ========== 基本信息 ========== #}
     <fieldset class="form-fieldset">

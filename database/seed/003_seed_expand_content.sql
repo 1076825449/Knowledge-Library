@@ -8,7 +8,7 @@
 -- =====================================================================
 
 -- SET-REG-003: 设立后首次涉税事项
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -37,7 +37,7 @@ INSERT INTO question_master (
 );
 
 -- SET-REG-004: 设立后要开哪些账户
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -70,7 +70,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- SET-DEC-002: 设立首月申报
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -103,7 +103,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-DEC-002: 长期零申报风险
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -132,7 +132,7 @@ INSERT INTO question_master (
 );
 
 -- OPR-DEC-003: 季报还是月报
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -165,7 +165,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-INV-002: 发票领用
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -194,7 +194,7 @@ INSERT INTO question_master (
 );
 
 -- OPR-INV-003: 发票作废与红字发票
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -223,7 +223,7 @@ INSERT INTO question_master (
 );
 
 -- OPR-INV-004: 专票与普票的选择
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -256,7 +256,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-CHG-002: 变更法定代表人
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -285,7 +285,7 @@ INSERT INTO question_master (
 );
 
 -- OPR-CHG-003: 变更经营范围
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -318,7 +318,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-IIT-001: 个税代扣代缴义务
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -351,7 +351,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-SSF-001: 社保登记与参保
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -384,7 +384,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-FEE-001: 成本费用凭证
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -417,7 +417,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- OPR-RISK-001: 税务异常与非正常户
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -450,7 +450,7 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- CLS-CLEAR-002: 注销前清税
-INSERT INTO question_master (
+INSERT OR IGNORE INTO question_master (
     question_code, question_title, question_plain,
     stage_code, module_code, question_type,
     one_line_answer, detailed_answer,
@@ -483,91 +483,91 @@ INSERT INTO question_master (
 -- =====================================================================
 
 -- SET-REG-003 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'SET-REG-003' AND t.tag_code IN ('SET', 'REG', 'type_how', 'certain_clear', 'tag_registration');
 
 -- SET-REG-004 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'SET-REG-004' AND t.tag_code IN ('SET', 'REG', 'type_how', 'certain_clear', 'tag_registration');
 
 -- SET-DEC-002 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'SET-DEC-002' AND t.tag_code IN ('SET', 'DEC', 'type_whether', 'certain_clear', 'tag_zero_report');
 
 -- OPR-DEC-002 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-DEC-002' AND t.tag_code IN ('OPR', 'DEC', 'type_risk', 'certain_clear', 'tag_zero_report', 'tag_risk');
 
 -- OPR-DEC-003 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-DEC-003' AND t.tag_code IN ('OPR', 'DEC', 'type_whether', 'certain_clear', 'tag_zero_report');
 
 -- OPR-INV-002 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-INV-002' AND t.tag_code IN ('OPR', 'INV', 'type_how', 'certain_clear', 'tag_invoice');
 
 -- OPR-INV-003 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-INV-003' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_clear', 'tag_invoice');
 
 -- OPR-INV-004 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-INV-004' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_condition', 'tag_invoice');
 
 -- OPR-CHG-002 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-CHG-002' AND t.tag_code IN ('OPR', 'REG', 'type_how', 'certain_clear', 'tag_change');
 
 -- OPR-CHG-003 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-CHG-003' AND t.tag_code IN ('OPR', 'REG', 'type_whether', 'certain_clear', 'tag_change');
 
 -- OPR-IIT-001 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-IIT-001' AND t.tag_code IN ('OPR', 'IIT', 'type_why', 'certain_clear');
 
 -- OPR-SSF-001 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-SSF-001' AND t.tag_code IN ('OPR', 'SSF', 'type_time', 'certain_clear');
 
 -- OPR-FEE-001 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-FEE-001' AND t.tag_code IN ('OPR', 'FEE', 'type_whether', 'certain_clear');
 
 -- OPR-RISK-001 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'OPR-RISK-001' AND t.tag_code IN ('OPR', 'RISK', 'type_risk', 'certain_clear', 'tag_risk');
 
 -- CLS-CLEAR-002 标签
-INSERT INTO question_tag_link (question_id, tag_id, display_order)
+INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
 WHERE q.question_code = 'CLS-CLEAR-002' AND t.tag_code IN ('CLS', 'CLEAR', 'type_how', 'certain_clear');
@@ -577,81 +577,81 @@ WHERE q.question_code = 'CLS-CLEAR-002' AND t.tag_code IN ('CLS', 'CLEAR', 'type
 -- =====================================================================
 
 -- SET-REG 系列关联
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-REG-001' AND r.question_code = 'SET-REG-002';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-REG-002' AND r.question_code = 'SET-REG-003';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-REG-002' AND r.question_code = 'SET-DEC-002';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-REG-003' AND r.question_code = 'OPR-DEC-001';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-REG-003' AND r.question_code = 'SET-REG-004';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-DEC-002' AND r.question_code = 'OPR-DEC-001';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'SET-DEC-002' AND r.question_code = 'OPR-DEC-002';
 
 -- OPR-INV 系列关联
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-INV-001' AND r.question_code = 'OPR-INV-003';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-INV-001' AND r.question_code = 'OPR-INV-002';
 
 -- OPR-DEC 系列关联
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-DEC-001' AND r.question_code = 'OPR-DEC-002';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-DEC-001' AND r.question_code = 'OPR-DEC-003';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-DEC-002' AND r.question_code = 'OPR-RISK-001';
 
 -- OPR-CHG 系列关联
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-CHG-001' AND r.question_code = 'OPR-CHG-002';
 
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 2
 FROM question_master q, question_master r
 WHERE q.question_code = 'OPR-CHG-001' AND r.question_code = 'OPR-CHG-003';
 
 -- CLS-CLEAR 系列关联
-INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'CLS-CLEAR-001' AND r.question_code = 'CLS-CLEAR-002';

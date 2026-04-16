@@ -141,6 +141,25 @@
         </div>
     </fieldset>
 
+    {# ========== 标签 ========== #}
+    {% if business_tags %}
+    {% set existing_tag_codes = [] %}
+    {% for t in detail.tags %}
+        {% set _ = existing_tag_codes.append(t.tag_code) %}
+    {% endfor %}
+    <fieldset class="form-fieldset">
+        <legend>业务标签</legend>
+        <p class="field-hint">勾选关联的标签（可多选）</p>
+        <div class="tag-checkboxes">
+            {% for t in business_tags %}
+            <label class="checkbox-label tag-checkbox">
+                <input type="checkbox" name="tags" value="{{ t.tag_code }}"{% if t.tag_code in existing_tag_codes %} checked{% endif %}> {{ t.tag_name }}
+            </label>
+            {% endfor %}
+        </div>
+    </fieldset>
+    {% endif %}
+
     {# ========== 政策依据 ========== #}
     {% if all_policies %}
     <fieldset class="form-fieldset">

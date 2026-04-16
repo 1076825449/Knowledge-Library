@@ -133,6 +133,12 @@ def create_app():
                     if policy_id and support_type:
                         svc.add_policy_link(code, int(policy_id), support_type, support_note, i)
                 return f"<script>alert('问题 {code} 创建成功！');window.location.href='/question/{code}';</script>"
+            except ValueError as e:
+                return render_template('new_question.html',
+                                       stages=stages, modules=modules,
+                                       business_tags=business_tags,
+                                       all_policies=all_policies,
+                                       form_error=str(e)), 400
             except Exception as e:
                 return f"<script>alert('创建失败：{e}');window.history.back();</script>"
 
@@ -176,6 +182,18 @@ def create_app():
                             svc.remove_policy_link(question_code, policy_id)
                             svc.add_policy_link(question_code, policy_id, support_type, support_note, i)
                 return f"<script>alert('问题 {question_code} 更新成功！');window.location.href='/question/{question_code}';</script>"
+            except ValueError as e:
+                # 校验错误：重新渲染编辑表单并显示错误
+                stages = svc.get_stages()
+                modules = svc.get_modules()
+                all_tags = svc.get_all_tags()
+                business_tags = [t for t in all_tags if t['tag_category'] == 'business']
+                all_policies = svc.get_all_policies()
+                return render_template('edit_question.html',
+                                       detail=detail, stages=stages, modules=modules,
+                                       all_tags=all_tags, business_tags=business_tags,
+                                       all_policies=all_policies,
+                                       form_error=str(e)), 400
             except Exception as e:
                 return f"<script>alert('更新失败：{e}');window.history.back();</script>"
 

@@ -336,6 +336,11 @@ class QuestionService:
     def create_question(self, data):
         """新增一条问题，返回 question_code"""
         import datetime
+        # 必填字段校验
+        required = ['question_title', 'stage_code', 'module_code', 'one_line_answer']
+        missing = [f for f in required if not data.get(f, '').strip()]
+        if missing:
+            raise ValueError(f"缺少必填字段：{', '.join(missing)}")
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
 
@@ -393,6 +398,20 @@ class QuestionService:
             data.get('change_summary', f'创建问题 {code}')
         ))
 
+        # 写入标签关联
+        tag_codes = data.get('tags')
+        if tag_codes:
+            if isinstance(tag_codes, str):
+                tag_codes = [tag_codes]
+            for tag_code in tag_codes:
+                cur.execute("SELECT id FROM tag_dict WHERE tag_code = ?", (tag_code,))
+                tag_row = cur.fetchone()
+                if tag_row:
+                    cur.execute("""
+                        INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, is_primary, display_order)
+                        VALUES (?, ?, 0, 1)
+                    """, (question_id, tag_row[0]))
+
         conn.commit()
         conn.close()
         return code
@@ -444,6 +463,11 @@ class QuestionService:
     def update_question(self, question_code, data):
         """更新问题内容，返回 True"""
         import datetime
+        # 必填字段校验（只在校验data中存在的字段）
+        required = ['question_title', 'one_line_answer']
+        missing = [f for f in required if f in data and not data.get(f, '').strip()]
+        if missing:
+            raise ValueError(f"字段不能为空：{', '.join(missing)}")
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -484,6 +508,23 @@ class QuestionService:
             params.append(question_id)
             sql = f"UPDATE question_master SET {', '.join(field_assigns)} WHERE id = ?"
             cur.execute(sql, params)
+
+        # 处理标签关联
+        tag_codes = data.get('tags')
+        if tag_codes:
+            if isinstance(tag_codes, str):
+                tag_codes = [tag_codes]
+            # 删除旧标签关联
+            cur.execute("DELETE FROM question_tag_link WHERE question_id = ?", (question_id,))
+            # 写入新标签关联
+            for tag_code in tag_codes:
+                cur.execute("SELECT id FROM tag_dict WHERE tag_code = ?", (tag_code,))
+                tag_row = cur.fetchone()
+                if tag_row:
+                    cur.execute("""
+                        INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, is_primary, display_order)
+                        VALUES (?, ?, 0, 1)
+                    """, (question_id, tag_row[0]))
 
         # 写入更新记录
         cur.execute("""
