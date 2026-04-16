@@ -36,7 +36,7 @@ python scripts/content/batch_import_questions.py data/imports/your_batch.json
 ```
 
 ## 数据库结构
-- 8张表：question_master, policy_dict, tag_dict, question_policy_link, question_tag_link, question_relation, related_question, update_log
+- 8张表：question_master, policy_basis, tag_dict, question_policy_link, question_tag_link, question_update_log, question_relation, local_rule_note
 - 所有连接启用 FK 约束（PRAGMA foreign_keys = ON）
 
 ## 内容维护

@@ -8,55 +8,59 @@ Chunk类型:
 - answer_core: one_line_answer + core_definition
 - detailed_explanation: detailed_answer关键段落
 - practical_guidance: practical_steps + risk_warning + applicable_conditions
+
+从 backend/config.py 读取 DB_PATH，跨机器可运行
 """
 
 import json
 import sqlite3
+import sys
 from pathlib import Path
 
-# 配置路径
-DB_PATH = "/Volumes/外接硬盘/vibe coding/知识库/database/db/tax_knowledge.db"
-BASE_DIR = Path("/Volumes/外接硬盘/vibe coding/知识库")
-OUTPUT_DIR = BASE_DIR / "data" / "exports"
+# -------- 动态路径（与 backend/config.py 保持一致）--------
+ROOT_DIR = Path(__file__).parent.parent.parent.resolve()
+sys.path.insert(0, str(ROOT_DIR / "backend"))
+from config import Config
+
+DB_PATH = Config.DB_PATH
+OUTPUT_DIR = ROOT_DIR / "data" / "exports"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# 标签翻译字典
+# -------- 标签翻译字典（与数据库 tag_dict 实际值一致）--------
 STAGE_LABEL = {
-    "setup": "设立",
-    "operation": "经营",
-    "change": "变更",
-    "dissolution": "注销",
-    "cross_border": "跨境"
+    "SET": "设立期",
+    "OPR": "开业/日常经营期",
+    "CHG": "变更期",
+    "CLS": "注销期",
+    "RSK": "风险异常期",
+    "SUS": "停业期",
 }
 
 MODULE_LABEL = {
-    "SSF": "财税处理",
-    "OPR": "运营管理",
-    "TAX": "税务申报",
-    "INV": "投资融资",
-    "SET": "设立合规",
-    "RISK": "风险管控",
+    "REG": "登记管理",
+    "DEC": "申报纳税",
+    "INV": "发票管理",
+    "VAT": "增值税",
     "CIT": "企业所得税",
-    "CLS": "涉税争议",
-    "POLICY": "政策法规",
-    "ACCT": "会计核算",
-    "DEC": "税费优惠",
     "IIT": "个人所得税",
-    "REG": "税务登记",
-    "CHG": "变更事项",
-    "FEE": "发票管理",
-    "CLEAR": "涉税争议"
+    "SSF": "社保费",
+    "FEE": "成本费用",
+    "PREF": "优惠政策",
+    "RISK": "风险应对",
+    "CLEAR": "清税注销",
+    "ETAX": "电子税务局/系统办理",
 }
 
 
 def get_connection():
-    return sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute("PRAGMA foreign_keys = ON")
+    return conn
 
 
 def load_questions_with_tags(conn):
-    """加载问题及标签"""
     query = """
-    SELECT 
+    SELECT
         qm.id,
         qm.question_code,
         qm.question_plain,
@@ -84,27 +88,25 @@ def load_questions_with_tags(conn):
 
 
 def split_text_chunks(text, chunk_size=500):
-    """将长文本按指定字数分段"""
+    """将长文本按段落分割，每段不超过chunk_size字"""
     if not text or len(text.strip()) == 0:
         return []
-    
-    # 按段落分割
+
     paragraphs = text.split("\n")
     chunks = []
     current_chunk = ""
-    
+
     for para in paragraphs:
         para = para.strip()
         if not para:
             continue
-            
         if len(current_chunk) + len(para) <= chunk_size:
             current_chunk += para + "\n"
         else:
             if current_chunk.strip():
                 chunks.append(current_chunk.strip())
-            # 如果单个段落超过chunk_size，按句子分割
             if len(para) > chunk_size:
+                # 按句号分割长段落
                 sentences = para.split("。")
                 for sent in sentences:
                     sent = sent.strip()
@@ -120,27 +122,26 @@ def split_text_chunks(text, chunk_size=500):
                     current_chunk = current_chunk[:-1]
             else:
                 current_chunk = para + "\n"
-    
+
     if current_chunk.strip():
         chunks.append(current_chunk.strip())
-    
+
     return chunks
 
 
 def generate_chunks(q):
-    """为一个问题生成多个chunk"""
     chunks = []
-    chunk_id_prefix = f"{q['question_code']}"
-    
+    chunk_id_prefix = q["question_code"]
+
     stage_label = STAGE_LABEL.get(q["stage_code"], q["stage_code"])
     module_label = MODULE_LABEL.get(q["module_code"], q["module_code"])
     tags = q["tags"] or ""
-    
+
     # 1. question_text chunk
-    question_text_content = f"{q['question_plain']}"
+    question_text_content = q["question_plain"]
     if q["keywords"]:
         question_text_content += f"\n关键词: {q['keywords']}"
-    
+
     chunks.append({
         "chunk_id": f"{chunk_id_prefix}-q1",
         "question_code": q["question_code"],
@@ -149,14 +150,14 @@ def generate_chunks(q):
         "stage_label": stage_label,
         "module_label": module_label,
         "question_type": q["question_type"],
-        "tags": tags
+        "tags": tags,
     })
-    
+
     # 2. answer_core chunk
     answer_core_content = f"一句话答案: {q['one_line_answer']}"
     if q["core_definition"]:
         answer_core_content += f"\n核心定义: {q['core_definition']}"
-    
+
     chunks.append({
         "chunk_id": f"{chunk_id_prefix}-a1",
         "question_code": q["question_code"],
@@ -165,13 +166,13 @@ def generate_chunks(q):
         "stage_label": stage_label,
         "module_label": module_label,
         "question_type": q["question_type"],
-        "tags": tags
+        "tags": tags,
     })
-    
-    # 3. detailed_explanation chunks
+
+    # 3. detailed_explanation chunks (最多3段)
     if q["detailed_answer"]:
         detail_chunks = split_text_chunks(q["detailed_answer"], chunk_size=500)
-        for i, chunk_content in enumerate(detail_chunks[:3], start=1):  # 最多3段
+        for i, chunk_content in enumerate(detail_chunks[:3], start=1):
             chunks.append({
                 "chunk_id": f"{chunk_id_prefix}-d{i}",
                 "question_code": q["question_code"],
@@ -180,9 +181,9 @@ def generate_chunks(q):
                 "stage_label": stage_label,
                 "module_label": module_label,
                 "question_type": q["question_type"],
-                "tags": tags
+                "tags": tags,
             })
-    
+
     # 4. practical_guidance chunk
     practical_parts = []
     if q["practical_steps"]:
@@ -191,7 +192,7 @@ def generate_chunks(q):
         practical_parts.append(f"风险提示: {q['risk_warning']}")
     if q["applicable_conditions"]:
         practical_parts.append(f"适用条件: {q['applicable_conditions']}")
-    
+
     if practical_parts:
         chunks.append({
             "chunk_id": f"{chunk_id_prefix}-p1",
@@ -201,9 +202,9 @@ def generate_chunks(q):
             "stage_label": stage_label,
             "module_label": module_label,
             "question_type": q["question_type"],
-            "tags": tags
+            "tags": tags,
         })
-    
+
     return chunks
 
 
@@ -211,31 +212,32 @@ def main():
     print("=" * 50)
     print("问题Chunk生成脚本")
     print("=" * 50)
-    
+    print(f"\n数据库: {DB_PATH}")
+    print(f"输出目录: {OUTPUT_DIR}")
+
     conn = get_connection()
-    
+
     print("\n[1/2] 加载问题数据...")
     questions = load_questions_with_tags(conn)
     print(f"    加载 {len(questions)} 条问题")
-    
+
     conn.close()
-    
+
     print("[2/2] 生成Chunks...")
     all_chunks = []
     chunk_count = 0
-    
+
     for q in questions:
         chunks = generate_chunks(q)
         all_chunks.extend(chunks)
         chunk_count += len(chunks)
         print(f"    {q['question_code']}: {len(chunks)} chunks")
-    
-    # 写入JSONL
+
     output_path = OUTPUT_DIR / "question_chunks.jsonl"
     with open(output_path, "w", encoding="utf-8") as f:
         for chunk in all_chunks:
             f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
-    
+
     print(f"\n导出完成: {output_path}")
     print(f"总计: {len(questions)} 条问题 -> {chunk_count} 个 chunks")
 

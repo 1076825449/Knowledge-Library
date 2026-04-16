@@ -374,7 +374,7 @@ CLS-CLEAR-004
 | `question_relation` | 关联问题表 |
 | `local_rule_note` | 地方口径表 |
 
-**详见：** `schema_tax_knowledge_base.sql`
+**详见：** `database/schema/001_create_core_tables.sql`, `database/schema/002_create_relation_tables.sql`, `database/schema/003_create_indexes.sql`
 
 ---
 
@@ -635,7 +635,7 @@ CLS-CLEAR-004
 
 ### 数据
 - [x] SQLite 数据库
-- [x] 完整建表 SQL (`schema_tax_knowledge_base.sql`)
+- [x] 完整建表 SQL（`database/schema/001_create_core_tables.sql` 等）
 - [x] 初始字典数据
 - [x] 示例问题数据（2条）
 - [x] 示例政策依据数据（3条）

@@ -72,7 +72,7 @@ class QuestionService:
             conditions.append("q.status = ?")
             params.append(status)
         if qtype:
-            conditions.append("q.answer_type = ?")
+            conditions.append("q.question_type = ?")
             params.append(qtype)
 
         where_clause = " AND ".join(conditions)
@@ -85,7 +85,7 @@ class QuestionService:
         sql = f"""
             SELECT
                 q.question_code, q.question_title, q.question_plain, q.one_line_answer,
-                q.stage_code, q.module_code, q.answer_certainty,
+                q.stage_code, q.module_code, q.question_type, q.answer_certainty,
                 q.high_frequency_flag, q.newbie_flag, q.updated_at
             FROM question_master q
             WHERE {where_clause}
@@ -306,10 +306,10 @@ class QuestionService:
     def get_question_types(self):
         """返回所有问题类型（用于筛选器）"""
         return self._query("""
-            SELECT DISTINCT answer_type as type_code
+            SELECT DISTINCT question_type as type_code
             FROM question_master
-            WHERE status = 'active' AND answer_type IS NOT NULL
-            ORDER BY answer_type
+            WHERE status = 'active' AND question_type IS NOT NULL
+            ORDER BY question_type
         """)
 
     def get_stats(self):

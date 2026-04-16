@@ -1,71 +1,74 @@
 #!/usr/bin/env python3
 """
 AI检索用数据导出脚本
-读取SQLite数据库，输出:
-- data/exports/questions_full.json (完整导出)
+从 backend/config.py 读取 DB_PATH，输出:
+- data/exports/questions_full.json   (完整导出)
 - data/exports/questions_for_embedding.jsonl (向量检索用)
 """
 
 import json
 import sqlite3
+import os
+import sys
 from pathlib import Path
 
-# 配置路径
-DB_PATH = "/Volumes/外接硬盘/vibe coding/知识库/database/db/tax_knowledge.db"
-BASE_DIR = Path("/Volumes/外接硬盘/vibe coding/知识库")
-OUTPUT_DIR = BASE_DIR / "data" / "exports"
+# -------- 动态路径（与 backend/config.py 保持一致）--------
+ROOT_DIR = Path(__file__).parent.parent.parent.resolve()
+sys.path.insert(0, str(ROOT_DIR / "backend"))
+from config import Config
+
+DB_PATH = Config.DB_PATH
+OUTPUT_DIR = ROOT_DIR / "data" / "exports"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# 标签翻译字典
+# -------- 标签翻译字典（与数据库 tag_dict 实际值一致）--------
 STAGE_LABEL = {
-    "setup": "设立",
-    "operation": "经营",
-    "change": "变更",
-    "dissolution": "注销",
-    "cross_border": "跨境"
+    "SET": "设立期",
+    "OPR": "开业/日常经营期",
+    "CHG": "变更期",
+    "CLS": "注销期",
+    "RSK": "风险异常期",
+    "SUS": "停业期",
 }
 
 MODULE_LABEL = {
-    "SSF": "财税处理",
-    "OPR": "运营管理",
-    "TAX": "税务申报",
-    "INV": "投资融资",
-    "SET": "设立合规",
-    "RISK": "风险管控",
+    "REG": "登记管理",
+    "DEC": "申报纳税",
+    "INV": "发票管理",
+    "VAT": "增值税",
     "CIT": "企业所得税",
-    "CLS": "涉税争议",
-    "POLICY": "政策法规",
-    "ACCT": "会计核算",
-    "DEC": "税费优惠",
     "IIT": "个人所得税",
-    "REG": "税务登记",
-    "CHG": "变更事项",
-    "FEE": "发票管理",
-    "CLEAR": "涉税争议"
+    "SSF": "社保费",
+    "FEE": "成本费用",
+    "PREF": "优惠政策",
+    "RISK": "风险应对",
+    "CLEAR": "清税注销",
+    "ETAX": "电子税务局/系统办理",
 }
 
 CERTAINTY_LABEL = {
     "certain_clear": "明确无条件",
     "certain_condition": "有条件",
     "certain_dispute": "有争议",
-    "certain_practice": "实务做法"
+    "certain_practice": "实务做法",
 }
 
 SCOPE_LABEL = {
     "scope_national": "全国通用",
     "scope_provincial": "省级口径",
-    "scope_local": "地方口径"
+    "scope_local": "地方口径",
 }
 
 
 def get_connection():
-    return sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute("PRAGMA foreign_keys = ON")
+    return conn
 
 
 def load_question_master(conn):
-    """加载问题主表"""
     query = """
-    SELECT 
+    SELECT
         id, question_code, question_title, question_plain,
         stage_code, module_code, question_type,
         one_line_answer, detailed_answer, core_definition,
@@ -85,13 +88,11 @@ def load_question_master(conn):
 
 
 def load_policy_links(conn, question_ids):
-    """加载政策关联"""
     if not question_ids:
         return {}
-    
     placeholders = ",".join("?" * len(question_ids))
     query = f"""
-    SELECT 
+    SELECT
         qpl.question_id,
         pb.id as policy_id,
         pb.policy_code,
@@ -113,28 +114,22 @@ def load_policy_links(conn, question_ids):
     WHERE qpl.question_id IN ({placeholders})
     ORDER BY qpl.question_id, qpl.display_order
     """
-    
     rows = conn.execute(query, question_ids).fetchall()
     columns = [desc[0] for desc in conn.execute(query, question_ids).description]
-    
     result = {}
     for row in rows:
         d = dict(zip(columns, row))
         qid = d.pop("question_id")
-        if qid not in result:
-            result[qid] = []
-        result[qid].append(d)
+        result.setdefault(qid, []).append(d)
     return result
 
 
 def load_tag_links(conn, question_ids):
-    """加载标签关联"""
     if not question_ids:
         return {}
-    
     placeholders = ",".join("?" * len(question_ids))
     query = f"""
-    SELECT 
+    SELECT
         qtl.question_id,
         td.id as tag_id,
         td.tag_code,
@@ -147,28 +142,22 @@ def load_tag_links(conn, question_ids):
     WHERE qtl.question_id IN ({placeholders})
     ORDER BY qtl.question_id, qtl.display_order
     """
-    
     rows = conn.execute(query, question_ids).fetchall()
     columns = [desc[0] for desc in conn.execute(query, question_ids).description]
-    
     result = {}
     for row in rows:
         d = dict(zip(columns, row))
         qid = d.pop("question_id")
-        if qid not in result:
-            result[qid] = []
-        result[qid].append(d)
+        result.setdefault(qid, []).append(d)
     return result
 
 
 def load_related_questions(conn, question_ids):
-    """加载关联问题"""
     if not question_ids:
         return {}
-    
     placeholders = ",".join("?" * len(question_ids))
     query = f"""
-    SELECT 
+    SELECT
         qr.question_id,
         qm.question_code,
         qm.question_title,
@@ -179,22 +168,17 @@ def load_related_questions(conn, question_ids):
     WHERE qr.question_id IN ({placeholders})
     ORDER BY qr.question_id, qr.display_order
     """
-    
     rows = conn.execute(query, question_ids).fetchall()
     columns = [desc[0] for desc in conn.execute(query, question_ids).description]
-    
     result = {}
     for row in rows:
         d = dict(zip(columns, row))
         qid = d.pop("question_id")
-        if qid not in result:
-            result[qid] = []
-        result[qid].append(d)
+        result.setdefault(qid, []).append(d)
     return result
 
 
 def translate_labels(q):
-    """翻译标签字段"""
     q["stage_label"] = STAGE_LABEL.get(q["stage_code"], q["stage_code"])
     q["module_label"] = MODULE_LABEL.get(q["module_code"], q["module_code"])
     q["answer_certainty_label"] = CERTAINTY_LABEL.get(q["answer_certainty"], q["answer_certainty"])
@@ -203,43 +187,30 @@ def translate_labels(q):
 
 
 def export_full_json(questions, policy_links, tag_links, related_questions):
-    """导出完整JSON"""
     result = []
     for q in questions:
         qid = q["id"]
         q_translated = translate_labels(q.copy())
-        
-        # 移除id，添加关联数据
         del q_translated["id"]
         q_translated["policy_links"] = policy_links.get(qid, [])
         q_translated["tag_links"] = tag_links.get(qid, [])
         q_translated["related_questions"] = related_questions.get(qid, [])
-        
         result.append(q_translated)
-    
     output_path = OUTPUT_DIR / "questions_full.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-    
-    print(f"导出完成: {output_path} ({len(result)} 条记录)")
+    print(f"导出完成: {output_path} ({len(result)} 条)")
 
 
 def export_embedding_jsonl(questions, tag_links, related_questions):
-    """导出向量检索用JSONL"""
     output_path = OUTPUT_DIR / "questions_for_embedding.jsonl"
-    
     with open(output_path, "w", encoding="utf-8") as f:
         for q in questions:
             qid = q["id"]
-            
-            # 处理标签
             tags = tag_links.get(qid, [])
             tag_names = ",".join([t["tag_name"] for t in tags])
-            
-            # 处理关联问题
             related = related_questions.get(qid, [])
             related_codes = ",".join([r["question_code"] for r in related])
-            
             record = {
                 "question_code": q["question_code"],
                 "stage_label": STAGE_LABEL.get(q["stage_code"], q["stage_code"]),
@@ -253,11 +224,9 @@ def export_embedding_jsonl(questions, tag_links, related_questions):
                 "is_high_freq": bool(q["high_frequency_flag"]),
                 "is_newbie": bool(q["newbie_flag"]),
                 "scope_level": q["scope_level"],
-                "related_question_codes": related_codes
+                "related_question_codes": related_codes,
             }
-            
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
-    
     print(f"导出完成: {output_path}")
 
 
@@ -265,36 +234,38 @@ def main():
     print("=" * 50)
     print("AI检索数据导出脚本")
     print("=" * 50)
-    
+    print(f"\n数据库: {DB_PATH}")
+    print(f"输出目录: {OUTPUT_DIR}")
+
     conn = get_connection()
-    
+
     print("\n[1/4] 加载问题主表...")
     questions = load_question_master(conn)
     print(f"    加载 {len(questions)} 条问题")
-    
+
     question_ids = [q["id"] for q in questions]
-    
+
     print("[2/4] 加载政策关联...")
     policy_links = load_policy_links(conn, question_ids)
-    print(f"    加载 {sum(len(v) for v in policy_links.values())} 条政策关联")
-    
+    print(f"    {sum(len(v) for v in policy_links.values())} 条政策关联")
+
     print("[3/4] 加载标签关联...")
     tag_links = load_tag_links(conn, question_ids)
-    print(f"    加载 {sum(len(v) for v in tag_links.values())} 条标签关联")
-    
+    print(f"    {sum(len(v) for v in tag_links.values())} 条标签关联")
+
     print("[4/4] 加载关联问题...")
     related_questions = load_related_questions(conn, question_ids)
-    print(f"    加载 {sum(len(v) for v in related_questions.values())} 条关联问题")
-    
+    print(f"    {sum(len(v) for v in related_questions.values())} 条关联问题")
+
     conn.close()
-    
+
     print("\n[导出] 生成完整JSON...")
     export_full_json(questions, policy_links, tag_links, related_questions)
-    
+
     print("[导出] 生成向量检索JSONL...")
     export_embedding_jsonl(questions, tag_links, related_questions)
-    
-    print("\n导出完成!")
+
+    print("\n完成!")
 
 
 if __name__ == "__main__":
