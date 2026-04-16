@@ -71,9 +71,9 @@
 <div class="filters">
     <span class="filter-label">地区：</span>
     <a href="{{ filter_url({'region': ''}) }}" class="filter-chip {% if not current_region %}active{% endif %}">全部</a>
-    <a href="{{ filter_url({'region': 'national'}) }}" class="filter-chip {% if current_region == 'national' %}active{% endif %}">全国通用</a>
-    <a href="{{ filter_url({'region': 'provincial'}) }}" class="filter-chip {% if current_region == 'provincial' %}active{% endif %}">省级口径</a>
-    <a href="{{ filter_url({'region': 'local'}) }}" class="filter-chip {% if current_region == 'local' %}active{% endif %}">地方口径</a>
+    <a href="{{ filter_url({'region': 'scope_national'}) }}" class="filter-chip {% if current_region == 'scope_national' %}active{% endif %}">全国通用</a>
+    <a href="{{ filter_url({'region': 'scope_provincial'}) }}" class="filter-chip {% if current_region == 'scope_provincial' %}active{% endif %}">省级口径</a>
+    <a href="{{ filter_url({'region': 'scope_local'}) }}" class="filter-chip {% if current_region == 'scope_local' %}active{% endif %}">地方口径</a>
 </div>
 
 {# ========== 状态筛选 ========== #}

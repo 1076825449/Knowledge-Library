@@ -38,6 +38,12 @@
         </div>
 
         <div class="form-group">
+            <label for="question_plain">问题简述 <span class="field-hint-inline">（口语化/用户真实问法，可选）</span></label>
+            <input type="text" name="question_plain" id="question_plain" value="{{ detail.question_plain or '' }}">
+            <p class="field-hint">留空则自动使用上方"问题标题"作为显示</p>
+        </div>
+
+        <div class="form-group">
             <label for="one_line_answer">一句话结论 *</label>
             <input type="text" name="one_line_answer" id="one_line_answer" required value="{{ detail.one_line_answer }}">
         </div>
@@ -108,9 +114,11 @@
                 <select name="question_type" id="question_type">
                     <option value="type_whether" {% if detail.question_type == 'type_whether' %}selected{% endif %}>是否类</option>
                     <option value="type_how" {% if detail.question_type == 'type_how' %}selected{% endif %}>怎么办类</option>
-                    <option value="type_define" {% if detail.question_type == 'type_define' %}selected{% endif %}>定义类</option>
+                    <option value="type_definition" {% if detail.question_type == 'type_definition' %}selected{% endif %}>定义类</option>
                     <option value="type_risk" {% if detail.question_type == 'type_risk' %}selected{% endif %}>风险类</option>
                     <option value="type_time" {% if detail.question_type == 'type_time' %}selected{% endif %}>时限类</option>
+                    <option value="type_why" {% if detail.question_type == 'type_why' %}selected{% endif %}>为什么类</option>
+                    <option value="type_other" {% if detail.question_type == 'type_other' %}selected{% endif %}>其他类</option>
                 </select>
         </div>
 

@@ -39,8 +39,14 @@
         </div>
 
         <div class="form-group">
-            <label for="question_title">问题标题 *</label>
+            <label for="question_title">问题标题 * <span class="field-hint-inline">（标准/规范表达）</span></label>
             <input type="text" name="question_title" id="question_title" required placeholder="如：企业没有收入，是否必须申报纳税？">
+        </div>
+
+        <div class="form-group">
+            <label for="question_plain">问题简述 <span class="field-hint-inline">（口语化/用户真实问法，可选）</span></label>
+            <input type="text" name="question_plain" id="question_plain" placeholder="如：公司没收入也要报税吗？">
+            <p class="field-hint">留空则自动使用上方"问题标题"作为显示</p>
         </div>
 
         <div class="form-group">
@@ -104,6 +110,7 @@
                     <option value="scope_national">全国通用</option>
                     <option value="scope_provincial">省级口径</option>
                     <option value="scope_local">地方口径</option>
+                    <option value="scope_mixed">混合口径</option>
                 </select>
             </div>
         </div>
@@ -111,14 +118,23 @@
         <div class="form-group">
             <label for="question_type">问题类型</label>
             <select name="question_type" id="question_type">
-                <option value="type_whether">是否类</option>
-                <option value="type_how">怎么办类</option>
-                <option value="type_define">定义类</option>
-                <option value="type_risk">风险类</option>
-                <option value="type_time">时限类</option>
-                <option value="type_why">为什么类</option>
-                <option value="type_other">其他</option>
+                <option value="type_whether">是否类（能不能/要不要/会不会…）</option>
+                <option value="type_how">怎么办类（如何处理/怎么申报…）</option>
+                <option value="type_definition">定义类（什么是/包含哪些…）</option>
+                <option value="type_risk">风险类（有什么风险/注意什么…）</option>
+                <option value="type_time">时限类（什么时候/几天/几号之前…）</option>
+                <option value="type_why">为什么类（为什么要/原因是什么…）</option>
+                <option value="type_other">其他类</option>
             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status">条目状态</label>
+            <select name="status" id="status">
+                <option value="draft" selected>草稿（创建后需编辑公开）</option>
+                <option value="active">正常（创建后直接公开）</option>
+            </select>
+            <p class="field-hint">默认草稿，录入完成后可在编辑页改为"正常"公开</p>
         </div>
 
         <div class="form-group">

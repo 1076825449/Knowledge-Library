@@ -14,9 +14,12 @@
 {% macro question_type_label(code) %}
 {%- if code == 'type_whether' -%}是否类
 {%- elif code == 'type_how' -%}怎么办类
-{%- elif code == 'type_define' -%}定义类
+{%- elif code == 'type_definition' -%}定义类
 {%- elif code == 'type_risk' -%}风险类
 {%- elif code == 'type_time' -%}时限类
+{%- elif code == 'type_why' -%}为什么类
+{%- elif code == 'type_other' -%}其他类
+{%- elif code == 'type_define' -%}定义类
 {%- else -%}{{ code }}{%- endif -%}
 {% endmacro %}
 
@@ -56,7 +59,7 @@
 </div>
 
 {# ========== 问题标题 ========== #}
-<h1 class="detail-title">{{ detail.question_plain }}</h1>
+<h1 class="detail-title">{{ detail.question_plain if detail.question_plain else detail.question_title }}</h1>
 
 {# ========== 一句话结论（重点突出） ========== #}
 <div class="answer-box">

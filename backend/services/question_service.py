@@ -359,14 +359,14 @@ class QuestionService:
                 answer_certainty, keywords,
                 high_frequency_flag, newbie_flag,
                 status, version_no, created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft', 1, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)
         """, (
             code,
             data['question_title'],
             data.get('question_plain', data['question_title']),
             data['stage_code'],
             data['module_code'],
-            data.get('question_type', 'practical'),
+            data.get('question_type', 'type_whether'),
             data['one_line_answer'],
             data.get('detailed_answer', ''),
             data.get('core_definition', ''),
@@ -374,12 +374,13 @@ class QuestionService:
             data.get('exceptions_boundary', ''),
             data.get('practical_steps', ''),
             data.get('risk_warning', ''),
-            data.get('scope_level', 'national'),
+            data.get('scope_level', 'scope_national'),
             data.get('local_region', ''),
-            data.get('answer_certainty', 'clear'),
+            data.get('answer_certainty', 'certain_clear'),
             data.get('keywords', ''),
             1 if data.get('high_frequency_flag') else 0,
             1 if data.get('newbie_flag') else 0,
+            data.get('status', 'draft'),
             now, now
         ))
         question_id = cur.lastrowid
