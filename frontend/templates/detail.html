@@ -9,23 +9,15 @@
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
 {% endmacro %}
 
-{% macro policy_level_label(code) %}
-    {% if code == 'level_law' %}法律
-    {% elif code == 'level_admin' %}行政法规
-    {% elif code == 'level_department' %}部门规章
-    {% elif code == 'level_bulletin' %}规范性文件
-    {% elif code == 'level_provincial' %}省级文件
-    {% elif code == 'level_local' %}地方文件
-    {% else %}{{ code }}{% endif %}
-{% endmacro %}
+{% macro policy_level_label(code) %}{{ {'level_law':'法律','level_admin':'行政法规','level_department':'部门规章','level_bulletin':'规范性文件','level_provincial':'省级文件','level_local':'地方文件'}.get(code, code or '') }}{% endmacro %}
 
 {% macro question_type_label(code) %}
-    {% if code == 'type_whether' %}是否类
-    {% elif code == 'type_how' %}怎么办类
-    {% elif code == 'type_define' %}定义类
-    {% elif code == 'type_risk' %}风险类
-    {% elif code == 'type_time' %}时限类
-    {% else %}{{ code }}{% endif %}
+{%- if code == 'type_whether' -%}是否类
+{%- elif code == 'type_how' -%}怎么办类
+{%- elif code == 'type_define' -%}定义类
+{%- elif code == 'type_risk' -%}风险类
+{%- elif code == 'type_time' -%}时限类
+{%- else -%}{{ code }}{%- endif -%}
 {% endmacro %}
 
 {% macro status_label(code) %}
@@ -43,7 +35,7 @@
 {# ========== 面包屑 + 问题编码 + 版本 ========== #}
 <div class="detail-header">
     <div class="breadcrumb">
-        <a href="/">首页</a> &gt; <a href="/questions">问题列表</a> &gt; <span>{{ detail.question_code }}</span>
+        <a href="/">首页</a> &gt; <a href="/questions">问题列表</a>
     </div>
     <div class="question-meta-top">
         <span class="q-code-lg">{{ detail.question_code }}</span>
@@ -121,7 +113,6 @@
 {% endif %}
 
 {# ========== 适用范围 ========== #}
-{% if detail.scope_level %}
 {% if detail.scope_level == 'scope_national' %}
 <div class="scope-note">适用地区：全国通用</div>
 {% elif detail.scope_level == 'scope_provincial' %}
@@ -131,7 +122,6 @@
 {% elif detail.local_region %}
 <div class="scope-note local">地区：{{ detail.local_region }}</div>
 {% endif %}
-{% endif %}
 
 {# ========== 政策依据（分组展示） ========== #}
 {% if detail.policies %}
@@ -139,9 +129,9 @@
 {% set procedure_policies = [] %}
 {% set other_policies = [] %}
 {% for p in detail.policies %}
-    {% if p.support_type == 'support_direct' %}{{ direct_policies.append(p) }}{% endif %}
-    {% if p.support_type == 'support_procedure' %}{{ procedure_policies.append(p) }}{% endif %}
-    {% if p.support_type not in ['support_direct', 'support_procedure'] %}{{ other_policies.append(p) }}{% endif %}
+    {% if p.support_type == 'support_direct' %}{% do direct_policies.append(p) %}{% endif %}
+    {% if p.support_type == 'support_procedure' %}{% do procedure_policies.append(p) %}{% endif %}
+    {% if p.support_type not in ['support_direct', 'support_procedure'] %}{% do other_policies.append(p) %}{% endif %}
 {% endfor %}
 
 <div class="detail-section policies-section">

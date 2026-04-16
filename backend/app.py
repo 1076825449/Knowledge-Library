@@ -19,6 +19,7 @@ def create_app():
                  static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend', 'static'))
     app.secret_key = Config.SECRET_KEY
     CORS(app)
+    app.jinja_env.add_extension('jinja2.ext.do')
 
     # 注册蓝图
     app.register_blueprint(questions_bp, url_prefix='/api/questions')

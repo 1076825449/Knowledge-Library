@@ -1,5 +1,29 @@
 {% extends "base.html" %}
 
+{# ===== 辅助宏 ===== #}
+{% macro certainty_label(code) %}
+    {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
+    {% elif code == 'certain_condition' %}<span class="certainty-tag condition">有条件</span>
+    {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
+    {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
+    {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
+{% endmacro %}
+
+{# 构建筛选链接：stage/module/tag/region/status=全部 or 指定值 #}
+{% macro filter_url(overrides) %}
+{%- set qs = [] -%}
+{%- if current_stage and 'stage' not in overrides %}{% set qs = qs + ['stage=' ~ current_stage] %}{% endif -%}
+{%- if current_module and 'module' not in overrides %}{% set qs = qs + ['module=' ~ current_module] %}{% endif -%}
+{%- if current_tag and 'tag' not in overrides %}{% set qs = qs + ['tag=' ~ current_tag] %}{% endif -%}
+{%- if keyword and 'keyword' not in overrides %}{% set qs = qs + ['keyword=' ~ keyword] %}{% endif -%}
+{%- if request.args.get('hf') and 'hf' not in overrides %}{% set qs = qs + ['hf=1'] %}{% endif -%}
+{%- if request.args.get('newbie') and 'newbie' not in overrides %}{% set qs = qs + ['newbie=1'] %}{% endif -%}
+{%- if current_region and 'region' not in overrides %}{% set qs = qs + ['region=' ~ current_region] %}{% endif -%}
+{%- if current_status and 'status' not in overrides %}{% set qs = qs + ['status=' ~ current_status] %}{% endif -%}
+{%- for k, v in overrides.items() %}{% if v %}{% set qs = qs + [k ~ '=' ~ v] %}{% endif %}{% endfor -%}
+{{- '/questions' ~ ('?' ~ qs | join('&') if qs else '') -}}
+{% endmacro %}
+
 {% block title %}问题列表 - 企业税务知识库{% endblock %}
 
 {% block main %}
@@ -15,17 +39,17 @@
 {# ========== 筛选器 ========== #}
 <div class="filters">
     <span class="filter-label">阶段：</span>
-    <a href="/questions{% if current_module %}?module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
+    <a href="{{ filter_url({'stage': ''}) }}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
     {% for s in stages %}
-    <a href="/questions?stage={{ s.tag_code }}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
+    <a href="{{ filter_url({'stage': s.tag_code}) }}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
     {% endfor %}
 </div>
 
 <div class="filters">
     <span class="filter-label">模块：</span>
-    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
+    <a href="{{ filter_url({'module': ''}) }}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
     {% for m in modules %}
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}module={{ m.tag_code }}{% if current_tag %}&tag={{ current_tag }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
+    <a href="{{ filter_url({'module': m.tag_code}) }}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
     {% endfor %}
 </div>
 
@@ -35,9 +59,9 @@
 {% if business_tags %}
 <div class="filters">
     <span class="filter-label">标签：</span>
-    <a href="/questions{% if current_stage %}?stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if not current_tag %}active{% endif %}">全部</a>
+    <a href="{{ filter_url({'tag': ''}) }}" class="filter-chip {% if not current_tag %}active{% endif %}">全部</a>
     {% for t in business_tags %}
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}tag={{ t.tag_code }}{% if keyword %}&keyword={{ keyword }}{% endif %}" class="filter-chip {% if current_tag == t.tag_code %}active{% endif %}">{{ t.tag_name }}</a>
+    <a href="{{ filter_url({'tag': t.tag_code}) }}" class="filter-chip {% if current_tag == t.tag_code %}active{% endif %}">{{ t.tag_name }}</a>
     {% endfor %}
 </div>
 {% endif %}
@@ -46,36 +70,26 @@
 {# ========== 适用范围筛选 ========== #}
 <div class="filters">
     <span class="filter-label">地区：</span>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region="
-           class="filter-chip {% if not current_region %}active{% endif %}">全部</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=national"
-           class="filter-chip {% if current_region == 'national' %}active{% endif %}">全国通用</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=provincial"
-           class="filter-chip {% if current_region == 'provincial' %}active{% endif %}">省级口径</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_status %}status={{ current_status }}&{% endif %}region=local"
-           class="filter-chip {% if current_region == 'local' %}active{% endif %}">地方口径</a>
+    <a href="{{ filter_url({'region': ''}) }}" class="filter-chip {% if not current_region %}active{% endif %}">全部</a>
+    <a href="{{ filter_url({'region': 'national'}) }}" class="filter-chip {% if current_region == 'national' %}active{% endif %}">全国通用</a>
+    <a href="{{ filter_url({'region': 'provincial'}) }}" class="filter-chip {% if current_region == 'provincial' %}active{% endif %}">省级口径</a>
+    <a href="{{ filter_url({'region': 'local'}) }}" class="filter-chip {% if current_region == 'local' %}active{% endif %}">地方口径</a>
 </div>
 
 {# ========== 状态筛选 ========== #}
 <div class="filters">
     <span class="filter-label">状态：</span>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status="
-           class="filter-chip {% if not current_status %}active{% endif %}">全部</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=active"
-           class="filter-chip {% if current_status == 'active' %}active{% endif %}">正常</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=draft"
-           class="filter-chip {% if current_status == 'draft' %}active{% endif %}">草稿</a>
-    <a href="/questions?{% if current_stage %}stage={{ current_stage }}&{% endif %}{% if current_module %}module={{ current_module }}&{% endif %}{% if current_tag %}tag={{ current_tag }}&{% endif %}{% if keyword %}keyword={{ keyword }}&{% endif %}{% if request.args.get('hf') %}hf=1&{% endif %}{% if request.args.get('newbie') %}newbie=1&{% endif %}{% if current_region %}region={{ current_region }}&{% endif %}status=archived"
-           class="filter-chip {% if current_status == 'archived' %}active{% endif %}">归档</a>
+    <a href="{{ filter_url({'status': ''}) }}" class="filter-chip {% if not current_status %}active{% endif %}">全部</a>
+    <a href="{{ filter_url({'status': 'active'}) }}" class="filter-chip {% if current_status == 'active' %}active{% endif %}">正常</a>
+    <a href="{{ filter_url({'status': 'draft'}) }}" class="filter-chip {% if current_status == 'draft' %}active{% endif %}">草稿</a>
+    <a href="{{ filter_url({'status': 'archived'}) }}" class="filter-chip {% if current_status == 'archived' %}active{% endif %}">归档</a>
 </div>
 
 {# ========== 快捷筛选 ========== #}
 <div class="filters filters-quick">
     <span class="filter-label">快捷：</span>
-    <a href="/questions?hf=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_region %}&region={{ current_region }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}"
-       class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
-    <a href="/questions?newbie=1{% if current_stage %}&stage={{ current_stage }}{% endif %}{% if current_module %}&module={{ current_module }}{% endif %}{% if current_region %}&region={{ current_region }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}{% if keyword %}&keyword={{ keyword }}{% endif %}"
-       class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
+    <a href="{{ filter_url({'hf': '1'}) }}" class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
+    <a href="{{ filter_url({'newbie': '1'}) }}" class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
 </div>
 
 {# ========== 列表 ========== #}
@@ -95,7 +109,7 @@
                 {% if q.newbie_flag %}
                 <span class="q-badge newbie">新手</span>
                 {% endif %}
-                <span class="q-badge certainty {{ q.answer_certainty }}">{{ q.answer_certainty }}</span>
+                {{ certainty_label(q.answer_certainty) }}
             </div>
             {% if keyword %}
             <div class="q-title">{{ q.question_plain | replace(keyword, '<mark>' ~ keyword ~ '</mark>') | safe }}</div>
