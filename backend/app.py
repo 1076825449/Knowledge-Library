@@ -122,8 +122,11 @@ def create_app():
 
         if request.method == 'POST':
             data = request.form.to_dict()
+            # to_dict() loses multi-value fields (e.g. multiple tags checked)
+            # Re-add tags as a list so create_question can process them
+            data['tags'] = request.form.getlist('tags')
             # 处理多选标签
-            tag_codes = request.form.getlist('tags')
+            tag_codes = data.get('tags')
             try:
                 code = svc.create_question(data)
                 # 处理政策依据关联（最多3条）
@@ -166,6 +169,8 @@ def create_app():
 
         if request.method == 'POST':
             data = request.form.to_dict()
+            # to_dict() loses multi-value fields (multiple tags checked)
+            data['tags'] = request.form.getlist('tags')
             try:
                 svc.update_question(question_code, data)
                 # 处理政策关联更新（简化：先删再插）
