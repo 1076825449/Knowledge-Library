@@ -64,6 +64,7 @@
         <span class="q-badge newbie">新手</span>
         {% endif %}
         {{ certainty_label(detail.answer_certainty) }}
+        <span class="q-badge">{{ question_type_label(detail.question_type) }}</span>
         <span class="q-badge version">v{{ detail.version_no }}</span>
         <span class="q-badge status-{{ detail.status }}">{{ status_label(detail.status) }}</span>
         <a href="/question/{{ detail.question_code }}/edit" class="edit-btn">编辑</a>
