@@ -199,8 +199,8 @@ def import_questions(data):
                 ),
             )
 
-            # 标签
-            tag_ids = resolve_tag_ids(conn, q.get("tags", []))
+            # 标签：支持 tags 和 business_tags 两种字段名
+            tag_ids = resolve_tag_ids(conn, q.get("tags", []) + q.get("business_tags", []))
             for idx, tag_id in enumerate(tag_ids):
                 cur.execute(
                     """
