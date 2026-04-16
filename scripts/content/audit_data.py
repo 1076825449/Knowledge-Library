@@ -252,7 +252,7 @@ def check_question_type_distribution(conn):
         print(f"   {r['question_type']}: {r['cnt']} 条 ({pct:.1f}%)")
 
     # 检查是否有未定义类型
-    valid_types = {'type_whether', 'type_how', 'type_define', 'type_risk', 'type_time'}
+    valid_types = {'type_whether', 'type_how', 'type_define', 'type_risk', 'type_time', 'type_what', 'type_why'}
     found_types = {r['question_type'] for r in rows}
     unknown = found_types - valid_types
     if unknown:

@@ -140,6 +140,51 @@ def import_questions(data):
 
             stage = q["stage_code"].strip().upper()
             module = q["module_code"].strip().upper()
+
+            # 优先使用 JSON 中指定的问题编码（用于增量更新）
+            override_code = q.get("question_code", "").strip()
+            if override_code:
+                # 检查是否已存在
+                existing_id = resolve_question_id(conn, override_code)
+                if existing_id:
+                    # UPDATE 模式：更新已有记录
+                    cur.execute("""
+                        UPDATE question_master SET
+                            question_title = ?, question_plain = ?,
+                            question_type = ?,
+                            one_line_answer = ?, detailed_answer = ?, core_definition = ?,
+                            applicable_conditions = ?, exceptions_boundary = ?,
+                            practical_steps = ?, risk_warning = ?,
+                            scope_level = ?, local_region = ?,
+                            answer_certainty = ?, keywords = ?,
+                            high_frequency_flag = ?, newbie_flag = ?,
+                            version_no = version_no + 1,
+                            updated_at = ?
+                        WHERE question_code = ?
+                    """, (
+                        q["question_title"].strip(),
+                        q.get("question_plain", q["question_title"].strip()),
+                        q.get("question_type", "type_whether"),
+                        q["one_line_answer"].strip(),
+                        q.get("detailed_answer", ""),
+                        q.get("core_definition", ""),
+                        q.get("applicable_conditions", ""),
+                        q.get("exceptions_boundary", ""),
+                        q.get("practical_steps", ""),
+                        q.get("risk_warning", ""),
+                        q.get("scope_level", "scope_national"),
+                        q.get("local_region", ""),
+                        q.get("answer_certainty", "certain_clear"),
+                        q.get("keywords", ""),
+                        1 if q.get("high_frequency_flag") else 0,
+                        1 if q.get("newbie_flag") else 0,
+                        now,
+                        override_code,
+                    ))
+                    results["imported"].append(override_code + " [UPDATE]")
+                    continue  # 跳过 INSERT，进入下一条
+
+            # INSERT 模式（新建）
             code = generate_code(conn, stage, module)
 
             cur.execute(

@@ -1,15 +1,52 @@
+# ============================================================
 # Python
+# ============================================================
 __pycache__/
 *.py[cod]
+*$py.class
 *.so
-*.egg-info/
-dist/
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
 .eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
 # 虚拟环境
 venv/
-.env
+ENV/
+env/
+.venv/
+
+# ============================================================
+# 项目特定
+# ============================================================
+# 数据库文件（包含真实数据，不应提交）
+database/db/*.db
+database/db/*.db-journal
+database/db/*.db-wal
+database/db/*.db-shm
+
+# 导出数据（每次运行重新生成）
+data/exports/*.json
+data/exports/*.jsonl
+
+# 备份文件
+*.bak
+*.backup
+backups/
+database/backups/
 
 # IDE
 .vscode/
@@ -17,20 +54,26 @@ venv/
 *.swp
 *.swo
 .DS_Store
+Thumbs.db
 
-# 数据库
-*.db
-!database/db/tax_knowledge.db
+# 环境变量
+.env
+.env.local
 
-# 备份（保留最近手动备份，其他忽略）
-database/backups/*.db
-
-# 导出的数据文件（生成物）
-data/exports/*.json
-data/exports/*.jsonl
-data/reports/*.txt
-!data/exports/.gitkeep
-
-# 其他
+# 日志
 *.log
+logs/
+
+# 临时文件
+tmp/
+temp/
 *.tmp
+
+# ============================================================
+# 科学计数 / 数据
+# ============================================================
+# CSV 大文件（如有）
+# *.csv
+
+# Jupyter notebooks（可选，排除输出）
+.ipynb_checkpoints/

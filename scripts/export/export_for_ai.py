@@ -48,9 +48,9 @@ MODULE_LABEL = {
 
 CERTAINTY_LABEL = {
     "certain_clear": "明确无条件",
-    "certain_condition": "有条件",
+    "certain_conditional": "有条件",
     "certain_dispute": "有争议",
-    "certain_practice": "实务做法",
+    "certain_practical": "实务做法",
 }
 
 SCOPE_LABEL = {
@@ -202,7 +202,7 @@ def export_full_json(questions, policy_links, tag_links, related_questions):
     print(f"导出完成: {output_path} ({len(result)} 条)")
 
 
-def export_embedding_jsonl(questions, tag_links, related_questions):
+def export_embedding_jsonl(questions, policy_links, tag_links, related_questions):
     output_path = OUTPUT_DIR / "questions_for_embedding.jsonl"
     with open(output_path, "w", encoding="utf-8") as f:
         for q in questions:
@@ -211,20 +211,60 @@ def export_embedding_jsonl(questions, tag_links, related_questions):
             tag_names = ",".join([t["tag_name"] for t in tags])
             related = related_questions.get(qid, [])
             related_codes = ",".join([r["question_code"] for r in related])
+            policies = policy_links.get(qid, [])
+            # 提取政策文号列表（用于展示）
+            policy_docs = "; ".join([
+                f"{p.get('document_no', '')} {p.get('article_ref', '')}"
+                for p in policies
+                if p.get("document_no")
+            ])
+            # 提取政策摘要（用于RAG）
+            policy_summaries = " | ".join([
+                p.get("policy_summary", "") or ""
+                for p in policies
+                if p.get("policy_summary")
+            ])
+
+            # 拼接检索文本：问题 → 答案 → 政策摘要 → 关键词
+            retrieval_text = " | ".join(filter(None, [
+                q.get("question_plain") or q.get("question_title", ""),
+                q.get("one_line_answer", ""),
+                policy_summaries,
+                q.get("keywords", "") or "",
+            ]))
+
             record = {
                 "question_code": q["question_code"],
+                "question_title": q.get("question_title", ""),
                 "stage_label": STAGE_LABEL.get(q["stage_code"], q["stage_code"]),
                 "module_label": MODULE_LABEL.get(q["module_code"], q["module_code"]),
-                "question_type": q["question_type"],
-                "question_plain": q["question_plain"],
-                "one_line_answer": q["one_line_answer"],
-                "keywords": q["keywords"] or "",
+                "question_type": q.get("question_type", ""),
+                # 检索用全文（主要 embedding 对象）
+                "retrieval_text": retrieval_text,
+                # 各分段内容（供 chunk 检索）
+                "question_plain": q.get("question_plain") or "",
+                "one_line_answer": q.get("one_line_answer") or "",
+                "detailed_answer": q.get("detailed_answer") or "",
+                "core_definition": q.get("core_definition") or "",
+                "practical_steps": q.get("practical_steps") or "",
+                "risk_warning": q.get("risk_warning") or "",
+                "keywords": q.get("keywords") or "",
+                # 政策
+                "policy_documents": policy_docs,
+                "policy_count": len(policies),
+                # 标签
                 "tags": tag_names,
+                "answer_certainty": q.get("answer_certainty", ""),
                 "answer_certainty_label": CERTAINTY_LABEL.get(q["answer_certainty"], q["answer_certainty"]),
-                "is_high_freq": bool(q["high_frequency_flag"]),
-                "is_newbie": bool(q["newbie_flag"]),
-                "scope_level": q["scope_level"],
+                "scope_level": q.get("scope_level", ""),
+                "scope_level_label": SCOPE_LABEL.get(q["scope_level"], q["scope_level"]),
+                # 指向信息
+                "is_high_freq": bool(q.get("high_frequency_flag")),
+                "is_newbie": bool(q.get("newbie_flag")),
                 "related_question_codes": related_codes,
+                # 版本
+                "version_no": q.get("version_no", 1),
+                "updated_at": q.get("updated_at", ""),
             }
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
     print(f"导出完成: {output_path}")
@@ -263,7 +303,7 @@ def main():
     export_full_json(questions, policy_links, tag_links, related_questions)
 
     print("[导出] 生成向量检索JSONL...")
-    export_embedding_jsonl(questions, tag_links, related_questions)
+    export_embedding_jsonl(questions, policy_links, tag_links, related_questions)
 
     print("\n完成!")
 

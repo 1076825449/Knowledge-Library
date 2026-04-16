@@ -1,0 +1,117 @@
+============================================================
+缺政策依据问题清单
+生成时间: 2026-04-16 21:18:23
+总计: 56 条
+============================================================
+1. [OPR-CIT-001] 企业向境外机构支付款项时，如何履行代扣代缴义务？
+   stage=OPR, module=CIT, status=active
+2. [CLS-CLEAR-001] 企业注销时，清税证明是怎么办理的？
+   stage=CLS, module=CLEAR, status=active
+3. [SET-REG-003] 企业刚领了营业执照，接下来税务上要办哪些事？
+   stage=SET, module=REG, status=active
+4. [SET-REG-004] 新公司设立后，银行账户和税务账户要怎么处理？
+   stage=SET, module=REG, status=active
+5. [SET-DEC-002] 公司刚成立，第一个月就要报税吗？
+   stage=SET, module=DEC, status=active
+6. [OPR-DEC-002] 公司长期零申报有什么风险？
+   stage=OPR, module=DEC, status=active
+7. [OPR-DEC-003] 小规模纳税人到底按月申报还是按季申报？
+   stage=OPR, module=DEC, status=active
+8. [OPR-INV-002] 企业首次领用发票需要准备什么？
+   stage=OPR, module=INV, status=active
+9. [OPR-INV-003] 开错的发票是作废还是开红字发票？
+   stage=OPR, module=INV, status=active
+10. [OPR-INV-004] 客户要开专用发票，我们是小规模纳税人，能开吗？
+   stage=OPR, module=INV, status=active
+11. [OPR-CHG-002] 公司换了法定代表人，税务上需要变更吗？
+   stage=OPR, module=CHG, status=active
+12. [OPR-CHG-003] 公司增加了新业务，税务上需要变更经营范围吗？
+   stage=OPR, module=CHG, status=active
+13. [OPR-IIT-001] 公司给员工发工资，为什么要代扣代缴个人所得税？
+   stage=OPR, module=IIT, status=active
+14. [OPR-SSF-001] 新公司注册后，多久要办理社保登记？
+   stage=OPR, module=SSF, status=active
+15. [OPR-FEE-001] 没有发票的成本费用能不能入账？
+   stage=OPR, module=FEE, status=active
+16. [OPR-RISK-001] 公司被认定为非正常户，会影响正常开发票吗？
+   stage=OPR, module=RISK, status=active
+17. [CLS-CLEAR-002] 公司注销前，有哪些税必须要清完？
+   stage=CLS, module=CLEAR, status=active
+18. [OPR-SSF-002] 企业未办理社保登记，员工发生工伤，谁来承担工伤待遇？
+   stage=OPR, module=SSF, status=active
+19. [OPR-SSF-003] 企业为员工多缴了社保，可以申请退款吗？
+   stage=OPR, module=SSF, status=active
+20. [SET-REG-006] 企业签订银税三方协议有什么用？签订后可以变更吗？
+   stage=SET, module=REG, status=active
+21. [OPR-CIT-003] 企业对外支付特许权使用费，如何计算代扣代缴税款？
+   stage=OPR, module=CIT, status=active
+22. [OPR-CIT-004] 企业对外支付股息红利，需要代扣代缴税款吗？税率是多少？
+   stage=OPR, module=CIT, status=active
+23. [OPR-REG-003] 企业发现税务系统里的税务登记信息有误，怎么申请修改？
+   stage=OPR, module=REG, status=active
+24. [OPR-INV-008] 企业收到的增值税专用发票密码区超长或密文打印不全，能用吗？
+   stage=OPR, module=INV, status=active
+25. [OPR-RISK-005] 企业收到税局的风险提示函，应该怎么应对和处理？
+   stage=OPR, module=RISK, status=active
+26. [OPR-DEC-005] 小规模纳税人季度开票超过30万元了，怎么处理？还能享受免税吗？
+   stage=OPR, module=DEC, status=active
+27. [OPR-DEC-006] 企业临时发生了一笔特殊业务，当月没有申报，现在已经过了申报期，该怎么处理？
+   stage=OPR, module=DEC, status=active
+28. [OPR-DEC-007] 企业对外捐赠资产，需要视同销售缴纳增值税吗？
+   stage=OPR, module=DEC, status=active
+29. [OPR-DEC-008] 企业有出口业务，怎么申请出口退税？需要具备什么资质？
+   stage=OPR, module=DEC, status=active
+30. [OPR-IIT-002] 企业为员工报销的通信费、交通补贴，需要缴纳个人所得税吗？
+   stage=OPR, module=IIT, status=active
+31. [OPR-RISK-006] 企业收到税局的《税务检查通知书》，要怎么办？
+   stage=OPR, module=RISK, status=active
+32. [OPR-INV-009] 企业对外支付运费，收到个人代开的增值税发票，能抵扣吗？
+   stage=OPR, module=INV, status=active
+33. [OPR-CIT-005] 企业向个人独资企业或合伙企业支付款项，需要代扣代缴个人所得税吗？
+   stage=OPR, module=CIT, status=active
+34. [OPR-INV-010] 企业购买了一套财务软件，发生的软件服务费能否抵扣增值税？
+   stage=OPR, module=INV, status=active
+35. [OPR-IIT-003] 企业为员工报销的学历教育费用，需要计入工资扣缴个人所得税吗？
+   stage=OPR, module=IIT, status=active
+36. [OPR-DEC-010] 企业收到了一笔政府补贴，这笔补贴需要缴纳企业所得税吗？
+   stage=OPR, module=DEC, status=active
+37. [CLS-CLEAR-005] 企业注销时还有留抵进项税额，能申请退税吗？
+   stage=CLS, module=CLEAR, status=active
+38. [OPR-SSF-004] 企业社保费率的计算基数是什么工资总额？
+   stage=OPR, module=SSF, status=active
+39. [OPR-SSF-005] 企业员工离职时，社保当月要不要缴？
+   stage=OPR, module=SSF, status=active
+40. [OPR-SSF-006] 企业为非城镇职工（如实习生、退休返聘人员）需要缴纳社保吗？
+   stage=OPR, module=SSF, status=active
+41. [OPR-FEE-002] 企业收哪些凭证可以代替发票入账？
+   stage=OPR, module=FEE, status=active
+42. [OPR-FEE-003] 企业收到抬头为'个人'的发票能报销吗？能否税前扣除？
+   stage=OPR, module=FEE, status=active
+43. [OPR-FEE-004] 增值税专用发票丢了要怎么处理？
+   stage=OPR, module=FEE, status=active
+44. [OPR-IIT-004] 企业年终奖如何计缴个人所得税？是并入综合所得还是单独计税？
+   stage=OPR, module=IIT, status=active
+45. [OPR-IIT-005] 企业为员工提供的通讯补贴、交通补贴需要缴纳个人所得税吗？
+   stage=OPR, module=IIT, status=active
+46. [OPR-IIT-006] 企业发放股权激励（股票期权）给员工，员工要交个人所得税吗？
+   stage=OPR, module=IIT, status=active
+47. [OPR-RISK-007] 企业被税局通知要接受税务稽查，要怎么应对？
+   stage=OPR, module=RISK, status=active
+48. [OPR-RISK-008] 企业有发票要红冲，应该怎么处理？
+   stage=OPR, module=RISK, status=active
+49. [OPR-RISK-009] 企业收到一张异常凭证，要怎么处理才能避免进项转出？
+   stage=OPR, module=RISK, status=active
+50. [OPR-CIT-006] 企业向境外支付特许权使用费，代扣代缴的所得税有税收协定优惠吗？
+   stage=OPR, module=CIT, status=active
+51. [OPR-CIT-007] 企业发生的资产损失，需要到税局备案才能税前扣除吗？
+   stage=OPR, module=CIT, status=active
+52. [OPR-CIT-008] 企业当年度亏损了，还需要进行年度企业所得税汇算清缴吗？
+   stage=OPR, module=CIT, status=active
+53. [OPR-CLEAR-001] 企业注销时，账上一直没处理的其他应收款（股东借款）要怎么办？
+   stage=OPR, module=CLEAR, status=active
+54. [OPR-CLEAR-002] 企业注销时，老板（法定代表人）的个人卡和公司账户有往来款怎么处理？
+   stage=OPR, module=CLEAR, status=active
+55. [OPR-CLEAR-003] 简易注销和一般注销有什么区别？企业应该选哪种？
+   stage=OPR, module=CLEAR, status=active
+56. [OPR-CHG-007] 公司注册资本增加了，税务上需要办理变更登记吗？
+   stage=OPR, module=CHG, status=active
