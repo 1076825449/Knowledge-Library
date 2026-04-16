@@ -20,8 +20,46 @@
 {%- if request.args.get('newbie') and 'newbie' not in overrides %}{% set qs = qs + ['newbie=1'] %}{% endif -%}
 {%- if current_region and 'region' not in overrides %}{% set qs = qs + ['region=' ~ current_region] %}{% endif -%}
 {%- if current_status and 'status' not in overrides %}{% set qs = qs + ['status=' ~ current_status] %}{% endif -%}
+{%- if current_qtype and 'qtype' not in overrides %}{% set qs = qs + ['qtype=' ~ current_qtype] %}{% endif -%}
 {%- for k, v in overrides.items() %}{% if v %}{% set qs = qs + [k ~ '=' ~ v] %}{% endif %}{% endfor -%}
 {{- '/questions' ~ ('?' ~ qs | join('&') if qs else '') -}}
+{% endmacro %}
+
+{# ===== 中文标签宏 ===== #}
+{% macro stage_label(code) %}
+    {% if code == 'setup' %}设立
+    {% elif code == 'operation' %}经营
+    {% elif code == 'change' %}变更
+    {% elif code == 'dissolution' %}注销
+    {% elif code == 'cross_border' %}跨境
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
+{% macro module_label(code) %}
+    {% if code == 'SSF' %}财税处理
+    {% elif code == 'OPR' %}运营管理
+    {% elif code == 'TAX' %}税务申报
+    {% elif code == 'INV' %}投资融资
+    {% elif code == 'SET' %}设立合规
+    {% elif code == 'RISK' %}风险管控
+    {% elif code == 'CIT' %}企业所得税
+    {% elif code == 'CLS' %}涉税争议
+    {% elif code == 'POLICY' %}政策法规
+    {% elif code == 'ACCT' %}会计核算
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
+{% macro question_type_label(code) %}
+    {% if code == 'type_why' %}原因
+    {% elif code == 'type_whether' %}是否
+    {% elif code == 'type_how' %}如何
+    {% elif code == 'type_what' %}是什么
+    {% elif code == 'type_when' %}何时
+    {% elif code == 'type_where' %}何地
+    {% elif code == 'type_who' %}何人
+    {% elif code == 'type_how_much' %}多少
+    {% elif code == 'type_why_not' %}为何不
+    {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
 {% block title %}问题列表 - 企业税务知识库{% endblock %}
@@ -85,6 +123,15 @@
     <a href="{{ filter_url({'status': 'archived'}) }}" class="filter-chip {% if current_status == 'archived' %}active{% endif %}">归档</a>
 </div>
 
+{# ========== 问题类型筛选 ========== #}
+<div class="filters">
+    <span class="filter-label">类型：</span>
+    <a href="{{ filter_url({'qtype': ''}) }}" class="filter-chip {% if not current_qtype %}active{% endif %}">全部</a>
+    {% for t in question_types %}
+    <a href="{{ filter_url({'qtype': t.type_code}) }}" class="filter-chip {% if current_qtype == t.type_code %}active{% endif %}">{{ question_type_label(t.type_code) }}</a>
+    {% endfor %}
+</div>
+
 {# ========== 快捷筛选 ========== #}
 <div class="filters filters-quick">
     <span class="filter-label">快捷：</span>
@@ -101,8 +148,8 @@
         <a href="/question/{{ q.question_code }}" class="question-link">
             <div class="q-meta">
                 <span class="q-code">{{ q.question_code }}</span>
-                <span class="q-badge stage">{{ q.stage_code }}</span>
-                <span class="q-badge module">{{ q.module_code }}</span>
+                <span class="q-badge stage">{{ stage_label(q.stage_code) }}</span>
+                <span class="q-badge module">{{ module_label(q.module_code) }}</span>
                 {% if q.high_frequency_flag %}
                 <span class="q-badge hf">高频</span>
                 {% endif %}
@@ -128,7 +175,7 @@
 {% if total > page_size %}
 {% set total_pages = ((total - 1) // page_size) + 1 %}
 {# 构建翻页用的基础URL（去掉page参数） #}
-{% set base_url = '/questions?' ~ 'stage=' ~ (current_stage or '') ~ '&module=' ~ (current_module or '') ~ '&tag=' ~ (current_tag or '') ~ '&keyword=' ~ keyword ~ '&region=' ~ current_region ~ '&status=' ~ current_status %}
+{% set base_url = '/questions?' ~ 'stage=' ~ (current_stage or '') ~ '&module=' ~ (current_module or '') ~ '&tag=' ~ (current_tag or '') ~ '&keyword=' ~ keyword ~ '&region=' ~ current_region ~ '&status=' ~ current_status ~ '&qtype=' ~ (current_qtype or '') %}
 <div class="pagination">
     {% if page > 1 %}
     <a href="{{ base_url }}&page={{ page-1 }}" class="page-btn">上一页</a>

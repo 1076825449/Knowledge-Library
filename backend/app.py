@@ -69,6 +69,7 @@ def create_app():
         stage = request.args.get('stage')
         module = request.args.get('module')
         tag = request.args.get('tag')
+        qtype = request.args.get('qtype')
         page = int(request.args.get('page', 1))
         page_size = 10
 
@@ -79,11 +80,13 @@ def create_app():
             newbie=request.args.get('newbie'),
             keyword=request.args.get('keyword'),
             region=request.args.get('region'),
-            status=request.args.get('status')
+            status=request.args.get('status'),
+            qtype=qtype
         )
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
+        question_types = svc.get_question_types()
         keyword = request.args.get('keyword', '')
         current_region = request.args.get('region', '')
         current_status = request.args.get('status', '')
@@ -94,7 +97,8 @@ def create_app():
                                page=page, page_size=page_size,
                                current_stage=stage, current_module=module, current_tag=tag,
                                keyword=keyword,
-                               current_region=current_region, current_status=current_status)
+                               current_region=current_region, current_status=current_status,
+                               question_types=question_types, current_qtype=qtype)
 
     @app.route('/question/<question_code>')
     def question_detail(question_code):

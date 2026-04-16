@@ -32,6 +32,42 @@
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
+{% macro stage_label(code) %}
+    {%- if code == 'SET' -%}设立期
+    {%- elif code == 'OPR' -%}开业期
+    {%- elif code == 'CHG' -%}变更期
+    {%- elif code == 'RSK' -%}风险期
+    {%- elif code == 'SUS' -%}停业期
+    {%- elif code == 'CLS' -%}注销期
+    {%- else -%}{{ code }}{%- endif -%}
+{% endmacro %}
+
+{% macro module_label(code) %}
+    {%- if code == 'REG' -%}登记设立
+    {%- elif code == 'DEC' -%}申报纳税
+    {%- elif code == 'INV' -%}发票管理
+    {%- elif code == 'VAT' -%}增值税
+    {%- elif code == 'IIT' -%}个人所得税
+    {%- elif code == 'CIT' -%}企业所得税
+    {%- elif code == 'SSF' -%}社保公积金
+    {%- elif code == 'CHG' -%}变更登记
+    {%- elif code == 'CLEAR' -%}清税注销
+    {%- elif code == 'RISK' -%}风险应对
+    {%- elif code == 'FEE' -%}成本费用
+    {%- elif code == 'PREF' -%}优惠政策
+    {%- elif code == 'ETAX' -%}电子税务
+    {%- else -%}{{ code }}{%- endif -%}
+{% endmacro %}
+
+{% macro relation_type_label(code) %}
+    {%- if code == 'related' -%}相关问题
+    {%- elif code == 'next' -%}下一步
+    {%- elif code == 'previous' -%}上一步
+    {%- elif code == 'similar' -%}相似问题
+    {%- elif code == 'contrast' -%}对比问题
+    {%- else -%}{{ code }}{%- endif -%}
+{% endmacro %}
+
 {% block title %}{{ detail.question_title }} - 企业税务知识库{% endblock %}
 
 {% block main %}
@@ -42,8 +78,8 @@
     </div>
     <div class="question-meta-top">
         <span class="q-code-lg">{{ detail.question_code }}</span>
-        <span class="q-badge stage">{{ detail.stage_code }}</span>
-        <span class="q-badge module">{{ detail.module_code }}</span>
+        <span class="q-badge stage">{{ stage_label(detail.stage_code) }}</span>
+        <span class="q-badge module">{{ module_label(detail.module_code) }}</span>
         {% if detail.high_frequency_flag %}
         <span class="q-badge hf">高频</span>
         {% endif %}
@@ -239,7 +275,7 @@
         {% for r in detail.relations %}
         <li>
             <a href="/question/{{ r.question_code }}" class="relation-link">
-                <span class="rel-type-badge type-{{ r.relation_type }}">{{ r.relation_type }}</span>
+                <span class="rel-type-badge type-{{ r.relation_type }}">{{ relation_type_label(r.relation_type) }}</span>
                 <span class="rel-code">{{ r.question_code }}</span>
                 <span class="rel-title">{{ r.question_title }}</span>
                 <span class="rel-answer">{{ r.one_line_answer }}</span>
@@ -261,7 +297,7 @@
             <a href="/question/{{ r.question_code }}" class="relation-link">
                 <span class="rel-type-badge type-next">下一步</span>
                 <span class="rel-code">{{ r.question_code }}</span>
-                <span class="rel-stage-badge">{{ r.stage_code }}</span>
+                <span class="rel-stage-badge">{{ stage_label(r.stage_code) }}</span>
                 <span class="rel-title">{{ r.question_title }}</span>
                 <span class="rel-answer">{{ r.one_line_answer }}</span>
             </a>

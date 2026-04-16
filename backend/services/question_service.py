@@ -31,7 +31,7 @@ class QuestionService:
         return rows[0] if rows else None
 
     # ---------- 问题列表 ----------
-    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None, region=None, status=None):
+    def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None, region=None, status=None, qtype=None):
         offset = (page - 1) * page_size
         if status:
             conditions = ["q.status = ?"]
@@ -71,6 +71,9 @@ class QuestionService:
         if status:
             conditions.append("q.status = ?")
             params.append(status)
+        if qtype:
+            conditions.append("q.answer_type = ?")
+            params.append(qtype)
 
         where_clause = " AND ".join(conditions)
 
@@ -298,6 +301,15 @@ class QuestionService:
             FROM tag_dict
             WHERE tag_category = 'business' AND status = 'active'
             ORDER BY display_order
+        """)
+
+    def get_question_types(self):
+        """返回所有问题类型（用于筛选器）"""
+        return self._query("""
+            SELECT DISTINCT answer_type as type_code
+            FROM question_master
+            WHERE status = 'active' AND answer_type IS NOT NULL
+            ORDER BY answer_type
         """)
 
     def get_stats(self):
