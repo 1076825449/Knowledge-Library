@@ -205,70 +205,58 @@ data/
 
 ## 9. backend/ 目录
 
-**作用：** 存放后端逻辑或数据访问层。即使当前阶段使用轻量方案，也建议预留独立目录，不要让前端直接承担全部数据逻辑。
+**作用：** 存放后端逻辑。当前为单文件Flask入口（`backend/app.py`），路由和业务逻辑均在内。
 
 ```
 backend/
-├─ app/           # 应用入口
-├─ routes/        # 路由层
-├─ services/      # 业务逻辑层
-├─ models/        # 数据访问层
-├─ utils/         # 工具函数
-├─ config/        # 配置
+├─ app.py              # Flask 唯一入口，所有路由在此
+├─ config.py           # 数据库路径、管理员密码、密钥配置
+├─ routes/             # API蓝图（前后端分离备用）
+│   ├─ questions.py   # 问题列表/详情API
+│   ├─ search.py     # 搜索API
+│   └─ tags.py        # 标签API
+├─ services/          # 业务逻辑层
+│   └─ question_service.py  # 问题CRUD、搜索、详情查询
 └─ README.md
 ```
 
-| 子目录 | 内容 |
+|| 子目录 | 内容 |
 |--------|------|
-| `backend/routes/` | `questions.py`, `search.py`, `tags.py`, `updates.py` |
-| `backend/services/` | `question_service.py`, `policy_service.py`, `search_service.py`, `relation_service.py` |
-| `backend/models/` | `question.py`, `policy.py`, `tag.py`, `update_log.py` |
+|| `backend/routes/` | `questions.py`, `search.py`, `tags.py` |
+|| `backend/services/` | `question_service.py`（唯一服务文件）|
 
 ---
 
 ## 10. frontend/ 目录
 
-**作用：** 存放网站前端页面和组件。
+**当前实际：** 使用 Jinja2 服务端模板（无前端框架），由 Flask `render_template()` 调用。
 
 ```
 frontend/
-├─ public/           # 静态资源
-├─ src/
-│   ├─ pages/        # 页面
-│   ├─ components/    # 可复用组件
-│   ├─ layouts/      # 布局组件
-│   ├─ services/     # API 请求层
-│   ├─ hooks/        # 自定义 Hooks
-│   ├─ utils/        # 工具函数
-│   ├─ styles/       # 样式文件
-│   ├─ types/        # TypeScript 类型定义
-│   ├─ constants/    # 常量
-│   └─ assets/       # 静态资源
-├─ package.json
+├─ templates/           # Jinja2 HTML模板
+│   ├─ base.html       # 基础模板（导航栏、页脚）
+│   ├─ index.html      # 首页
+│   ├─ questions.html  # 问题列表页
+│   ├─ detail.html     # 问题详情页
+│   ├─ new_question.html    # 新建问题表单
+│   ├─ edit_question.html   # 编辑问题表单
+│   └─ admin_login.html     # 管理员登录页
+├─ static/
+│   └─ css/
+│       └─ style.css   # 全局样式（CSS变量定义）
 └─ README.md
 ```
 
-### 10.1 frontend/src/pages/ 页面
+### 10.1 frontend/templates/ 页面
 
-| 页面 | 文件 | 说明 |
-|------|------|------|
-| 首页 | `HomePage.tsx` | 搜索、阶段入口、模块入口、高频问题 |
-| 问题列表 | `QuestionListPage.tsx` | 筛选、分页 |
-| 问题详情 | `QuestionDetailPage.tsx` | 问题卡片完整展示 |
-| 标签页 | `TagPage.tsx` | 某标签下所有问题 |
-| 更新日志 | `UpdateLogPage.tsx` | 最近更新 |
-
-### 10.2 frontend/src/components/ 组件
-
-| 组件 | 说明 |
-|------|------|
-| `SearchBar.tsx` | 搜索框 |
-| `QuestionCard.tsx` | 问题卡片摘要 |
-| `PolicyBasisBlock.tsx` | 政策依据展示块 |
-| `TagChip.tsx` | 标签徽章 |
-| `StageNav.tsx` | 生命周期阶段导航 |
-| `ModuleNav.tsx` | 主题模块导航 |
-| `UpdateList.tsx` | 更新记录列表 |
+|| 模板 | 对应URL |
+|------|---------|
+| `index.html` | `/` |
+| `questions.html` | `/questions` |
+| `detail.html` | `/question/<code>` |
+| `new_question.html` | `/question/new` |
+| `edit_question.html` | `/question/<code>/edit` |
+| `admin_login.html` | `/admin/login` |
 
 ---
 
@@ -345,20 +333,31 @@ assets/
 - [x] `database/README.md`
 - [x] `database/queries/README.md`
 
-### 前端骨架（目录已建）
+### 前端骨架
 
 - [x] `frontend/README.md`
-- `frontend/src/pages/`（目录）
-- `frontend/src/components/`（目录）
-- `frontend/src/services/`（目录）
-- `frontend/src/types/`（目录）
+- [x] `frontend/templates/base.html`
+- [x] `frontend/templates/index.html`
+- [x] `frontend/templates/questions.html`
+- [x] `frontend/templates/detail.html`
+- [x] `frontend/templates/new_question.html`
+- [x] `frontend/templates/edit_question.html`
+- [x] `frontend/templates/admin_login.html`
+- [x] `frontend/static/css/style.css`
 
-### 后端骨架（目录已建）
+### 后端骨架
 
 - [x] `backend/README.md`
+- [x] `backend/app.py`
+- [x] `backend/config.py`
+- [x] `backend/routes/questions.py`
+- [x] `backend/routes/search.py`
+- [x] `backend/routes/tags.py`
+- [x] `backend/services/question_service.py`
 
-### 脚本骨架（目录已建）
+### 脚本骨架
 
+- [x] `scripts/db/init_db.sh`
 - [x] `scripts/README.md`
 
 ---
