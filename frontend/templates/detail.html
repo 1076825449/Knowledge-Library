@@ -19,6 +19,24 @@
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
+{% macro question_type_label(code) %}
+    {% if code == 'type_whether' %}是否类
+    {% elif code == 'type_how' %}怎么办类
+    {% elif code == 'type_define' %}定义类
+    {% elif code == 'type_risk' %}风险类
+    {% elif code == 'type_time' %}时限类
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
+{% macro status_label(code) %}
+    {% if code == 'active' %}正常
+    {% elif code == 'draft' %}草稿
+    {% elif code == 'pending' %}待复核
+    {% elif code == 'archived' %}归档
+    {% elif code == 'obsolete' %}过时
+    {% else %}{{ code }}{% endif %}
+{% endmacro %}
+
 {% macro support_type_label(code) %}
     {% if code == 'support_direct' %}直接依据
     {% elif code == 'support_procedure' %}办理依据
@@ -47,7 +65,7 @@
         {% endif %}
         {{ certainty_label(detail.answer_certainty) }}
         <span class="q-badge version">v{{ detail.version_no }}</span>
-        <span class="q-badge status-{{ detail.status }}">{{ detail.status }}</span>
+        <span class="q-badge status-{{ detail.status }}">{{ status_label(detail.status) }}</span>
         <a href="/question/{{ detail.question_code }}/edit" class="edit-btn">编辑</a>
     </div>
 </div>

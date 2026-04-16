@@ -38,6 +38,12 @@ sqlite3 "$DB_FILE" < "$ROOT_DIR/database/seed/001_seed_dicts.sql"
 echo "==> 第5步：插入示例数据..."
 sqlite3 "$DB_FILE" < "$ROOT_DIR/database/seed/002_seed_sample_data.sql"
 
+echo "==> 第6步：插入扩展问题内容（SET/OPR/CLS阶段）..."
+sqlite3 "$DB_FILE" < "$ROOT_DIR/database/seed/003_seed_expand_content.sql"
+
+echo "==> 第7步：插入标签关联与问题关系..."
+sqlite3 "$DB_FILE" < "$ROOT_DIR/database/seed/003b_seed_tags_and_relations.sql"
+
 # 验证
 echo ""
 echo "==> 验证数据..."
