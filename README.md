@@ -77,16 +77,22 @@ project-root/
 ## 真实运行方式
 
 ```bash
-# 启动服务（无需安装任何依赖）
+# 1. 安装依赖
+pip install -r requirements.txt
+
+# 2. 初始化数据库（如数据库文件不存在）
+bash scripts/db/init_db.sh
+
+# 3. 启动服务
 cd /Volumes/外接硬盘/vibe\ coding/知识库
 python backend/app.py
-# 访问 http://localhost:5000
+# 服务启动在 http://localhost:5000
 
-# 编辑功能（新建/编辑问题）
-# 首次访问 /question/new 或 /question/<code>/edit 时需输入管理员密码
-# 默认密码：tax2026
-# 修改密码：export ADMIN_PASSWORD=你的密码 && python backend/app.py
+# 修改管理员密码（可选）
+export ADMIN_PASSWORD=你的密码 && python backend/app.py
 ```
+
+> **注意**：Flask 默认端口为 5000。如需更换，可设置环境变量 `FLASK_RUN_PORT=3000`，或直接修改 `backend/app.py` 中的 `app.run(host='0.0.0.0', port=5000)`。
 
 ### 一键初始化数据库（如需重新创建）
 

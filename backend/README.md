@@ -2,29 +2,30 @@
 
 ## 技术栈
 
-- **Python Flask** — Web框架
-- **Jinja2** — 模板引擎（服务端渲染）
-- **SQLite** — 数据库（文件位于 `database/db/tax_knowledge.db`）
+- **Python Flask** — Web框架（需安装：`pip install Flask flask-cors`）
+- **Jinja2** — 模板引擎（Flask内置）
+- **SQLite** — 数据库（Python内置，无需单独安装）
 - **Werkzeug** — WSGI工具（Flask内置）
 
 ## 启动方式
 
 ```bash
 cd /Volumes/外接硬盘/vibe\ coding/知识库
+pip install -r ../requirements.txt   # 安装 Flask + flask-cors
 python backend/app.py
 # 服务启动在 http://localhost:5000
 ```
 
-无需安装依赖（标准库足够），无需 `.env` 文件。密码通过环境变量 `ADMIN_PASSWORD` 修改，默认密码为 `tax2026`。
+> 密码通过环境变量 `ADMIN_PASSWORD` 修改，默认密码为 `tax2026`。
+> `SECRET_KEY` 通过环境变量 `SECRET_KEY` 修改，生产环境必须更换。
 
 ## 目录结构
 
 ```
 backend/
-├── app.py              # Flask 唯一入口，所有路由在此定义
+├── app.py              # Flask 唯一入口，所有页面路由在此定义
 ├── config.py           # 数据库路径、密码、密钥配置
-├── requirements.txt    # （预留，当前无需安装额外依赖）
-├── routes/             # API蓝图（前后端分离备用）
+├── routes/             # API蓝图（前后端分离备用，非前端直接调用）
 │   ├── questions.py    # 问题列表/详情API
 │   ├── search.py       # 搜索API
 │   └── tags.py         # 标签API
