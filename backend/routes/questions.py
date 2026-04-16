@@ -17,13 +17,23 @@ def list_questions():
     tag = request.args.get('tag')
     page = int(request.args.get('page', 1))
     page_size = int(request.args.get('page_size', 20))
+    keyword = request.args.get('keyword')
+    region = request.args.get('region')
+    status = request.args.get('status')
+    hf = request.args.get('hf')
+    newbie = request.args.get('newbie')
 
     result = svc.list_questions(
         stage=stage,
         module=module,
         tag=tag,
         page=page,
-        page_size=page_size
+        page_size=page_size,
+        keyword=keyword,
+        region=region,
+        status=status,
+        hf=hf,
+        newbie=newbie
     )
     return jsonify(result)
 
