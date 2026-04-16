@@ -15,6 +15,7 @@ class QuestionService:
 
     def _query(self, sql, params=None):
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
         if params:
@@ -302,6 +303,7 @@ class QuestionService:
     def get_stats(self):
         """返回首页统计数字：总问题数、高频数、新手数、政策依据数"""
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         cur = conn.cursor()
         cur.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active'")
         total_questions = cur.fetchone()[0]
@@ -342,6 +344,7 @@ class QuestionService:
         if missing:
             raise ValueError(f"缺少必填字段：{', '.join(missing)}")
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         cur = conn.cursor()
 
         # 生成编码
@@ -380,7 +383,7 @@ class QuestionService:
             data.get('keywords', ''),
             1 if data.get('high_frequency_flag') else 0,
             1 if data.get('newbie_flag') else 0,
-            data.get('status', 'draft'),
+            data.get('status', 'active'),
             now, now
         ))
         question_id = cur.lastrowid
@@ -430,6 +433,7 @@ class QuestionService:
     def add_policy_link(self, question_code, policy_id, support_type, support_note='', display_order=1):
         """将政策依据关联到问题"""
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         cur = conn.cursor()
         cur.execute(
             "SELECT id FROM question_master WHERE question_code = ?",
@@ -470,6 +474,7 @@ class QuestionService:
         if missing:
             raise ValueError(f"字段不能为空：{', '.join(missing)}")
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         cur = conn.cursor()
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -549,6 +554,7 @@ class QuestionService:
     def remove_policy_link(self, question_code, policy_id):
         """解除问题与政策的关联"""
         conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
         cur = conn.cursor()
         cur.execute("SELECT id FROM question_master WHERE question_code = ?", (question_code,))
         row = cur.fetchone()
