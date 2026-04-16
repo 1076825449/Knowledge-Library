@@ -116,11 +116,11 @@
 
         <div class="form-group">
             <label for="status">条目状态</label>
-            <select name="status" id="status">
-                <option value="active" {% if detail.status == 'active' %}selected{% endif %}>active - 正常</option>
-                <option value="draft" {% if detail.status == 'draft' %}selected{% endif %}>draft - 草稿</option>
-                <option value="archived" {% if detail.status == 'archived' %}selected{% endif %}>archived - 归档</option>
-            </select>
+                <select name="status" id="status">
+                    <option value="active" {% if detail.status == 'active' %}selected{% endif %}>正常</option>
+                    <option value="draft" {% if detail.status == 'draft' %}selected{% endif %}>草稿</option>
+                    <option value="archived" {% if detail.status == 'archived' %}selected{% endif %}>归档</option>
+                </select>
         </div>
 
         <div class="form-group">

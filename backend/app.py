@@ -181,7 +181,8 @@ def create_app():
 
         return render_template('edit_question.html',
                                detail=detail, stages=stages, modules=modules,
-                               business_tags=business_tags, all_policies=all_policies)
+                               all_tags=all_tags, business_tags=business_tags,
+                               all_policies=all_policies)
 
     # ---------- 导航条加新增入口 ----------
     # （导航条在 base.html 里直接写死，这里不需要改动）
