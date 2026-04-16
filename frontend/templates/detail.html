@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{# ---- 辅助宏 ---- #}
+{# ---- 辅助宏（必须在{% block %}之前） ---- #}
 {% macro certainty_label(code) %}
     {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
     {% elif code == 'certain_condition' %}<span class="certainty-tag condition">有条件</span>
@@ -34,14 +34,6 @@
     {% elif code == 'pending' %}待复核
     {% elif code == 'archived' %}归档
     {% elif code == 'obsolete' %}过时
-    {% else %}{{ code }}{% endif %}
-{% endmacro %}
-
-{% macro support_type_label(code) %}
-    {% if code == 'support_direct' %}直接依据
-    {% elif code == 'support_procedure' %}办理依据
-    {% elif code == 'support_reference' %}参考依据
-    {% elif code == 'support_interpretation' %}政策解读
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
