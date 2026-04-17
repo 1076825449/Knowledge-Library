@@ -469,20 +469,18 @@ Seed文件修正（4个文件）：`certain_condition`(无al) → `certain_condi
 
 ### 测试命令
 ```bash
-cd /Volumes/外接硬盘/vibe\ coding/网站/知识库
 python3 -m pytest tests/ -q
 ```
 
 **当前状态：71 passed**
 
 ### 环境兼容性
-- Xcode Python 3.9 环境（`/Applications/Xcode.app`）实际装 Flask 2.3.0，与 requirements.txt 声明（Flask 3.0.0）不一致
-- `tests/conftest.py` 通过 `pytest_configure` 钩子在收集阶段注入 werkzeug 版本兼容 patch（`werkzeug.__version__` → `werkzeug.version.__version__`），解决 Flask 2.3.0 test_client + Werkzeug 3.0 兼容问题
-- hermes venv（python3 3.11 + Flask 3.0.0）下测试同样通过
+- Python 3.11 + Flask 3.0.0 环境
+- `tests/conftest.py` 通过 `pytest_configure` 钩子注入 werkzeug 版本兼容 patch
+- 数据库路径从 `backend/config.py` 动态读取，跨机器运行无绝对路径依赖
 
 ### session_transaction() 注意事项
-- Flask 2.3.0 的 `test_client.session_transaction()` 在 Werkzeug 3.0 环境有 bug（`_update_cookies_from_response` 签名不匹配）
-- `tests/backend/test_routes.py` 的 client fixture 通过 POST 正确 admin 密码到 `/question/new` 建立认证 session，不使用 `session_transaction()`，不碰 `app.view_functions`，不影响生产 admin 保护逻辑
+- `tests/backend/test_routes.py` 的 client fixture 通过 POST 正确 admin 密码到 `/question/new` 建立认证 session，不使用 `session_transaction()`
 
 ---
 

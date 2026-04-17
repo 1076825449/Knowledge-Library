@@ -34,9 +34,9 @@ cd backend && python app.py
 
 | 表名 | 用途 |
 |------|------|
-| `question_master` | 问题主表 |
-| `policy_basis` | 政策依据表 |
-| `question_policy_link` | 问题-政策关联表 |
+| `question_master` | 问题主表（24列，包含问题内容、政策依据、风险提示等所有字段）|
+| `policy_basis` | 政策依据表（15列，包含文号、条款、政策层级、有效期等）|
+| `question_policy_link` | 问题-政策关联表（6列：问题ID、政策ID、支撑类型、说明、排序）|
 | `tag_dict` | 标签字典表 |
 | `question_tag_link` | 问题-标签关联表 |
 | `question_update_log` | 问题更新记录表 |
@@ -65,22 +65,41 @@ cd backend && python app.py
 - PREF = 优惠政策
 - RISK = 风险应对
 - CLEAR = 清税注销
+- TAX = 税务综合
 - ETAX = 电子税务局/系统办理
+
+### 当前数据体量
+
+| 指标 | 数量 |
+|------|------|
+| 问题总数 | 257 条（100% 有政策支撑）|
+| 政策依据 | 89 条（全部有引用记录）|
+| 政策链接 | 375 条 |
+
+**问题分布（按模块）**
+
+| 模块 | 数量 | 模块 | 数量 |
+|------|------|------|------|
+| REG | 43 | CIT | 18 |
+| DEC | 34 | CLEAR | 18 |
+| RISK | 39 | VAT | 16 |
+| INV | 23 | IIT | 15 |
+| PREF | 20 | FEE | 13 |
+| SSF | 10 | TAX | 8 |
 
 ## 项目文件结构
 
 ```
-project-root/
+Knowledge-Library/
 ├─ README.md              # 本文件
 ├─ AGENTS.md              # agent 行为约束
 ├─ TASKS.md               # 项目任务清单
 ├─ CONTENT_SPEC.md        # 问题卡片写作规范
-├─ PROJECT_MANIFEST.md    # 项目总纲
 ├─ PROJECT_STRUCTURE.md   # 目录结构规范
-├─ DEVELOPMENT.md         # 开发说明
-├─ DEPLOYMENT.md          # 部署说明
 ├─ requirements.txt
 ├─ .env.example
+│
+├─ .github/workflows/     # GitHub Actions CI
 │
 ├─ backend/               # Flask 应用
 │   ├─ app.py            # 主入口（localhost:5000）
@@ -105,11 +124,10 @@ project-root/
 │
 ├─ data/
 │   ├─ imports/          # 批量导入 JSON 源文件
-│   └─ exports/          # 导出数据（运行时生成）
+│   ├─ exports/          # 导出数据（运行时生成）
+│   └─ reports/          # 质量报告（运行时生成）
 │
-└─ tests/                # 测试套件
-    ├─ backend/          # 路由 + 服务层测试
-    └─ content/          # 内容脚本测试
+└─ tests/                # 测试套件（71 passed）
 ```
 
 ## 常用命令
@@ -133,9 +151,12 @@ python3 -m pytest tests/backend/test_routes.py -v
 
 # 环境检查
 python scripts/ops/check_env.py
+
+# 内容质量报告
+python scripts/content/priority_reinforce.py
 ```
 
-当前测试状态：**71 passed**
+**当前测试状态：71 passed**
 
 ### 数据库
 
@@ -165,10 +186,10 @@ python scripts/export/export_chunks.py
 
 | 文档 | 作用 |
 |------|------|
-| `PROJECT_MANIFEST.md` | 项目总纲，介绍项目定位、愿景、设计原则 |
 | `AGENTS.md` | 给 agent 立规则，规定优先级、禁止事项、决策顺序 |
-| `TASKS.md` | 任务拆解清单，8 个 Phase，可逐阶段验收 |
+| `TASKS.md` | 项目任务拆解清单，8 个 Phase，可逐阶段验收 |
 | `CONTENT_SPEC.md` | 问题卡片写作规范，保证内容质量标准 |
+| `PROJECT_STRUCTURE.md` | 目录结构规范 |
 | `DEVELOPMENT.md` | 开发说明，环境准备、日常命令、Git 工作流 |
 | `DEPLOYMENT.md` | 部署说明，生产部署方式、备份恢复 |
 
@@ -184,9 +205,19 @@ python scripts/export/export_chunks.py
 | Phase 5 | 检索、筛选增强 | ✅ 已完成 |
 | Phase 6 | 内容录入便利化 | ✅ 已完成 |
 | Phase 7 | 地方口径与专业增强 | ✅ 已完成 |
-| Phase 8 | AI 检索预留 | ✅ 结构预留（内容未实现） |
+| Phase 8 | AI 检索预留 | ✅ 结构预留，数据就绪（257条/89条政策/375条链接） |
+
+## 后续扩容方向（短板优先）
+
+内容扩容不继续线性堆题，而是按以下优先级补短板：
+
+1. **模块覆盖率低的模块**：TAX(8) / SSF(10) / FEE(13) / IIT(15) / VAT(16)
+2. **高频问题群补强**：零申报、发票红字、欠税非正常户、注销清算等高频问题政策依据补强
+3. **政策依据补强**：梳理仍可能存在空链接的问题；核查高频政策（GOV-Tax-001=28条引用）的支撑质量
+4. **关联关系补强**：为问题补关联关系，提升知识库路径式使用体验
+5. **内容质量审计**：通过 `priority_reinforce.py` 定期审计字段完整率和空值率
 
 ---
 
 **创建日期**：2026-04-15
-**最后更新**：2026-04-18
+**最后更新**：2026-04-19
