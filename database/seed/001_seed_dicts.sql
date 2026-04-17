@@ -39,7 +39,7 @@ INSERT INTO tag_dict (tag_code, tag_name, tag_category, display_order) VALUES
 -- -------------------- 答案确定性 --------------------
 INSERT INTO tag_dict (tag_code, tag_name, tag_category, display_order) VALUES
 ('certain_clear', '明确', 'answer_certainty', 1),
-('certain_condition', '条件判断', 'answer_certainty', 2),
+('certain_conditional', '条件判断', 'answer_certainty', 2),
 ('certain_dispute', '存在争议', 'answer_certainty', 3),
 ('certain_practice', '以实务口径为准', 'answer_certainty', 4);
 

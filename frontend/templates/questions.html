@@ -3,7 +3,7 @@
 {# ===== 辅助宏 ===== #}
 {% macro certainty_label(code) %}
     {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
-    {% elif code == 'certain_condition' %}<span class="certainty-tag condition">有条件</span>
+    {% elif code == 'certain_conditional' %}<span class="certainty-tag condition">有条件</span>
     {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
     {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
@@ -27,25 +27,28 @@
 
 {# ===== 中文标签宏 ===== #}
 {% macro stage_label(code) %}
-    {% if code == 'setup' %}设立
-    {% elif code == 'operation' %}经营
-    {% elif code == 'change' %}变更
-    {% elif code == 'dissolution' %}注销
-    {% elif code == 'cross_border' %}跨境
+    {% if code == 'SET' %}设立期
+    {% elif code == 'OPR' %}开业/日常经营期
+    {% elif code == 'CHG' %}变更期
+    {% elif code == 'RSK' %}风险异常期
+    {% elif code == 'SUS' %}停业期
+    {% elif code == 'CLS' %}注销期
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
 {% macro module_label(code) %}
-    {% if code == 'SSF' %}财税处理
-    {% elif code == 'OPR' %}运营管理
-    {% elif code == 'TAX' %}税务申报
-    {% elif code == 'INV' %}投资融资
-    {% elif code == 'SET' %}设立合规
-    {% elif code == 'RISK' %}风险管控
+    {% if code == 'REG' %}登记管理
+    {% elif code == 'DEC' %}申报纳税
+    {% elif code == 'INV' %}发票管理
+    {% elif code == 'VAT' %}增值税
     {% elif code == 'CIT' %}企业所得税
-    {% elif code == 'CLS' %}涉税争议
-    {% elif code == 'POLICY' %}政策法规
-    {% elif code == 'ACCT' %}会计核算
+    {% elif code == 'IIT' %}个人所得税
+    {% elif code == 'SSF' %}社保费
+    {% elif code == 'FEE' %}成本费用
+    {% elif code == 'PREF' %}优惠政策
+    {% elif code == 'RISK' %}风险管控
+    {% elif code == 'CLEAR' %}清税注销
+    {% elif code == 'ETAX' %}电子税务局/系统办理
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
@@ -54,11 +57,9 @@
     {% elif code == 'type_whether' %}是否
     {% elif code == 'type_how' %}如何
     {% elif code == 'type_what' %}是什么
-    {% elif code == 'type_when' %}何时
-    {% elif code == 'type_where' %}何地
-    {% elif code == 'type_who' %}何人
-    {% elif code == 'type_how_much' %}多少
-    {% elif code == 'type_why_not' %}为何不
+    {% elif code == 'type_define' %}定义
+    {% elif code == 'type_time' %}时限
+    {% elif code == 'type_risk' %}风险
     {% else %}{{ code }}{% endif %}
 {% endmacro %}
 
@@ -92,8 +93,6 @@
 </div>
 
 {# ========== 业务标签筛选 ========== #}
-{% if all_tags %}
-{% set business_tags = all_tags | selectattr('tag_category', 'equalto', 'business') | list %}
 {% if business_tags %}
 <div class="filters">
     <span class="filter-label">标签：</span>
@@ -103,15 +102,14 @@
     {% endfor %}
 </div>
 {% endif %}
-{% endif %}
 
 {# ========== 适用范围筛选 ========== #}
 <div class="filters">
     <span class="filter-label">地区：</span>
     <a href="{{ filter_url({'region': ''}) }}" class="filter-chip {% if not current_region %}active{% endif %}">全部</a>
     <a href="{{ filter_url({'region': 'scope_national'}) }}" class="filter-chip {% if current_region == 'scope_national' %}active{% endif %}">全国通用</a>
-    <a href="{{ filter_url({'region': 'scope_provincial'}) }}" class="filter-chip {% if current_region == 'scope_provincial' %}active{% endif %}">省级口径</a>
     <a href="{{ filter_url({'region': 'scope_local'}) }}" class="filter-chip {% if current_region == 'scope_local' %}active{% endif %}">地方口径</a>
+    <a href="{{ filter_url({'region': 'scope_mixed'}) }}" class="filter-chip {% if current_region == 'scope_mixed' %}active{% endif %}">混合口径</a>
 </div>
 
 {# ========== 状态筛选 ========== #}

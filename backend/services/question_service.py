@@ -299,8 +299,8 @@ class QuestionService:
         return self._query("""
             SELECT tag_code, tag_name
             FROM tag_dict
-            WHERE tag_category = 'business' AND status = 'active'
-            ORDER BY display_order
+            WHERE tag_category IN ('business', 'business_tag') AND status = 'active'
+            ORDER BY tag_category, display_order
         """)
 
     def get_question_types(self):

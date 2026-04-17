@@ -3,7 +3,7 @@
 {# ---- 辅助宏（必须在{% block %}之前） ---- #}
 {% macro certainty_label(code) %}
     {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
-    {% elif code == 'certain_condition' %}<span class="certainty-tag condition">有条件</span>
+    {% elif code == 'certain_conditional' %}<span class="certainty-tag condition">有条件</span>
     {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
     {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
@@ -14,12 +14,11 @@
 {% macro question_type_label(code) %}
 {%- if code == 'type_whether' -%}是否类
 {%- elif code == 'type_how' -%}怎么办类
-{%- elif code == 'type_definition' -%}定义类
+{%- elif code == 'type_define' or code == 'type_definition' -%}定义类
 {%- elif code == 'type_risk' -%}风险类
 {%- elif code == 'type_time' -%}时限类
 {%- elif code == 'type_why' -%}为什么类
-{%- elif code == 'type_other' -%}其他类
-{%- elif code == 'type_define' -%}定义类
+{%- elif code == 'type_what' -%}是什么类
 {%- else -%}{{ code }}{%- endif -%}
 {% endmacro %}
 
@@ -154,10 +153,10 @@
 {# ========== 适用范围 ========== #}
 {% if detail.scope_level == 'scope_national' %}
 <div class="scope-note">适用地区：全国通用</div>
-{% elif detail.scope_level == 'scope_provincial' %}
-<div class="scope-note">适用地区：省级口径</div>
 {% elif detail.scope_level == 'scope_local' %}
 <div class="scope-note">适用地区：地方口径</div>
+{% elif detail.scope_level == 'scope_mixed' %}
+<div class="scope-note">适用地区：混合口径</div>
 {% elif detail.local_region %}
 <div class="scope-note local">地区：{{ detail.local_region }}</div>
 {% endif %}

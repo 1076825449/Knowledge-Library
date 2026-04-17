@@ -99,7 +99,7 @@
                 <label for="answer_certainty">结论稳定度</label>
                 <select name="answer_certainty" id="answer_certainty">
                     <option value="certain_clear">明确（无附加条件）</option>
-                    <option value="certain_condition">有条件（明确条件下成立）</option>
+                    <option value="certain_conditional">有条件（明确条件下成立）</option>
                     <option value="certain_dispute">有争议（实务中存在分歧）</option>
                     <option value="certain_practice">实务做法（仅为经验总结）</option>
                 </select>
@@ -108,7 +108,6 @@
                 <label for="scope_level">适用范围</label>
                 <select name="scope_level" id="scope_level">
                     <option value="scope_national">全国通用</option>
-                    <option value="scope_provincial">省级口径</option>
                     <option value="scope_local">地方口径</option>
                     <option value="scope_mixed">混合口径</option>
                 </select>
@@ -120,11 +119,11 @@
             <select name="question_type" id="question_type">
                 <option value="type_whether">是否类（能不能/要不要/会不会…）</option>
                 <option value="type_how">怎么办类（如何处理/怎么申报…）</option>
-                <option value="type_definition">定义类（什么是/包含哪些…）</option>
+                <option value="type_define">定义类（什么是/包含哪些…）</option>
+                <option value="type_what">是什么类（属于什么/有哪些情形…）</option>
                 <option value="type_risk">风险类（有什么风险/注意什么…）</option>
                 <option value="type_time">时限类（什么时候/几天/几号之前…）</option>
                 <option value="type_why">为什么类（为什么要/原因是什么…）</option>
-                <option value="type_other">其他类</option>
             </select>
         </div>
 

@@ -53,7 +53,7 @@ WHERE q.question_code = 'OPR-INV-003' AND t.tag_code IN ('OPR', 'INV', 'type_whe
 INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
-WHERE q.question_code = 'OPR-INV-004' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_condition', 'tag_invoice');
+WHERE q.question_code = 'OPR-INV-004' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_conditional', 'tag_invoice');
 
 -- OPR-CHG-002 标签
 INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)

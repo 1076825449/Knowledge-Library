@@ -55,8 +55,8 @@ CERTAINTY_LABEL = {
 
 SCOPE_LABEL = {
     "scope_national": "全国通用",
-    "scope_provincial": "省级口径",
     "scope_local": "地方口径",
+    "scope_mixed": "混合口径",
 }
 
 

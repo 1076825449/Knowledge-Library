@@ -14,11 +14,10 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'db', 'tax_knowledge.db')
 REPORTS_DIR = os.path.join(PROJECT_ROOT, 'data', 'reports')
 
-VALID_ANSWER_CERTAINTY = {'certain_clear', 'certain_condition', 'certain_dispute', 'certain_practice'}
-VALID_SCOPE_LEVEL = {'scope_national', 'scope_provincial', 'scope_local'}
-VALID_QUESTION_TYPE = {'type_why', 'type_whether', 'type_how', 'type_what', 'type_when',
-                       'type_where', 'type_who', 'type_how_much', 'type_risk',
-                       'type_time', 'type_why_not'}
+VALID_ANSWER_CERTAINTY = {'certain_clear', 'certain_conditional', 'certain_dispute', 'certain_practice'}
+VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
+VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
+                       'type_time', 'type_what', 'type_why'}
 VALID_MODULE_CODES = {'REG', 'DEC', 'INV', 'VAT', 'CIT', 'IIT', 'SSF', 'FEE', 'PREF', 'RISK', 'CLEAR', 'ETAX'}
 
 

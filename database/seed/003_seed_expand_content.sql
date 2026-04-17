@@ -246,7 +246,7 @@ INSERT OR IGNORE INTO question_master (
     '步骤1：确认客户是否真的需要专用发票（购买方是否为一船纳税人）\n步骤2：确认本企业是否已自行开通专票开具资质\n步骤3：如有需要，到税务局申请代开\n步骤4：如实申报专票部分的增值税\n步骤5：保留相关完税凭证',
     '为不具备抵扣资格的购买方开具专用发票，购买方抵扣后被发现，销售方可能面临连带责任。\n\n小规模纳税人开具专票不享受免税政策，需如实申报缴纳。',
     'scope_national', NULL,
-    'certain_condition', '专用发票 普通发票 小规模纳税人 代开 抵扣 进项税',
+    'certain_conditional', '专用发票 普通发票 小规模纳税人 代开 抵扣 进项税',
     1, 0,
     'active', 1, datetime('now'), datetime('now')
 );
@@ -528,7 +528,7 @@ WHERE q.question_code = 'OPR-INV-003' AND t.tag_code IN ('OPR', 'INV', 'type_whe
 INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
 SELECT q.id, t.id, 1
 FROM question_master q, tag_dict t
-WHERE q.question_code = 'OPR-INV-004' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_condition', 'tag_invoice');
+WHERE q.question_code = 'OPR-INV-004' AND t.tag_code IN ('OPR', 'INV', 'type_whether', 'certain_conditional', 'tag_invoice');
 
 -- OPR-CHG-002 标签
 INSERT OR IGNORE INTO question_tag_link (question_id, tag_id, display_order)
