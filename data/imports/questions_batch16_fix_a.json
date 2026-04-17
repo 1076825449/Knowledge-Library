@@ -1,0 +1,73 @@
+[
+  {
+    "question_title": "企业注销清算过程中，存货过期变质无法销售，税务上如何处理？",
+    "one_line_answer": "经税务机关核准后，作为财产损失在税前扣除，需要进项税额转出。",
+    "details": "企业注销时存货过期变质的税务处理，依据企业所得税法和资产损失税前扣除管理办法：(1)存货过期变质属于非正常损失，须做进项税额转出，将已抵扣税额转出计入损失；(2)经税务机关审核后，该笔资产损失可在当年度企业所得税税前扣除；(3)若存货已按正常销售处理过，则不再重复处理；(4)存货损失金额以账面净值（成本减去已计提跌价准备）为准；(5)须保存好存货报废的内部审批记录、销毁记录和影像资料，供税务机关备查。",
+    "module_code": "CLEAR",
+    "stage_code": "CLS",
+    "question_code": "CLS-CLEAR-013",
+    "question_type": "type_procedure",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "资产损失",
+      "增值税"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-CIT-002",
+        "section_quote": "《企业资产损失所得税税前扣除管理办法》第九条，非正常损失资产损失的处理。"
+      },
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第十条，非正常损失进项税额不得抵扣的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-012",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "存货变质须进项税额转出，经核准后作为资产损失在企业所得税税前扣除。"
+  },
+  {
+    "question_title": "企业在注销清算过程中，聘请会计师事务所出具清算审计报告的费用，能否在企业所得税前扣除？",
+    "one_line_answer": "能。清算审计费用属于清算费用，经税务机关认定后可按规定在企业所得税税前扣除。",
+    "details": "企业注销清算过程中，清算审计费用的税务处理依据企业所得税法及实施条例：(1)清算审计费用属于清算期间产生的合理费用，符合企业所得税税前扣除条件；(2)须取得合法的税前扣除凭证（会计师事务所开具的发票）；(3)清算费用须在清算所得中优先扣除，扣除顺序在清偿欠税本金之后；(4)若清算结果为亏损，清算费用仍可作为清算亏损在税前弥补，但有年限限制（不超过5年）；(5)建议在清算方案中明确清算费用的预算和实际支出金额。",
+    "module_code": "FEE",
+    "stage_code": "CLS",
+    "question_code": "CLS-FEE-002",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "清算费用"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-001",
+        "section_quote": "《企业所得税法》第八条，关于企业实际发生的与取得收入有关的合理支出准予扣除的规定。"
+      },
+      {
+        "policy_code": "SAT-FEE-001",
+        "section_quote": "《关于企业所得税若干问题的公告》第一条，关于清算费用的扣除规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-TAX-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "清算审计费用可凭发票在企业所得税前扣除，在清算所得中优先扣除。"
+  }
+]

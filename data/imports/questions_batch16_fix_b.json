@@ -1,0 +1,155 @@
+[
+  {
+    "question_title": "企业变更法定代表人，原法定代表人还需对变更前的税务违规行为承担责任吗？",
+    "one_line_answer": "是的。法定代表人是税务违法行为的主要责任人，任期内的税务违规不因变更而免责。",
+    "details": "根据税收征收管理法和税务登记管理办法，税务违法行为的行政责任以违法行为发生时实际担任法定代表人职务的人员为责任主体。具体规则：(1)变更登记完成前产生的欠税、偷逃税等违法行为，追溯原法定代表人；(2)原法定代表人名下的重大税收违法失信信息，在未修复前仍影响其再任职其他企业法定代表人的资格；(3)新任法定代表人仅对变更登记之后的税务行为负责；(4)涉及偷逃税犯罪的，司法责任由实施犯罪行为时的直接负责人承担，不因离职或变更而免除。",
+    "module_code": "RISK",
+    "stage_code": "CHG",
+    "question_code": "CHG-RISK-003",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更",
+      "运营"
+    ],
+    "theme_tags": [
+      "税务登记",
+      "法律责任",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》关于纳税人法律责任的规定。"
+      },
+      {
+        "policy_code": "POL-RISK-001",
+        "section_quote": "《非正常户管理办法》关于失信主体责任人认定的规定。"
+      },
+      {
+        "policy_code": "GOV-REG-001",
+        "section_quote": "《税务登记管理办法》第十条，法定代表人变更后税务责任的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-REG-002",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "原法定代表人对任期内的税务违规继续承担责任，不因变更而免除。"
+  },
+  {
+    "question_title": "分支机构注销后，总机构如何进行企业所得税汇算清缴调整？",
+    "one_line_answer": "分支机构注销后，总机构须重新计算全年实际利润，调整分摊比例，并补（或退）相应税款。",
+    "details": "根据企业所得税法及跨地区经营汇总纳税管理办法，分支机构注销前后总机构的税务处理：(1)分支机构注销前，当期已预缴的企业所得税可以抵减；(2)注销后，总机构须在年度汇算清缴时重新计算全企业应纳所得税额，因分支机构注销导致收入、成本等因素变化，可能产生补税或退税；(3)若分支机构注销时间在年度中间，总机构应按实际经营月份重新分摊税款；(4)对于就地预缴比例调整，须报主管税务机关备案；(5)分支机构注销后的涉税资料（包括分摊表、分配表）须保存备查。",
+    "module_code": "CIT",
+    "stage_code": "CLS",
+    "question_code": "CLS-CIT-003",
+    "question_type": "type_procedure",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "汇总纳税"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-001",
+        "section_quote": "《企业所得税法》第五十条，汇总纳税相关规定。"
+      },
+      {
+        "policy_code": "POL-CIT-002",
+        "section_quote": "《企业资产损失所得税税前扣除管理办法》关于分摊扣除的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CIT-002",
+        "relation_type": "relation_extension"
+      },
+      {
+        "code": "CLS-CLEAR-009",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "分支机构注销后总机构须重新计算汇算清缴，调整分摊比例并补退税款。"
+  },
+  {
+    "question_title": "企业注销后发现存在虚开增值税专用发票行为，税务机关如何处理？",
+    "one_line_answer": "撤销注销登记，恢复为正常纳税人，追缴税款并处罚款，情节严重移送公安机关。",
+    "details": "企业注销后发现虚开增值税专用发票违法行为的处理，税收征收管理法和发票管理办法有明确规定：(1)税务机关有权依法撤销原注销税务登记决定，恢复企业的纳税人主体资格；(2)虚开金额巨大的，税务机关将追缴受票方已抵扣的进项税额及对应滞纳金；(3)对虚开方（即使已注销）的主管人员、实际控制人追究责任，包括罚款和刑事责任；(4)涉及重大税收违法的，纳入重大税收违法失信主体名单，实施联合惩戒；(5)构成虚开增值税专用发票罪的，依据刑法第二百零五条定罪量刑。",
+    "module_code": "RISK",
+    "stage_code": "CLS",
+    "question_code": "CLS-RISK-003",
+    "question_type": "type_clarify",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "虚开发票",
+      "法律责任",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "TAX-POL-002",
+        "section_quote": "《关于纳税人虚开增值税专用发票征屿税款问题的公告》，虚开发票的处理规定。"
+      },
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》关于偷逃税法律责任的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-RISK-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "撤销注销登记追缴税款并处罚款，主观故意者移送公安机关追究刑责。"
+  },
+  {
+    "question_title": "企业停业期间，签订新订单或取得营业收入，增值税纳税义务是否仍然发生？",
+    "one_line_answer": "是的。签订合同或提供服务即产生增值税纳税义务，与停业状态无关。",
+    "details": "根据增值税暂行条例及实施细则，增值税纳税义务按权责发生制确认，具体规定：(1)增值税纳税义务发生时间为开具发票的当天、收讫销售款项的当天或取得索取销售款项凭据的当天；(2)签订新订单合同，即使尚未开具发票或收款，也已产生纳税义务；(3)企业处于停业状态但签订新订单的，属于恢复经营行为，须向税务机关报告并补办相关申报；(4)若签订订单后停业状态持续，增值税仍须在纳税义务发生当期申报缴纳，可申请延期申报但须经税务机关批准；(5)复业后须主动向税务机关补充申报，避免滞纳金和罚款。",
+    "module_code": "VAT",
+    "stage_code": "SUS",
+    "question_code": "SUS-VAT-003",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业",
+      "运营"
+    ],
+    "theme_tags": [
+      "增值税",
+      "纳税义务发生时间"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第十九条，纳税义务发生时间的规定。"
+      },
+      {
+        "policy_code": "SAT-VAT-004",
+        "section_quote": "《增值税纳税申报管理暂行办法》关于纳税义务申报的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-VAT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "签订订单即产生纳税义务，停业期间须主动向税务机关报告并申报缴纳。"
+  }
+]

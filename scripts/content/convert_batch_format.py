@@ -27,14 +27,26 @@ def convert_one(q):
     # answer_summary 作为 one_line_answer
     one_line = q.get("answer_summary", "")
 
-    # 处理 policy_links: 脚本用 policy_links 数组
+    # 处理 policy_links: 支持两种格式
+    # 格式A: support_policy_codes = ["POL-XXX", ...]
+    # 格式B: policies = [{"policy_code": "POL-XXX", "section_quote": "...", "support_type": "citation"}, ...]
     policy_links = []
-    for pc in q.get("support_policy_codes", []):
+    # 优先读取格式B（policies数组）
+    for p in q.get("policies", []):
         policy_links.append({
-            "policy_code": pc,
-            "support_type": "citation",
-            "support_note": ""
+            "policy_code": p.get("policy_code", ""),
+            "support_type": p.get("support_type", "citation"),
+            "support_note": p.get("section_quote", "")
         })
+    # 补充格式A（support_policy_codes数组）
+    existing_codes = {pl["policy_code"] for pl in policy_links}
+    for pc in q.get("support_policy_codes", []):
+        if pc not in existing_codes:
+            policy_links.append({
+                "policy_code": pc,
+                "support_type": "citation",
+                "support_note": ""
+            })
 
     # 处理 relations: 保留 target_code + relation_type + relation_note
     relations = []

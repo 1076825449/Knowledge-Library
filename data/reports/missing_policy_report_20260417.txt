@@ -1,27 +1,49 @@
 ============================================================
-缺标签问题清单
-生成时间: 2026-04-17 22:43:16
+缺政策依据问题清单
+生成时间: 2026-04-17 22:44:21
 总计: 22 条
 ============================================================
 1. [CHG-CLEAR-002] 企业发生合并或分立等重大变更，变更前需要向税务机关确认哪些事项？
+   stage=CHG, module=CLEAR, status=active
 2. [CHG-PREF-003] 一般纳税人企业变更为小规模纳税人后，之前留抵的进项税额能否申请退税？
+   stage=CHG, module=PREF, status=active
 3. [CHG-DEC-003] 企业变更经营项目（行业或经营范围），增值税税率和征收率是否会自动调整？
+   stage=CHG, module=DEC, status=active
 4. [CHG-RISK-002] 企业变更主管税务机关后，纳税信用评价结果会同步转移吗？
+   stage=CHG, module=RISK, status=active
 5. [CHG-TAX-002] 企业注册资本增加（增资扩股），是否需要缴纳印花税？
+   stage=CHG, module=TAX, status=active
 6. [CLS-CIT-002] 分支机构注销后，总机构如何进行企业所得税汇算清缴调整？
+   stage=CLS, module=CIT, status=active
 7. [CLS-RISK-002] 企业注销后发现存在虚开增值税专用发票行为，税务机关如何处理？
+   stage=CLS, module=RISK, status=active
 8. [CLS-VAT-002] 企业注销时，留抵进项税额对应的存货或固定资产分配给股东，增值税如何处理？
+   stage=CLS, module=VAT, status=active
 9. [CLS-CLEAR-012] 企业注销时，欠税清偿顺序是什么？
+   stage=CLS, module=CLEAR, status=active
 10. [CLS-TAX-002] 企业注销时，认缴资本未到位部分转让给其他股东，转让方是否需要缴纳个人所得税？
+   stage=CLS, module=TAX, status=active
 11. [CLS-DEC-003] 企业注销时，简易注销和一般注销在税务处理时限上有什么区别？
+   stage=CLS, module=DEC, status=active
 12. [SUS-CLEAR-002] 企业停业期间需要继续缴纳社会保险费吗？停业期间没有员工，还需要申报个税吗？
+   stage=SUS, module=CLEAR, status=active
 13. [SUS-VAT-002] 企业停业期间，签订新订单或取得营业收入，增值税纳税义务是否仍然发生？
+   stage=SUS, module=VAT, status=active
 14. [SUS-INV-002] 企业停业后申请恢复经营，发票核定和最高开票限额如何处理？
+   stage=SUS, module=INV, status=active
 15. [SUS-PREF-002] 企业停业期间，高新技术企业资格是否还能保留？是否还需要进行研发费用加计扣除申报？
+   stage=SUS, module=PREF, status=active
 16. [SUS-RISK-002] 企业长期停业不处理也不注销，税务机关会将其转为非正常户吗？有什么后果？
+   stage=SUS, module=RISK, status=active
 17. [CLS-CLEAR-013] 企业注销清算过程中，存货过期变质无法销售，税务上如何处理？
+   stage=CLS, module=CLEAR, status=active
 18. [CLS-FEE-002] 企业在注销清算过程中，聘请会计师事务所出具清算审计报告的费用，能否在企业所得税前扣除？
+   stage=CLS, module=FEE, status=active
 19. [CHG-RISK-003] 企业变更法定代表人，原法定代表人还需对变更前的税务违规行为承担责任吗？
+   stage=CHG, module=RISK, status=active
 20. [CLS-CIT-003] 分支机构注销后，总机构如何进行企业所得税汇算清缴调整？
+   stage=CLS, module=CIT, status=active
 21. [CLS-RISK-003] 企业注销后发现存在虚开增值税专用发票行为，税务机关如何处理？
+   stage=CLS, module=RISK, status=active
 22. [SUS-VAT-003] 企业停业期间，签订新订单或取得营业收入，增值税纳税义务是否仍然发生？
+   stage=SUS, module=VAT, status=active

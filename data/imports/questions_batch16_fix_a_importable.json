@@ -1,0 +1,50 @@
+{
+  "questions": [
+    {
+      "question_code": "CLS-CLEAR-013",
+      "question_title": "企业注销清算过程中，存货过期变质无法销售，税务上如何处理？",
+      "question_plain": "企业注销清算过程中，存货过期变质无法销售，税务上如何处理？",
+      "stage_code": "CLS",
+      "module_code": "CLEAR",
+      "question_type": "type_procedure",
+      "one_line_answer": "存货变质须进项税额转出，经核准后作为资产损失在企业所得税税前扣除。",
+      "detailed_answer": "",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [],
+      "tags": [],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-FEE-002",
+      "question_title": "企业在注销清算过程中，聘请会计师事务所出具清算审计报告的费用，能否在企业所得税前扣除？",
+      "question_plain": "企业在注销清算过程中，聘请会计师事务所出具清算审计报告的费用，能否在企业所得税前扣除？",
+      "stage_code": "CLS",
+      "module_code": "FEE",
+      "question_type": "type_clarify",
+      "one_line_answer": "清算审计费用可凭发票在企业所得税前扣除，在清算所得中优先扣除。",
+      "detailed_answer": "",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [],
+      "tags": [],
+      "relations": []
+    }
+  ]
+}

@@ -1,0 +1,787 @@
+[
+  {
+    "question_title": "企业发生合并或分立等重大变更，变更前需要向税务机关确认哪些事项？",
+    "one_line_answer": "需确认欠税情况、申报状态、发票状态及是否存在稽查或评估未结案情况。",
+    "details": "企业发生合并、分立、股权重组等重大变更前，建议主动向主管税务机关查询：(1)是否存在欠税记录，如有须先清偿或办理欠税缴纳计划；(2)是否存在未完成申报的税种；(3)发票是否验旧完毕，有无失控发票；(4)是否存在稽查、纳税评估等未结案事项。以上均可能影响变更登记的办理。重大变更涉及被合并方注销的，还须先办理清税证明。",
+    "module_code": "CLEAR",
+    "stage_code": "CHG",
+    "question_type": "type_procedure",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更",
+      "运营",
+      "注销"
+    ],
+    "theme_tags": [
+      "税务登记",
+      "申报纳税",
+      "合规"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-REG-001",
+        "section_quote": "第九条 纳税人税务登记内容发生变化的，应当向税务机关申报办理变更税务登记。"
+      },
+      {
+        "policy_code": "SAT-CLEAR-001",
+        "section_quote": "第一条 优化税务注销办理程序，对未办理过税务登记但领用过发票的纳税人，实行普通注销免于提供清税证明。"
+      },
+      {
+        "policy_code": "TAX-POL-005",
+        "section_quote": "第四十条 纳税人存在欠税的，在欠税清偿前不得办理注销登记。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-001",
+        "relation_type": "relation_similar"
+      },
+      {
+        "code": "CLS-CLEAR-010",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "合并分立前查询欠税、申报、发票及稽查状态，有欠税须先清偿，涉及注销须先办清税证明。",
+    "question_code": "CHG-CLEAR-002"
+  },
+  {
+    "question_title": "一般纳税人企业变更为小规模纳税人后，之前留抵的进项税额能否申请退税？",
+    "one_line_answer": "不能退税。转为小规模纳税人后，期末留抵税额应转入成本处理，不得申请退税。",
+    "details": "根据增值税一般纳税人登记管理办法及深化增值税改革相关规定，一般纳税人转登记为小规模纳税人后，其进项税额处理规则如下：(1)尚未申报抵扣的进项税额，允许在转为小规模纳税人的所属期申报抵扣；(2)已申报抵扣但形成期末留抵税额的，不得申请退税，应转为成本处理；(3)转为小规模纳税人后，适用简易计税方法，不再产生可抵扣进项税额。",
+    "module_code": "PREF",
+    "stage_code": "CHG",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更"
+    ],
+    "theme_tags": [
+      "增值税",
+      "税收优惠"
+    ],
+    "policies": [
+      {
+        "policy_code": "SAT-VAT-002",
+        "section_quote": "关于一般纳税人转登记为小规模纳税人后进项税额处理规定。"
+      },
+      {
+        "policy_code": "POL-VAT-002",
+        "section_quote": "关于深化增值税改革有关政策的公告，进项税额处理条款。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-PREF-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "转小规模后留抵税额不得退税，应转入成本处理。",
+    "question_code": "CHG-PREF-003"
+  },
+  {
+    "question_title": "企业变更经营项目（行业或经营范围），增值税税率和征收率是否会自动调整？",
+    "one_line_answer": "不会自动调整。企业需主动向税务机关申请税种认定变更，否则仍按原认定申报。",
+    "details": "企业经营范围或行业发生变化，并不自动触发增值税税目或税率的调整。税务处理流程如下：(1)企业须向主管税务机关申请变更税种认定，提交经营范围变更证明材料；(2)税务机关根据新行业重新核定增值税税率（一般纳税人适用税率或小规模纳税人征收率）；(3)认定变更完成前，企业须按原税目申报，存在风险的需承担补税责任；(4)若新行业适用即征即退或免税优惠，需另行申请备案。",
+    "module_code": "DEC",
+    "stage_code": "CHG",
+    "question_type": "type_procedure",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更"
+    ],
+    "theme_tags": [
+      "增值税",
+      "税务登记",
+      "合规"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-REG-001",
+        "section_quote": "第九条 纳税人税务登记内容发生变化的，应当向税务机关申报办理变更税务登记。"
+      },
+      {
+        "policy_code": "SAT-DEC-006",
+        "section_quote": "关于进一步推进税费种认定便利化的公告，优化税种认定程序。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-DEC-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "经营范围变更后须主动申请税种认定变更，未变更前仍按原税目申报。",
+    "question_code": "CHG-DEC-003"
+  },
+  {
+    "question_title": "企业变更法定代表人，原法定代表人还需对变更前的税务违规行为承担责任吗？",
+    "one_line_answer": "是的。法定代表人是税务违法行为的主要责任人，任期内的税务违规不因变更而免责。",
+    "details": "根据税收征收管理法和税务登记管理办法，税务违法行为的行政责任以违法行为发生时实际担任法定代表人职务的人员为责任主体。具体规则：(1)变更登记完成前产生的欠税、偷逃税等违法行为，追溯原法定代表人；(2)原法定代表人名下的重大税收违法失信信息，在未修复前仍影响其再任职其他企业法定代表人的资格；(3)新任法定代表人仅对变更登记之后的税务行为负责；(4)涉及偷逃税犯罪的，司法责任由实施犯罪行为时的直接负责人承担，不因离职或变更而免除。",
+    "module_code": "RISK",
+    "stage_code": "CHG",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更",
+      "运营"
+    ],
+    "theme_tags": [
+      "税务登记",
+      "法律责任",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》关于纳税人法律责任的规定。"
+      },
+      {
+        "policy_code": "POL-RISK-001",
+        "section_quote": "《非正常户管理办法》关于失信主体责任人认定的规定。"
+      },
+      {
+        "policy_code": "GOV-REG-001",
+        "section_quote": "《税务登记管理办法》第十条，法定代表人变更后税务责任的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-REG-002",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "原法定代表人对任期内的税务违规继续承担责任，不因变更而免除。",
+    "question_code": "CHG-RISK-002"
+  },
+  {
+    "question_title": "企业注册资本增加（增资扩股），是否需要缴纳印花税？",
+    "one_line_answer": "需要。实收资本和资本公积合计增加的部分，按万分之二点五的税率缴纳印花税。",
+    "details": "根据印花税法关于营业账簿的规定，企业增资扩股涉及两项印花税处理：(1)新增注册资本或实收资本部分，按'记载资金的账簿'税目，以万分之二点五税率缴纳印花税（自2018年5月1日起减半征收）；(2)若同时存在资本公积转增注册资本，资本公积转增部分不重复缴纳印花税；(3)印花税应在税务登记变更当月申报缴纳；(4)增资涉及股东股权转让的，转让方和受让方还须就股权转让合同金额缴纳印花税（税率千分之一）。",
+    "module_code": "TAX",
+    "stage_code": "CHG",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "设立",
+      "变更"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "印花税"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-001",
+        "section_quote": "《企业所得税法》第五条，关于应纳税所得额的规定。"
+      },
+      {
+        "policy_code": "POL-CIT-002",
+        "section_quote": "《企业资产损失所得税税前扣除管理办法》，资产转让所得的税务处理。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-TAX-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "增资扩股按新增实收资本和资本公积合计金额的万分之二点五缴纳印花税，当月申报。",
+    "question_code": "CHG-TAX-002"
+  },
+  {
+    "question_title": "企业变更主管税务机关后，纳税信用评价结果会同步转移吗？",
+    "one_line_answer": "不会。纳税信用评价结果保留至评价期末，不随主管税务机关变更而自动调整。",
+    "details": "根据纳税信用管理办法，纳税信用评价以评价年度末的状态为准，主管税务机关变更不影响当期评价结果。具体处理：(1)纳税信用等级（A/B/C/D级）在评价年度内有效，不因企业迁移而改变；(2)若企业跨省迁移，迁出地税务机关在办理注销税务登记时，会将信用评价信息传递至迁入地税务机关；(3)新主管税务机关接手后，企业若存在重大税收违法，迁入地可申请重新评定；(4)建议企业在迁移前主动查询信用评分，评估是否有修复空间。",
+    "module_code": "RISK",
+    "stage_code": "CHG",
+    "question_type": "type_clarify",
+    "difficulty": "low",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "变更"
+    ],
+    "theme_tags": [
+      "纳税信用",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "SAT-RISK-001",
+        "section_quote": "《纳税信用管理办法（试行）》关于信用评价有效期的规定。"
+      },
+      {
+        "policy_code": "SAT-RISK-003",
+        "section_quote": "《纳税信用管理有关问题的公告》关于信用修复的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-DEC-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "纳税信用等级在评价年度内有效，不随主管税务机关变更而转移。",
+    "question_code": "CHG-RISK-002"
+  },
+  {
+    "question_title": "企业注销时，法人股东从被清算企业取得的剩余资产，如何计算企业所得税应纳税所得额？",
+    "one_line_answer": "被清算企业剩余资产减除股息所得后，减去股东投资成本，余额确认为股权转让所得或损失。",
+    "details": "根据企业所得税法及关于企业清算业务所得税处理的通知，法人股东从被清算企业分配剩余资产的税务处理：(1)首先确认从被清算企业分得的股息红利等免税收入部分（符合条件的居民企业间股息红利免税）；(2)剩余资产减除免税收入后，减去股东的投资成本，余额确认为股权转让所得或损失，计入当期应纳税所得额；(3)若为亏损，亏损额可按规定在税前弥补，但有限额；(4)计算公式：应纳税所得额 = 分配剩余资产金额 - 投资成本 - 已确认免税股息。",
+    "module_code": "CIT",
+    "stage_code": "CLS",
+    "question_type": "type_clarify",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "清算"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-001",
+        "section_quote": "《企业所得税法》第六条，关于股息红利等投资收益的规定。"
+      },
+      {
+        "policy_code": "GOV-CIT-002",
+        "section_quote": "《关于企业清算业务企业所得税处理若干问题的通知》第五条，剩余资产分配的税务处理。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CIT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "剩余资产减除免税股息后再减投资成本，余额为股权转让所得计入应纳税所得额。",
+    "question_code": "CLS-CIT-002"
+  },
+  {
+    "question_title": "分支机构注销后，总机构如何进行企业所得税汇算清缴调整？",
+    "one_line_answer": "分支机构注销后，总机构须重新计算全年实际利润，调整分摊比例，并补（或退）相应税款。",
+    "details": "根据企业所得税法及跨地区经营汇总纳税管理办法，分支机构注销前后总机构的税务处理：(1)分支机构注销前，当期已预缴的企业所得税可以抵减；(2)注销后，总机构须在年度汇算清缴时重新计算全企业应纳所得税额，因分支机构注销导致收入、成本等因素变化，可能产生补税或退税；(3)若分支机构注销时间在年度中间，总机构应按实际经营月份重新分摊税款；(4)对于就地预缴比例调整，须报主管税务机关备案；(5)分支机构注销后的涉税资料（包括分摊表、分配表）须保存备查。",
+    "module_code": "CIT",
+    "stage_code": "CLS",
+    "question_type": "type_procedure",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "汇总纳税"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-001",
+        "section_quote": "《企业所得税法》第五十条，汇总纳税相关规定。"
+      },
+      {
+        "policy_code": "POL-CIT-002",
+        "section_quote": "《企业资产损失所得税税前扣除管理办法》关于分摊扣除的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CIT-001",
+        "relation_type": "relation_extension"
+      },
+      {
+        "code": "CLS-CLEAR-009",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "分支机构注销后总机构须重新计算汇算清缴，调整分摊比例并补退税款。",
+    "question_code": "CLS-CIT-002"
+  },
+  {
+    "question_title": "企业注销后发现有欠税，税务机关可以向原法定代表人追缴吗？",
+    "one_line_answer": "可以。税务机关有权向原法定代表人和实际控制人追缴欠税，情节严重可认定为偷逃税。",
+    "details": "企业注销后欠税的追缴，税收征收管理法及税务登记管理办法明确规定：(1)企业注销登记前须清缴所有欠税，未清缴而骗取注销登记的，税务机关有权撤销注销登记；(2)已注销企业无法继续追缴时，税务机关可向原法定代表人、股东（认缴未缴出资部分）、实际控制人追偿；(3)若企业注销前存在转移资产逃避欠税的行为，税务机关可依据征管法认定为偷逃税，追究相关责任人刑事责任；(4)重大税收违法失信主体名单（黑名单）的信息可供公安机关、银行等协查追缴。",
+    "module_code": "RISK",
+    "stage_code": "CLS",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "欠税",
+      "法律责任",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》第五十二条，关于追缴欠税的规定。"
+      },
+      {
+        "policy_code": "POL-RISK-001",
+        "section_quote": "《非正常户管理办法》关于失信主体追缴的规定。"
+      },
+      {
+        "policy_code": "GOV-CLS-001",
+        "section_quote": "《公司注销登记管理办法》第十五条，注销后债务清偿的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-RISK-001",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "注销后欠税可向原法定代表人和认缴未缴股东追缴，逃避欠税可追究刑事责任。",
+    "question_code": "CLS-RISK-002"
+  },
+  {
+    "question_title": "企业注销时，留抵进项税额对应的存货或固定资产分配给股东，增值税如何处理？",
+    "one_line_answer": "视同销售。按存货或固定资产的公允价值计算销项税额，进项税额允许抵扣。",
+    "details": "企业注销时将留抵进项税额对应的存货或固定资产分配给股东，根据增值税暂行条例及其实施细则，属于视同销售行为。具体处理：(1)存货按公允价值视同销售，计算销项税额；若售价低于成本，不做进项税额转出（已丧失抵扣链条完整性）；(2)固定资产（不动产除外）分配给股东视同销售，可开具增值税专用发票，股东可抵扣进项；(3)若为增值税一般纳税人，留抵进项税额对应的存货分配，不强制要求做进项税额转出；(4)若注销企业为增值税小规模纳税人，分配存货按征收率计算增值税。",
+    "module_code": "VAT",
+    "stage_code": "CLS",
+    "question_type": "type_procedure",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "增值税",
+      "视同销售"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第四条，关于视同销售的规定。"
+      },
+      {
+        "policy_code": "SAT-VAT-001",
+        "section_quote": "《增值税暂行条例实施细则》第三条，视同销售货物行为的具体范围。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-004",
+        "relation_type": "relation_extension"
+      },
+      {
+        "code": "CLS-VAT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "存货分配给股东视同销售按公允价值计销项税，固定资产分配可开专票让股东抵扣。",
+    "question_code": "CLS-VAT-002"
+  },
+  {
+    "question_title": "企业注销后发现存在虚开增值税专用发票行为，税务机关如何处理？",
+    "one_line_answer": "撤销注销登记，恢复为正常纳税人，追缴税款并处罚款，情节严重移送公安机关。",
+    "details": "企业注销后发现虚开增值税专用发票违法行为的处理，税收征收管理法和发票管理办法有明确规定：(1)税务机关有权依法撤销原注销税务登记决定，恢复企业的纳税人主体资格；(2)虚开金额巨大的，税务机关将追缴受票方已抵扣的进项税额及对应滞纳金；(3)对虚开方（即使已注销）的主管人员、实际控制人追究责任，包括罚款和刑事责任；(4)涉及重大税收违法的，纳入重大税收违法失信主体名单，实施联合惩戒；(5)构成虚开增值税专用发票罪的，依据刑法第二百零五条定罪量刑。",
+    "module_code": "RISK",
+    "stage_code": "CLS",
+    "question_type": "type_clarify",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "虚开发票",
+      "法律责任",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "TAX-POL-002",
+        "section_quote": "《关于纳税人虚开增值税专用发票征屿税款问题的公告》，虚开发票的处理规定。"
+      },
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》关于偷逃税法律责任的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-RISK-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "撤销注销登记追缴税款并处罚款，主观故意者移送公安机关追究刑责。",
+    "question_code": "CLS-RISK-002"
+  },
+  {
+    "question_title": "企业注销清算过程中，存货过期变质无法销售，税务上如何处理？",
+    "one_line_answer": "经税务机关核准后，作为财产损失在税前扣除，需要进项税额转出。",
+    "details": "企业注销时存货过期变质的税务处理，依据企业所得税法和资产损失税前扣除管理办法：(1)存货过期变质属于非正常损失，须做进项税额转出，将已抵扣税额转出计入损失；(2)经税务机关审核后，该笔资产损失可在当年度企业所得税税前扣除；(3)若存货已按正常销售处理过，则不再重复处理；(4)存货损失金额以账面净值（成本减去已计提跌价准备）为准；(5)须保存好存货报废的内部审批记录、销毁记录和影像资料，供税务机关备查。",
+    "module_code": "CLEAR",
+    "stage_code": "CLS",
+    "question_type": "type_procedure",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "企业所得税",
+      "资产损失",
+      "增值税"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-CIT-002",
+        "section_quote": "《企业资产损失所得税税前扣除管理办法》第九条，非正常损失资产损失的处理。"
+      },
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第十条，非正常损失进项税额不得抵扣的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-006",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "存货变质须进项税额转出，经核准后作为资产损失在企业所得税税前扣除。",
+    "question_code": "CLS-CLEAR-012"
+  },
+  {
+    "question_title": "企业注销时，认缴资本未到位部分转让给其他股东，转让方是否需要缴纳个人所得税？",
+    "one_line_answer": "需要。认缴未实际出资的股权转让，按股权转让所得征收个人所得税。",
+    "details": "关于认缴制下未到位资本的股权转让个人所得税处理，依据个人所得税法和股权转让所得个人所得税管理办法：(1)股权转让收入减除股权原值和合理费用后的余额，为股权转让所得；(2)认缴制下，若股东未实际出资但以0元或明显低价转让股权，税务机关有权核定股权转让收入；(3)若转让价格为0元但股权对应的净资产为正，税务机关通常按净资产核定法重新评估股权转让收入；(4)个人所得税适用20%比例税率，由股权受让方代扣代缴；(5)转让方为企业时，股权转让所得缴纳企业所得税，不适用个人所得税。",
+    "module_code": "TAX",
+    "stage_code": "CLS",
+    "question_type": "type_clarify",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "个人所得税",
+      "股权转让"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-CIT-002",
+        "section_quote": "《关于企业清算业务企业所得税处理若干问题的通知》，投资成本的处理。"
+      },
+      {
+        "policy_code": "IIT-POL-001",
+        "section_quote": "《关于股权激励有关个人所得税问题的通知》关于股权转让所得的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CIT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "认缴未出资股权转让若为0元或低价，税务机关可按净资产核定法重新评估，余额按20%征税。",
+    "question_code": "CLS-TAX-002"
+  },
+  {
+    "question_title": "企业注销时，简易注销和一般注销在税务处理时限上有什么区别？",
+    "one_line_answer": "简易注销须在公告期满后15天内申请，税务处理窗口期短；一般注销无时限但程序更复杂。",
+    "details": "根据优化税务注销程序公告，简易注销与一般注销在税务环节的主要区别：(1)简易注销适用无欠税、无发票验旧问题、无稽查未结案的纳税人，税务注销可与工商注销并行，公告期45天满后即可申请清税证明；(2)一般注销涉及查账征收企业的，须先完成企业所得税汇算清缴，再申请税务注销，税务机关有权进行税务检查，窗口期不确定；(3)无论哪种注销，有欠税的须先清偿或签订欠税缴纳协议；(4)简易注销若因税务问题驳回，需转为一般注销程序，已公告的45天期限不重新计算。",
+    "module_code": "DEC",
+    "stage_code": "CLS",
+    "question_type": "type_compare",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "税务登记",
+      "注销流程"
+    ],
+    "policies": [
+      {
+        "policy_code": "SAT-CLEAR-001",
+        "section_quote": "《关于优化税务注销程序的公告》第一条，简易注销程序规定。"
+      },
+      {
+        "policy_code": "SAT-CLEAR-002",
+        "section_quote": "《关于优化税务注销若干事项的公告》第二条，一般注销程序规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-010",
+        "relation_type": "relation_similar"
+      }
+    ],
+    "answer_summary": "简易注销税务窗口期短但条件严，有欠税或问题则须走一般注销程序。",
+    "question_code": "CLS-DEC-003"
+  },
+  {
+    "question_title": "企业注销时，欠税清偿顺序是什么？",
+    "one_line_answer": "欠税清偿顺序：税款本金 → 滞纳金 → 罚款。",
+    "details": "企业注销清算中欠税清偿顺序，依据税收征收管理法和公司法的规定：(1)首先清偿所欠税款本金；(2)欠税本金清偿后，仍有剩余资产的，清偿因欠税产生的滞纳金（滞纳金按日万分之五计算，上限不超过本金）；(3)滞纳金清偿后有剩余的，清偿税务罚款；(4)若资产不足以清偿全部欠税和滞纳金，按比例清偿；(5)破产清算程序中，欠税（不含滞纳金）作为第二清偿顺序优先于一般债权，滞纳金和罚款在最后。",
+    "module_code": "CLEAR",
+    "stage_code": "CLS",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "注销"
+    ],
+    "theme_tags": [
+      "欠税",
+      "清算"
+    ],
+    "policies": [
+      {
+        "policy_code": "GOV-Tax-001",
+        "section_quote": "《税收征收管理法》第三十二条，欠税滞纳金规定。"
+      },
+      {
+        "policy_code": "TAX-POL-001",
+        "section_quote": "《关于专项用途财政性资金企业所得税处理问题的通知》关于清偿顺序的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CLS-CLEAR-011",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "清偿顺序：税款本金 → 滞纳金 → 罚款，不足按比例。",
+    "question_code": "CLS-CLEAR-012"
+  },
+  {
+    "question_title": "企业停业期间需要继续缴纳社会保险费吗？停业期间没有员工，还需要申报个税吗？",
+    "one_line_answer": "停业期间无在职员工可不缴社保；个税需看是否有代扣代缴义务，无员工则零申报。",
+    "details": "根据社会保险法和劳动合同法的规定，以及个人所得税法的要求：(1)社会保险费按月征收，停业期间若企业无在职员工（即所有员工已解除或中止劳动合同），可不进行社保申报缴纳；(2)若停业期间企业仍保留部分员工劳动关系，社保须继续缴纳；(3)个人所得税方面，停业期间若有向个人支付工资、薪金、劳务报酬等须代扣代缴的项目，须按月或按次申报；(4)若停业期间无任何支付行为，个税可做零申报；(5)停业超过一个年度的，须向税务机关报备，否则可能被认定为非正常户。",
+    "module_code": "CLEAR",
+    "stage_code": "SUS",
+    "question_type": "type_clarify",
+    "difficulty": "low",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业"
+    ],
+    "theme_tags": [
+      "社会保险",
+      "个人所得税"
+    ],
+    "policies": [
+      {
+        "policy_code": "SSF-POL-001",
+        "section_quote": "《社会保险法》第五十七条，社保登记及申报规定。"
+      },
+      {
+        "policy_code": "SSF-POL-002",
+        "section_quote": "《劳动合同法》第四十四条，劳动合同中止的规定。"
+      },
+      {
+        "policy_code": "SAT-IIT-001",
+        "section_quote": "《关于全面实施新个人所得税法若干征管的衔接事项公告》关于零申报的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-DEC-002",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "停业无员工可不缴社保；有个税代扣代缴义务的须申报，否则可零申报。",
+    "question_code": "SUS-CLEAR-002"
+  },
+  {
+    "question_title": "企业停业期间取得零星收入（如银行利息），是否需要申报缴纳增值税？",
+    "one_line_answer": "需要。增值税纳税义务发生即使金额很小，也须按权责发生制申报，不能因停业而不申报。",
+    "details": "根据增值税暂行条例及实施细则，增值税的纳税义务按权责发生制确认，与企业是否停业无关。具体处理：(1)企业停业期间取得银行利息等应税收入，须按实际收到或应收的日期确认纳税义务发生时间；(2)若收入金额较小达不到起征点（按月申报的小规模纳税人为月销售额10万元以下），可依法享受免税；(3)若收入超过起征点，须向税务机关申报缴纳增值税，适用企业类型对应税率；(4)若企业为小规模纳税人，适用征收率（3%或1%）；(5)建议在复业后主动向税务机关补充申报，避免产生滞纳金。",
+    "module_code": "VAT",
+    "stage_code": "SUS",
+    "question_type": "type_clarify",
+    "difficulty": "low",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业"
+    ],
+    "theme_tags": [
+      "增值税",
+      "申报纳税"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第一条，关于增值税纳税义务的规定。"
+      },
+      {
+        "policy_code": "SAT-VAT-004",
+        "section_quote": "《增值税纳税申报管理暂行办法》第十条，零星收入的申报规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-VAT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "停业期间零星收入超过起征点的须申报缴纳增值税，未达起征点可免税。",
+    "question_code": "SUS-VAT-002"
+  },
+  {
+    "question_title": "企业停业后申请恢复经营，发票核定和最高开票限额如何处理？",
+    "one_line_answer": "复业后须向税务机关申请恢复发票核定，税务机关根据企业实际情况重新核定发票种类和限额。",
+    "details": "根据增值税发票管理办法和税务登记管理办法，复业后发票相关处理：(1)企业在复业登记获批后，须向主管税务机关提交恢复发票使用申请；(2)税务机关将重新核定企业的发票种类（增值税专用发票/普通发票）、最高开票限额及每月最高领票数量；(3)若企业在停业前存在发票违规行为，税务机关可能降低最高开票限额或暂停其发票使用资格；(4)复业初期，建议主动提交经营计划或业务说明，帮助税务机关合理核定发票配额；(5)恢复发票供应后，之前验旧未完成的发票须重新验旧后方可领用新票。",
+    "module_code": "INV",
+    "stage_code": "SUS",
+    "question_type": "type_procedure",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业",
+      "复业"
+    ],
+    "theme_tags": [
+      "发票管理",
+      "税务登记"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-INV-002",
+        "section_quote": "《增值税专用发票使用规定》第六条，关于发票核定和限额的规定。"
+      },
+      {
+        "policy_code": "SAT-VAT-003",
+        "section_quote": "《增值税发票管理等有关事项公告》关于复业后发票核定的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-INV-001",
+        "relation_type": "relation_extension"
+      },
+      {
+        "code": "SUS-REG-003",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "复业后须申请恢复发票核定，有违规记录的税务机关可能降低开票限额。",
+    "question_code": "SUS-INV-002"
+  },
+  {
+    "question_title": "企业停业期间，高新技术企业资格是否还能保留？是否还需要进行研发费用加计扣除申报？",
+    "one_line_answer": "停业期间若仍有研发活动可保留资格但需据实申报；若长期无研发活动，资格可能被取消。",
+    "details": "根据高新技术企业认定管理办法和研发费用加计扣除政策：(1)高新技术企业资格有效期为三年，到期前须重新认定，与是否停业无关；(2)若企业在资格有效期内处于停业状态，但仍有实质性研发活动（有人员、经费、项目），可正常保留资格；(3)停业期间若完全中断研发活动，税务机关可能在年度汇算清缴时要求企业说明情况；(4)研发费用加计扣除以实际发生研发费用为前提，停业期间无研发费用则不产生加计扣除；(5)若资格到期时企业仍处于停业状态，须在恢复经营后再申请重新认定。",
+    "module_code": "PREF",
+    "stage_code": "SUS",
+    "question_type": "type_clarify",
+    "difficulty": "high",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业",
+      "运营"
+    ],
+    "theme_tags": [
+      "高新技术",
+      "研发费用加计扣除"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-PREF-006",
+        "section_quote": "《高新技术企业认定管理办法》关于资格维持的规定。"
+      },
+      {
+        "policy_code": "POL-PREF-005",
+        "section_quote": "《关于进一步完善研发费用税前加计扣除政策的公告》研发费用加计扣除的适用条件。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "CHG-PREF-002",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "停业有研发可保留高企资格但须据实申报；完全无研发活动可能被取消资格。",
+    "question_code": "SUS-PREF-002"
+  },
+  {
+    "question_title": "企业长期停业不处理也不注销，税务机关会将其转为非正常户吗？有什么后果？",
+    "one_line_answer": "会。超过规定时间未申报且经责令限期改正仍不改正的，认定为非正常户，信用评级降为D级。",
+    "details": "根据税务登记管理办法和非正常户管理办法：(1)纳税人连续三个月未进行纳税申报经责令限期改正仍不改正的，主管税务机关有权将其认定为非正常户；(2)被认定为非正常户后，税务登记证件失效，发票领购资格被暂停；(3)纳税信用等级直接降为D级，法人和财务负责人在新办税务登记时受到限制；(4)非正常户认定后仍不处理的，将向社会公告，纳入重大税收违法失信主体名单；(5)企业若已实际停业，建议主动办理停业登记或简易注销，避免产生更大的信用风险和欠税积累。",
+    "module_code": "RISK",
+    "stage_code": "SUS",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业"
+    ],
+    "theme_tags": [
+      "非正常户",
+      "纳税信用",
+      "风险管理"
+    ],
+    "policies": [
+      {
+        "policy_code": "TAX-POL-005",
+        "section_quote": "《税务登记管理办法》（2019修正）第四十条，非正常户认定标准。"
+      },
+      {
+        "policy_code": "POL-RISK-001",
+        "section_quote": "《非正常户管理办法》第六条，非正常户后果。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-RISK-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "超期未申报经责令不改转为非正常户，信用降D级，发票暂停，纳入黑名单。",
+    "question_code": "SUS-RISK-002"
+  },
+  {
+    "question_title": "企业停业期间，签订新订单或取得营业收入，增值税纳税义务是否仍然发生？",
+    "one_line_answer": "是的。签订合同或提供服务即产生增值税纳税义务，与停业状态无关。",
+    "details": "根据增值税暂行条例及实施细则，增值税纳税义务按权责发生制确认，具体规定：(1)增值税纳税义务发生时间为开具发票的当天、收讫销售款项的当天或取得索取销售款项凭据的当天；(2)签订新订单合同，即使尚未开具发票或收款，也已产生纳税义务；(3)企业处于停业状态但签订新订单的，属于恢复经营行为，须向税务机关报告并补办相关申报；(4)若签订订单后停业状态持续，增值税仍须在纳税义务发生当期申报缴纳，可申请延期申报但须经税务机关批准；(5)复业后须主动向税务机关补充申报，避免滞纳金和罚款。",
+    "module_code": "VAT",
+    "stage_code": "SUS",
+    "question_type": "type_clarify",
+    "difficulty": "medium",
+    "high_freq": false,
+    "lifecycle_tags": [
+      "停业",
+      "运营"
+    ],
+    "theme_tags": [
+      "增值税",
+      "纳税义务发生时间"
+    ],
+    "policies": [
+      {
+        "policy_code": "POL-VAT-001",
+        "section_quote": "《增值税暂行条例》第十九条，纳税义务发生时间的规定。"
+      },
+      {
+        "policy_code": "SAT-VAT-004",
+        "section_quote": "《增值税纳税申报管理暂行办法》关于纳税义务申报的规定。"
+      }
+    ],
+    "related_questions": [
+      {
+        "code": "SUS-VAT-001",
+        "relation_type": "relation_extension"
+      }
+    ],
+    "answer_summary": "签订订单即产生纳税义务，停业期间须主动向税务机关报告并申报缴纳。",
+    "question_code": "SUS-VAT-002"
+  }
+]
