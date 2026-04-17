@@ -557,6 +557,94 @@ class QuestionService:
             data.get('change_summary', f'更新问题 {question_code} 至 v{new_version}')
         ))
 
+        # 处理关联问题
+        relations = data.get('relations')
+        if relations:
+            import datetime as dt2
+            rel_conn = sqlite3.connect(self.db_path)
+            rel_conn.execute("PRAGMA foreign_keys = ON")
+            rel_cur = rel_conn.cursor()
+            rel_cur.execute("DELETE FROM question_relation WHERE question_id = ?", (question_id,))
+            if isinstance(relations, list):
+                for rel in relations:
+                    if isinstance(rel, dict) and rel.get('related_code'):
+                        rel_cur.execute(
+                            "SELECT id FROM question_master WHERE question_code = ?",
+                            (rel['related_code'],)
+                        )
+                        row = rel_cur.fetchone()
+                        if row:
+                            rel_cur.execute("""
+                                INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+                                VALUES (?, ?, ?, ?)
+                            """, (
+                                question_id, row[0],
+                                rel.get('relation_type', 'related'),
+                                int(rel.get('display_order', 1))
+                            ))
+            rel_conn.commit()
+            rel_conn.close()
+
+        conn.commit()
+        conn.close()
+        return True
+
+    # ---------- 新增标签 ----------
+    def create_tag(self, tag_code, tag_name, tag_category='business'):
+        """创建新标签，返回 True；tag_code 已存在则抛出 ValueError"""
+        conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
+        cur = conn.cursor()
+        cur.execute("SELECT id FROM tag_dict WHERE tag_code = ?", (tag_code,))
+        if cur.fetchone():
+            conn.close()
+            raise ValueError(f"标签编码已存在：{tag_code}")
+        cur.execute("""
+            INSERT INTO tag_dict (tag_code, tag_name, tag_category, status, display_order)
+            VALUES (?, ?, ?, 'active', 99)
+        """, (tag_code, tag_name, tag_category))
+        conn.commit()
+        conn.close()
+        return True
+
+    # ---------- 关联问题维护 ----------
+    def get_question_relations(self, question_id):
+        """返回指定问题的所有关联问题"""
+        return self._query("""
+            SELECT qr.id, qr.related_id, qr.relation_type, qr.display_order,
+                   q2.question_code, q2.question_title, q2.one_line_answer
+            FROM question_relation qr
+            JOIN question_master q2 ON qr.related_id = q2.id
+            WHERE qr.question_id = ?
+            ORDER BY qr.display_order
+        """, (question_id,))
+
+    def upsert_question_relations(self, question_id, relations):
+        """
+        替换问题的全部关联关系。
+        relations: list of dicts like {"related_code": "OPR-DEC-001", "relation_type": "related", "display_order": 1}
+        """
+        import datetime
+        conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
+        cur = conn.cursor()
+        # 删除旧关联
+        cur.execute("DELETE FROM question_relation WHERE question_id = ?", (question_id,))
+        # 写入新关联
+        for rel in relations:
+            if not rel.get('related_code'):
+                continue
+            cur.execute("SELECT id FROM question_master WHERE question_code = ?", (rel['related_code'],))
+            row = cur.fetchone()
+            if not row:
+                continue  # 编码不存在则跳过
+            related_id = row[0]
+            relation_type = rel.get('relation_type', 'related')
+            display_order = int(rel.get('display_order', 1))
+            cur.execute("""
+                INSERT INTO question_relation (question_id, related_id, relation_type, display_order)
+                VALUES (?, ?, ?, ?)
+            """, (question_id, related_id, relation_type, display_order))
         conn.commit()
         conn.close()
         return True

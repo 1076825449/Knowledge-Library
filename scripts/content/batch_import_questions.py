@@ -141,9 +141,41 @@ def import_questions(data):
             stage = q["stage_code"].strip().upper()
             module = q["module_code"].strip().upper()
 
-            # 优先使用 JSON 中指定的问题编码（用于增量更新）
+            # 字典域校验：stage_code 必须是合法 stage
+            valid_stages = {r[0] for r in conn.execute("SELECT tag_code FROM tag_dict WHERE tag_category='stage'")}
+            if stage not in valid_stages:
+                results["errors"].append(
+                    f"[{i}] stage_code='{stage}' 不在合法字典内，合法的有: {', '.join(sorted(valid_stages))}"
+                )
+                continue
+
+            # 字典域校验：module_code 必须是合法 module
+            valid_modules = {r[0] for r in conn.execute("SELECT tag_code FROM tag_dict WHERE tag_category='module'")}
+            if module not in valid_modules:
+                results["errors"].append(
+                    f"[{i}] module_code='{module}' 不在合法字典内，合法的有: {', '.join(sorted(valid_modules))}"
+                )
+                continue
+
+            # override_code 前缀校验：必须符合 <stage>-<module>-NNN 格式
             override_code = q.get("question_code", "").strip()
             if override_code:
+                expected_prefix = f"{stage}-{module}-"
+                if not override_code.startswith(expected_prefix):
+                    results["errors"].append(
+                        f"[{i}] override_code='{override_code}' 前缀不匹配: "
+                        f"应为 '{expected_prefix}' (stage={stage}, module={module})"
+                    )
+                    continue
+                # 校验序号部分是否为3位数字
+                suffix = override_code[len(expected_prefix):]
+                if not (suffix.isdigit() and len(suffix) == 3):
+                    results["errors"].append(
+                        f"[{i}] override_code='{override_code}' 序号格式错误: "
+                        f"应为3位数字（如 001），实际为 '{suffix}'"
+                    )
+                    continue
+
                 # 检查是否已存在
                 existing_id = resolve_question_id(conn, override_code)
                 if existing_id:

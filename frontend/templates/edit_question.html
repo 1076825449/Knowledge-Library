@@ -156,13 +156,23 @@
     {% endfor %}
     <fieldset class="form-fieldset">
         <legend>业务标签</legend>
-        <p class="field-hint">勾选关联的标签（可多选）</p>
+        <p class="field-hint">勾选关联的标签（可多选）。如需新建标签，请填写下方表单。</p>
         <div class="tag-checkboxes">
             {% for t in business_tags %}
             <label class="checkbox-label tag-checkbox">
                 <input type="checkbox" name="tags" value="{{ t.tag_code }}"{% if t.tag_code in existing_tag_codes %} checked{% endif %}> {{ t.tag_name }}
             </label>
             {% endfor %}
+        </div>
+        <div class="form-row" style="align-items: flex-end; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #ccc;">
+            <div class="form-group" style="flex: 1;">
+                <label for="new_tag_name">新建标签</label>
+                <input type="text" name="new_tag_name" id="new_tag_name" placeholder="标签名称，如：增值税小规模纳税人" style="width: 100%;">
+            </div>
+            <div class="form-group" style="flex: 0;">
+                <button type="button" style="padding: 6px 14px; background: #f5f5f5; color: #666; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 14px; white-space: nowrap;" onclick="createTagInline(this)">创建并选中</button>
+            </div>
+            <p id="new_tag_msg" style="flex: 100%; margin: 4px 0 0 0; font-size: 0.85em; color: #666;"></p>
         </div>
     </fieldset>
     {% endif %}
@@ -211,10 +221,94 @@
     </fieldset>
     {% endif %}
 
+    {# ========== 关联问题 ========== #}
+    <fieldset class="form-fieldset">
+        <legend>关联问题</legend>
+        <p class="field-hint">最多关联5个问题，填写对方的问题编码（如 OPR-DEC-001）。编码不存在则自动跳过。</p>
+        {% set existing_relations = [] %}
+        {% if detail.relations %}
+            {% for r in detail.relations %}
+                {% set _ = existing_relations.append({'code': r.question_code, 'type': r.relation_type}) %}
+            {% endfor %}
+        {% endif %}
+        {% for i in range(5) %}
+        {% set existing = existing_relations[loop.index0] if loop.index0 < existing_relations|length else none %}
+        <div class="form-row" style="align-items: flex-end;">
+            <div class="form-group" style="flex: 2;">
+                <label for="relation_code_{{ i }}">问题编码</label>
+                <input type="text" name="relation_code_{{ i }}" id="relation_code_{{ i }}"
+                       value="{{ existing.code if existing else '' }}"
+                       placeholder="如 OPR-DEC-001">
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label for="relation_type_{{ i }}">关联类型</label>
+                <select name="relation_type_{{ i }}" id="relation_type_{{ i }}">
+                    <option value="related" {% if existing and existing.type == 'related' %}selected{% endif %}>相关问题</option>
+                    <option value="next_step" {% if existing and existing.type == 'next_step' %}selected{% endif %}>下一步</option>
+                    <option value="prerequisite" {% if existing and existing.type == 'prerequisite' %}selected{% endif %}>前置问题</option>
+                    <option value="similar" {% if existing and existing.type == 'similar' %}selected{% endif %}>类似问题</option>
+                    <option value="see_also" {% if existing and existing.type == 'see_also' %}selected{% endif %}>参见</option>
+                </select>
+            </div>
+            <div class="form-group" style="flex: 0 0 80px;">
+                <label for="relation_order_{{ i }}">排序</label>
+                <input type="number" name="relation_order_{{ i }}" id="relation_order_{{ i }}"
+                       value="{{ loop.index if not existing else '1' }}" min="1" max="99">
+            </div>
+        </div>
+        {% endfor %}
+    </fieldset>
+
     {# ========== 提交 ========== #}
     <div class="form-actions">
         <button type="submit" class="btn-submit">保存修改</button>
         <a href="/question/{{ detail.question_code }}" class="btn-cancel">取消</a>
     </div>
 </form>
+
+<script>
+function createTagInline(btn) {
+    var tagName = document.getElementById('new_tag_name').value.trim();
+    if (!tagName) {
+        document.getElementById('new_tag_msg').textContent = '请先填写标签名称';
+        return;
+    }
+    // 自动生成 tag_code：拼音首字母+数字
+    var code = tagName.replace(/[^\\u4e00-\\u9fa5]/g, '').split('').map(function(c) {
+        return c.charCodeAt(0).toString(36);
+    }).join('').substring(0, 20) || 'biz';
+    var now = Date.now();
+    code = code + now.toString().substring(now.toString().length - 4);
+    var msg = document.getElementById('new_tag_msg');
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/tags', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 201) {
+                var resp = JSON.parse(xhr.responseText);
+                msg.textContent = '标签【' + tagName + '】创建成功（' + resp.tag_code + '），已自动选中';
+                msg.style.color = '#2a9d2a';
+                // 追加新标签勾选框并勾选
+                var container = btn.closest('.tag-checkboxes') || btn.closest('.form-fieldset').querySelector('.tag-checkboxes');
+                if (container) {
+                    var label = document.createElement('label');
+                    label.className = 'checkbox-label tag-checkbox';
+                    label.innerHTML = '<input type="checkbox" name="tags" value="' + resp.tag_code + '" checked> ' + tagName;
+                    container.appendChild(label);
+                }
+            } else if (xhr.status === 409) {
+                var err = JSON.parse(xhr.responseText);
+                msg.textContent = '标签编码已存在：' + err.error;
+                msg.style.color = '#d9534f';
+            } else {
+                msg.textContent = '创建失败：' + (JSON.parse(xhr.responseText).error || '未知错误');
+                msg.style.color = '#d9534f';
+            }
+        }
+    };
+    xhr.send(JSON.stringify({tag_code: code, tag_name: tagName}));
+}
+</script>
+
 {% endblock %}

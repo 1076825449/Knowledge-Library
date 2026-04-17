@@ -291,10 +291,10 @@
 - [x] 支持新建问题
 - [x] 支持编辑问题（`/question/<code>/edit` 路由 + `edit_question.html` 模板）
 - [x] 支持绑定政策依据（最多3条，支撑类型+说明）
-- [ ] 支持新增标签（需直接操作数据库，当前可通过编辑表单已有标签）
+- [x] 支持新增标签（`POST /api/tags` + 编辑表单内联创建按钮 + JS异步写入）
 - [x] 支持写入更新记录（新建时自动写入）
 - [x] 支持修改状态（编辑表单中 status 下拉框）
-- [ ] 支持维护关联问题（需手动在 question_relation 表维护）
+- [x] 支持维护关联问题（编辑表单关联问题区块，最多5条，填写对方问题编码+关联类型+排序）
 
 ### 验收标准
 - [x] 新增一条问题不需要手改多个文件
@@ -473,7 +473,7 @@ cd /Volumes/外接硬盘/vibe\ coding/网站/知识库
 python3 -m pytest tests/ -q
 ```
 
-**当前状态：57 passed**
+**当前状态：71 passed**
 
 ### 环境兼容性
 - Xcode Python 3.9 环境（`/Applications/Xcode.app`）实际装 Flask 2.3.0，与 requirements.txt 声明（Flask 3.0.0）不一致

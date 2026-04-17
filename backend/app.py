@@ -177,6 +177,21 @@ def create_app():
             data = request.form.to_dict()
             # to_dict() loses multi-value fields (multiple tags checked)
             data['tags'] = request.form.getlist('tags')
+
+            # 解析关联问题
+            relations = []
+            for i in range(5):  # 最多5条关联
+                rel_code = request.form.get(f'relation_code_{i}', '').strip()
+                rel_type = request.form.get(f'relation_type_{i}', 'related')
+                rel_order = request.form.get(f'relation_order_{i}', '1').strip()
+                if rel_code:
+                    relations.append({
+                        'related_code': rel_code,
+                        'relation_type': rel_type,
+                        'display_order': int(rel_order) if rel_order.isdigit() else 1
+                    })
+            data['relations'] = relations
+
             try:
                 svc.update_question(question_code, data)
                 # 处理政策关联更新（简化：先删再插）
