@@ -185,7 +185,11 @@ def import_questions(data):
                     continue  # 跳过 INSERT，进入下一条
 
             # INSERT 模式（新建）
-            code = generate_code(conn, stage, module)
+            # 若 JSON 中已指定 question_code 且 DB 中不存在，则使用指定编码
+            if override_code:
+                code = override_code
+            else:
+                code = generate_code(conn, stage, module)
 
             cur.execute(
                 """
