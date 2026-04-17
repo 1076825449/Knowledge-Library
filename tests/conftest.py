@@ -3,12 +3,14 @@ pytest 配置：werkzeug 版本兼容 patch
 
 根因：Flask 2.3.0 的 flask/testing.py 直接引用 werkzeug.__version__，
 而 Werkzeug 3.0+ 将 __version__ 移至 werkzeug.version.__version__。
-此 patch 在 pytest 收集测试之前、任何测试代码导入 werkzeug 之前生效，
-不影响其他使用 Werkzeug 3.x 的代码。
 
-在 requirements.txt 中声明为 Werkzeug==3.0.1，
-但 Xcode Python 3.9 环境实际装的是 Werkzeug 3.0.1，
-而系统 site-packages 中的 Flask 是 2.3.0（来自 Xcode.app 自带的旧版）。
+此 patch 在 pytest 收集阶段最早执行，早于所有测试模块的 import，
+只影响 werkzeug 模块的版本属性查询，不修改任何 Flask/Werkzeug 内部逻辑，
+不影响 Werkzeug 3.x 的其他功能（wsgi/test/serving 等均不受影响）。
+
+hermes venv（Flask 3.0.0）下此 patch 不触发任何行为变更：
+Flask 3.0 不引用 werkzeug.__version__，werkzeug 3.0 本身无 __version__ 顶域属性，
+所以 patch 只是多打了一个兼容属性，不影响任何代码路径。
 """
 import sys
 

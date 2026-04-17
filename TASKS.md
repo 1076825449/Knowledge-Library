@@ -482,7 +482,7 @@ python3 -m pytest tests/ -q
 
 ### session_transaction() 注意事项
 - Flask 2.3.0 的 `test_client.session_transaction()` 在 Werkzeug 3.0 环境有 bug（`_update_cookies_from_response` 签名不匹配）
-- `tests/backend/test_routes.py` 通过 `app.view_functions` + `__wrapped__` 架空 `admin_required` 装饰器来绕过此问题，避免使用 `session_transaction()`
+- `tests/backend/test_routes.py` 的 client fixture 通过 POST 正确 admin 密码到 `/question/new` 建立认证 session，不使用 `session_transaction()`，不碰 `app.view_functions`，不影响生产 admin 保护逻辑
 
 ---
 

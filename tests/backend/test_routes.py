@@ -5,7 +5,7 @@ Flask 页面层集成测试：使用 test_client() 不依赖外部服务
 兼容性：
 - Flask 2.3.0 + Werkzeug 3.0.1 通过 tests/conftest.py werkzeug 版本 patch 兼容
 - session_transaction() 在此环境有 bug（Flask 2.3.0 / Werkzeug 3.x 不兼容）
-  → admin_required 装饰器通过 app.view_functions + __wrapped__ 架空
+  → admin_required 通过 POST 正确密码建立认证 session，不使用 session_transaction()
 """
 import pytest
 import sys
@@ -21,14 +21,12 @@ def client():
     app = create_app()
     app.config["TESTING"] = True
 
-    # 架空 admin_required 装饰器：通过 app.view_functions 找到被 @wraps 包装的原始函数
-    # Flask 将装饰后的函数存为 view_function，__wrapped__ 属性指向原函数
-    for endpoint in ("new_question", "edit_question"):
-        view_func = app.view_functions.get(endpoint)
-        if view_func is not None and hasattr(view_func, "__wrapped__"):
-            app.view_functions[endpoint] = view_func.__wrapped__
-
     with app.test_client() as client:
+        # admin_required 通过 POST 正确密码建立认证 session（session_transaction() 有 bug 不使用）
+        # admin_required 对 GET 返回登录页（200），对 POST 校验密码，密码正确则设置 session['admin_authenticated']
+        client.post("/question/new",
+                    data={"password": app.config.get("ADMIN_PASSWORD", "tax2026")},
+                    follow_redirects=False)
         yield client
 
 
