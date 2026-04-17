@@ -86,7 +86,7 @@ def create_app():
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
-        business_tags = [t for t in all_tags if t['tag_category'] in ('business', 'business_tag')]
+        business_tags = [t for t in all_tags if t['tag_category'] == 'business']
         question_types = svc.get_question_types()
         keyword = request.args.get('keyword', '')
         current_region = request.args.get('region', '')
@@ -123,7 +123,7 @@ def create_app():
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
-        business_tags = [t for t in all_tags if t['tag_category'] in ('business', 'business_tag')]
+        business_tags = [t for t in all_tags if t['tag_category'] == 'business']
         all_policies = svc.get_all_policies()
 
         if request.method == 'POST':
@@ -170,7 +170,7 @@ def create_app():
         stages = svc.get_stages()
         modules = svc.get_modules()
         all_tags = svc.get_all_tags()
-        business_tags = [t for t in all_tags if t['tag_category'] in ('business', 'business_tag')]
+        business_tags = [t for t in all_tags if t['tag_category'] == 'business']
         all_policies = svc.get_all_policies()
 
         if request.method == 'POST':
@@ -199,7 +199,7 @@ def create_app():
                 stages = svc.get_stages()
                 modules = svc.get_modules()
                 all_tags = svc.get_all_tags()
-                business_tags = [t for t in all_tags if t['tag_category'] in ('business', 'business_tag')]
+                business_tags = [t for t in all_tags if t['tag_category'] == 'business']
                 all_policies = svc.get_all_policies()
                 return render_template('edit_question.html',
                                        detail=detail, stages=stages, modules=modules,

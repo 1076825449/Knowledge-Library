@@ -31,7 +31,7 @@
 | Phase 5 | 检索、筛选与关联问题增强 | ✅ 已完成 |
 | Phase 6 | 内容录入与维护便利化 | ✅ 已完成 |
 | Phase 7 | 地方口径、更新机制与专业增强 | ✅ 已完成 |
-| Phase 8 | AI 检索与高级能力预留 | 🔲 待完成（导出就绪，数据就绪） |
+| Phase 8 | AI 检索与高级能力预留 | ✅ 结构预留（内容未实现，导出就绪，数据就绪） |
 
 ---
 
@@ -342,14 +342,14 @@
 
 | 枚举字段 | 标准值 | 说明 |
 |---|---|---|
-| `scope_level` | `scope_national` / `scope_local` / `scope_mixed` | `scope_provincial` 已清除（前端冗余选项，从未入DB） |
+| `scope_level` | `scope_national` / `scope_local` | `scope_mixed`在代码/报告中保留以备后续；DB当前仅含前两项 |
 | `question_type` | `type_whether` / `type_how` / `type_define` / `type_risk` / `type_time` / `type_what` / `type_why` | seed/DB/前端三方对齐 |
-| `answer_certainty` | `certain_clear` / `certain_conditional` / `certain_dispute` / `certain_practice` | 正确拼写：`certain_conditional`（有al），历史错误 `certain_condition` 已全量修正 |
-| `status` | `draft` / `active` / `pending` / `obsolete` / `archived` | DB全为`active`（设计态），表单保留`draft`选项 |
-| `support_type` | `support_direct` / `support_procedure` / `support_definition` / `support_risk` / `support_local` / `support_aux` | 中文错误值已迁入`support_note`，类型列恢复规范值 |
+| `answer_certainty` | `certain_clear` / `certain_conditional` | DB当前仅含前两项（`certain_dispute`/`certain_practice`暂未入库）；seed/前端/质量报告仍保留4值以备后续 |
+| `status` | `active` / `draft` / `archived` | DB数据当前仅`active`（设计态），表单保留全部三值用于录入 |
+| `support_type` | `support_direct` / `support_procedure` / `support_definition` / `support_risk` / `support_local` / `support_aux` | 中文错误值已迁入`support_note`；`support_aux`已统一为辅助依据；前端表单仅提供`support_direct/aux/definition/procedure/risk/local`六项 |
 | `policy_level` | `level_law` / `level_admin` / `level_department` / `level_bulletin` / `level_local` | seed/DB统一使用`level_*`前缀 |
 | `current_status` | `pol_effective` / `pol_partial` / `pol_expired` / `pol_replaced` / `pol_uncertain` | DB历史混用`active`/`effective`/`pol_effective`，已统一为`pol_effective` |
-| `relation_type` | `related` / `next_step` / `prerequisite` / `similar` / `see_also` | ✅ 本来一致 |
+| `relation_type` | `related` / `next_step` / `prerequisite` / `similar` / `see_also` | 模板映射已校准（`next_step`/`prerequisite`/`see_also`全量补齐）；`next`/`previous`/`contrast`等旧值已清除 |
 | `update_type` | `update_new` / `update_revise` / `update_policy` / `update_boundary` / `update_local` / `update_status` | DB历史混用`create`/`update`/`update_new`/`update_revise`，已统一为seed标准值 |
 | `tag_category` | `business` / `module` / `stage` / `policy_level` / `policy_status` / `question_type` / `scope_level` / `answer_certainty` / `support_type` / `update_type` / `status` | `business_tag`已并入`business` |
 
@@ -385,7 +385,7 @@ Seed文件修正（4个文件）：`certain_condition`(无al) → `certain_condi
 ## 12. Phase 8：AI 检索与高级能力预留
 
 ### 目标
-为未来 AI 检索、语义搜索、相似问题推荐打基础。
+为未来 AI 检索、语义搜索、相似问题推荐打基础。**当前内容未实现，结构已预留。**
 
 ### 当前不强制实现，但应预留的内容
 - [x] 问题文本结构适合切片

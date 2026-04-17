@@ -9,7 +9,7 @@
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
 {% endmacro %}
 
-{% macro policy_level_label(code) %}{{ {'level_law':'法律','level_admin':'行政法规','level_department':'部门规章','level_bulletin':'规范性文件','level_provincial':'省级文件','level_local':'地方文件'}.get(code, code or '') }}{% endmacro %}
+{% macro policy_level_label(code) %}{{ {'level_law':'法律','level_admin':'行政法规','level_department':'部门规章','level_bulletin':'规范性文件','level_local':'地方文件'}.get(code, code or '') }}{% endmacro %}
 
 {% macro question_type_label(code) %}
 {%- if code == 'type_whether' -%}是否类
@@ -60,10 +60,10 @@
 
 {% macro relation_type_label(code) %}
     {%- if code == 'related' -%}相关问题
-    {%- elif code == 'next' -%}下一步
-    {%- elif code == 'previous' -%}上一步
+    {%- elif code == 'next_step' -%}下一步
+    {%- elif code == 'prerequisite' -%}前提问题
     {%- elif code == 'similar' -%}相似问题
-    {%- elif code == 'contrast' -%}对比问题
+    {%- elif code == 'see_also' -%}交叉参考
     {%- else -%}{{ code }}{%- endif -%}
 {% endmacro %}
 

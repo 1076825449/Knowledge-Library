@@ -313,10 +313,12 @@
 
 | 值 | 含义 |
 |----|------|
-| `CLEAR` | 规则明确 |
-| `CONDITIONAL` | 需结合条件判断 |
-| `DISPUTED` | 存在争议 |
-| `PRACTICAL` | 偏征管实务口径 |
+| `certain_clear` | 规则明确 |
+| `certain_conditional` | 需结合条件判断 |
+| `certain_dispute` | 存在争议 |
+| `certain_practice` | 偏征管实务口径 |
+
+**当前数据库实际值**：`certain_clear` / `certain_conditional`（后两项暂未入库）
 
 **要求：** 每条问题尽量标注。
 
@@ -326,10 +328,12 @@
 
 **作用：** 区分全国通用规则与地方执行差异
 
-**scope_level 值：**
-- `NATIONAL` - 全国
-- `LOCAL` - 地方
-- `MIXED` - 混合
+**scope_level 值（DB实际值）：**
+- `scope_national` - 全国
+- `scope_local` - 地方
+
+**scope_level 扩展值（保留用于未来）：**
+- `scope_mixed` - 混合
 
 **local_region 示例：**
 - 全国

@@ -33,6 +33,7 @@ class QuestionService:
     # ---------- 问题列表 ----------
     def list_questions(self, stage=None, module=None, tag=None, page=1, page_size=20, hf=None, newbie=None, keyword=None, region=None, status=None, qtype=None):
         offset = (page - 1) * page_size
+        # status 逻辑：显式传入值时使用该值，否则默认只看 active
         if status:
             conditions = ["q.status = ?"]
             params = [status]
@@ -68,9 +69,6 @@ class QuestionService:
         if region:
             conditions.append("q.scope_level = ?")
             params.append(region)
-        if status:
-            conditions.append("q.status = ?")
-            params.append(status)
         if qtype:
             conditions.append("q.question_type = ?")
             params.append(qtype)
@@ -296,11 +294,12 @@ class QuestionService:
         """)
 
     def get_business_tags(self):
+        """返回 tag_category='business' 的业务标签（唯一口径）"""
         return self._query("""
             SELECT tag_code, tag_name
             FROM tag_dict
-            WHERE tag_category IN ('business', 'business_tag') AND status = 'active'
-            ORDER BY tag_category, display_order
+            WHERE tag_category = 'business' AND status = 'active'
+            ORDER BY display_order
         """)
 
     def get_question_types(self):
@@ -549,7 +548,7 @@ class QuestionService:
             INSERT INTO question_update_log (
                 question_id, version_no, update_date, update_type,
                 update_reason, updated_by, reviewed_by, change_summary
-            ) VALUES (?, ?, ?, 'update', ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, 'update_revise', ?, ?, ?, ?)
         """, (
             question_id, new_version, now,
             data.get('update_reason', '内容更新'),

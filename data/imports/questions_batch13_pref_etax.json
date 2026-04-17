@@ -1,0 +1,351 @@
+[
+  {
+    "question_code": "PREF-REG-001",
+    "question_title": "企业跨省迁移后，之前享受的税收优惠政策还能继续适用吗？迁移前后政策如何衔接？",
+    "stage_code": "PREF",
+    "module_code": "REG",
+    "question_type": "type_how",
+    "answer_summary": "跨省迁移后优惠政策原则上不自动延续，需重新申请认定，部分地区有过渡期政策。",
+    "answer_content": "税收优惠政策是否能在跨省迁移后继续适用，需区分情况：\n\n1. **普惠性优惠（如小微企业所得税优惠）**：通常以纳税主体为准，迁移后如仍符合条件，可继续享受，但需在新机构所在地主管税务机关重新报告备案。\n2. **区域性优惠（如西部大开发税收优惠）**：迁移出适用区域后即不再享受，迁入新区域若属于新的优惠区域范围，可重新申请。\n3. **资格认定类优惠（如高新技术企业）**：高新技术企业资格按属地管理，跨省迁移后需在新所在地重新认定。\n4. **增值税即征即退等优惠**：通常需在迁出地结清，迁入地重新申请。\n\n建议：迁移前登录电子税务局查看\"资格信息\"确认已认定优惠项目，迁移后30日内向新主管税务机关报告，提交迁移前享有的优惠政策清单及有效证明。\n\n**政策依据**：《税收征收管理法》《税务登记管理办法》（GOV-Tax-001、GOV-REG-001）",
+    "support_policy_codes": [
+      "POL-PREF-001",
+      "POL-PREF-002",
+      "GOV-REG-001"
+    ],
+    "tags": [
+      "tag_change",
+      "tag_cross_region",
+      "tag_policy_benefit"
+    ],
+    "relations": [
+      {
+        "target_code": "CHG-REG-003",
+        "relation_type": "next_step",
+        "relation_note": "迁移后需关注优惠政策延续"
+      }
+    ]
+  },
+  {
+    "question_code": "PREF-REG-002",
+    "question_title": "企业遗失了税收优惠备案材料，还能继续享受优惠政策吗？如何补救？",
+    "stage_code": "PREF",
+    "module_code": "REG",
+    "question_type": "type_how",
+    "answer_summary": "遗失备案材料可向原备案机关申请补办，或提供其他有效证明，主管税务机关可根据实际情况处理。",
+    "answer_content": "优惠政策备案材料遗失的处理方式：\n\n1. **申请补办**：向原备案的主管税务机关提出申请，说明遗失原因，提交补办申请表（通常为《税务证件挂失报告表》）。\n2. **其他证明材料替代**：若能提供其他有效证明（如电子税务局备案截图、银行回单、当时的政策文件等），可作为辅助证据向税务机关说明。\n3. **主动说明情况**：若在后续检查中被发现备案材料缺失，应主动向税务机关说明，并积极配合补充材料，不宜隐瞒或虚假享受优惠。\n4. **风险后果**：若已享受优惠但无法提供有效备案依据，税务机关有权追缴已减免税款，并加收滞纳金；情节严重的可能认定为偷税。\n\n建议：日常将所有备案材料扫描留存电子档，在电子税务局\"备案信息\"栏目核对已备案的优惠项目。\n\n**政策依据**：《税收征收管理法》（GOV-Tax-001）、《税务登记管理办法》（GOV-REG-001）",
+    "support_policy_codes": [
+      "POL-PREF-001",
+      "POL-PREF-002",
+      "GOV-REG-001"
+    ],
+    "tags": [
+      "tag_policy_benefit",
+      "tag_register",
+      "tag_audit_free"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-BAS-002",
+        "relation_type": "see_also",
+        "relation_note": "与优惠政策是否需要备案相关"
+      },
+      {
+        "target_code": "PREF-BAS-003",
+        "relation_type": "see_also",
+        "relation_note": "错误享受优惠的后果"
+      }
+    ]
+  },
+  {
+    "question_code": "PREF-REG-003",
+    "question_title": "小规模纳税人转登记为一般纳税人后，之前享受的增值税免税优惠还能追溯享受吗？",
+    "stage_code": "PREF",
+    "module_code": "REG",
+    "question_type": "type_how",
+    "answer_summary": "转登记日后不再享受小规模免税优惠，转登记日前的优惠权益不变，但需注意转登记当期的申报处理。",
+    "answer_content": "小规模纳税人转登记为一般纳税人后税收优惠的处理：\n\n1. **转登记日为准**：自登记为一般纳税人之日起，适用一般纳税人的税收政策，不再享受小规模纳税人的增值税免税优惠（月销售额10万元/季度30万元以下免税）。\n2. **历史权益保护**：转登记日之前（即还是小规模纳税人期间）已发生应税行为，符合免税条件的，仍可按规定享受免税优惠，需确保当时已按规定申报。\n3. **转登记当期处理**：转登记当月（季）需按小规模纳税人身份申报，转登记日后产生的销售额按一般纳税人规定处理。\n4. **进项税额抵扣**：转登记后取得的增值税扣税凭证可以按规定认证抵扣，但需注意区分一般纳税人与小规模纳税人身份期间的采购。\n5. **一般纳税人优惠**：转登记后如符合条件，可享受如加计抵减等一般纳税人专项优惠政策。\n\n建议：登录电子税务局查看\"一般纳税人资格\"登记信息，确认生效时间，核对转登记当期申报是否正确。\n\n**政策依据**：《增值税一般纳税人登记管理办法》（SAT-VAT-002）、《关于进一步支持小微企业的增值税政策的公告》（POL-PREF-002）",
+    "support_policy_codes": [
+      "SAT-VAT-002",
+      "POL-PREF-002",
+      "GOV-VAT-001",
+      "POL-VAT-001"
+    ],
+    "tags": [
+      "tag_general_taxpayer",
+      "tag_policy_benefit",
+      "tag_change",
+      "tag_vat_special"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-VAT-001",
+        "relation_type": "see_also",
+        "relation_note": "小规模免税标准"
+      },
+      {
+        "target_code": "CHG-REG-005",
+        "relation_type": "related",
+        "relation_note": "主体变更涉及税收政策变化"
+      }
+    ]
+  },
+  {
+    "question_code": "PREF-INV-001",
+    "question_title": "小规模纳税人享受增值税免税优惠期间，开具了增值税专用发票，还能免税吗？",
+    "stage_code": "PREF",
+    "module_code": "INV",
+    "question_type": "type_how",
+    "answer_summary": "小规模开具了增值税专用发票，无论税率多少，都需就该笔销售额计算缴纳增值税，无法享受免税。",
+    "answer_content": "小规模纳税人开具增值税专用发票与免税的关系：\n\n1. **专用发票不免税原则**：增值税免税政策仅适用于开具增值税普通发票（或不开发票）的销售额。开具了增值税专用发票的，无论税率是多少（1%或3%），购方可以依法抵扣，销方必须就该笔销售额申报缴纳增值税。\n2. **免税额计算**：应将当月（季）全部应税销售额（含开具专票和开具普票）合并计算是否超过免税标准，超过后全额缴税，而非仅就超过部分缴税。\n3. **实务建议**：\n   - 确认客户是否需要专票，如无需专票则开普票或免税发票；\n   - 如客户必须专票，建议提前测算综合税负，部分情况下放弃免税按小规模1%征收率申报更划算；\n   - 在电子税务局\"发票核定\"模块查看当前可用发票种类及配额。\n4. **季度切换注意**：小规模纳税人按季申报时，需注意跨季度的开票情况，避免因某季度超标准导致全额缴税。\n\n**政策依据**：《增值税暂行条例》（POL-VAT-001、GOV-VAT-001）、《关于实施小微企业普惠性税收减免政策的通知》（POL-PREF-001）",
+    "support_policy_codes": [
+      "POL-VAT-001",
+      "GOV-VAT-001",
+      "POL-PREF-001",
+      "SAT-VAT-003"
+    ],
+    "tags": [
+      "tag_vat_special",
+      "tag_invoice_issue",
+      "tag_small_scale",
+      "tag_policy_benefit"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-VAT-001",
+        "relation_type": "next_step",
+        "relation_note": "免税标准与申报计算"
+      },
+      {
+        "target_code": "SET-INV-001",
+        "relation_type": "prerequisite",
+        "relation_note": "发票申领基础知识"
+      }
+    ]
+  },
+  {
+    "question_code": "PREF-INV-002",
+    "question_title": "企业同时有应税收入和免税收入，增值税发票应如何分别开具？",
+    "stage_code": "PREF",
+    "module_code": "INV",
+    "question_type": "type_how",
+    "answer_summary": "应税收入开正常税率发票，免税收入开免税发票（普票），两者不能混淆，需在开票系统中分别选择对应税收分类编码。",
+    "answer_content": "同时存在应税和免税收入的发票开具方法：\n\n1. **必须分别开票**：应税收入与免税收入不得混合开在同一张发票上，必须分别开具。否则税务机关有权要求企业补缴免税部分的税款。\n2. **应税收入开票**：选择正常税率（如1%、3%、6%、9%、13%等），购方信息如实填写购买方名称、统一社会信用代码等。\n3. **免税收入开票**：\n   - 开具增值税普通发票（或电子发票）；\n   - 税率栏填写\"免税\"或\"0%\"\n   - 货物或应税服务名称选择对应的免税税收分类编码（如自产农产品免税、粮食等）；\n   - 购方信息仍需完整填写。\n4. **申报要求**：申报时将应税销售额和免税销售额分别填入对应栏次，免税销售额填入\"免税销售额\"栏及明细表。\n5. **进项转出注意**：兼营免税项目的企业，其对应的进项税额需按比例转出，不得全额抵扣。\n\n**政策依据**：《增值税暂行条例》（POL-VAT-001、GOV-VAT-001）、《增值税暂行条例实施细则》（SAT-VAT-001）",
+    "support_policy_codes": [
+      "POL-VAT-001",
+      "GOV-VAT-001",
+      "SAT-VAT-001",
+      "POL-PREF-001"
+    ],
+    "tags": [
+      "tag_vat_special",
+      "tag_invoice_issue",
+      "tag_audit_free",
+      "tag_invoice"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-INV-001",
+        "relation_type": "see_also",
+        "relation_note": "专票与免税的关系"
+      },
+      {
+        "target_code": "PREF-DEC-001",
+        "relation_type": "next_step",
+        "relation_note": "免税申报如何填报"
+      }
+    ]
+  },
+  {
+    "question_code": "PREF-INV-003",
+    "question_title": "企业符合增值税即征即退条件，发票开具时税率和普通发票有什么不同？",
+    "stage_code": "PREF",
+    "module_code": "INV",
+    "question_type": "type_how",
+    "answer_summary": "即征即退项目仍按正常税率开具增值税发票，购方可依法抵扣；退税部分由税务机关按程序返还给企业，不影响发票样式。",
+    "answer_content": "增值税即征即退的发标开具要求：\n\n1. **发票开具不变**：即征即退项目与其他应税项目一样，按正常税率或征收率开具增值税专用发票或普通发票，发票样式与普通发票完全相同，税率栏填写实际征收率（如软件企业13%、资源综合利用3%等）。\n2. **购方抵扣权不变**：购方取得专用发票后，可按规定抵扣进项税额，即征即退不影响购方的抵扣权益。\n3. **即征即退是退税机制而非税率优惠**：企业先按正常税率缴税，再向税务机关申请退还已缴增值税，税款由税务机关直接退付给企业。\n4. **申报要求**：申报时将即征即退项目的销售额和已缴税款填入\"增值税即征即退税额\"栏次，并报送《即征即退企业进项税额情况表》或相关证明材料。\n5. **常见类型**：\n   - 软件企业增值税超税负返还\n   - 资源综合利用企业增值税即征即退\n   - 管道运输企业增值税即征即退\n   - 动漫企业增值税即征即退\n\n**政策依据**：《增值税暂行条例》（POL-VAT-001、GOV-VAT-001）、《关于全面推开营业税改征增值税试点的通知》（GOV-VAT-003）",
+    "support_policy_codes": [
+      "POL-VAT-001",
+      "GOV-VAT-001",
+      "GOV-VAT-003",
+      "SAT-VAT-003"
+    ],
+    "tags": [
+      "tag_vat_special",
+      "tag_invoice_issue",
+      "tag_refund",
+      "tag_policy_benefit"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-DEC-001",
+        "relation_type": "next_step",
+        "relation_note": "即征即退申报与退税流程"
+      },
+      {
+        "target_code": "PREF-BAS-001",
+        "relation_type": "see_also",
+        "relation_note": "多优惠叠加的处理"
+      }
+    ]
+  },
+  {
+    "question_code": "ETAX-DEC-004",
+    "question_title": "企业所得税年度汇算清缴在电子税务局中如何操作？申报后发现有漏填项目如何补救？",
+    "stage_code": "ETAX",
+    "module_code": "DEC",
+    "question_type": "type_how",
+    "answer_summary": "通过电子税务局\"企业所得税年度申报\"模块填写，申报后发现遗漏可在5年内申请更正申报，跨年度更正涉及补退税和滞纳金。",
+    "answer_content": "企业所得税年度汇算清缴电子税务局操作：\n\n1. **进入路径**：电子税务局 → 税费申报及缴纳 → 企业所得税申报 →企业所得税年度申报（或搜索\"汇算清缴\"）\n2. **填报流程**：\n   - 系统通常会自动预填收入、成本等数据（取自季度预缴数据），需逐项核对并补充；\n   - 重点填报：期间费用明细表、资产折旧摊销表、弥补亏损表、税收优惠明细表等；\n   - 小型微利企业需填写《减免所得税优惠明细表》。\n3. **更正申报**：\n   - 申报后发现漏填：5年内可申请更正申报，更正后涉及补税的需缴纳滞纳金；\n   - 更正路径：申报记录中找到该年度申报记录，点击\"更正申报\"；\n   - 如已缴纳税款与实际应纳税额有差异，系统自动计算应补或应退税款。\n4. **跨年更正注意**：超过汇算清缴期（次年5月31日）后的更正申报属自行更正，税务机关可追加检查。\n5. **风险提示**：年度申报涉及加计扣除、高新优惠等多项税收优惠，建议在截止日前尽早完成，留出修改时间。\n\n**政策依据**：《企业所得税法》（GOV-CIT-001、POL-CIT-001）、《企业所得税税前扣除凭证管理办法》（SAT-CIT-001）",
+    "support_policy_codes": [
+      "GOV-CIT-001",
+      "POL-CIT-001",
+      "SAT-CIT-001",
+      "POL-PREF-003"
+    ],
+    "tags": [
+      "tag_declaration",
+      "tag_audit_free",
+      "tag_period",
+      "tag_policy_benefit"
+    ],
+    "relations": [
+      {
+        "target_code": "PREF-CIT-001",
+        "relation_type": "see_also",
+        "relation_note": "小型微利企业优惠条件"
+      },
+      {
+        "target_code": "PREF-DEC-001",
+        "relation_type": "see_also",
+        "relation_note": "优惠申报如何填报"
+      }
+    ]
+  },
+  {
+    "question_code": "ETAX-DEC-005",
+    "question_title": "企业逾期申报了增值税和所得税，产生了罚款和滞纳金，在电子税务局上可以申请减免吗？",
+    "stage_code": "ETAX",
+    "module_code": "DEC",
+    "question_type": "type_how",
+    "answer_summary": "滞纳金有条件减免，罚款部分符合首违不罚条件可申请免除，电子税务局可提交陈述申辩和分期缴纳申请。",
+    "answer_content": "逾期申报后罚款与滞纳金处理：\n\n1. **滞纳金（不可避免）**：根据《税收征收管理法》第32条，纳税人未按期缴纳税款的，从滞纳之日起按日加收滞纳税款万分之五的滞纳金，滞纳金不可申请减免（属于税款孳息）。\n2. **罚款处理**：\n   - **首违不罚**：自2021年8月1日起，纳税人对首次发生\"逾期申报\"且危害后果轻微，并在税务机关发现前主动改正或在规定期限内改正的，不予行政处罚（《税务行政处罚裁量基准》）；\n   - **非首次**：根据情节轻重，罚款2000元以下或2000元以上至10000元以下。\n3. **电子税务局操作**：\n   - 逾期申报补报：在\"逾期申报\"模块查找对应属期进行补申报；\n   - 申请陈述申辩：提交至主管税务机关，说明逾期原因；\n   - 分期缴纳：登录后搜索\"分期缴纳罚款申请\"，提交审批。\n4. **建议**：尽量避免逾期申报，设置电子税务局申报提醒，季度预缴也有申报义务（即使零申报也需操作）。\n\n**政策依据**：《税收征收管理法》（GOV-Tax-001）、《行政处罚法》（GOV-PEN-001）、《纳税信用管理办法（试行）》（SAT-RISK-001）",
+    "support_policy_codes": [
+      "GOV-PEN-001",
+      "SAT-RISK-001",
+      "SAT-RISK-002"
+    ],
+    "tags": [
+      "tag_penalty_first",
+      "tag_credit_rating",
+      "tag_risk_warning",
+      "tag_declaration"
+    ],
+    "relations": [
+      {
+        "target_code": "ETAX-STA-001",
+        "relation_type": "see_also",
+        "relation_note": "逾期申报影响纳税信用"
+      },
+      {
+        "target_code": "RSK-RISK-001",
+        "relation_type": "next_step",
+        "relation_note": "失信惩戒与纳税信用修复"
+      }
+    ]
+  },
+  {
+    "question_code": "ETAX-REG-003",
+    "question_title": "企业注册地址变更后，在电子税务局上需要同步更新哪些信息？操作路径是什么？",
+    "stage_code": "ETAX",
+    "module_code": "REG",
+    "question_type": "type_how",
+    "answer_summary": "地址变更后需在电子税务局办理变更登记，同步更新银行账户信息、发票核定信息、社保关联信息等。",
+    "answer_content": "注册地址变更后电子税务局同步更新事项：\n\n1. **税务登记变更**（必办）：\n   - 路径：电子税务局 → 我要办税 → 税务登记 → 变更登记\n   - 填写新注册地址，提交后等待审核（通常1-3个工作日）\n2. **银行账户信息变更**（建议同步）：\n   - 路径：电子税务局 → 我要办税 → 制度与信息报告 → 银行账户信息报告\n   - 如银行账号也有变化，需同步更新，否则影响税款扣缴。\n3. **发票核定调整**（注意）：\n   - 跨区迁移后，主管税务机关可能变化，发票核定信息需在新税务机关重新核定；\n   - 同区变更地址，发票核定一般不受影响。\n4. **社保关联信息**（如适用）：\n   - 路径：电子税务局 → 社保费管理 → 缴费基数申报\n   - 地址变更如涉及社保主管机关变化，需重新关联。\n5. **申报有效期提醒**：变更期间请注意申报期限，避免因流程未完成导致逾期申报。\n\n**政策依据**：《税务登记管理办法》（GOV-REG-001）、《关于优化税务登记管理有关问题的公告》（SAT-2024-033）",
+    "support_policy_codes": [
+      "GOV-REG-001",
+      "GOV-BIZ-001"
+    ],
+    "tags": [
+      "tag_change",
+      "tag_register",
+      "tag_tax_registration",
+      "tag_invoice_certification"
+    ],
+    "relations": [
+      {
+        "target_code": "CHG-DEC-001",
+        "relation_type": "see_also",
+        "relation_note": "地址变更与主管税务机关关系"
+      },
+      {
+        "target_code": "ETAX-REG-001",
+        "relation_type": "see_also",
+        "relation_note": "电子税务局变更登记操作"
+      }
+    ]
+  },
+  {
+    "question_code": "ETAX-REG-004",
+    "question_title": "电子税务局中如何查询企业已备案的财务会计制度？需要变更时如何操作？",
+    "stage_code": "ETAX",
+    "module_code": "REG",
+    "question_type": "type_how",
+    "answer_summary": "通过\"财务会计制度备案\"模块查询和变更，新旧制度衔接时需注意申报格式和报表口径的变化。",
+    "answer_content": "财务会计制度备案查询与变更：\n\n1. **查询现有备案**：\n   - 路径：电子税务局 → 我要查询 → 备案信息查询 → 财务会计制度备案\n   - 显示当前备案的会计制度类型（如《企业会计准则》《小企业会计准则》《企业会计制度》）及有效期。\n2. **变更会计制度**：\n   - 路径：电子税务局 → 我要办税 → 制度与信息报告 → 财务会计制度备案变更\n   - 提交新制度的相关材料（如新的会计制度文件、核算办法等）。\n3. **制度变更影响**：\n   - 申报表格格式可能变化，如从《小企业会计准则》变更为《企业会计准则》，财务报表格式不同；\n   - 变更属期的财务报表按新制度口径填报，以前年度数据不追溯调整。\n4. **注意事项**：\n   - 部分税务机关要求提供会计制度变更的股东会决议或董事会决议等证明文件；\n   - 变更后首期申报需关注系统预填数据是否正确。\n\n**政策依据**：《税务登记管理办法》（GOV-REG-001/GOV-REG-002）",
+    "support_policy_codes": [
+      "GOV-REG-001",
+      "GOV-REG-002",
+      "SAT-TAX-001"
+    ],
+    "tags": [
+      "tag_register",
+      "tag_change",
+      "tag_register"
+    ],
+    "relations": [
+      {
+        "target_code": "ETAX-DEC-004",
+        "relation_type": "next_step",
+        "relation_note": "制度变更后年度申报受影响"
+      },
+      {
+        "target_code": "ETAX-REG-002",
+        "relation_type": "see_also",
+        "relation_note": "会计准则备案操作"
+      }
+    ]
+  },
+  {
+    "question_code": "ETAX-STA-002",
+    "question_title": "企业被认定为风险纳税人后，发票领用和申报会受到哪些限制？如何快速解除？",
+    "stage_code": "ETAX",
+    "module_code": "STA",
+    "question_type": "type_how",
+    "answer_summary": "风险纳税人发票限量供应、申报审核严格，解除需先消除风险成因（补申报、补缴税款、补充材料），再向税务机关申请移出。",
+    "answer_content": "被认定为风险纳税人的影响与解除方法：\n\n1. **常见限制**：\n   - **发票方面**：每月发票领用量大幅减少（从每月数十份降至数份），增量申请审批时间延长，增值税专用发票认证需额外审核；\n   - **申报方面**：部分申报表需先经税收管理员审核后才能报送，申报时间窗口缩短；\n   - **退税方面**：出口退税、增量留抵退税申请审核周期显著延长；\n   - **信用方面**：影响纳税信用等级评定，信用等级下降后影响银行贷款、招标等。\n2. **常见触发原因**：\n   - 长期零申报或低税负；\n   - 发票用量异常（如突然大量增量）；\n   - 逾期未申报或欠税；\n   - 上下游企业存在税收违法关联。\n3. **解除步骤**：\n   - 第一步：登录电子税务局查看\"风险纳税人\"详情，了解触发原因；\n   - 第二步：针对性整改（补申报/补缴税款/补充证明材料）；\n   - 第三步：向主管税务机关提交《解除风险纳税人申请》及整改报告；\n   - 第四步：等待税务机关评估确认，解除风险标注（通常5-15个工作日）。\n4. **预防建议**：保持正常申报和缴税，及时相应电子税务局风险提示，出现提示及时处理。\n\n**政策依据**：《纳税信用管理办法（试行）》（SAT-RISK-001）、《非正常户管理办法》（POL-RISK-001/POL-RISK-002）、《关于异常增值税扣税凭证处理有关问题的公告》（POL-RISK-003）",
+    "support_policy_codes": [
+      "SAT-RISK-001",
+      "POL-RISK-001",
+      "POL-RISK-002",
+      "POL-RISK-003"
+    ],
+    "tags": [
+      "tag_risk_warning",
+      "tag_credit_rating",
+      "tag_invoice_certification",
+      "tag_risk"
+    ],
+    "relations": [
+      {
+        "target_code": "RSK-RISK-001",
+        "relation_type": "next_step",
+        "relation_note": "失信惩戒与信用修复"
+      },
+      {
+        "target_code": "RSK-RISK-005",
+        "relation_type": "see_also",
+        "relation_note": "发票限量的应对"
+      }
+    ]
+  }
+]

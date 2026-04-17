@@ -113,7 +113,7 @@
                 <select name="question_type" id="question_type">
                     <option value="type_whether" {% if detail.question_type == 'type_whether' %}selected{% endif %}>是否类</option>
                     <option value="type_how" {% if detail.question_type == 'type_how' %}selected{% endif %}>怎么办类</option>
-                    <option value="type_define" {% if detail.question_type in ['type_define', 'type_definition'] %}selected{% endif %}>定义类</option>
+                    <option value="type_define" {% if detail.question_type == 'type_define' %}selected{% endif %}>定义类</option>
                     <option value="type_what" {% if detail.question_type == 'type_what' %}selected{% endif %}>是什么类</option>
                     <option value="type_risk" {% if detail.question_type == 'type_risk' %}selected{% endif %}>风险类</option>
                     <option value="type_time" {% if detail.question_type == 'type_time' %}selected{% endif %}>时限类</option>

@@ -61,6 +61,18 @@ class TestQuestionService:
         for q in result['questions']:
             assert q.get('question_type') == 'type_whether'
 
+    def test_list_questions_default_status_is_active(self, svc):
+        """不传 status 时，默认只返回 active 问题。
+        list_questions() SELECT 不含 status 列，通过 get_question_detail()
+        直接查 DB 验证返回的每条记录 status = 'active'。
+        """
+        result = svc.list_questions()
+        assert result['total'] > 0, "需要至少一条数据才能验证默认 status"
+        for q in result['questions']:
+            code = q['question_code']
+            detail = svc.get_question_detail(code)
+            assert detail['status'] == 'active', f"{code} status 应为 active，实际为 {detail['status']}"
+
     def test_list_questions_returns_pagination(self, svc):
         result = svc.list_questions(page=1, page_size=5)
         assert result['page'] == 1
