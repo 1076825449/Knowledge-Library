@@ -180,3 +180,61 @@ INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type,
 SELECT q.id, r.id, 'related', 1
 FROM question_master q, question_master r
 WHERE q.question_code = 'CLS-CLEAR-001' AND r.question_code = 'CLS-CLEAR-002';
+
+-- =====================================================================
+-- CHG 变更期扩容（batch12：8条新增 + 关联关系）
+-- =====================================================================
+
+-- CHG-REG-005（股权转让）→ OPR-CIT-001（股息红利）next_step
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'next_step', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-REG-005' AND q2.question_code = 'OPR-CIT-001';
+
+-- CHG-REG-005（股权转让）→ CHG-REG-001（注册资本变更）similar
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'similar', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-REG-005' AND q2.question_code = 'CHG-REG-001';
+
+-- CHG-REG-006（名称变更）→ CHG-INV-001（发票核定变更）next_step
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'next_step', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-REG-006' AND q2.question_code = 'CHG-INV-001';
+
+-- CHG-DEC-001（地址变更主管税务机关）→ CHG-REG-003（跨省迁移）related
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'related', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-DEC-001' AND q2.question_code = 'CHG-REG-003';
+
+-- CHG-INV-001（发票核定变更）→ OPR-INV-002（发票领购）prerequisite
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'prerequisite', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-INV-001' AND q2.question_code = 'OPR-INV-002';
+
+-- CHG-CIT-001（增资扩股）→ CHG-REG-005（股权转让）similar
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'similar', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-CIT-001' AND q2.question_code = 'CHG-REG-005';
+
+-- CHG-REG-007（有限公司变更股份公司）→ CLS-CIT-001（注销后股东处理）next_step
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'next_step', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-REG-007' AND q2.question_code = 'CLS-CIT-001';
+
+-- CHG-DEC-002（原法定代表人税务责任）→ OPR-DEC-001（税务合规）see_also
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'see_also', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-DEC-002' AND q2.question_code = 'OPR-DEC-001';
+
+-- CHG-CIT-002（减资税务处理）→ CHG-CIT-001（增资扩股）similar
+INSERT OR IGNORE INTO question_relation (question_id, related_id, relation_type, display_order)
+SELECT q1.id, q2.id, 'similar', 1
+FROM question_master q1, question_master q2
+WHERE q1.question_code = 'CHG-CIT-002' AND q2.question_code = 'CHG-CIT-001';
