@@ -1,0 +1,350 @@
+{
+  "questions": [
+    {
+      "question_code": "",
+      "question_title": "增值税一般纳税人转登记为小规模纳税人后，未抵扣的进",
+      "question_plain": "增值税一般纳税人转登记为小规模纳税人后，未抵扣的进",
+      "stage_code": "CHG",
+      "module_code": "VAT",
+      "question_type": "type_whether",
+      "one_line_answer": "增值税一般纳税人转登记为小规模纳税人后，未抵扣的进项税额需做转出处理，不得申请退税。",
+      "detailed_answer": "一般纳税人转登记为小规模纳税人后，原一般纳税人期间取得的增值税扣税凭证，包括增值税专用发票、海关进口增值税专用缴款书、机动车销售统一发票等，其进项税额的处理规则如下：（1）已认证或已勾选抵扣的进项税额，须做进项税额转出；（2）未认证的扣税凭证，在转为小规模纳税人后不得继续认证抵扣；（3）转登记后纳税人适用的征收率按小规模纳税人政策执行（3%或1%）。转登记前已按一般纳税人规则申报抵扣的进项税，如存在异常扣税凭证，须按规定做进项税额转出处理。转登记当年如涉及企业所得税年度汇算清缴，转出的进项税额不得在企业所得税税前扣除。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "16",
+          "support_type": "citation",
+          "support_note": "一般纳税人转小规模纳税人进项税额处理"
+        }
+      ],
+      "tags": [
+        "增值税",
+        "一般纳税人",
+        "小规模纳税人",
+        "进项税额转出"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "企业变更统一社会信用代码/税号后，税控设备须重新发",
+      "question_plain": "企业变更统一社会信用代码/税号后，税控设备须重新发",
+      "stage_code": "CHG",
+      "module_code": "VAT",
+      "question_type": "type_whether",
+      "one_line_answer": "企业变更统一社会信用代码/税号后，税控设备须重新发行，发票须重新申领，原税号发票不得继续使用。",
+      "detailed_answer": "企业因合并、分立、改制等情形变更统一社会信用代码后，原税号随之变更，须重新办理税控设备发行和发票核定。具体流程：（1）到主管税务机关缴销原税控设备（金税盘/税盘）；（2）重新进行税控设备发行，开通新税号；（3）重新核定发票票种和最高开票限额；（4）空白发票须作废或缴销，原税号发票不得在新税号下开具或报销入账；（5）已在新税号下取得的进项发票认证有效期不变，但须确保发票代码号码与新税号一致。历史年份的发票认证记录可在税务系统查询，不受税号变更影响。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "33",
+          "support_type": "citation",
+          "support_note": "税控设备发行和发票管理规定"
+        }
+      ],
+      "tags": [
+        "增值税",
+        "税控设备",
+        "税号变更",
+        "发票管理"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "增值税纳税人跨区（县）迁移，迁移前的留抵税额经税务",
+      "question_plain": "增值税纳税人跨区（县）迁移，迁移前的留抵税额经税务",
+      "stage_code": "CHG",
+      "module_code": "VAT",
+      "question_type": "type_whether",
+      "one_line_answer": "增值税纳税人跨区（县）迁移，迁移前的留抵税额经税务机关审核确认后可以继续抵扣，但须先结清迁移前的所有申报和欠税。",
+      "detailed_answer": "跨区迁移指企业在不同主管税务机关之间变动经营地址。迁移流程和税务处理：（1）先到原主管税务机关结清所有税款、滞纳金、罚款，申报全部属期的增值税及附加，结清发票缴销事宜；（2）申请《迁移注销证明》；（3）到新主管税务机关办理开业登记，税务机关在系统中做跨区迁入操作；（4）迁移前的留抵进项税额，经原税务机关审核确认后，可在新主管税务机关继续抵扣使用，无需做进项税额转出；（5）迁移前属期未完成申报的，须在迁移前补申报；（6）迁移后税控设备须重新发行。迁移当年，企业所得税由新主管税务机关管辖。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "1",
+          "support_type": "citation",
+          "support_note": "跨区迁移增值税处理规定"
+        }
+      ],
+      "tags": [
+        "增值税",
+        "跨区迁移",
+        "留抵税额",
+        "税务注销"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "变更法定代表人本身不直接产生纳税义务，但须在工商变",
+      "question_plain": "变更法定代表人本身不直接产生纳税义务，但须在工商变",
+      "stage_code": "CHG",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "变更法定代表人本身不直接产生纳税义务，但须在工商变更后30日内到税务机关办理税务登记变更，逾期可能面临罚款。",
+      "detailed_answer": "法定代表人变更的税务处理要点：（1）法定代表人变更不改变企业的税务登记号，不触发增值税、企业所得税等直接税种的处理变化；（2）企业须在取得新的营业执照后30日内到主管税务机关办理变更税务登记，申报新的法定代表人信息；（3）涉及银行账户信息变更的，须在变更后15日内向税务机关报告新的银行账户信息；（4）如果新法定代表人与企业存在关联交易（如同自然人控股的其他企业），须关注转让定价合规；（5）新法定代表人如为外籍人士，须关注是否涉及国际税收协定待遇。法定代表人变更不影响企业当前享受的税收优惠政策（但部分核查类优惠可能在重新核查时受影响）。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "10",
+          "support_type": "citation",
+          "support_note": "变更税务登记时限和报告义务规定"
+        }
+      ],
+      "tags": [
+        "税务综合",
+        "法定代表人",
+        "变更登记",
+        "报告义务"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "企业减少注册资本（金），自然人股东收到的减资款超过",
+      "question_plain": "企业减少注册资本（金），自然人股东收到的减资款超过",
+      "stage_code": "CHG",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "企业减少注册资本（金），自然人股东收到的减资款超过其出资额的部分，须按股息红利所得缴纳20%个人所得税。",
+      "detailed_answer": "减资的企业所得税处理：（1）减资属于股权转让行为，企业须计算减资所得（收到的减资款-计税基础），并入当年企业所得税应纳税所得额，适用25%税率（符合条件可适用特殊性税务处理）；（2）自然人股东：减资款超出原始出资额的部分，视为股息红利分配，须按20%税率缴纳个人所得税，企业须履行代扣代缴义务；（3）减资须先在工商部门办理减资公告（45天或20天），公告期满无异议后方可办理工商变更；（4）减资涉及实收资本变化的，须在次月申报期内到主管税务机关办理变更税务登记，并同步更新财务报表。减资须依法合规进行，程序瑕疵可能导致股东承担连带责任。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "22",
+          "support_type": "citation",
+          "support_note": "减资退股个人所得税规定"
+        }
+      ],
+      "tags": [
+        "税务综合",
+        "减资",
+        "注册资本",
+        "个人所得税",
+        "代扣代缴"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "企业经营范围变更本身不直接调整税种，但新增业务可能",
+      "question_plain": "企业经营范围变更本身不直接调整税种，但新增业务可能",
+      "stage_code": "CHG",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "企业经营范围变更本身不直接调整税种，但新增业务可能涉及新税种认定（如新增餐饮服务须缴纳增值税，新增不动产租赁须缴纳房产税等）。",
+      "detailed_answer": "经营范围变更的税务影响分析：（1）如果新增业务属于已认定税种的应税范围（如原来只缴纳增值税，新增增值税免税业务），须向税务机关报告，修改税费种认定信息；（2）如果新增业务属于全新税种（如新增房产出租须认定房产税，新增环境保护税项目须认定环境保护税），须到税务机关新增税种认定；（3）营改增后，大部分服务业务均缴纳增值税，经营范围变更主要影响增值税征收品目和税率；（4）部分经营范围变更可能影响企业适用的税收优惠资格（如原本不享受优惠的企业新增某类业务后符合了优惠条件），应及时向税务机关备案；（5）经营范围变更须在工商变更后30日内到税务机关办理变更税务登记。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "10",
+          "support_type": "citation",
+          "support_note": "经营范围变更税务登记处理"
+        }
+      ],
+      "tags": [
+        "税务综合",
+        "经营范围",
+        "税种认定",
+        "增值税",
+        "房产税"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "注销时自然人股东减资退股，收到的减资款超过原始出资",
+      "question_plain": "注销时自然人股东减资退股，收到的减资款超过原始出资",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "注销时自然人股东减资退股，收到的减资款超过原始出资额的部分须按20%税率代扣代缴个人所得税后才能支付。",
+      "detailed_answer": "自然人股东减资退股的税务处理：（1）企业须为自然人股东代扣代缴个人所得税，税目为'股息红利所得'，税率为20%，计算方式为（减资款-原始出资额）×20%；（2）减资款在完税前不得直接支付给个人股东，否则企业面临未履行代扣代缴义务的处罚（50%-3倍罚款）；（3）企业须在支付减资款前向主管税务机关报告，并代为申报缴纳个人所得税，取得完税凭证后再支付；（4）如果减资款小于或等于原始出资额，自然人股东无需缴纳个人所得税（无所得）；（5）如果是法人股东，减资款超出投资成本的部分并入当年企业所得税应纳税所得额处理。注销前须确保所有个人股东的所得税均已结清。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "22",
+          "support_type": "citation",
+          "support_note": "股息红利所得代扣代缴规定"
+        }
+      ],
+      "tags": [
+        "个人所得税",
+        "注销",
+        "减资退股",
+        "自然人股东",
+        "代扣代缴"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "注销前资本公积转增注册资本，自然人股东须按'利息",
+      "question_plain": "注销前资本公积转增注册资本，自然人股东须按'利息",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前资本公积转增注册资本，自然人股东须按'利息、股息、红利所得'缴纳20%个人所得税，企业须先代扣代缴。",
+      "detailed_answer": "资本公积转增资本的税务处理（以未分配利润、盈余公积等转增同理）：（1）自然人股东须就资本公积转增额按'股息红利所得'缴纳20%个人所得税，税款由企业代扣代缴；（2）代扣代缴义务在资本公积转增注册资本的当日产生，企业须在次月申报期内（通常为次月15日前）向主管税务机关申报缴纳；（3）在个人所得税完税前，不得办理工商注册资本变更登记；（4）如果是股份制企业用股票溢价形成的资本公积转增注册资本，依据现行规定暂不征收个人所得税（这是特例，需要确认资本公积类型）；（5）资本公积转增注册资本须依法进行，程序包括：股东会决议→验资（如需）→工商变更→税务备案。注销时如仍有未转增的资本公积，须在清算中处理。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "22",
+          "support_type": "citation",
+          "support_note": "资本公积转增资本个人所得税规定"
+        }
+      ],
+      "tags": [
+        "个人所得税",
+        "注销",
+        "资本公积",
+        "转增资本",
+        "代扣代缴"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "企业被税务机关稽查补税后，须在规定时限内（一般15",
+      "question_plain": "企业被税务机关稽查补税后，须在规定时限内（一般15",
+      "stage_code": "RSK",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "企业被税务机关稽查补税后，须在规定时限内（一般15日内）缴纳本金和滞纳金，逾期将加收罚款，情节严重的可能构成犯罪。",
+      "detailed_answer": "稽查补税后的合规处理步骤：（1）在收到《税务处理决定书》和《税务行政处罚决定书》后，在规定时限内（一般15日，部分情形7日）缴纳税款本金和滞纳金；（2）滞纳金按日加收万分之五（年化约18.25%），从滞纳起始日开始计算至实际缴款日；（3）如对处理决定有异议，可在60日内提起行政复议，或在6个月内向人民法院提起行政诉讼，但诉讼期间不停止执行；（4）补缴税款后须调整账务：借记以前年度损益调整，贷记应交税费等科目，涉及企业所得税的须在补缴年度或所属年度申报调整；（5）涉及个人所得税代扣代缴不足的，须补扣补缴并申报；（6）如企业有留抵税额，稽查补缴一般不得以留抵税额抵缴，只能以现金或银行转账缴纳；（7）稽查结论将纳入企业税务信用评分，影响企业纳税信用等级。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "1",
+          "support_type": "citation",
+          "support_note": "税务稽查补税处理程序规定"
+        }
+      ],
+      "tags": [
+        "税务综合",
+        "税务稽查",
+        "补税",
+        "滞纳金",
+        "行政复议"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "",
+      "question_title": "企业被解除非正常户认定后，须补报所有欠报税种、缴纳",
+      "question_plain": "企业被解除非正常户认定后，须补报所有欠报税种、缴纳",
+      "stage_code": "RSK",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "企业被解除非正常户认定后，须补报所有欠报税种、缴纳欠税和滞纳金，信用等级逐步修复，发票领用资格恢复需要税务机关审核。",
+      "detailed_answer": "非正常户解除后的修复路径：（1）到主管税务机关领取《解除非正常户申请》，如实填写欠报税种和欠税情况；（2）补申报所有欠报属期的增值税及附加、企业所得税、个人所得税（代扣代缴）、印花税等所有税种，申报方式与正常申报相同；（3）缴纳欠税本金和按日加收的滞纳金（日万分之五）；（4）到主管税务机关申请解除非正常户状态，经批准后，税务系统中的非正常户标志予以解除；（5）发票领用资格：解除非正常户后，企业可申请恢复发票领用资格，但税务机关将重新核定发票种类和最高开票限额，有违规记录的可能会降低限额；（6）纳税信用等级：非正常户记录将影响企业当年纳税信用等级评定（通常降至C级或D级），须连续12个月正常申报才能逐步修复；（7）部分业务（如出口退税、天使投资备案等）受限，非正常户状态完全解除后方可申请。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "12",
+          "support_type": "citation",
+          "support_note": "非正常户认定标准和修复程序"
+        }
+      ],
+      "tags": [
+        "税务综合",
+        "非正常户",
+        "信用修复",
+        "发票领用",
+        "纳税信用"
+      ],
+      "relations": []
+    }
+  ]
+}
