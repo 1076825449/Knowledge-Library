@@ -19,6 +19,8 @@ VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
 VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
                        'type_time', 'type_what', 'type_why'}
 VALID_MODULE_CODES = {'REG', 'DEC', 'INV', 'VAT', 'CIT', 'IIT', 'SSF', 'FEE', 'PREF', 'RISK', 'CLEAR', 'ETAX'}
+VALID_SUPPORT_TYPE = {'support_direct', 'support_aux', 'support_definition',
+                      'support_procedure', 'support_risk', 'support_local'}
 
 
 def connect_db():
@@ -245,6 +247,17 @@ def check15_stale_content(conn):
     return rows
 
 
+def check16_support_type(conn):
+    """16. support_type 枚举值合法性"""
+    rows = conn.execute("""
+        SELECT q.question_code, q.question_title, qpl.support_type, qpl.support_note
+        FROM question_policy_link qpl
+        JOIN question_master q ON q.id = qpl.question_id
+    """).fetchall()
+    invalid = [r for r in rows if r['support_type'] not in VALID_SUPPORT_TYPE]
+    return invalid
+
+
 def generate_quality_report(conn):
     """生成完整质量报告"""
     ensure_reports_dir()
@@ -454,6 +467,20 @@ def generate_quality_report(conn):
             report_lines.append(f"   [{r['question_code']}] {r['question_title'][:35]} | updated={r['updated_at']}")
         if len(stale_rows) > 20:
             report_lines.append(f"   ... 还有 {len(stale_rows) - 20} 条")
+
+    # 16. support_type 枚举合法性
+    invalid_support = check16_support_type(conn)
+    report_lines.append(f"\n{'='*60}")
+    report_lines.append(f"【检查16】support_type 枚举值合法性")
+    report_lines.append(f"{'='*60}")
+    if not invalid_support:
+        report_lines.append(f"✅ 所有 policy_link 的 support_type 均为标准值")
+    else:
+        report_lines.append(f"❌ {len(invalid_support)} 条 support_type 为非法值：")
+        for r in invalid_support[:20]:
+            report_lines.append(f"   [{r['question_code']}] support_type='{r['support_type']}' note='{r['support_note']}'")
+        if len(invalid_support) > 20:
+            report_lines.append(f"   ... 还有 {len(invalid_support) - 20} 条")
 
     # ---- 生成子报告 ----
 
