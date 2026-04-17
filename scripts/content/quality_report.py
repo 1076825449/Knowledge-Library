@@ -17,11 +17,15 @@ REPORTS_DIR = os.path.join(PROJECT_ROOT, 'data', 'reports')
 VALID_ANSWER_CERTAINTY = {'certain_clear', 'certain_conditional', 'certain_dispute', 'certain_practice'}
 VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
 VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
-                       'type_time', 'type_what', 'type_why'}
+                       'type_time', 'type_what', 'type_why',
+                       # 以下为历史遗留值（已存在于DB，不应再新增）
+                       'type_steps', 'type_clarify', 'type_procedure', 'type_compare'}
 VALID_MODULE_CODES = {'REG', 'DEC', 'INV', 'VAT', 'CIT', 'IIT', 'SSF', 'FEE', 'PREF', 'RISK', 'CLEAR', 'ETAX'}
 VALID_STAGE_CODES = {'SET', 'OPR', 'CHG', 'RSK', 'SUS', 'CLS'}
 VALID_SUPPORT_TYPE = {'support_direct', 'support_aux', 'support_definition',
-                      'support_procedure', 'support_risk', 'support_local'}
+                      'support_procedure', 'support_risk', 'support_local',
+                      # 以下为历史遗留值（已存在于DB，T4政策补强批次导入时使用）
+                      'citation'}
 
 
 def connect_db():

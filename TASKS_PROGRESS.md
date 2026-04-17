@@ -1,6 +1,6 @@
 # 企业税务知识库 - 交接摘要
 
-> 更新：2025年 月 日
+> 更新：2026年4月17日
 > 数据库：/Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db
 
 ---
