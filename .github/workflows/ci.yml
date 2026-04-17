@@ -38,6 +38,16 @@ jobs:
           source venv/bin/activate
           python scripts/ops/check_env.py
 
+      - name: Run quality check
+        run: |
+          source venv/bin/activate
+          python scripts/content/quality_report.py
+          # CI 失败条件：quality_report 中出现 ❌（编码不一致22条为 P2，不纳入失败）
+          # 只统计 P1 级别的 ❌（必填字段/枚举值/FK等结构性错误）
+          ERROR_COUNT=$(grep "❌" data/reports/quality_report_$(date +%Y%m%d).txt | grep -v "编码不一致" | wc -l)
+          if [ "$ERROR_COUNT" -gt 0 ]; then echo "❌ 发现 $ERROR_COUNT 个 P1 级质量问题，CI 失败"; exit 1; fi
+          echo "✅ 质量检查通过（P1 级问题 0 个）"
+
       - name: Run tests
         run: |
           source venv/bin/activate
