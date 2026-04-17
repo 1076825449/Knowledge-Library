@@ -1,6 +1,11 @@
 """
 Flask 页面层集成测试：使用 test_client() 不依赖外部服务
 覆盖：列表筛选、详情字段、表单枚举值、首页
+
+兼容性：
+- Flask 2.3.0 + Werkzeug 3.0.1 通过 tests/conftest.py werkzeug 版本 patch 兼容
+- session_transaction() 在此环境有 bug（Flask 2.3.0 / Werkzeug 3.x 不兼容）
+  → admin_required 装饰器通过 app.view_functions + __wrapped__ 架空
 """
 import pytest
 import sys
@@ -15,6 +20,14 @@ from app import create_app
 def client():
     app = create_app()
     app.config["TESTING"] = True
+
+    # 架空 admin_required 装饰器：通过 app.view_functions 找到被 @wraps 包装的原始函数
+    # Flask 将装饰后的函数存为 view_function，__wrapped__ 属性指向原函数
+    for endpoint in ("new_question", "edit_question"):
+        view_func = app.view_functions.get(endpoint)
+        if view_func is not None and hasattr(view_func, "__wrapped__"):
+            app.view_functions[endpoint] = view_func.__wrapped__
+
     with app.test_client() as client:
         yield client
 
@@ -206,9 +219,6 @@ class TestQuestionFormPages:
 
     def test_new_question_form_no_type_definition(self, client):
         """新建表单中 question_type 选项应为 type_define，不含 type_definition"""
-        # 手动设置 session 以通过 admin_required
-        with client.session_transaction() as sess:
-            sess["admin_authenticated"] = True
         rv = client.get("/question/new", follow_redirects=False)
         if rv.status_code == 200:
             data = rv.data.decode("utf-8")
@@ -217,8 +227,6 @@ class TestQuestionFormPages:
 
     def test_answer_certainty_options_in_form(self, client):
         """新建表单中 answer_certainty 选项与DB对齐（certain_clear / certain_conditional）"""
-        with client.session_transaction() as sess:
-            sess["admin_authenticated"] = True
         rv = client.get("/question/new", follow_redirects=False)
         if rv.status_code == 200:
             data = rv.data.decode("utf-8")
@@ -227,8 +235,6 @@ class TestQuestionFormPages:
 
     def test_scope_level_options_no_provincial(self, client):
         """新建表单中 scope_level 不应出现 scope_provincial"""
-        with client.session_transaction() as sess:
-            sess["admin_authenticated"] = True
         rv = client.get("/question/new", follow_redirects=False)
         if rv.status_code == 200:
             data = rv.data.decode("utf-8")

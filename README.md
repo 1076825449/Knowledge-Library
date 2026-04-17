@@ -92,7 +92,19 @@ python backend/app.py
 export ADMIN_PASSWORD=你的密码 && python backend/app.py
 ```
 
-> **注意**：Flask 默认端口为 5000。如需更换，可设置环境变量 `FLASK_RUN_PORT=3000`，或直接修改 `backend/app.py` 中的 `app.run(host='0.0.0.0', port=5000)`。
+### 测试
+
+```bash
+cd /Volumes/外接硬盘/vibe\ coding/网站/知识库
+python3 -m pytest tests/ -q
+```
+
+当前测试状态：**57 passed**（python3 = Xcode Python 3.9，Flask 2.3.0，Werkzeug 3.0.1）
+
+环境兼容性说明：
+- Xcode Python 3.9 环境（`/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9`）装的是 Flask 2.3.0，而非 requirements.txt 声明的 Flask 3.0.0
+- `tests/conftest.py` 中有 werkzeug 版本兼容 patch（`werkzeug.__version__` → `werkzeug.version.__version__`），解决 Flask 2.3.0 test_client 与 Werkzeug 3.0 的兼容问题
+- 如使用 hermes venv（python3 3.11 + Flask 3.0.0），测试同样通过
 
 ### 一键初始化数据库（如需重新创建）
 

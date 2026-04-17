@@ -465,7 +465,28 @@ Seed文件修正（4个文件）：`certain_condition`(无al) → `certain_condi
 
 ---
 
-## 14. 最终执行提醒
+## 15. 测试与运行环境说明
+
+### 测试命令
+```bash
+cd /Volumes/外接硬盘/vibe\ coding/网站/知识库
+python3 -m pytest tests/ -q
+```
+
+**当前状态：57 passed**
+
+### 环境兼容性
+- Xcode Python 3.9 环境（`/Applications/Xcode.app`）实际装 Flask 2.3.0，与 requirements.txt 声明（Flask 3.0.0）不一致
+- `tests/conftest.py` 通过 `pytest_configure` 钩子在收集阶段注入 werkzeug 版本兼容 patch（`werkzeug.__version__` → `werkzeug.version.__version__`），解决 Flask 2.3.0 test_client + Werkzeug 3.0 兼容问题
+- hermes venv（python3 3.11 + Flask 3.0.0）下测试同样通过
+
+### session_transaction() 注意事项
+- Flask 2.3.0 的 `test_client.session_transaction()` 在 Werkzeug 3.0 环境有 bug（`_update_cookies_from_response` 签名不匹配）
+- `tests/backend/test_routes.py` 通过 `app.view_functions` + `__wrapped__` 架空 `admin_required` 装饰器来绕过此问题，避免使用 `session_transaction()`
+
+---
+
+## 16. 最终执行提醒
 
 ### 必须始终记住
 - 这是"问题卡片网站"，不是文章博客
