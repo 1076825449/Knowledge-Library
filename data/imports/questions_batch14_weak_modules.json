@@ -1,0 +1,329 @@
+[
+  {
+    "question_code": "OPR-SSF-010",
+    "question_title": "公司员工离职，当月社保和公积金需要减员吗？不减员有什么风险？",
+    "stage_code": "OPR",
+    "module_code": "SSF",
+    "question_type": "type_whether",
+    "answer_summary": "员工离职当月必须办理社保减员，否则单位需继续缴纳，且可能导致员工无法正常参保。",
+    "answer_content": "员工离职后，用人单位应在解除或终止劳动合同之日起15日内为员工办理社保减员手续。\n\n**不及时减员的后果：**\n1. 单位需继续缴纳离职员工的社保费（单位+个人部分均需单位承担）\n2. 员工因已参保无法在新单位参保，导致新单位无法正常增员\n3. 员工如发生工伤，因劳动关系已解除，工伤保险基金不予支付，由用人单位承担\n4. 部分地区税务系统会因\"人多险少\"触发风险预警\n\n**正确操作：**\n1. 员工离职当月，在电子税务局或社保网上服务平台办理社保减员\n2. 减员原因选择\"解除/终止劳动合同\"\n3. 确保减员日期在员工最后工作日之后\n4. 个人部分社保费从最后一个月工资中扣除\n\n**政策依据**：《社会保险法》第五十八条、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001", "GOV-Tax-001"],
+    "tags": ["tag_ssf", "tag_setup"],
+    "relations": [
+      {
+        "target_code": "OPR-SSF-001",
+        "relation_type": "see_also",
+        "relation_note": "社保登记基础问题"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-SSF-011",
+    "question_title": "试用期员工要不要缴社保？试用期不缴社保合法吗？",
+    "stage_code": "OPR",
+    "module_code": "SSF",
+    "question_type": "type_whether",
+    "answer_summary": "试用期必须缴纳社保，不缴社保的试用期约定违法，员工有权要求单位补缴。",
+    "answer_content": "试用期是劳动合同的组成部分，用人单位应当自用工之日起30日内为员工申请办理社会保险登记。试用期不缴社保是违法行为。\n\n**法律要点：**\n1. 劳动关系自用工之日起建立，与试用期是否约定无关\n2. 《社会保险法》第五十八条：用人单位应自用工之日起30日内申请办理社保登记\n3. 试用期内不缴社保的约定无效，员工仍可要求补缴\n\n**实操建议：**\n1. 新员工入职当月即办理社保增员（不必等试用期结束）\n2. 部分地区社保增员有截止日（如每月15日），注意时间节点\n\n**政策依据**：《社会保险法》第五十八条、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001"],
+    "tags": ["tag_ssf", "tag_setup", "tag_registration"],
+    "relations": [
+      {
+        "target_code": "OPR-SSF-010",
+        "relation_type": "next_step",
+        "relation_note": "入职增员后，离职减员是下一步"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-SSF-012",
+    "question_title": "公司同时有城镇职工社保和城乡居民社保的员工，税务上如何处理？",
+    "stage_code": "OPR",
+    "module_code": "SSF",
+    "question_type": "type_how",
+    "answer_summary": "城镇职工社保由单位申报缴纳，城乡居民社保由个人自愿缴纳，两者不重复享受，税务处理分开进行。",
+    "answer_content": "社会保险分为职工基本养老保险、医疗保险、工伤保险、失业保险、生育保险（\"五险\"）和城乡居民基本养老、医疗保险。\n\n**税务处理原则：**\n1. **城镇职工社保**：由用人单位按月申报缴纳，纳入税务部门征收范围\n2. **城乡居民社保**：由参保人自行向税务部门缴纳，用人单位不负担\n\n**常见误区：**\n- 员工已在农村缴纳城乡居保，入职后单位仍须为其缴纳职工社保\n- 单位不能以员工已有城乡居保为由降低职工社保缴费基数\n\n**政策依据**：《社会保险法》第十条、第二十三条、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001"],
+    "tags": ["tag_ssf", "tag_setup"],
+    "relations": []
+  },
+  {
+    "question_code": "OPR-SSF-013",
+    "question_title": "公司因经营困难申请了社保费缓缴，缓缴期间员工可以正常使用社保吗？",
+    "stage_code": "OPR",
+    "module_code": "SSF",
+    "question_type": "type_whether",
+    "answer_summary": "社保费缓缴期间，员工就医、报销等基本医保待遇不受影响，但部分补贴类待遇可能暂停。",
+    "answer_content": "根据阶段性缓缴社保费政策，困难单位可申请在一定期限内缓缴养老、失业、工伤保险费，缓缴期间员工权益不受影响。\n\n**缓缴期间员工权益：**\n1. **医疗保险**：缓缴期间，员工仍可正常就医结算\n2. **工伤保险**：缓缴期间员工发生工伤的，工伤保险基金按规定支付待遇\n3. **养老保险**：缓缴期间不计入缴费年限，但不影响员工办理退休\n4. **失业保险**：缓缴期间不享受失业保险待遇\n\n**注意事项：**\n- 缓缴期满后应一次性补缴缓缴期间社保费，逾期按日加收万分之五滞纳金\n\n**政策依据**：《关于阶段性缓缴社会保险费的通知》、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001"],
+    "tags": ["tag_ssf", "tag_overdue", "tag_risk_warning"],
+    "relations": []
+  },
+  {
+    "question_code": "RSK-SSF-004",
+    "question_title": "员工投诉公司未足额缴纳社保，税务机关如何处理？企业有什么风险？",
+    "stage_code": "RSK",
+    "module_code": "SSF",
+    "question_type": "type_risk",
+    "answer_summary": "员工投诉未足额缴纳社保后，税务机关责令单位补缴，并自欠缴之日起按日加收万分之五滞纳金；情节严重的可能被处以罚款。",
+    "answer_content": "社会保险费由税务部门负责征收，未按规定申报缴纳的法律后果明确。\n\n**处理流程：**\n1. 员工向税务机关或社保经办机构投诉\n2. 税务机关核查单位缴费基数和人数\n3. 责令限期补缴，逾期未缴的，自欠缴之日起按日加收万分之五滞纳金\n4. 情节严重（《社会保险法》第八十六条）：处欠缴数额一倍以上三倍以下的罚款\n\n**企业风险：**\n1. **经济风险**：补缴本金 + 滞纳金（按日累计，金额可能超过本金）\n2. **信用风险**：纳入社会保险领域严重失信人名单\n3. **法律风险**：员工可据此主张被迫解除劳动合同并要求经济补偿\n4. **追缴时效**：社保补缴原则上不受时效限制，税务可追溯多年\n\n**政策依据**：《社会保险法》第八十六条、POL-SSF-001、GOV-Tax-001",
+    "support_policy_codes": ["POL-SSF-001", "GOV-Tax-001"],
+    "tags": ["tag_ssf", "tag_risk_warning", "tag_overdue", "tag_discredit"],
+    "relations": [
+      {
+        "target_code": "RSK-SSF-002",
+        "relation_type": "see_also",
+        "relation_note": "社保合规风险"
+      }
+    ]
+  },
+  {
+    "question_code": "SET-SSF-001",
+    "question_title": "新公司注册后，多久必须办理社保登记？首月没员工也要办理吗？",
+    "stage_code": "SET",
+    "module_code": "SSF",
+    "question_type": "type_time",
+    "answer_summary": "新公司应在办理税务登记之日起30日内申请社保登记，无论是否有员工。",
+    "answer_content": "用人单位应当自成立之日起30日内向当地社会保险经办机构申请办理社会保险登记，这是法定义务，与是否有员工无关。\n\n**关键时间节点：**\n- **30日内**：到社保经办机构办理社会保险登记（\"开户\"）\n- **用工之日起30日内**：为员工办理社保增员并申报缴费\n\n**实操：**\n1. 登录电子税务局或社保网上服务系统\n2. 选择\"单位新参保登记\"\n3. 录入单位基本信息、银行账户信息\n4. 确认参保险种\n\n**政策依据**：《社会保险法》第五十七条、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001"],
+    "tags": ["tag_ssf", "tag_setup", "tag_first_tax", "tag_registration"],
+    "relations": [
+      {
+        "target_code": "OPR-SSF-001",
+        "relation_type": "next_step",
+        "relation_note": "登记后就要申报缴费"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-SSF-014",
+    "question_title": "公司在两地同时参保（重复参保），可以同时享受医保待遇吗？社保费能退吗？",
+    "stage_code": "OPR",
+    "module_code": "SSF",
+    "question_type": "type_whether",
+    "answer_summary": "不能同时享受两份医保待遇，重复参保的社保费不能退，但可以办理转移合并缴费年限。",
+    "answer_content": "员工在两个或以上地区同时参加社会保险（重复参保）是违规行为，医保待遇不能重复享受。\n\n**重复参保的处理原则：**\n1. **医保待遇**：不允许同时享受两份基本医疗保险待遇，不能双重报销\n2. **养老保险**：缴费年限可以转移合并，个人账户资金可以转移；但同一时间段重复缴费的，不重复计算年限\n3. **工伤保险和失业保险**：不涉及双重参保待遇问题\n\n**已缴社保费能否退费：**\n- 因系统原因或用人单位申报错误导致的重复缴费，可申请退还个人缴费部分\n- 主动在两个单位同时参保的不予退费，且属于违规行为\n\n**政策依据**：《社会保险法》、《流动就业人员基本医疗保险关系转移接续业务经办规程》、POL-SSF-001",
+    "support_policy_codes": ["POL-SSF-001"],
+    "tags": ["tag_ssf", "tag_cross_region", "tag_risk_warning"],
+    "relations": []
+  },
+  {
+    "question_code": "OPR-TAX-009",
+    "question_title": "企业收到税务机关的风险提示函（或风险提醒通知书），应该如何应对？",
+    "stage_code": "OPR",
+    "module_code": "TAX",
+    "question_type": "type_how",
+    "answer_summary": "收到风险提示后应在规定期限内自查核实，如有问题主动更正申报，切勿忽视或置之不理。",
+    "answer_content": "税务机关通过大数据分析发现企业申报数据异常时，会发出风险提示或约谈通知，这是日常征管手段，不等于立案稽查。\n\n**收到风险提示函的处理步骤：**\n1. **认真阅读**：明确是哪类风险（增值税税负、所得税成本率异常？发票数据与申报不符？）\n2. **自查核实**：调取相关凭证、发票、账簿，核实数据异常的真实原因\n3. **及时回复**：在税务机关要求的期限内书面反馈\n4. **主动更正**：如确认申报有误，主动在电子税务局更正申报，补缴税款\n\n**不应做的事：**\n- 置之不理（会导致风险等级升级为稽查立案）\n- 销毁凭证或转移资产\n\n**政策依据**：《税务稽查工作规程》、《税收征收管理法》、GOV-Tax-001、POL-RISK-001",
+    "support_policy_codes": ["GOV-Tax-001", "POL-RISK-001"],
+    "tags": ["tag_risk_control", "tag_risk_warning", "tag_self_check", "tag_declaration"],
+    "relations": [
+      {
+        "target_code": "OPR-RISK-001",
+        "relation_type": "related",
+        "relation_note": "非正常户认定也是一种风险"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-TAX-010",
+    "question_title": "企业向境外关联方支付费用，税务机关常关注哪些风险点？",
+    "stage_code": "OPR",
+    "module_code": "TAX",
+    "question_type": "type_risk",
+    "answer_summary": "税务机关重点关注：是否符合独立交易原则、是否足额代扣代缴增值税和所得税、是否按规定准备同期资料。",
+    "answer_content": "关联交易是税务机关反避税调查的重点领域，企业向境外关联方支付款项时存在多个风险点。\n\n**常见风险点：**\n1. **转让定价风险**：支付的费用是否与功能风险相匹配？是否明显高于非关联方价格？\n2. **所得税风险**：是否按规定代扣代缴企业所得税？\n3. **增值税风险**：支付特许权使用费、技术服务费是否代扣增值税？\n4. **同期资料风险**：达到准备同期资料标准的未准备或准备不规范\n\n**合规建议：**\n1. 签订规范的关联交易合同，价格符合独立交易原则\n2. 按时进行关联申报（每年6月30日前）\n\n**政策依据**：《企业所得税法》第四十一条、《税收征收管理法》第三十六条、GOV-Tax-001、GOV-CIT-001",
+    "support_policy_codes": ["GOV-Tax-001", "GOV-CIT-001"],
+    "tags": ["tag_withholding", "tag_risk_warning", "tag_cross_border", "tag_credit_rating"],
+    "relations": [
+      {
+        "target_code": "OPR-TAX-001",
+        "relation_type": "see_also",
+        "relation_note": "同期资料是关联交易核心合规事项"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-TAX-011",
+    "question_title": "企业税务注销和工商注销是什么关系？先后顺序是什么？",
+    "stage_code": "OPR",
+    "module_code": "TAX",
+    "question_type": "type_define",
+    "answer_summary": "必须先办税务注销，再办工商注销；税务未注销，工商无法完成注销登记。",
+    "answer_content": "企业注销涉及税务和工商两大程序，两者有严格的先后顺序。\n\n**基本顺序：**\n1. **清算**（成立清算组、开展清算）\n2. **税务注销**（向主管税务机关申请，领取清税证明）\n3. **工商注销**（向市场监管部门申请，领取注销证明）\n\n**税务注销前置条件：**\n- 结清所有应纳税款、滞纳金、罚款\n- 缴销全部空白发票和税控设备\n- 办理注销前清算所得税（清算所得纳税）\n\n**两种税务注销方式：**\n- **一般注销**：流程完整，20个工作日左右\n- **简易注销**：适用于未发生涉税事项或未领过发票的企业，10个工作日左右\n\n**政策依据**：《税务登记管理办法》、GOV-REG-001、GOV-CLS-001",
+    "support_policy_codes": ["GOV-REG-001", "GOV-CLS-001"],
+    "tags": ["tag_注销清算", "tag_税务注销", "tag_清税", "tag_setup"],
+    "relations": [
+      {
+        "target_code": "CLS-CLEAR-001",
+        "relation_type": "next_step",
+        "relation_note": "清税证明是税务注销的核心"
+      }
+    ]
+  },
+  {
+    "question_code": "SET-TAX-002",
+    "question_title": "新设企业首月如何办理税费种认定？哪些税种是必须认定的？",
+    "stage_code": "SET",
+    "module_code": "TAX",
+    "question_type": "type_steps",
+    "answer_summary": "新设企业应在税务登记后30日内向主管税务机关申请税费种认定，增值税、企业所得税、个人所得税（代扣代缴）是大多数企业的必认税种。",
+    "answer_content": "税费种认定是纳税人日常申报纳税的前提，只有认定了税种，税务系统才会生成对应申报表。\n\n**必须认定的税种（一般企业）：**\n- **增值税**（小规模纳税人或一般纳税人）\n- **企业所得税**（查账征收或核定征收）\n- **个人所得税**（代扣代缴）\n- **印花税**（营业账簿、合同类）\n\n**认定流程：**\n1. 登录电子税务局\n2. 选择\"税费种认定\"模块\n3. 根据营业执照上的经营范围选择相关税种\n4. 确认各税种的申报周期（月报/季报/年报）\n\n**政策依据**：《税务登记管理办法》、GOV-REG-001、GOV-VAT-001",
+    "support_policy_codes": ["GOV-REG-001", "GOV-VAT-001"],
+    "tags": ["tag_setup", "tag_first_tax", "tag_dic", "tag_registration"],
+    "relations": [
+      {
+        "target_code": "SET-REG-005",
+        "relation_type": "next_step",
+        "relation_note": "税费种认定是税务登记后的第一步"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-FEE-011",
+    "question_title": "企业向老板或股东借款，会计上怎么处理？税务上有什么风险？",
+    "stage_code": "OPR",
+    "module_code": "FEE",
+    "question_type": "type_risk",
+    "answer_summary": "向股东借款在会计上记\"其他应付款\"，但若跨年度不还且未用于经营，可能被视同分红征收个人所得税。",
+    "answer_content": "企业向关联方（股东、老板）借款是常见资金拆借行为，但涉及多个税务风险点。\n\n**会计处理：**\n- 借款时：借：银行存款 贷：其他应付款——股东\n- 归还时：借：其他应付款——股东 贷：银行存款\n\n**个人所得税风险：**\n- 纳税年度内个人投资者从其投资的企业借款，在该纳税年度终了后既不归还又未用于企业生产经营的，其未归还的借款可视为企业对个人投资者的分红，依照\"利息、股息、红利所得\"项目计征个人所得税（20%）\n- 建议：股东借款在当年12月31日前归还，跨年后再借出\n\n**企业所得税风险：**\n- 向关联方支付利息超过金融企业同期同类贷款利率的部分不得税前扣除\n\n**政策依据**：《企业所得税法》第四十六条、《个人所得税法》及专项文件、GOV-Tax-001、GOV-CIT-001",
+    "support_policy_codes": ["GOV-Tax-001", "GOV-CIT-001"],
+    "tags": ["tag_payment", "tag_risk_warning", "tag_credit_loan"],
+    "relations": [
+      {
+        "target_code": "OPR-FEE-001",
+        "relation_type": "see_also",
+        "relation_note": "成本费用合规是基础"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-FEE-012",
+    "question_title": "企业举办业务培训，报销培训费用时要注意哪些税务问题？",
+    "stage_code": "OPR",
+    "module_code": "FEE",
+    "question_type": "type_risk",
+    "answer_summary": "培训费需取得合规发票，自有职工培训费可全额税前扣除，但不包括差旅费、娱乐费等；委托外部培训的，还涉及增值税进项抵扣问题。",
+    "answer_content": "企业培训费是常见的成本费用项目，但税务处理上需要注意几个关键点。\n\n**企业所得税处理：**\n1. **自有职工培训**：培训费用（不含差旅、餐饮、娱乐）可全额在企业所得税前扣除\n2. **委托外部机构培训**：须取得合规发票，发票内容应为\"培训费\"\n\n**增值税处理：**\n- 一般纳税人取得增值税专用发票，且培训服务用于应税项目的，进项税额可以抵扣\n- 如果培训属于集体福利，进项税额不得抵扣\n\n**注意事项：**\n- 培训费发票品名必须是\"培训费\"，不能是\"咨询费\"\n- 娱乐性支出不得计入培训费，也不得税前扣除\n\n**政策依据**：《企业所得税法实施条例》第四十二条、GOV-Tax-001、GOV-CIT-001",
+    "support_policy_codes": ["GOV-Tax-001", "GOV-CIT-001"],
+    "tags": ["tag_payment", "tag_invoice", "tag_vat_special"],
+    "relations": []
+  },
+  {
+    "question_code": "SET-FEE-003",
+    "question_title": "新公司注册后还没收入，但银行回单上已有手续费支出，这些能税前扣除吗？",
+    "stage_code": "SET",
+    "module_code": "FEE",
+    "question_type": "type_whether",
+    "answer_summary": "银行手续费只要取得合规发票，无论企业是否盈利，均可在当期税前扣除。",
+    "answer_content": "银行手续费属于企业的期间费用，只要实际发生且取得合法凭证，就可以在税前扣除，与企业是否盈利无关。\n\n**银行手续费涉税要点：**\n1. **企业所得税**：银行手续费属于\"财务费用\"，可全额在税前扣除\n2. **增值税**：2016年后银行手续费须缴纳增值税，一般纳税人可抵扣进项\n3. **印花税**：银行与企业间的借款合同须缴纳印花税\n\n**操作建议：**\n- 要求开户银行开具增值税发票\n- 保留银行回单作为附件\n- 会计入账时：借：财务费用 贷：银行存款\n\n**政策依据**：《企业所得税法》第八条、《增值税暂行条例》及实施细则、GOV-Tax-001、GOV-VAT-001",
+    "support_policy_codes": ["GOV-Tax-001", "GOV-VAT-001"],
+    "tags": ["tag_setup", "tag_first_tax", "tag_invoice", "tag_payment"],
+    "relations": [
+      {
+        "target_code": "OPR-FEE-001",
+        "relation_type": "see_also",
+        "relation_note": "无发票不能入账是基本原则"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-FEE-013",
+    "question_title": "公司给客户送礼品（样品、宣传品），税务上怎么处理？能否税前扣除？",
+    "stage_code": "OPR",
+    "module_code": "FEE",
+    "question_type": "type_how",
+    "answer_summary": "赠送客户礼品属于业务招待或视同销售，增值税和企业所得税均有处理要求，须取得发票且扣除有比例限制。",
+    "answer_content": "企业对外赠送礼品是常见的业务招待行为，税务处理较复杂。\n\n**增值税处理：**\n- 将外购商品用于招待：不得抵扣进项税额，已抵扣的需进项转出\n- 将外购商品用于市场推广（如促销赠品）：视同销售，需要计算销项税额\n\n**企业所得税处理：**\n- 业务招待费：按发生额的60%扣除，但最高不得超过当年销售收入的5‰\n- 广告费和业务宣传费：不超过当年营业收入15%的部分准予扣除\n\n**实际操作建议：**\n1. 促销活动赠品尽量走\"业务宣传费\"口径，限额更高\n2. 客户礼品尽量取得增值税发票\n3. 赠品金额较大时，建议附上赠送清单或审批单\n\n**政策依据**：《企业所得税法实施条例》第四十三条、《增值税暂行条例实施细则》第四条、GOV-Tax-001、GOV-VAT-001",
+    "support_policy_codes": ["GOV-Tax-001", "GOV-VAT-001"],
+    "tags": ["tag_payment", "tag_invoice", "tag_vat_special", "tag_risk_warning"],
+    "relations": []
+  },
+  {
+    "question_code": "SUS-REG-001",
+    "question_title": "企业停业申请被税务机关受理后，还需要继续申报纳税吗？",
+    "stage_code": "SUS",
+    "module_code": "REG",
+    "question_type": "type_whether",
+    "answer_summary": "批准停业后，在停业期间按实际经营情况进行零申报或据实申报，但税务检查权不因停业而消灭。",
+    "answer_content": "企业获批停业后，并非完全不与税务机关发生关系，仍有持续的申报义务。\n\n**停业期间的税务义务：**\n1. **纳税申报**：即使无经营，仍须按期进行零申报\n2. **发票管理**：已领用的空白发票须妥善保管，不得开具\n3. **异常处理**：如在停业期间发生涉税业务，须据实申报\n\n**风险提示：**\n- 停业期间不进行零申报，会导致逾期申报，产生罚款和滞纳金\n- 停业期间擅自开具发票属违法行为\n\n**政策依据**：《税务登记管理办法》停业复业章节、POL-SUS-001、GOV-REG-001",
+    "support_policy_codes": ["POL-SUS-001", "GOV-REG-001"],
+    "tags": ["tag_risk_warning", "tag_zero_report", "tag_invoice"],
+    "relations": [
+      {
+        "target_code": "SUS-DEC-001",
+        "relation_type": "next_step",
+        "relation_note": "停业期间如何零申报是实务核心"
+      },
+      {
+        "target_code": "SUS-REG-003",
+        "relation_type": "see_also",
+        "relation_note": "恢复经营后的第一步"
+      }
+    ]
+  },
+  {
+    "question_code": "SUS-CLEAR-001",
+    "question_title": "企业在停业期间是否可以申请办理税务注销？还是必须先恢复经营？",
+    "stage_code": "SUS",
+    "module_code": "CLEAR",
+    "question_type": "type_whether",
+    "answer_summary": "停业期间可以直接申请税务注销，不需要先恢复经营，但须先结清所有税务事项。",
+    "answer_content": "企业停业后如决定不再恢复经营，完全可以直接申请税务注销，不需要先办理复业登记。\n\n**停业期间申请注销的条件：**\n1. 结清所有应纳税款、滞纳金、罚款\n2. 缴销全部空白发票和税控设备\n3. 完成当期的纳税申报（含停业期间的零申报）\n\n**简易注销的适用性：**\n- 未领用过发票、未办理过涉税事项的企业，可适用简易注销（承诺制）\n- 有发票领用或涉税事项的，必须走一般注销流程\n\n**政策依据**：《税务登记管理办法》注销章节、GOV-REG-001、GOV-CLS-001",
+    "support_policy_codes": ["GOV-REG-001", "GOV-CLS-001"],
+    "tags": ["tag_注销清算", "tag_税务注销", "tag_简易注销", "tag_risk_warning"],
+    "relations": [
+      {
+        "target_code": "SUS-REG-001",
+        "relation_type": "see_also",
+        "relation_note": "停业期间的申报义务"
+      },
+      {
+        "target_code": "CLS-CLEAR-001",
+        "relation_type": "related",
+        "relation_note": "清税证明是税务注销核心"
+      }
+    ]
+  },
+  {
+    "question_code": "SUS-RISK-001",
+    "question_title": "企业长期停业不处理，税务机关会如何处理？会有什么后果？",
+    "stage_code": "SUS",
+    "module_code": "RISK",
+    "question_type": "type_risk",
+    "answer_summary": "长期停业不处理，企业会被认定为非正常户，进而被停止税务登记证效力，最终被强制注销，且企业法定代表人将受到经营限制。",
+    "answer_content": "企业停业后如长期不恢复经营又不办理注销，税务机关有一系列处理措施。\n\n**税务机关的处理步骤：**\n1. **认定为非正常户**：企业未按时报送纳税申报，税务机关责令限期改正，逾期仍不改正的，认定为非正常户\n2. **暂停税务登记证效力**：暂停其发票领购和申报权利\n3. **强制注销**：连续三年被认定为非正常户且无法联系的，税务登记证失效，强制注销税务登记\n4. **影响工商年检**：税务异常会导致工商年报无法通过，严重者被吊销营业执照\n\n**对法定代表人的影响：**\n- 被列入税务黑名单，无法新办企业、无法担任企业高管\n- 部分地区限购房产、贷款等也会受波及\n\n**建议：**\n- 不再经营的企业，尽快办理正规注销手续\n- 暂时停业的企业，按时零申报，避免被认定为非正常户\n\n**政策依据**：《税务登记管理办法》第四十条、《非正常户管理办法》、POL-RISK-001、GOV-REG-001",
+    "support_policy_codes": ["POL-RISK-001", "GOV-REG-001"],
+    "tags": ["tag_risk_warning", "tag_runaway", "tag_discredit", "tag_overdue"],
+    "relations": [
+      {
+        "target_code": "RSK-RISK-001",
+        "relation_type": "see_also",
+        "relation_note": "非正常户认定标准"
+      },
+      {
+        "target_code": "SUS-CLEAR-001",
+        "relation_type": "next_step",
+        "relation_note": "长期停业的正确出路是注销"
+      }
+    ]
+  },
+  {
+    "question_code": "OPR-TAX-012",
+    "question_title": "小规模纳税人是否可以转为一般纳税人？转登记后之前购进的固定资产进项税还能抵扣吗？",
+    "stage_code": "OPR",
+    "module_code": "TAX",
+    "question_type": "type_how",
+    "answer_summary": "符合条件的小规模纳税人可申请转登记为一般纳税人，转登记前购进的固定资产进项税不得抵扣，转登记后新购进的可以。",
+    "answer_content": "小规模纳税人转一般纳税人有明确的条件和程序，转登记后的税务处理也有具体规定。\n\n**转登记条件：**\n1. 连续12个月累计应税销售额超过500万元（不含增值税）\n2. 会计核算健全，能够按规定提供税务资料\n\n**进项税额处理：**\n1. **转登记前购进的货物、劳务、服务**：即使取得增值税扣税凭证，也不得抵扣进项税额\n2. **转登记后新购进的**：可以按规定抵扣进项税额\n\n**注意事项：**\n- 转登记后一般纳税人身份不可逆\n- 转登记后如出现税负率偏低等异常，可能触发风险核查\n\n**政策依据**：《增值税一般纳税人登记管理办法》、GOV-VAT-001",
+    "support_policy_codes": ["GOV-VAT-001"],
+    "tags": ["tag_general_taxpayer", "tag_small_scale", "tag_vat_special", "tag_setup"],
+    "relations": [
+      {
+        "target_code": "CHG-PREF-001",
+        "relation_type": "see_also",
+        "relation_note": "转登记后优惠政策如何衔接"
+      }
+    ]
+  }
+]
