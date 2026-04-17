@@ -30,9 +30,11 @@ class TestQuestionService:
             assert q['stage_code'] == 'SET'
 
     def test_list_questions_by_module(self, svc):
-        result = svc.list_questions(module='OPR')
+        # 用真实 module 值 DEC（申报纳税），不用 OPR（O）
+        result = svc.list_questions(module='DEC')
+        assert result['total'] > 0, "DEC 模块应有数据"
         for q in result['questions']:
-            assert q['module_code'] == 'OPR'
+            assert q['module_code'] == 'DEC'
 
     def test_list_questions_filter_by_hf(self, svc):
         result = svc.list_questions(hf='1')
@@ -128,3 +130,27 @@ class TestQuestionService:
         conn.close()
         assert 'question_type' in cols, "question_master 表必须有 question_type 列"
         assert 'answer_type' not in cols, "question_master 表不应有 answer_type 列"
+
+    def test_all_stage_codes_valid(self, svc):
+        """所有问题的 stage_code 都必须属于 tag_dict stage 类"""
+        import sqlite3
+        conn = sqlite3.connect(Config.DB_PATH)
+        valid = {r[0] for r in conn.execute(
+            "SELECT tag_code FROM tag_dict WHERE tag_category='stage'")}
+        conn.close()
+        result = svc.list_questions()
+        for q in result['questions']:
+            assert q['stage_code'] in valid, \
+                f"{q['question_code']} stage='{q['stage_code']}' 不在合法字典: {valid}"
+
+    def test_all_module_codes_valid(self, svc):
+        """所有问题的 module_code 都必须属于 tag_dict module 类"""
+        import sqlite3
+        conn = sqlite3.connect(Config.DB_PATH)
+        valid = {r[0] for r in conn.execute(
+            "SELECT tag_code FROM tag_dict WHERE tag_category='module'")}
+        conn.close()
+        result = svc.list_questions()
+        for q in result['questions']:
+            assert q['module_code'] in valid, \
+                f"{q['question_code']} module='{q['module_code']}' 不在合法字典: {valid}"

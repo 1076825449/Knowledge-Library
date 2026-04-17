@@ -19,6 +19,7 @@ VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
 VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
                        'type_time', 'type_what', 'type_why'}
 VALID_MODULE_CODES = {'REG', 'DEC', 'INV', 'VAT', 'CIT', 'IIT', 'SSF', 'FEE', 'PREF', 'RISK', 'CLEAR', 'ETAX'}
+VALID_STAGE_CODES = {'SET', 'OPR', 'CHG', 'RSK', 'SUS', 'CLS'}
 VALID_SUPPORT_TYPE = {'support_direct', 'support_aux', 'support_definition',
                       'support_procedure', 'support_risk', 'support_local'}
 
@@ -258,6 +259,24 @@ def check16_support_type(conn):
     return invalid
 
 
+def check17_stage_module_domain(conn):
+    """17. stage_code / module_code 字典域合法性"""
+    # 从 tag_dict 动态获取合法值（而非硬编码）
+    valid_stages = {r['tag_code'] for r in conn.execute(
+        "SELECT tag_code FROM tag_dict WHERE tag_category='stage'").fetchall()}
+    valid_modules = {r['tag_code'] for r in conn.execute(
+        "SELECT tag_code FROM tag_dict WHERE tag_category='module'").fetchall()}
+
+    rows = conn.execute("""
+        SELECT question_code, stage_code, module_code
+        FROM question_master
+    """).fetchall()
+
+    bad_stage = [r for r in rows if r['stage_code'] not in valid_stages]
+    bad_module = [r for r in rows if r['module_code'] not in valid_modules]
+    return bad_stage, bad_module, valid_stages, valid_modules
+
+
 def generate_quality_report(conn):
     """生成完整质量报告"""
     ensure_reports_dir()
@@ -481,6 +500,27 @@ def generate_quality_report(conn):
             report_lines.append(f"   [{r['question_code']}] support_type='{r['support_type']}' note='{r['support_note']}'")
         if len(invalid_support) > 20:
             report_lines.append(f"   ... 还有 {len(invalid_support) - 20} 条")
+
+    # 17. stage_code / module_code 字典域合法性
+    bad_stage, bad_module, valid_stages, valid_modules = check17_stage_module_domain(conn)
+    report_lines.append(f"\n{'='*60}")
+    report_lines.append(f"【检查17】stage_code / module_code 字典域合法性")
+    report_lines.append(f"{'='*60}")
+    if not bad_stage and not bad_module:
+        report_lines.append(f"✅ 所有 stage_code / module_code 均在合法字典内")
+    else:
+        if bad_stage:
+            report_lines.append(f"❌ {len(bad_stage)} 条 stage_code 为非法值：")
+            for r in bad_stage[:10]:
+                report_lines.append(f"   [{r['question_code']}] stage='{r['stage_code']}' (合法: {sorted(valid_stages)})")
+            if len(bad_stage) > 10:
+                report_lines.append(f"   ... 还有 {len(bad_stage) - 10} 条")
+        if bad_module:
+            report_lines.append(f"❌ {len(bad_module)} 条 module_code 为非法值：")
+            for r in bad_module[:10]:
+                report_lines.append(f"   [{r['question_code']}] module='{r['module_code']}' (合法: {sorted(valid_modules)})")
+            if len(bad_module) > 10:
+                report_lines.append(f"   ... 还有 {len(bad_module) - 10} 条")
 
     # ---- 生成子报告 ----
 
