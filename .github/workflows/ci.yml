@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create virtual environment
+        run: python -m venv venv
+
+      - name: Install dependencies
+        run: |
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Initialize database
+        run: |
+          source venv/bin/activate
+          bash scripts/db/init_db.sh
+
+      - name: Verify database
+        run: |
+          source venv/bin/activate
+          python scripts/ops/check_env.py
+
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          python3 -m pytest tests/ -q --tb=short

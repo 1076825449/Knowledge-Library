@@ -6,6 +6,28 @@
 
 覆盖企业从**设立、开业、日常经营、变更、风险异常、停业、注销**的全生命周期。
 
+## 快速开始
+
+```bash
+# 1. 克隆项目
+git clone git@github.com:1076825449/Knowledge-Library.git
+cd Knowledge-Library
+
+# 2. 创建虚拟环境（Python 3.11+）
+python -m venv venv
+source venv/bin/activate
+
+# 3. 安装依赖
+pip install -r requirements.txt
+
+# 4. 初始化数据库（全新时）
+bash scripts/db/init_db.sh
+
+# 5. 启动服务
+cd backend && python app.py
+# 服务地址: http://localhost:5000
+```
+
 ## 核心设计
 
 ### 8 张核心表
@@ -53,93 +75,93 @@ project-root/
 ├─ AGENTS.md              # agent 行为约束
 ├─ TASKS.md               # 项目任务清单
 ├─ CONTENT_SPEC.md        # 问题卡片写作规范
-├─ PROJECT_MANIFEST.md     # 项目总纲
-├─ PROJECT_STRUCTURE.md    # 目录结构规范
-├─ .gitignore
+├─ PROJECT_MANIFEST.md    # 项目总纲
+├─ PROJECT_STRUCTURE.md   # 目录结构规范
+├─ DEVELOPMENT.md         # 开发说明
+├─ DEPLOYMENT.md          # 部署说明
+├─ requirements.txt
 ├─ .env.example
 │
-├─ database/              # 数据库
-│   ├─ schema/            # 建表 SQL（按顺序执行）
-│   ├─ seed/              # 初始化数据
-│   ├─ queries/           # 常用查询示例
-│   ├─ db/                # 数据库文件（.gitignore 忽略）
-│   └─ README.md
+├─ backend/               # Flask 应用
+│   ├─ app.py            # 主入口（localhost:5000）
+│   ├─ config.py         # 数据库路径配置
+│   ├─ routes/           # 路由（questions, search, tags）
+│   └─ services/         # 业务逻辑（QuestionService）
 │
-├─ frontend/              # 前端（骨架）
-├─ backend/               # 后端（骨架）
-├─ scripts/              # 辅助脚本（骨架）
-├─ docs/                 # 补充文档（骨架）
-├─ tests/                # 测试（骨架）
-├─ data/                 # 导入导出数据（骨架）
-└─ assets/               # 静态资源（骨架）
+├─ frontend/             # Jinja2 模板 + CSS
+│   └─ templates/         # HTML 模板
+│
+├─ database/
+│   ├─ schema/           # 建表 SQL（按顺序执行）
+│   ├─ seed/             # 初始化数据
+│   ├─ db/               # 数据库文件（.gitignore 忽略）
+│   └─ backups/          # 自动备份
+│
+├─ scripts/
+│   ├─ db/init_db.sh    # 数据库初始化脚本
+│   ├─ content/          # 内容管理（导入、审计、报告）
+│   ├─ export/            # AI 检索导出
+│   └─ ops/              # 运维脚本（备份、环境检查）
+│
+├─ data/
+│   ├─ imports/          # 批量导入 JSON 源文件
+│   └─ exports/          # 导出数据（运行时生成）
+│
+└─ tests/                # 测试套件
+    ├─ backend/          # 路由 + 服务层测试
+    └─ content/          # 内容脚本测试
 ```
 
-## 真实运行方式
+## 常用命令
+
+### 启动服务（开发）
 
 ```bash
-# 1. 安装依赖
-pip install -r requirements.txt
-
-# 2. 初始化数据库（如数据库文件不存在）
-bash scripts/db/init_db.sh
-
-# 3. 启动服务
-cd /Volumes/外接硬盘/vibe\ coding/知识库
-python backend/app.py
-# 服务启动在 http://localhost:5000
-
-# 修改管理员密码（可选）
-export ADMIN_PASSWORD=你的密码 && python backend/app.py
+source venv/bin/activate
+cd backend && python app.py
+# http://localhost:5000
 ```
 
 ### 测试
 
 ```bash
-cd /Volumes/外接硬盘/vibe\ coding/网站/知识库
+# 运行全部测试
 python3 -m pytest tests/ -q
+
+# 运行指定测试文件
+python3 -m pytest tests/backend/test_routes.py -v
+
+# 环境检查
+python scripts/ops/check_env.py
 ```
 
-当前测试状态：**57 passed**（python3 = Xcode Python 3.9，Flask 2.3.0，Werkzeug 3.0.1）
+当前测试状态：**71 passed**
 
-环境兼容性说明：
-- Xcode Python 3.9 环境（`/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9`）装的是 Flask 2.3.0，而非 requirements.txt 声明的 Flask 3.0.0
-- `tests/conftest.py` 中有 werkzeug 版本兼容 patch（`werkzeug.__version__` → `werkzeug.version.__version__`），解决 Flask 2.3.0 test_client 与 Werkzeug 3.0 的兼容问题
-- 如使用 hermes venv（python3 3.11 + Flask 3.0.0），测试同样通过
-
-### 一键初始化数据库（如需重新创建）
+### 数据库
 
 ```bash
-cd /Volumes/外接硬盘/vibe\ coding/知识库
+# 初始化（全新）
 bash scripts/db/init_db.sh
+
+# 备份
+python scripts/ops/backup_db.py
 ```
 
-脚本会自动：建表 → 初始化字典 → 插入示例问题 → 插入扩展问题（15条）→ 插入标签关联与问题关系
+### 数据导出（AI 检索用）
 
-## 常用查询
-
-```sql
--- 按阶段查询问题
-SELECT question_code, question_title, one_line_answer
-FROM question_master
-WHERE stage_code = 'SET' AND status = 'active';
-
--- 查询问题详情与政策依据
-SELECT q.question_title, p.policy_name, p.document_no, qpl.support_type
-FROM question_master q
-JOIN question_policy_link qpl ON q.id = qpl.question_id
-JOIN policy_basis p ON qpl.policy_id = p.id
-WHERE q.question_code = 'SET-REG-001';
-
--- 查询高频问题
-SELECT question_code, question_title FROM question_master
-WHERE high_frequency_flag = 1 AND status = 'active';
-
--- 查询最近更新
-SELECT question_code, question_title, updated_at
-FROM question_master ORDER BY updated_at DESC LIMIT 10;
+```bash
+python scripts/export/export_for_ai.py
+python scripts/export/export_chunks.py
 ```
 
-## 核心文档说明
+## 技术栈
+
+- **数据库**：SQLite（`database/db/tax_knowledge.db`）
+- **后端**：Python Flask（`backend/app.py` 单入口）
+- **前端**：Jinja2 服务端模板（`frontend/templates/`），无前端框架
+- **样式**：原生 CSS（`frontend/static/css/style.css`）
+
+## 核心文档
 
 | 文档 | 作用 |
 |------|------|
@@ -147,14 +169,8 @@ FROM question_master ORDER BY updated_at DESC LIMIT 10;
 | `AGENTS.md` | 给 agent 立规则，规定优先级、禁止事项、决策顺序 |
 | `TASKS.md` | 任务拆解清单，8 个 Phase，可逐阶段验收 |
 | `CONTENT_SPEC.md` | 问题卡片写作规范，保证内容质量标准 |
-| `PROJECT_STRUCTURE.md` | 目录结构规范，规定文件摆放位置 |
-
-## 设计原则
-
-1. **问题卡片为核心** - 一个问题就是一个独立知识单元
-2. **内容与依据分离** - 问题内容不与政策依据混在一起
-3. **结构稳定可扩展** - 新增问题通过新增记录实现，不破坏整体结构
-4. **便于后续扩展** - 支持网站展示、AI检索、向量化的结构化清洗
+| `DEVELOPMENT.md` | 开发说明，环境准备、日常命令、Git 工作流 |
+| `DEPLOYMENT.md` | 部署说明，生产部署方式、备份恢复 |
 
 ## 当前阶段完成状态
 
@@ -169,13 +185,6 @@ FROM question_master ORDER BY updated_at DESC LIMIT 10;
 | Phase 6 | 内容录入便利化 | ✅ 已完成 |
 | Phase 7 | 地方口径与专业增强 | ✅ 已完成 |
 | Phase 8 | AI 检索预留 | ✅ 结构预留（内容未实现） |
-
-## 技术栈（当前实际）
-
-- **数据库**：SQLite（`database/db/tax_knowledge.db`）
-- **后端**：Python Flask（`backend/app.py` 单入口）
-- **前端**：Jinja2 服务端模板（`frontend/templates/`），无前端框架
-- **样式**：原生CSS（`frontend/static/css/style.css`）
 
 ---
 
