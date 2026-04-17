@@ -19,31 +19,31 @@ def convert(data):
         raise ValueError("Unknown JSON structure")
 
 def convert_one(q):
-    # 提取 answer_content 中的纯文本（去掉 markdown **）
-    detailed = q.get("answer_content", "")
+    # 提取 detailed_answer 或 answer_content 中的纯文本
+    detailed = q.get("detailed_answer") or q.get("answer_content", "")
     # 清理 markdown 加粗
     detailed_clean = detailed.replace("**", "")
 
-    # answer_summary 作为 one_line_answer
-    one_line = q.get("answer_summary", "")
+    # answer_summary 或 one_line_answer 任一存在即可
+    one_line = q.get("answer_summary") or q.get("one_line_answer", "")
 
-    # 处理 policy_links: 支持两种格式
-    # 格式A: support_policy_codes = ["POL-XXX", ...]
+    # 处理 policy_links: 支持多种格式
+    # 格式A: policies = [{"policy_id": 1, ...}]  (本项目格式)
     # 格式B: policies = [{"policy_code": "POL-XXX", "section_quote": "...", "support_type": "citation"}, ...]
+    # 格式C: support_policy_codes = ["POL-XXX", ...]
     policy_links = []
-    # 优先读取格式B（policies数组）
     for p in q.get("policies", []):
         policy_links.append({
-            "policy_code": p.get("policy_code", ""),
+            "policy_code": str(p.get("policy_id") or p.get("policy_code") or ""),
             "support_type": p.get("support_type", "citation"),
-            "support_note": p.get("section_quote", "")
+            "support_note": p.get("support_note") or p.get("section_quote", "")
         })
-    # 补充格式A（support_policy_codes数组）
-    existing_codes = {pl["policy_code"] for pl in policy_links}
+    # 补充格式C（support_policy_codes数组）
+    existing_codes = {pl["policy_code"] for pl in policy_links if pl.get("policy_code")}
     for pc in q.get("support_policy_codes", []):
-        if pc not in existing_codes:
+        if str(pc) not in existing_codes:
             policy_links.append({
-                "policy_code": pc,
+                "policy_code": str(pc),
                 "support_type": "citation",
                 "support_note": ""
             })
