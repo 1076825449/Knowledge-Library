@@ -345,7 +345,7 @@
 | `scope_level` | `scope_national` / `scope_local` / `scope_mixed` | `scope_provincial` 已清除（前端冗余选项，从未入DB） |
 | `question_type` | `type_whether` / `type_how` / `type_define` / `type_risk` / `type_time` / `type_what` / `type_why` | seed/DB/前端三方对齐 |
 | `answer_certainty` | `certain_clear` / `certain_conditional` / `certain_dispute` / `certain_practice` | 正确拼写：`certain_conditional`（有al），历史错误 `certain_condition` 已全量修正 |
-| `status` | `status_draft` / `status_active` / `status_pending` / `status_obsolete` / `status_archived` | DB全为`status_active`（设计态），表单保留`draft`选项 |
+| `status` | `draft` / `active` / `pending` / `obsolete` / `archived` | DB全为`active`（设计态），表单保留`draft`选项 |
 | `support_type` | `support_direct` / `support_procedure` / `support_definition` / `support_risk` / `support_local` / `support_aux` | 中文错误值已迁入`support_note`，类型列恢复规范值 |
 | `policy_level` | `level_law` / `level_admin` / `level_department` / `level_bulletin` / `level_local` | seed/DB统一使用`level_*`前缀 |
 | `current_status` | `pol_effective` / `pol_partial` / `pol_expired` / `pol_replaced` / `pol_uncertain` | DB历史混用`active`/`effective`/`pol_effective`，已统一为`pol_effective` |
