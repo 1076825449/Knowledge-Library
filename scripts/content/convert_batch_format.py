@@ -24,9 +24,6 @@ def convert_one(q):
     # 清理 markdown 加粗
     detailed_clean = detailed.replace("**", "")
 
-    # answer_summary 或 one_line_answer 任一存在即可
-    one_line = q.get("answer_summary") or q.get("one_line_answer", "")
-
     # 处理 policy_links: 支持多种格式
     # 格式A: policies = [{"policy_id": 1, ...}]  (本项目格式)
     # 格式B: policies = [{"policy_code": "POL-XXX", "section_quote": "...", "support_type": "citation"}, ...]
@@ -67,10 +64,22 @@ def convert_one(q):
     scope_level = "scope_national"
     answer_certainty = "certain_clear"
 
+    # 生成 question_title（从 one_line_answer 提取或构造）
+    one_line = q.get("answer_summary") or q.get("one_line_answer", "")
+    raw_title = q.get("question_title", "").strip()
+    if raw_title:
+        question_title = raw_title
+        question_plain = q.get("question_plain", raw_title)
+    else:
+        # 从 one_line_answer 生成简短标题（取前25字，末尾去标点）
+        title_text = one_line[:25].rstrip("，、。")
+        question_title = title_text
+        question_plain = title_text
+
     return {
         "question_code": q.get("question_code", ""),
-        "question_title": q.get("question_title", ""),
-        "question_plain": q.get("question_title", ""),
+        "question_title": question_title,
+        "question_plain": question_plain,
         "stage_code": q.get("stage_code", ""),
         "module_code": q.get("module_code", ""),
         "question_type": q.get("question_type", "type_whether"),

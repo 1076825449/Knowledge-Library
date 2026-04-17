@@ -1,0 +1,417 @@
+{
+  "questions": [
+    {
+      "question_code": "SUS-PREF-001",
+      "question_title": "停业期间不能享受增值税即征即退优惠政策，即征即退须",
+      "question_plain": "停业期间不能享受增值税即征即退优惠政策，即征即退须",
+      "stage_code": "SUS",
+      "module_code": "PREF",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间不能享受增值税即征即退优惠政策，即征即退须在正常经营状态下适用。",
+      "detailed_answer": "增值税即征即退、先征后退等税收优惠均要求企业在正常经营状态下适用。停业期间若发生纳税义务，应按正常税率申报缴纳，不能享受即征即退。恢复经营后，如仍符合即征即退条件，可重新申请备案。停业期间若购置固定资产、取得进项发票，应按正常抵扣规则处理，不得因停业而叠加享受优惠。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "16",
+          "support_type": "citation",
+          "support_note": "即征即退适用范围规定"
+        }
+      ],
+      "tags": [
+        "停业",
+        "优惠政策",
+        "即征即退",
+        "增值税"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "SUS-SSF-001",
+      "question_title": "停业期间有员工在岗（待岗、轮岗等）仍须缴纳社保；员",
+      "question_plain": "停业期间有员工在岗（待岗、轮岗等）仍须缴纳社保；员",
+      "stage_code": "SUS",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间有员工在岗（待岗、轮岗等）仍须缴纳社保；员工全员离职且办理解除手续的可以暂停缴纳。",
+      "detailed_answer": "社保费以劳动关系为缴纳依据，与企业经营状态无关。停业期间只要企业与员工存在劳动关系（含待岗、轮岗、停产待通知等情形），企业仍须按月申报缴纳社保费。只有当企业已与全部员工解除或终止劳动关系，并在社保系统办理了减员手续后，方可暂停缴纳。停业期间若只给部分员工发放生活费，社保缴纳基数按实际工资，不得低于当地最低缴费基数。复业后应及时办理社保恢复缴费手续。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "17",
+          "support_type": "citation",
+          "support_note": "社保费征缴与劳动关系挂钩"
+        }
+      ],
+      "tags": [
+        "停业",
+        "社保费",
+        "劳动关系",
+        "减员"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "SUS-IIT-001",
+      "question_title": "停业期间企业仍有个人所得税代扣代缴义务的，须按期申",
+      "question_plain": "停业期间企业仍有个人所得税代扣代缴义务的，须按期申",
+      "stage_code": "SUS",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间企业仍有个人所得税代扣代缴义务的，须按期申报；无代扣代缴义务的，无需申报。",
+      "detailed_answer": "企业个人所得税代扣代缴义务基于是否向个人支付应税所得，与是否在经营无关。停业期间若企业仍发放工资、奖金、劳务报酬等给个人，则须按月或按次申报代扣代缴的个人所得税。若企业已无任何个人所得支付行为，且已向税务机关书面报告了停业事实，则无代扣代缴义务，无需申报。停业期间若给外籍个人支付所得，还须注意国际惯例和税收协定的影响。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "22",
+          "support_type": "citation",
+          "support_note": "个人所得税代扣代缴义务依据"
+        }
+      ],
+      "tags": [
+        "停业",
+        "个人所得税",
+        "代扣代缴",
+        "申报"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "SUS-FEE-001",
+      "question_title": "停业期间发生的合理费用（留守人员工资、仓储费等）",
+      "question_plain": "停业期间发生的合理费用（留守人员工资、仓储费等）",
+      "stage_code": "SUS",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间发生的合理费用（留守人员工资、仓储费等），可以据实列支并税前扣除。",
+      "detailed_answer": "停业期间企业只要未进入注销程序，发生的合理费用支出仍可在企业所得税税前扣除。包括：留守人员工资社保、厂房仓库租金（或自有用房折旧）、存货保管费、水电费（维持基本运转）、必要的银行贷款利息等。但停业期间不得新增与经营无关的大额资本性支出。费用须有合法有效凭证，发票抬头为企业名称。停业期间的费用列支应与正常经营期保持一致的成本费用核算标准。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "14",
+          "support_type": "citation",
+          "support_note": "企业所得税税前扣除规定"
+        }
+      ],
+      "tags": [
+        "停业",
+        "成本费用",
+        "税前扣除",
+        "企业所得税"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "SUS-TAX-001",
+      "question_title": "停业期间企业应向主管税务机关书面报告停业起止时间",
+      "question_plain": "停业期间企业应向主管税务机关书面报告停业起止时间",
+      "stage_code": "SUS",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间企业应向主管税务机关书面报告停业起止时间，未报告的税务机关可按规定直接核定税额。",
+      "detailed_answer": "企业停业应当向税务机关提交停业登记申请，报告停业原因、停业起止时间、留守人员情况等。未办理停业登记擅自停业的，税务机关可将其转为非正常户。未按期申报经责令限期改正仍不申报的，税务机关有权依据《税收征收管理法》第35条的规定核定其应纳税额，包括按预算定额核定或参照同类纳税人税负核定。停业企业在恢复经营前应及时结清全部申报和税款。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "1",
+          "support_type": "citation",
+          "support_note": "停业登记和逾期申报处理"
+        }
+      ],
+      "tags": [
+        "停业",
+        "税务登记",
+        "非正常户",
+        "纳税申报"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "SUS-CIT-001",
+      "question_title": "停业期间不产生企业所得税应税收入，但亏损弥补年限不",
+      "question_plain": "停业期间不产生企业所得税应税收入，但亏损弥补年限不",
+      "stage_code": "SUS",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间不产生企业所得税应税收入，但亏损弥补年限不中止，应在亏损发生当年算起5年内延续弥补。",
+      "detailed_answer": "企业所得税按年度汇算清缴。停业期间若未取得任何应税收入，也未发生应税成本费用，则该年度企业所得税应纳税所得额为零，不产生企业所得税。企业的尚未弥补的亏损，在亏损发生当年算起5个年度内延续弥补，停业不导致弥补年限中断。但若停业期间发生资产处置、债务豁免等事项，仍可能产生应税所得。亏损弥补须在年度汇算清缴时填报亏损弥补明细表。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "15",
+          "support_type": "citation",
+          "support_note": "企业所得税亏损弥补年限规定"
+        }
+      ],
+      "tags": [
+        "停业",
+        "企业所得税",
+        "亏损弥补",
+        "汇算清缴"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-IIT-001",
+      "question_title": "注销时须支付给自然人股东的款项（如未分配利润、减资",
+      "question_plain": "注销时须支付给自然人股东的款项（如未分配利润、减资",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "注销时须支付给自然人股东的款项（如未分配利润、减资退股款等），企业须代扣代缴个人所得税后方可支付。",
+      "detailed_answer": "企业注销时，清算组在清偿税款、职工工资等优先债权后的剩余财产，分配给自然人股东的，企业须按「股息红利所得」代扣代缴20%个人所得税。以未分配利润转增资本的，同样须代扣代缴股息红利个人所得税。企业在支付前须代扣税款并向税务机关申报缴纳，不得在未完税的情况下直接将款项支付给个人股东。个人股东收到清算分配款后，如需办理减资变更或注销登记，须提供完税凭证。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "22",
+          "support_type": "citation",
+          "support_note": "股息红利所得代扣代缴规定"
+        }
+      ],
+      "tags": [
+        "注销",
+        "个人所得税",
+        "代扣代缴",
+        "股息红利",
+        "自然人股东"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-INV-001",
+      "question_title": "注销前须将全部空白发票和税控设备缴销，已开具的发票",
+      "question_plain": "注销前须将全部空白发票和税控设备缴销，已开具的发票",
+      "stage_code": "CLS",
+      "module_code": "INV",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前须将全部空白发票和税控设备缴销，已开具的发票须在系统中确认报送，作废发票须在系统中完成作废操作。",
+      "detailed_answer": "纳税人在注销前须结清全部发票领用存事项。具体包括：（1）空白发票：作废或缴销，空白发票不得流出企业；（2）已开具但未报送的发票：在增值税发票管理系统中完成确认报送；（3）作废发票：在系统中确认作废状态；（4）税控设备（金税盘/税盘）：到主管税务机关缴销。发票缴销是注销税务登记的必需前置条件，未缴销发票的，税务机关不予办理注销登记。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "11",
+          "support_type": "citation",
+          "support_note": "发票缴销规定"
+        }
+      ],
+      "tags": [
+        "注销",
+        "发票",
+        "税控设备",
+        "缴销",
+        "增值税"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-PREF-001",
+      "question_title": "注销前已备案的税收优惠资格（如小型微利企业、高新技",
+      "question_plain": "注销前已备案的税收优惠资格（如小型微利企业、高新技",
+      "stage_code": "CLS",
+      "module_code": "PREF",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前已备案的税收优惠资格（如小型微利企业、高新技术企业等）须在注销前自行向税务机关报告并结清优惠税款。",
+      "detailed_answer": "享受税收优惠的企业注销时，税务机关会审核企业是否仍符合优惠条件。已享受优惠但不符合条件的，须补缴相应税款并加收滞纳金。高新技术企业注销时须结清因优惠政策而少缴的税款；小型微利企业优惠同样须在注销前确认应纳税额。备案类优惠在注销前须到主管税务机关办理优惠备案注销。情节严重的，税务机关有权追缴已减免的税款并处以罚款。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "12",
+          "support_type": "citation",
+          "support_note": "税收优惠资格管理和注销时处理"
+        }
+      ],
+      "tags": [
+        "注销",
+        "优惠政策",
+        "高新技术",
+        "小型微利企业",
+        "备案"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-DEC-001",
+      "question_title": "注销前须完成当期所有税种的申报，包括增值税、企业所",
+      "question_plain": "注销前须完成当期所有税种的申报，包括增值税、企业所",
+      "stage_code": "CLS",
+      "module_code": "DEC",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前须完成当期所有税种的申报，包括增值税、企业所得税、个人所得税等，不得遗漏任一税种当期申报。",
+      "detailed_answer": "企业注销前须确保所有税种当期申报均已完成，包括增值税及附加、企业所得税（年度汇算清缴和季度预缴）、个人所得税（代扣代缴和全员全额申报）、印花税等。所有税种须已入库，欠税须已结清。企业所得税注销清算须填写清算所得纳税申报表，计算清算所得并申报缴纳企业所得税。清税清票是注销的前置条件，任何税种的当期未申报记录都会阻碍注销进程。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "1",
+          "support_type": "citation",
+          "support_note": "注销前申报完整性要求"
+        }
+      ],
+      "tags": [
+        "注销",
+        "纳税申报",
+        "企业所得税",
+        "清税"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-REG-001",
+      "question_title": "企业注销须先结清所有税务事项，缴销发票和税控设备",
+      "question_plain": "企业注销须先结清所有税务事项，缴销发票和税控设备",
+      "stage_code": "CLS",
+      "module_code": "REG",
+      "question_type": "type_whether",
+      "one_line_answer": "企业注销须先结清所有税务事项，缴销发票和税控设备，取得清税证明后，方可到市场监管部门办理注销登记。",
+      "detailed_answer": "注销流程为：（1）到主管税务机关办理清税，结清所有税款、滞纳金、罚款，缴销全部发票和税控设备，领取清税证明；（2）持清税证明到市场监管部门（或通过注销一体化平台同步办理）申请注销登记；（3）简易注销：无欠税、无发票欠缴、无未报事项的企业，可直接通过注销一体化平台申请简易注销，公示20天（股份有限公司45天）后自动注销；（4）普通注销：须先完成清算组备案、登报公告（45天），公示期满后方可注销。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "2",
+          "support_type": "citation",
+          "support_note": "注销流程和清税证明规定"
+        }
+      ],
+      "tags": [
+        "注销",
+        "清税证明",
+        "简易注销",
+        "普通注销",
+        "市场主体登记"
+      ],
+      "relations": []
+    },
+    {
+      "question_code": "CLS-FEE-001",
+      "question_title": "注销时发生的资产损失（包括存货报废、固定资产盘亏等",
+      "question_plain": "注销时发生的资产损失（包括存货报废、固定资产盘亏等",
+      "stage_code": "CLS",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "注销时发生的资产损失（包括存货报废、固定资产盘亏等），须按规走程序在企业所得税税前扣除，已抵扣的进项税额须转出。",
+      "detailed_answer": "注销前发生的资产损失须通过专项申报在企业所得税税前扣除。具体处理：（1）存货报废、变质须做进项税额转出，经税务机关核准后作为资产损失扣除；（2）固定资产、无形资产损失须按资产净值计算资产损失金额，通过企业所得税年度纳税申报表的专项申报表扣除；（3）资产损失对应的进项税额已抵扣的，须做进项税额转出。资产损失金额较大（单笔或同类合计超过一定金额）的，须准备司法鉴定报告、资产盘点表等备查材料。",
+      "core_definition": "",
+      "applicable_conditions": "",
+      "exceptions_boundary": "",
+      "practical_steps": "",
+      "risk_warning": "",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "14",
+          "support_type": "citation",
+          "support_note": "资产损失税前扣除规定"
+        }
+      ],
+      "tags": [
+        "注销",
+        "资产损失",
+        "企业所得税",
+        "进项税额转出",
+        "存货报废"
+      ],
+      "relations": []
+    }
+  ]
+}
