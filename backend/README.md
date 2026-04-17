@@ -41,13 +41,14 @@ backend/
 | `/` | GET | 首页 |
 | `/questions` | GET | 问题列表页（支持stage/module/tag/region/status过滤） |
 | `/question/<code>` | GET | 问题详情页 |
-| `/question/new` | GET/POST | 新建问题（需admin认证） |
-| `/question/<code>/edit` | GET/POST | 编辑问题（需admin认证） |
+| `/question/new` | GET/POST | 新建问题（需admin认证，未认证时由 admin_required 渲染 admin_login.html） |
+| `/question/<code>/edit` | GET/POST | 编辑问题（需admin认证，未认证时由 admin_required 渲染 admin_login.html） |
 | `/api/questions/` | GET | 问题列表API |
 | `/api/questions/<code>` | GET | 问题详情API |
 | `/api/search/` | GET | 搜索API（?keyword=） |
 | `/api/tags/` | GET | 标签字典API |
-| `/admin/login` | POST | 管理员登录 |
+
+> **认证说明**：`admin_login.html` 不是独立路由页面，而是由 `/question/new` 和 `/question/<code>/edit` 的 `admin_required` 装饰器在检测到未认证时按需渲染的登录模板。管理员通过 POST 密码到这两个路径的任一个即可完成认证。
 
 ## 数据层
 

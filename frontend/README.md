@@ -28,14 +28,14 @@ frontend/
 
 ## URL路由对应
 
-| 模板文件 | 对应URL |
-|----------|---------|
-| index.html | `/` |
-| questions.html | `/questions` |
-| detail.html | `/question/<code>` |
-| new_question.html | `/question/new` |
-| edit_question.html | `/question/<code>/edit` |
-| admin_login.html | `/admin/login` |
+| 模板文件 | 对应URL | 说明 |
+|----------|---------|------|
+| index.html | `/` | |
+| questions.html | `/questions` | |
+| detail.html | `/question/<code>` | |
+| new_question.html | `/question/new` | |
+| edit_question.html | `/question/<code>/edit` | |
+| admin_login.html | — | **不是独立路由**，由 `admin_required` 在访问 `/question/new` 或 `/question/<code>/edit` 检测到未认证时按需渲染的登录页模板 |
 
 ## 模板规范
 

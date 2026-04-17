@@ -233,9 +233,13 @@ class TestQuestionFormPages:
         assert "password" in data.lower() or "登录" in data
 
     def test_edit_question_page_requires_auth(self, anon_client, real_code):
-        """GET /question/<code>/edit 未认证时返回登录页（200）"""
+        """GET /question/<code>/edit 未认证时返回登录页，不返回编辑表单"""
         rv = anon_client.get(f"/question/{real_code}/edit", follow_redirects=False)
         assert rv.status_code == 200
+        data = rv.data.decode("utf-8")
+        # 必须证明返回的是登录页（含密码输入），而不是编辑表单（含 /question/<code>/edit 提交目标）
+        assert "password" in data.lower() or "登录" in data
+        assert f"/question/{real_code}/edit" not in data, "匿名用户不应看到编辑表单的 action 地址"
 
     # ── 已登录可访问表单内容（使用 auth_client）────────────────────
 
