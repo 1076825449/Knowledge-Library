@@ -334,7 +334,55 @@
 
 ---
 
-## 11. Phase 8：AI 检索与高级能力预留
+## 11. 枚举口径统一与数据校准 ✅
+
+**触发原因**：Phase 3/4/6 迭代中枚举定义分散在 seed 文件、前端模板、脚本常量三处，存在拼写错误、历史遗留值和跨层不一致。
+
+**枚举现状（2026-04-17 核查后）**：
+
+| 枚举字段 | 标准值 | 说明 |
+|---|---|---|
+| `scope_level` | `scope_national` / `scope_local` / `scope_mixed` | `scope_provincial` 已清除（前端冗余选项，从未入DB） |
+| `question_type` | `type_whether` / `type_how` / `type_define` / `type_risk` / `type_time` / `type_what` / `type_why` | seed/DB/前端三方对齐 |
+| `answer_certainty` | `certain_clear` / `certain_conditional` / `certain_dispute` / `certain_practice` | 正确拼写：`certain_conditional`（有al），历史错误 `certain_condition` 已全量修正 |
+| `status` | `status_draft` / `status_active` / `status_pending` / `status_obsolete` / `status_archived` | DB全为`status_active`（设计态），表单保留`draft`选项 |
+| `support_type` | `support_direct` / `support_procedure` / `support_definition` / `support_risk` / `support_local` / `support_aux` | 中文错误值已迁入`support_note`，类型列恢复规范值 |
+| `policy_level` | `level_law` / `level_admin` / `level_department` / `level_bulletin` / `level_local` | seed/DB统一使用`level_*`前缀 |
+| `current_status` | `pol_effective` / `pol_partial` / `pol_expired` / `pol_replaced` / `pol_uncertain` | DB历史混用`active`/`effective`/`pol_effective`，已统一为`pol_effective` |
+| `relation_type` | `related` / `next_step` / `prerequisite` / `similar` / `see_also` | ✅ 本来一致 |
+| `update_type` | `update_new` / `update_revise` / `update_policy` / `update_boundary` / `update_local` / `update_status` | DB历史混用`create`/`update`/`update_new`/`update_revise`，已统一为seed标准值 |
+| `tag_category` | `business` / `module` / `stage` / `policy_level` / `policy_status` / `question_type` / `scope_level` / `answer_certainty` / `support_type` / `update_type` / `status` | `business_tag`已并入`business` |
+
+**修复记录**：
+
+DB运行数据修正（5条UPDATE，影响150+54+218条记录）：
+- `question_policy_link.support_type`：55条中文值（`直接适用`/`责任认定依据`/`前置审批依据`）迁入`support_note`，类型列恢复规范值
+- `question_update_log.update_type`：`create`(136)+`update`(1) → `update_new`；`update_revise`不变
+- `tag_dict.tag_category`：`business_tag`(8条) → `business`
+- `policy_basis.policy_level`：中文值 → `level_*`前缀（5类全覆盖，49条）
+- `policy_basis.current_status`：`active`(35)+`effective`(12) → `pol_effective`
+
+Seed文件修正（4个文件）：`certain_condition`(无al) → `certain_conditional`
+
+前端模板修正（4个文件）：`certainty_label`宏拼写 + `type_risk`分支补全 + `scope_provincial`冗余选项删除
+
+脚本修正（2个文件）：`quality_report.py`补`scope_mixed`+certainty拼写；`export_for_ai.py`补`scope_mixed`标签映射
+
+**维护规范**：
+- 新增枚举值时：同时更新seed文件 + 前端模板下拉选项 + `quality_report.py`的`VALID_*`集合
+- 不得在DB枚举列写入中文描述性文本（应写入`support_note`等说明字段）
+- 字段命名使用`snake_case`，枚举值使用`type_*`/`scope_*`/`status_*`/`level_*`前缀
+
+**验收标准**：
+- [x] DB所有枚举列无中文值
+- [x] seed/DB/前端三层的枚举值完全一致
+- [x] `quality_report.py`运行无P1/P2级枚举警告
+- [x] 枚举拼写错误全部修正（`certain_condition` → `certain_conditional`）
+- [x] `scope_provincial`从所有代码文件中清除
+
+---
+
+## 12. Phase 8：AI 检索与高级能力预留
 
 ### 目标
 为未来 AI 检索、语义搜索、相似问题推荐打基础。
