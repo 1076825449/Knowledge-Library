@@ -19,7 +19,7 @@ VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
 VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
                        'type_time', 'type_what', 'type_why',
                        # 以下为历史遗留值（已存在于DB，不应再新增）
-                       'type_steps', 'type_clarify', 'type_procedure', 'type_compare'}
+                       'type_steps', 'type_clarify', 'type_procedure', 'type_compliance', 'type_compare'}
 VALID_MODULE_CODES = {'REG', 'DEC', 'INV', 'VAT', 'CIT', 'IIT', 'SSF', 'FEE', 'PREF', 'RISK', 'CLEAR', 'ETAX'}
 VALID_STAGE_CODES = {'SET', 'OPR', 'CHG', 'RSK', 'SUS', 'CLS'}
 VALID_SUPPORT_TYPE = {'support_direct', 'support_aux', 'support_definition',
