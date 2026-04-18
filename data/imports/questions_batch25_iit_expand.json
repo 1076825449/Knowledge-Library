@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_code": "CHG-IIT-001",
+      "question_title": "企业实施股权激励（股票期权、限制性股票），个人所得税如何计算？能否申请递延纳税？",
+      "stage_code": "CHG",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "keywords": "股权激励,股票期权,限制性股票,个人所得税,递延纳税,工薪所得",
+      "one_line_answer": "股权激励按工资薪金所得计税，符合条件可申请递延纳税优惠，具体参照财税文件。"
+    },
+    {
+      "question_code": "OPR-IIT-009",
+      "question_title": "个人所得税综合所得年度汇算清缴怎么办理？哪些人必须办理？不办理有什么风险？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_steps",
+      "keywords": "综合所得,年度汇算,个税,手机app,标准申报,补税,退税",
+      "one_line_answer": "综合所得年收入超过12万元或需补税超过400元须办理年度汇算，可通过个人所得税APP办理。"
+    },
+    {
+      "question_code": "OPR-IIT-014",
+      "question_title": "企业给实习生、临时工、劳务派遣人员支付报酬，如何扣缴个人所得税？按什么税目申报？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_clarify",
+      "keywords": "实习生,临时工,劳务派遣,劳务报酬,工资薪金,个人所得税,扣缴",
+      "one_line_answer": "与用人单位有雇佣关系的按工资薪金扣缴，其他按劳务报酬所得扣缴。"
+    },
+    {
+      "question_code": "OPR-IIT-015",
+      "question_title": "企业为员工负担个人所得税，如何计算应扣缴税额？能否在企业所得税前扣除？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "keywords": "企业负担个税,含税报酬,换算,企业所得税,不得扣除,个人所得税",
+      "one_line_answer": "企业负担个税时需将税后报酬换算为应纳税所得额计算，由企业承担的税款不得税前扣除。"
+    },
+    {
+      "question_code": "OPR-IIT-016",
+      "question_title": "企业给外籍员工实报实销住房租金、子女教育费、语言培训费，是否需要计入员工工资扣缴个税？有哪些免税政策？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "keywords": "外籍员工,住房补贴,子女教育,语言培训,免税优惠,个人所得税,附加免税",
+      "one_line_answer": "符合条件的外籍个人补贴可享受免税，但须符合规定标准和范围，具体参照财税文件。"
+    },
+    {
+      "question_code": "OPR-IIT-017",
+      "question_title": "个人从两处以上取得工资薪金所得，年度汇算时如何计算应补（退）税额？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_steps",
+      "keywords": "两处以上,工资薪金,汇算清缴,补税,退税,专项附加扣除,个人所得税",
+      "one_line_answer": "从两处取得工资需合并计税，减去已扣缴额和标准减除费用及专项附加扣除后计算应补（退）税额。"
+    },
+    {
+      "question_code": "OPR-IIT-018",
+      "question_title": "企业为员工购买补充养老保险、补充医疗保险，缴费是否需要并入工资扣缴个人所得税？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "keywords": "补充养老保险,补充医疗保险,企业年金,个人所得税,不征税,税前扣除",
+      "one_line_answer": "符合规定标准的企业年金、职业年金单位缴费部分不并入工资薪金，不征个税；超出标准部分按工资薪金计税。"
+    },
+    {
+      "question_code": "OPR-IIT-019",
+      "question_title": "企业给离职员工支付经济补偿金、竞业限制补偿金，个人所得税如何处理？有没有免征政策？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_clarify",
+      "keywords": "经济补偿金,竞业限制,离职补偿,个人所得税,免税,一次性补偿,个人所得税",
+      "one_line_answer": "经济补偿金在当地上年职工平均工资3倍以内部分免征个税；竞业限制补偿金按工资薪金计税。"
+    },
+    {
+      "question_code": "RSK-IIT-006",
+      "question_title": "企业未履行个人所得税全员全额扣缴申报义务，会面临什么处罚？非主观故意的情节能申请从轻吗？",
+      "stage_code": "RSK",
+      "module_code": "IIT",
+      "question_type": "type_risk",
+      "keywords": "全员全额,扣缴申报,罚款,税务处罚,非主观故意,从轻情节,个人所得税",
+      "one_line_answer": "未扣缴处50%以上3倍以下罚款；扣缴义务人主动报告并补扣补缴可从轻或免除处罚。"
+    },
+    {
+      "question_code": "RSK-IIT-007",
+      "question_title": "个人隐匿收入、虚假填报专项附加扣除被查处，会面临什么法律责任？",
+      "stage_code": "RSK",
+      "module_code": "IIT",
+      "question_type": "type_risk",
+      "keywords": "隐匿收入,虚假扣除,偷税,滞纳金,0.5%日,刑事责任,个人所得税",
+      "one_line_answer": "隐匿收入按偷税处理，追缴税款、滞纳金并处50%至5倍罚款；构成犯罪追究刑事责任。"
+    },
+    {
+      "question_code": "SET-IIT-003",
+      "question_title": "新设企业第一次申报个人所得税（扣缴申报），具体操作流程是什么？有哪些注意事项？",
+      "stage_code": "SET",
+      "module_code": "IIT",
+      "question_type": "type_steps",
+      "keywords": "个人所得税,扣缴申报,新设企业,自然人电子税务局,操作流程,密码设置",
+      "one_line_answer": "登录自然人电子税务局（扣缴端），录入单位信息、添加员工、填写正常工资薪金报表后申报。"
+    },
+    {
+      "question_code": "SET-IIT-004",
+      "question_title": "新设企业给股东、老板发放工资，个税按什么标准申报？不发工资只分红是否可行？",
+      "stage_code": "SET",
+      "module_code": "IIT",
+      "question_type": "type_clarify",
+      "keywords": "股东工资,法人工资,工资薪金,股息红利,分红,个人所得税,合理工资",
+      "one_line_answer": "股东/老板须从公司取得合理工资薪金所得，不发工资只分红须按20%扣缴股息红利个税。"
+    },
+    {
+      "question_code": "SET-IIT-005",
+      "question_title": "个体工商户业主、合伙企业合伙人，如何缴纳个人所得税？新办执照后从何时开始申报？",
+      "stage_code": "SET",
+      "module_code": "IIT",
+      "question_type": "type_clarify",
+      "keywords": "个体工商户,合伙企业,生产经营所得,个人所得税,申报时间,预缴,汇算",
+      "one_line_answer": "个体工商户业主和合伙企业合伙人按经营所得缴税，税率5%-35%，新执照下发后开始申报。"
+    },
+    {
+      "question_code": "SUS-IIT-003",
+      "question_title": "停业期间企业为零申报，个人所得税扣缴申报还需要正常进行吗？",
+      "stage_code": "SUS",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "keywords": "停业,零申报,个人所得税,扣缴申报,无员工,自然人电子税务局",
+      "one_line_answer": "即使停业仍须按期进行个人所得税扣缴申报（零申报），直至税务登记注销。"
+    },
+    {
+      "question_code": "CLS-IIT-004",
+      "question_title": "企业注销时，自然人股东从清算分配中取得的剩余财产，超过原始出资额的部分如何缴纳个人所得税？",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_clarify",
+      "keywords": "注销,剩余财产,个人所得税,利息股息红利,原始出资,清算所得",
+      "one_line_answer": "超过原始出资额的剩余财产分配按利息、股息、红利所得计征20%个人所得税。"
+    }
+  ]
+}

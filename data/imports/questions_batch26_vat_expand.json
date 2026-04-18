@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "question_code": "OPR-VAT-011",
+      "question_title": "小规模纳税人享受免征增值税优惠，月销售额多少以内免征？超过后如何计算缴纳？",
+      "stage_code": "OPR",
+      "module_code": "VAT",
+      "question_type": "type_what",
+      "keywords": "小规模纳税人,免征增值税,月销售额,季度30万,免税优惠,增值税申报",
+      "one_line_answer": "小规模纳税人月销售额10万元以下（季度30万元以下）免征增值税，超过后全额计税。"
+    },
+    {
+      "question_code": "OPR-VAT-012",
+      "question_title": "企业购买商品、原材料取得增值税专用发票，如何判断是否为虚开或异常发票？收到后多久内必须认证？",
+      "stage_code": "OPR",
+      "module_code": "VAT",
+      "question_type": "type_steps",
+      "keywords": "异常凭证,虚开发票,认证期限,增值税专用发票,进项抵扣,比对异常",
+      "one_line_answer": "取得发票后360日内认证；异常凭证需作进项转出，虚开发票不得抵扣并需补税罚款。"
+    },
+    {
+      "question_code": "OPR-VAT-013",
+      "question_title": "企业将自产或委托加工的货物用于集体福利、个人消费，或用于无偿赠送，增值税如何处理？是否视同销售？",
+      "stage_code": "OPR",
+      "module_code": "VAT",
+      "question_type": "type_clarify",
+      "keywords": "视同销售,集体福利,个人消费,无偿赠送,增值税,销项税额,市场价格",
+      "one_line_answer": "自产/委托加工货物用于集体福利、个人消费、无偿赠送均视同销售，按市场价格计算销项税额。"
+    },
+    {
+      "question_code": "OPR-VAT-014",
+      "question_title": "企业发生退货、销售折让，如何开具红字增值税专用发票？已经抵扣的进项税额如何转出？",
+      "stage_code": "OPR",
+      "module_code": "VAT",
+      "question_type": "type_steps",
+      "keywords": "红字发票,销售退货,销售折让,进项转出,增值税,开具流程",
+      "one_line_answer": "购买方已认证的，由购买方申请开具红字发票；未认证的由销售方申请；已抵扣进项须转出。"
+    },
+    {
+      "question_code": "OPR-VAT-015",
+      "question_title": "增值税即征即退、先征后退政策适用于哪些行业和企业？如何申请？",
+      "stage_code": "OPR",
+      "module_code": "VAT",
+      "question_type": "type_clarify",
+      "keywords": "即征即退,先征后退,软件企业,资源综合利用,增值税退税,申请流程",
+      "one_line_answer": "软件企业、资源综合利用等可申请即征即退；须向税务机关提交申请并满足相应条件。"
+    },
+    {
+      "question_code": "CHG-VAT-006",
+      "question_title": "企业发生资产重组（合并、分立），增值税留抵税额能否结转抵扣？需要提供哪些证明材料？",
+      "stage_code": "CHG",
+      "module_code": "VAT",
+      "question_type": "type_clarify",
+      "keywords": "资产重组,合并分立,留抵税额,结转抵扣,增值税,重组证明",
+      "one_line_answer": "资产重组中，随业务转移的留抵税额可继续抵扣，须提供重组协议和相关证明材料。"
+    },
+    {
+      "question_code": "CLS-VAT-003",
+      "question_title": "企业注销时，增值税进项税额留抵税额能否申请退税？有哪些注意事项？",
+      "stage_code": "CLS",
+      "module_code": "VAT",
+      "question_type": "type_whether",
+      "keywords": "注销,留抵退税,增值税,进项税额,退税申请,注意事项",
+      "one_line_answer": "注销时符合条件可申请留抵退税，但须先处理存货/固定资产分配及进项转出问题。"
+    },
+    {
+      "question_code": "RSK-VAT-006",
+      "question_title": "企业接受虚开的增值税发票但不知情，已经认证抵扣了，税务机关会如何处理？企业如何证明善意取得？",
+      "stage_code": "RSK",
+      "module_code": "VAT",
+      "question_type": "type_risk",
+      "keywords": "善意取得,虚开发票,不知情,进项转出,增值税,举证,税收征管",
+      "one_line_answer": "善意取得可暂不追罚但须转出进项；企业须提供业务真实证明材料方可免责。"
+    },
+    {
+      "question_code": "RSK-VAT-007",
+      "question_title": "企业税负率明显偏低被预警，税务机关通常关注哪些指标？如何提前做好风险防控？",
+      "stage_code": "RSK",
+      "module_code": "VAT",
+      "question_type": "type_procedure",
+      "keywords": "税负率,预警指标,税负偏低,风控,增值税,申报自查",
+      "one_line_answer": "关注税负率、毛利率、进项结构等指标；保留完整进项凭证和业务链证据，做好日常自查。"
+    },
+    {
+      "question_code": "SET-VAT-004",
+      "question_title": "新设企业第一次申领增值税发票（税务UKey或金税盘），具体流程是什么？需要多少时间？",
+      "stage_code": "SET",
+      "module_code": "VAT",
+      "question_type": "type_steps",
+      "keywords": "申领发票,税务UKey,金税盘,新设企业,增值税,领购流程",
+      "one_line_answer": "新办纳税人可免费领取税务UKey；登录电子税务局申请，审批后即可领购发票。"
+    }
+  ]
+}
