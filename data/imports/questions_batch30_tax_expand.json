@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "question_code": "OPR-TAX-017",
+      "question_title": "企业收到税务机关的《税务约谈通知书》应该如何应对？约谈过程中需要注意哪些事项？",
+      "stage_code": "OPR",
+      "module_code": "TAX",
+      "question_type": "type_steps",
+      "keywords": "税务约谈,约谈通知书,应对策略,陈述申辩,材料准备,积极配合",
+      "one_line_answer": "收到约谈通知后应按要求携带相关资料准时出席，如实说明情况并提供证据材料；有异议可依法陈述申辩。"
+    },
+    {
+      "question_code": "OPR-TAX-018",
+      "question_title": "企业如何申请开通电子税务局的网上申报功能？首次登录需要做哪些设置？",
+      "stage_code": "OPR",
+      "module_code": "TAX",
+      "question_type": "type_steps",
+      "keywords": "电子税务局,网上申报,开通设置,CA证书,登录密码,申报初始化",
+      "one_line_answer": "持CA证书或电子营业执照登录电子税务局，完成实名认证和银行账户备案后即可使用网上申报功能。"
+    },
+    {
+      "question_code": "OPR-TAX-019",
+      "question_title": "企业进行关联申报时，关联交易类型有哪几种？分别需要披露哪些内容？",
+      "stage_code": "OPR",
+      "module_code": "TAX",
+      "question_type": "type_what",
+      "keywords": "关联申报,关联交易类型,商品交易,资金借贷,股权转让,关联申报表",
+      "one_line_answer": "关联交易类型包括商品购销、服务提供、资金借贷、股权转让、资金融通等；须填报交易金额、价格、定价方法等。"
+    },
+    {
+      "question_code": "OPR-TAX-020",
+      "question_title": "企业向境外支付款项时，代扣代缴的增值税和企业所得税如何计算？境内预提如何处理？",
+      "stage_code": "OPR",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "keywords": "代扣代缴,境外支付,增值税预提,企业所得税预提,源泉扣缴,预提所得税",
+      "one_line_answer": "代扣代缴增值税一般适用6%税率（或营改增前税率）；企业所得税一般为10%法定税率，协定另有规定的从其约定。"
+    },
+    {
+      "question_code": "RSK-TAX-011",
+      "question_title": "企业存在发票虚开风险但尚未被发现，如何主动自查和补救？有哪些可以从轻处理的机会？",
+      "stage_code": "RSK",
+      "module_code": "TAX",
+      "question_type": "type_procedure",
+      "keywords": "发票虚开,自查补救,主动坦白,从轻处理,税务约谈,补缴税款",
+      "one_line_answer": "主动自查并向税务机关报告、主动补缴税款的，可从轻或减轻处罚；构成虚开的须立即停止并整改。"
+    },
+    {
+      "question_code": "RSK-TAX-012",
+      "question_title": "企业被税务稽查选案，通常因为哪些风险指标被选中？被选中后多久会下达稽查通知书？",
+      "stage_code": "RSK",
+      "module_code": "TAX",
+      "question_type": "type_clarify",
+      "keywords": "税务稽查,选案指标,风险企业,稽查通知,随机抽查,双随机",
+      "one_line_answer": "选案来源包括风险预警、举报、关联协查、随机抽查等；下达稽查通知书时间视案件复杂程度，一般在数日内。"
+    },
+    {
+      "question_code": "RSK-TAX-013",
+      "question_title": "企业欠税金额较大无力缴纳，可以申请分期缴纳吗？申请条件是什么？",
+      "stage_code": "RSK",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "keywords": "欠税分期,分期缴纳,纳税担保,申请条件,税务机关批准",
+      "one_line_answer": "欠税企业可申请分期缴纳但须提供纳税担保或质押，经县以上税务局（分局）批准方可执行。"
+    },
+    {
+      "question_code": "SET-TAX-003",
+      "question_title": "新设企业第一次办理电子税务局账号注册和实名认证，具体流程是什么？",
+      "stage_code": "SET",
+      "module_code": "TAX",
+      "question_type": "type_steps",
+      "keywords": "电子税务局,实名认证,CA证书,账号注册,新设企业,操作流程",
+      "one_line_answer": "通过电子税务局网站或APP注册账号，完成法定代表人实名认证，绑定企业信息后即可使用全部功能。"
+    },
+    {
+      "question_code": "SET-TAX-004",
+      "question_title": "新设企业如何确定第一个纳税期限？月度申报和季度申报分别适用于哪些税种？",
+      "stage_code": "SET",
+      "module_code": "TAX",
+      "question_type": "type_what",
+      "keywords": "纳税期限,月度申报,季度申报,增值税,企业所得税,申报频率",
+      "one_line_answer": "增值税、消费税一般为月度申报（按季度缴纳的小规模纳税人除外）；企业所得税按季度预缴、年度汇算。"
+    },
+    {
+      "question_code": "CLS-TAX-004",
+      "question_title": "企业注销时，名下还有未完结的税务稽查案件，能否先办理工商注销？会有什么风险？",
+      "stage_code": "CLS",
+      "module_code": "TAX",
+      "question_type": "type_clarify",
+      "keywords": "注销,税务稽查,工商注销,未结案件,风险,先税后工商",
+      "one_line_answer": "须先结清税务稽查案件、缴清税款方可办理税务和工商注销；未结案先注销工商的，税务机关可追究股东责任。"
+    }
+  ]
+}

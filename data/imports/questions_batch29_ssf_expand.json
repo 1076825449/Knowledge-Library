@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_code": "CHG-SSF-008",
+      "question_title": "企业注册地跨区迁移（从南宁迁到柳州），社保关系需要整体转移吗？办理流程是什么？",
+      "stage_code": "CHG",
+      "module_code": "SSF",
+      "question_type": "type_procedure",
+      "keywords": "社保转移,跨区迁移,注册地变更,社保关系,跨省转移,办理流程",
+      "one_line_answer": "区内跨市迁移须办理社保关系转移；先到迁入地社保局申请，再由迁出地办理转出，逐人核对缴费记录。"
+    },
+    {
+      "question_code": "CLS-SSF-005",
+      "question_title": "企业注销后，员工社保账户中的个人缴费部分可以取回吗？单位缴费部分如何处理？",
+      "stage_code": "CLS",
+      "module_code": "SSF",
+      "question_type": "type_clarify",
+      "keywords": "注销,社保个人账户,单位缴费,不可取回,社保转移,个人缴费",
+      "one_line_answer": "单位缴费部分进入统筹账户不可取回；个人缴费部分可按规定转移至新单位或以灵活就业身份续缴。"
+    },
+    {
+      "question_code": "OPR-SSF-015",
+      "question_title": "企业社会保险费（养老、医疗、工伤、失业）各险种的缴费比例是多少？2024年广西的具体标准是什么？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_what",
+      "keywords": "社保缴费比例,养老保险,医疗保险,工伤保险,失业保险,广西标准",
+      "one_line_answer": "广西各险种缴费比例按国家和广西壮族自治区规定执行；养老单位约16%、医疗约7.5%、工伤约0.9%（行业浮动）、失业约0.5%。"
+    },
+    {
+      "question_code": "OPR-SSF-016",
+      "question_title": "企业跨省用工（如在广西总公司，在广东设项目部），员工社保应该在哪里缴纳？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_clarify",
+      "keywords": "跨省用工,异地参保,社保缴纳地,总分公司,项目部,劳动关系",
+      "one_line_answer": "原则上在劳动关系所在地参保；跨省临时性用工可由总机构统一在广西参保，但须符合当地社保局规定。"
+    },
+    {
+      "question_code": "OPR-SSF-017",
+      "question_title": "企业为员工缴纳住房公积金的缴存基数和比例是多少？个人和企业各承担多少？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_what",
+      "keywords": "住房公积金,缴存基数,缴存比例,个人部分,单位部分,上限下限",
+      "one_line_answer": "公积金缴存基数按员工上年月均工资，比例5%-12%由企业自主确定，个人与企业各承担一半。"
+    },
+    {
+      "question_code": "OPR-SSF-018",
+      "question_title": "企业申报社保缴费基数时，工资总额包括哪些内容？哪些项目不能计入缴费基数？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_clarify",
+      "keywords": "社保缴费基数,工资总额,计时工资,计件工资,不含项目,加班费",
+      "one_line_answer": "工资总额包括计时/计件工资、奖金、津贴补贴等；不含出差补助、高温补贴、生育津贴等。申报基数与实际不符会被稽核。"
+    },
+    {
+      "question_code": "RSK-SSF-005",
+      "question_title": "企业未按时足额缴纳社保，被员工投诉或被稽核，税务机关可以采取哪些强制措施？补缴时需要承担什么滞纳金？",
+      "stage_code": "RSK",
+      "module_code": "SSF",
+      "question_type": "type_risk",
+      "keywords": "社保欠缴,强制征缴,滞纳金,0.5%日,社保稽核,投诉处理",
+      "one_line_answer": "未足额缴纳须补缴并自欠缴之日起按日加收0.5%。滞纳金；情节严重可申请法院强制执行或冻结账户。"
+    },
+    {
+      "question_code": "SET-SSF-003",
+      "question_title": "新设企业第一次办理社保登记，具体流程是什么？需要准备哪些材料？",
+      "stage_code": "SET",
+      "module_code": "SSF",
+      "question_type": "type_steps",
+      "keywords": "社保登记,新设企业,登记流程,材料清单,电子税务局,社保局",
+      "one_line_answer": "新设企业自用工之日起30日内须办理社保登记；可登录电子税务局或到社保局窗口办理，需提供营业执照、银行账户信息。"
+    },
+    {
+      "question_code": "SUS-SSF-002",
+      "question_title": "企业停业期间，员工已全部遣散，社保还需要继续缴纳吗？",
+      "stage_code": "SUS",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "keywords": "停业,无员工,社保缴纳,遣散,停缴条件,社保账户保留",
+      "one_line_answer": "停业期间如无在岗员工，可暂停缴纳社保但须向社保局报告；保留社保账户，账户不会被自动注销。"
+    },
+    {
+      "question_code": "CHG-SSF-009",
+      "question_title": "企业因并购重组发生劳动关系变更，社保关系如何处理？新单位承接还是重新开户？",
+      "stage_code": "CHG",
+      "module_code": "SSF",
+      "question_type": "type_procedure",
+      "keywords": "并购重组,劳动关系变更,社保转移,承接缴纳,重新开户",
+      "one_line_answer": "并购后由承继单位继续缴纳社保，应办理社保关系转移接续；员工也可选择转出至新单位或个人账户。"
+    },
+    {
+      "question_code": "OPR-SSF-019",
+      "question_title": "企业新录用的员工，当月入职当月离职，社保应该当月申报缴纳吗？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_clarify",
+      "keywords": "入职当月离职,社保申报,当月增减员,社保缴纳,用工起始",
+      "one_line_answer": "用人单位应自用工之日起30日内申报缴纳社保；当月入职即离职的，当月社保须申报，次月可申请减员。"
+    },
+    {
+      "question_code": "OPR-SSF-020",
+      "question_title": "企业为非全日制用工（小时工）需要缴纳社保吗？有哪些特殊规定？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "keywords": "非全日制,小时工,社保缴纳,工伤保险,特殊规定,劳动关系",
+      "one_line_answer": "非全日制用工单位须为其缴纳工伤保险，其他险种由个人自行缴纳；须签订书面劳动合同。"
+    },
+    {
+      "question_code": "OPR-SSF-021",
+      "question_title": "企业员工患重大疾病，医疗期是多长时间？医疗期内社保缴费基数如何计算？",
+      "stage_code": "OPR",
+      "module_code": "SSF",
+      "question_type": "type_what",
+      "keywords": "医疗期,重大疾病,社保缴费基数,病假工资,医疗期计算,工作时间",
+      "one_line_answer": "医疗期按工龄计算（3-24个月不等）；医疗期内社保由用人单位和劳动者按规定比例共同缴纳，基数不得低于当地最低工资。"
+    },
+    {
+      "question_code": "RSK-SSF-006",
+      "question_title": "企业被社保局稽核发现少报缴费基数，需要补缴多少？补缴基数如何计算？",
+      "stage_code": "RSK",
+      "module_code": "SSF",
+      "question_type": "type_risk",
+      "keywords": "社保稽核,少报基数,补缴计算,工资总额,追缴,滞纳金",
+      "one_line_answer": "少报基数须补缴差额部分，并自欠缴之日起加收0.5%。滞纳金；超出2年追溯期的不再追缴。"
+    },
+    {
+      "question_code": "SUS-SSF-003",
+      "question_title": "企业停业期间想申请降低社保缴费基数，是否可以申请？需要满足什么条件？",
+      "stage_code": "SUS",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "keywords": "停业,降低缴费基数,社保缓缴,困难企业,申请条件",
+      "one_line_answer": "经营困难企业可申请降低缴费基数或缓缴社保，须提供财务报表等证明材料，经社保局审批后执行。"
+    }
+  ]
+}
