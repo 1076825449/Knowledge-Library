@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "question_code": "OPR-FEE-014",
+      "question_title": "企业购买办公用品、劳保用品取得的发票，税率是多少？能否抵扣增值税？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_clarify",
+      "keywords": "办公用品,劳保用品,增值税发票,13%税率,不得抵扣,进项税额",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-015",
+      "question_title": "企业发生差旅费支出，报销时需要注意哪些税务问题？火车票、飞机票能抵扣增值税吗？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_compliance",
+      "keywords": "差旅费,火车票,飞机票,铁路车票,航空运输电子客票,9%抵扣,增值税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-016",
+      "question_title": "企业发生会议费支出，取得的发票能抵扣增值税吗？会议费税前扣除有什么要求？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "keywords": "会议费,增值税抵扣,企业所得税,扣除凭证,会议纪要,税前扣除",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-017",
+      "question_title": "企业发生的餐饮费支出，能否抵扣增值税？企业所得税前扣除有什么限制？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_clarify",
+      "keywords": "餐饮费,不得抵扣,增值税,企业所得税,限额扣除,业务招待费",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-018",
+      "question_title": "企业向农户个人收购废旧物资，可以自行开具收购发票吗？收购发票能抵扣多少进项？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "keywords": "废旧物资,收购发票,农产品,10%抵扣率,进项税额,一般纳税人",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-019",
+      "question_title": "企业取得失控发票或异常凭证，已经抵扣的进项税额需要转出吗？如何处理？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_steps",
+      "keywords": "失控发票,异常凭证,进项转出,增值税,失控发票转出,税务处理",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-FEE-020",
+      "question_title": "企业购买燃油费、通行费取得的发票，能否抵扣增值税？哪些通行费可以抵扣？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "keywords": "燃油费,通行费,ETC发票,过路费,9%抵扣,增值税,进项抵扣",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "RSK-FEE-004",
+      "question_title": "企业取得虚开发票被查，责任人要承担什么责任？企业需要补缴多少税款和罚款？",
+      "stage_code": "RSK",
+      "module_code": "FEE",
+      "question_type": "type_risk",
+      "keywords": "虚开发票,发票管理,责任,补缴税款,50%罚款,增值税,企业所得税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "RSK-FEE-005",
+      "question_title": "企业发票逾期未认证（超过360天），对应的进项税额还能抵扣吗？有什么补救方法？",
+      "stage_code": "RSK",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "keywords": "发票逾期,360天,认证期限,进项抵扣,逾期未认证,增值税专用发票",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "SET-FEE-005",
+      "question_title": "新设企业第一年需要申报哪些税种？每个月要报哪些报表？申报期限是什么时候？",
+      "stage_code": "SET",
+      "module_code": "FEE",
+      "question_type": "type_steps",
+      "keywords": "新设企业,纳税申报,申报期限,月度申报,季度申报,税种认定,增值税,企业所得税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    }
+  ]
+}

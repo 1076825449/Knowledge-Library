@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_code": "OPR-CIT-012",
+      "question_title": "企业与企业集团成员之间发生关联交易，税务上有哪些合规要求？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_compliance",
+      "keywords": "关联交易,关联申报,同期资料,转让定价,资本弱化,企业所得",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-013",
+      "question_title": "高新技术企业享受15%优惠税率，需要满足哪些条件？如何认定？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_clarify",
+      "keywords": "高新技术企业,15%优惠税率,认定条件,研发费用,知识产权",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-014",
+      "question_title": "企业研发费用加计扣除，扣除比例是多少？哪些研发费用可以加计扣除？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_what",
+      "keywords": "研发费用,加计扣除,75%加计,100%加计,资本化,费用化",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-015",
+      "question_title": "企业从境外取得股息红利，回中国还要再缴企业所得税吗？境外已缴税款可以抵免吗？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "keywords": "境外所得,股息红利,境外税收抵免,抵免限额,直接抵免,间接抵免",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-016",
+      "question_title": "企业取得的政府补助收入，需要缴纳企业所得税吗？不同类型政府补助如何处理？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_define",
+      "keywords": "政府补助,财政性资金,不征税收入,征税收入,企业所得税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-017",
+      "question_title": "总机构在广西，分支机构在外省，企业所得税如何汇总缴纳？需要分摊多少给广西？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "keywords": "总分支机构,汇总纳税,分摊比例,广西,跨省经营,企业所得税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-018",
+      "question_title": "企业发生的职工教育经费和职工福利费，所得税前扣除标准是多少？超标准部分能结转吗？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_what",
+      "keywords": "职工教育经费,职工福利费,14%限额,2.5%限额,超标准,结转扣除",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-019",
+      "question_title": "企业向境外支付特许权使用费，源泉扣缴的所得税率是多少？哪些协定优惠税率可以适用？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "keywords": "特许权使用费,源泉扣缴,预提所得税,10%税率,协定优惠,非居民",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-020",
+      "question_title": "企业发生的广告费和业务宣传费，所得税前扣除比例是多少？超标准部分能结转吗？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_what",
+      "keywords": "广告费,业务宣传费,15%扣除限额,超标准,结转扣除,企业所得税",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-021",
+      "question_title": "企业发生的公益性捐赠支出，所得税前扣除有什么条件？扣除限额是多少？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_clarify",
+      "keywords": "公益性捐赠,捐赠限额,12%限额,全额扣除,税前扣除,公益性",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-022",
+      "question_title": "企业发生以前年度亏损，亏损弥补年限是多少？哪些亏损不能弥补？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_what",
+      "keywords": "亏损弥补,5年弥补,特殊重组,税务机关查增,弥补年限,应纳税所得额",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "OPR-CIT-023",
+      "question_title": "企业向个人投资者分配股息红利，个人需要缴纳个人所得税，企业是否需要代扣代缴？",
+      "stage_code": "OPR",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "keywords": "股息红利,个人所得税,代扣代缴,20%税率,自然人股东,投资收益",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "RSK-CIT-005",
+      "question_title": "企业被认定为偷税或逃避缴纳税款，会面临哪些处罚？补缴税款后还需要缴纳滞纳金吗？",
+      "stage_code": "RSK",
+      "module_code": "CIT",
+      "question_type": "type_risk",
+      "keywords": "偷税,逃避缴纳税款,滞纳金,0.5%日,罚款,5倍以下,刑事责任",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "RSK-CIT-006",
+      "question_title": "企业虚列成本费用被税务机关查处，有哪些法律后果？会计人员需要承担什么责任？",
+      "stage_code": "RSK",
+      "module_code": "CIT",
+      "question_type": "type_risk",
+      "keywords": "虚列成本,偷税,处罚,会计责任,企业所得税,税务稽查",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    },
+    {
+      "question_code": "SET-CIT-003",
+      "question_title": "新设企业第一年亏损，第二年盈利，亏损能在第二年税前弥补吗？弥补年限从哪一年起算？",
+      "stage_code": "SET",
+      "module_code": "CIT",
+      "question_type": "type_clarify",
+      "keywords": "新设企业,亏损弥补,5年弥补期,startup亏损,企业所得税,应纳税所得额",
+      "one_line_answer": "请参考详细答案或咨询主管税务机关确认具体适用政策。"
+    }
+  ]
+}
