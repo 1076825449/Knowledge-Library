@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "question_code": "CHG-PREF-007",
+      "question_title": "企业从一般纳税人转登记为小规模纳税人，当年的企业所得税小型微利企业优惠还能享受吗？",
+      "stage_code": "CHG",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "一般纳税人转小规模,小型微利企业,企业所得税优惠,税收优惠,年度汇算",
+      "one_line_answer": "转登记当年应按原身份享受小型微利企业优惠；次年起按小规模纳税人身份重新判断是否适用。"
+    },
+    {
+      "question_code": "OPR-PREF-013",
+      "question_title": "企业申请软件企业两免三减半优惠，需要满足哪些条件？哪些收入可以计入减免基数？",
+      "stage_code": "OPR",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "软件企业,两免三减半,所得税优惠,减免条件,收入确认,备案申请",
+      "one_line_answer": "须取得软件企业证书且符合规定比例要求；软件产品收入减按10%计入减免基数，税率减免从盈利年度起算。"
+    },
+    {
+      "question_code": "OPR-PREF-014",
+      "question_title": "企业委托关联方研发，研发费用加计扣除能否正常享受？有什么特殊要求？",
+      "stage_code": "OPR",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "委托研发,关联方,研发费用,加计扣除,独立交易原则,价格公允",
+      "one_line_answer": "委托关联方研发可按实际发生额的80%计入研发费用，但须符合独立交易原则，价格公允。"
+    },
+    {
+      "question_code": "OPR-PREF-015",
+      "question_title": "集成电路企业享受企业所得税优惠，需要符合哪些条件？哪些环节可以享受减免？",
+      "stage_code": "OPR",
+      "module_code": "PREF",
+      "question_type": "type_what",
+      "keywords": "集成电路,企业所得税优惠,免税期,减半征收,五免五减半,条件认定",
+      "one_line_answer": "集成电路企业按线宽、投资额等条件分别享受五免五减半或十免十减半等不同档次优惠。"
+    },
+    {
+      "question_code": "OPR-PREF-016",
+      "question_title": "企业安置残疾人就业，增值税即征即退和企业所得税加计扣除能同时享受吗？有什么条件？",
+      "stage_code": "OPR",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "残疾人就业,增值税即征即退,企业所得税加计,同时享受,优惠条件",
+      "one_line_answer": "安置残疾人就业的增值税即征即退与企业所得税100%加计扣除可同时享受，但须分别满足各自条件。"
+    },
+    {
+      "question_code": "RSK-PREF-003",
+      "question_title": "企业申报享受研发费用加计扣除，但被税务机关质疑没有实质性研发活动，如何应对？",
+      "stage_code": "RSK",
+      "module_code": "PREF",
+      "question_type": "type_risk",
+      "keywords": "研发费用,加计扣除,税务质疑,实质性研发,资料准备,应对策略",
+      "one_line_answer": "须保留立项文件、研发日志、成果报告等证明材料，证明研发活动的真实性和规范性。"
+    },
+    {
+      "question_code": "RSK-PREF-004",
+      "question_title": "企业被取消高新资格后，已享受的优惠税款需要补缴吗？补缴的滞纳金如何计算？",
+      "stage_code": "RSK",
+      "module_code": "PREF",
+      "question_type": "type_risk",
+      "keywords": "高新资格取消,追缴税款,滞纳金,0.5%日,税收优惠,重大违法",
+      "one_line_answer": "被取消高新资格后须补缴已减免税款；自滞纳之日起按日0.5%。计算滞纳金，最高不超过本金。"
+    },
+    {
+      "question_code": "CLS-PREF-004",
+      "question_title": "企业注销时，增值税留抵税额和即征即退资格如何处理？留抵税额能否退税？",
+      "stage_code": "CLS",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "注销,留抵退税,增值税,即征即退,资格放弃,税务处理",
+      "one_line_answer": "注销时留抵税额一般不得申请退税；即征即退资格随税务登记注销自动失效。"
+    },
+    {
+      "question_code": "SUS-PREF-003",
+      "question_title": "企业停业期间，小型微利企业优惠是否需要每年重新认定？停业状态如何享受优惠？",
+      "stage_code": "SUS",
+      "module_code": "PREF",
+      "question_type": "type_clarify",
+      "keywords": "停业,小型微利企业,优惠享受,年度认定,预缴申报,汇算清缴",
+      "one_line_answer": "小型微利企业优惠按年度适用条件判定，停业期间如符合条件仍可享受预缴优惠。"
+    },
+    {
+      "question_code": "SET-PREF-005",
+      "question_title": "新设小规模纳税人企业，第一年可以享受哪些增值税和所得税优惠？如何快速判断自己适用哪些？",
+      "stage_code": "SET",
+      "module_code": "PREF",
+      "question_type": "type_steps",
+      "keywords": "小规模纳税人,新设企业,税收优惠,增值税免税,小型微利,申报判断",
+      "one_line_answer": "新设小规模纳税人优先享受月10万/季度30万免税优惠；再按从业人数、资产总额判断是否享受小型微利企税优惠。"
+    }
+  ]
+}

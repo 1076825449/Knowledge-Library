@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_code": "OPR-INV-020",
+      "question_title": "增值税发票有哪几种类型？卷式发票、折叠式发票、电子发票分别适用于什么情况？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_what",
+      "keywords": "增值税发票,卷式发票,折叠式,电子发票,发票种类,开票系统",
+      "one_line_answer": "增值税发票分为卷式（卷票）、折叠式（专用/普通）、电子发票，分别适用于不同行业和开票场景。"
+    },
+    {
+      "question_code": "OPR-INV-021",
+      "question_title": "开具增值税发票时，发票盖章有什么要求？盖财务章还是发票专用章？位置有什么规定？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_clarify",
+      "keywords": "发票盖章,发票专用章,财务章,盖章位置,增值税发票,规范要求",
+      "one_line_answer": "开具发票须加盖发票专用章（而非财务章），专用章盖在发票右下角，不得压盖金额。"
+    },
+    {
+      "question_code": "OPR-INV-022",
+      "question_title": "企业丢失空白发票或已开具发票，如何登报声明作废？税务上如何处理？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_steps",
+      "keywords": "丢失发票,发票作废,登报声明,空白发票,丢失公示,税务处理",
+      "one_line_answer": "丢失空白发票须向税务机关报告并登报声明；丢失已开具发票须按未按规定开具处罚，并可申请开具证明。"
+    },
+    {
+      "question_code": "OPR-INV-023",
+      "question_title": "企业作为购买方，收到问题发票（品目与实际不符、税率错误等）如何拒收或要求重开？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_steps",
+      "keywords": "拒收发票,发票重开,品目不符,税率错误,进项抵扣,发票审核",
+      "one_line_answer": "发现问题发票应立即拒收并要求销售方作废重开；已认证的须申请开具红字发票。"
+    },
+    {
+      "question_code": "OPR-INV-024",
+      "question_title": "企业如何通过电子税务局或增值税发票综合服务平台查询、验伪发票？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "keywords": "发票查验,真伪查询,增值税发票综合服务平台,电子税务局,勾选认证",
+      "one_line_answer": "登录电子税务局或增值税发票综合服务平台，输入发票代码、号码、金额等信息查验真伪。"
+    },
+    {
+      "question_code": "OPR-INV-025",
+      "question_title": "企业销售产品附带赠品，赠品需要开具发票吗？发票金额如何拆分？税务如何处理？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_clarify",
+      "keywords": "买赠行为,赠品开票,发票金额,增值税,企业所得税,折扣开票",
+      "one_line_answer": "买赠行为中赠品需视同销售开具发票，销售额与折扣额可按折扣后的实收金额开在一张票上。"
+    },
+    {
+      "question_code": "RSK-INV-001",
+      "question_title": "什么是虚开增值税发票？企业被认定为虚开发票有什么后果？",
+      "stage_code": "RSK",
+      "module_code": "INV",
+      "question_type": "type_define",
+      "keywords": "虚开发票,虚开增值税,发票犯罪,法律后果,刑事责任,发票管理办法",
+      "one_line_answer": "虚开增值税专用发票包括为自己虚开、让他人为自己虚开、介绍他人虚开行为；构成犯罪可判无期徒刑。"
+    },
+    {
+      "question_code": "RSK-INV-002",
+      "question_title": "企业取得失控发票或异常扣税凭证，已抵扣的进项税额必须转出吗？企业如何维权？",
+      "stage_code": "RSK",
+      "module_code": "INV",
+      "question_type": "type_risk",
+      "keywords": "失控发票,异常凭证,进项转出,增值税,举证申诉,税收征管",
+      "one_line_answer": "取得失控发票须先作进项转出，但可凭业务真实证据向税务机关申诉，经核实后可抵扣或退税。"
+    },
+    {
+      "question_code": "RSK-INV-003",
+      "question_title": "企业购买发票或借用他人发票，有什么风险？税务如何认定？",
+      "stage_code": "RSK",
+      "module_code": "INV",
+      "question_type": "type_risk",
+      "keywords": "购买发票,借用发票,虚开发票,税务处罚,偷税,刑事责任",
+      "one_line_answer": "购买、借用发票属于虚开违法行为，按偷税或虚开发票处理，情节严重可追究刑事责任。"
+    },
+    {
+      "question_code": "SET-INV-004",
+      "question_title": "新设企业第一次申领增值税发票，最高开票限额是多少？申请提升限额需要什么条件？",
+      "stage_code": "SET",
+      "module_code": "INV",
+      "question_type": "type_what",
+      "keywords": "最高开票限额,新设企业,发票申领,初次核定,增值税,申请条件",
+      "one_line_answer": "新企初次申领最高开票限额通常为10万元/月；需提升限额须向税务机关申请并提供相关证明。"
+    },
+    {
+      "question_code": "SET-INV-005",
+      "question_title": "新设企业第一次领用税控设备（税务UKey），如何领取？是否免费？",
+      "stage_code": "SET",
+      "module_code": "INV",
+      "question_type": "type_steps",
+      "keywords": "税务UKey,税控设备,新设企业,免费领取,开票系统,初始发行",
+      "one_line_answer": "新办纳税人可免费领取税务UKey；携带营业执照和公章到主管税务机关办理初始发行。"
+    },
+    {
+      "question_code": "CLS-INV-004",
+      "question_title": "企业注销前，发票和税控设备清理有哪些必须完成的事项？未缴销发票会有什么后果？",
+      "stage_code": "CLS",
+      "module_code": "INV",
+      "question_type": "type_steps",
+      "keywords": "注销,发票缴销,税控设备,空白发票,清理清单,税务注销",
+      "one_line_answer": "注销前须作废/开具全部空白发票并到税务机关缴销税控设备；未缴销发票将影响注销手续。"
+    },
+    {
+      "question_code": "CLS-INV-005",
+      "question_title": "企业注销后，存根联和记账联需要保存多长时间？保存在哪里？",
+      "stage_code": "CLS",
+      "module_code": "INV",
+      "question_type": "type_what",
+      "keywords": "发票保存,存根联,记账联,保存期限,10年,注销后",
+      "one_line_answer": "发票存根联和记账联须保存至少10年，注销后须移交税务机关或指定单位保管。"
+    },
+    {
+      "question_code": "SUS-INV-003",
+      "question_title": "企业停业期间，发票能否申请增量或临时增加开票限额？",
+      "stage_code": "SUS",
+      "module_code": "INV",
+      "question_type": "type_whether",
+      "keywords": "停业,发票增量,临时增加,开票限额,增值税,税务申请",
+      "one_line_answer": "停业期间如需开具发票可向税务机关申请临时增量或提高开票限额。"
+    },
+    {
+      "question_code": "SUS-INV-004",
+      "question_title": "企业停业期间税控设备需要抄报税吗？应该如何处理？",
+      "stage_code": "SUS",
+      "module_code": "INV",
+      "question_type": "type_clarify",
+      "keywords": "停业,税控设备,抄报税,申报,税务UKey,报税处理",
+      "one_line_answer": "即使停业税控设备也须每月按期抄报税（零申报），否则会产生逾期罚款和税控锁死。"
+    }
+  ]
+}
