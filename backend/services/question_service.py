@@ -6,6 +6,116 @@
 import sqlite3
 from config import Config
 
+
+# =============================================================================
+# 同义表达扩展字典
+# 用户输入 → 额外扩展的搜索词列表（用于 LIKE OR 匹配）
+# =============================================================================
+SYNONYM_MAP = {
+    # 无经营 / 零申报
+    "没收入": ["零申报", "无收入", "未经营", "无经营", "未开展经营"],
+    "零申报": ["没收入", "无收入", "未经营", "无经营", "未开展经营", "长期零申报"],
+    "未经营": ["零申报", "没收入", "无收入", "无经营", "未开展经营"],
+    "无经营": ["零申报", "没收入", "无收入", "未经营", "未开展经营"],
+    "没经营": ["零申报", "没收入", "无收入", "未经营", "无经营"],
+    # 开发票 / 发票
+    "开发票": ["开票", "开发票", "发票开具", "领发票", "领用发票"],
+    "开票": ["开发票", "发票开具", "领发票", "领用发票"],
+    "不开票": ["不开发票", "无需开票", "不开发票"],
+    "红字发票": ["红票", "冲红", "开具红字发票", "红字专用发票"],
+    "发票红冲": ["红字发票", "红冲", "开具红字发票"],
+    # 注销 / 清算
+    "注销": ["注销登记", "注销税务登记", "清税", "税务注销", "注销清算"],
+    "清税": ["注销", "税务注销", "清税注销", "注销清算"],
+    "注销清算": ["注销", "清税", "税务注销"],
+    # 变更 / 迁移
+    "变更地址": ["地址变更", "经营地址变更", "注册地址变更", "地址迁移"],
+    "地址变了": ["地址变更", "经营地址变更", "注册地址变更", "地址迁移"],
+    # 社保 / 公积金
+    "社保": ["社会保险", "社保费", "五险", "养老保险", "医疗保险", "失业保险", "工伤保险", "生育保险"],
+    "公积金": ["住房公积金"],
+    # 申报 / 纳税
+    "申报": ["纳税申报", "税务申报", "申报纳税"],
+    "不申报": ["未申报", "逾期申报", "未按期申报"],
+    # 个税 / 代扣代缴
+    "个税": ["个人所得税", "个人所得税代扣代缴"],
+    "代扣代缴": ["个人所得税代扣代缴", "扣缴义务人"],
+    # 欠税 / 滞纳金
+    "欠税": ["拖欠税款", "欠缴税款", "未按期缴纳税款"],
+    "滞纳金": ["加收滞纳金", "每日万分之五"],
+    # 异常 / 非正常
+    "异常户": ["非正常户", "税务异常", "列入异常"],
+    "非正常户": ["异常户", "税务异常", "列入异常"],
+    # 成本 / 凭证
+    "成本费用": ["成本列支", "费用报销", "凭证", "发票凭证", "税前扣除凭证"],
+    "白条": ["白条入账", "不合规凭证", "不合规发票"],
+    # 免税 / 优惠
+    "免税": ["免征增值税", "免税收入", "免税优惠"],
+    "小规模纳税人": ["小规模", "增值税小规模纳税人"],
+    "一般纳税人": ["一般纳税人", "增值税一般纳税人"],
+}
+
+# 字符归一化映射（全角→半角）
+_FULLWIDTH_SRC = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ１２３４５６７８９０"
+_FULLWIDTH_DST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+FULLWIDTH_TRANS = str.maketrans(_FULLWIDTH_SRC, _FULLWIDTH_DST)
+
+# 常用繁体→简体替换表（仅高频字，按字符替换）
+_HANT_TO_HANS = {
+    "國": "国", "與": "与", "為": "为", "無": "无",
+    "萬": "万", "說": "说", "時": "时", "業": "业",
+    "電": "电", "網": "网", "號": "号", "稱": "称",
+    "從": "从", "會": "会", "麼": "么", "個": "个",
+    "們": "们", "來": "来", "過": "过", "現": "现",
+    "長": "长", "發": "发", "見": "见", "間": "间",
+    "題": "题", "還": "还", "經": "经", "體": "体",
+    "種": "种", "關": "关", "點": "点", "處": "处",
+    "務": "务", "開": "开", "資": "资", "陳": "陈",
+    "樣": "样", "書": "书", "該": "该", "則": "则",
+    "報": "报", "認": "认", "處": "处", "號": "号",
+    "產": "产", "擬": "拟", "顯": "显", "顧": "顾",
+    "號": "号", "單": "单", "價": "价", "區": "区",
+    "劉": "刘", "孫": "孙", "鄭": "郑", "謝": "谢",
+}
+
+def _normalize(text):
+    """归一化：全角转半角，繁体转简体，小写"""
+    text = text.translate(FULLWIDTH_TRANS)
+    for hant, hans in _HANT_TO_HANS.items():
+        text = text.replace(hant, hans)
+    return text.lower()
+
+
+def expand_synonyms(keyword):
+    """将用户输入扩展为多个搜索词列表（去重，保持原词）"""
+    norm = _normalize(keyword)
+    seen = {norm}
+    expanded = [keyword]  # 保留原始输入
+
+    for base, synonyms in SYNONYM_MAP.items():
+        base_norm = _normalize(base)
+        if base_norm in norm or norm in base_norm:
+            for syn in synonyms:
+                syn_norm = _normalize(syn)
+                if syn_norm not in seen:
+                    seen.add(syn_norm)
+                    expanded.append(syn)
+        # 检查 keyword 是否是某个同义词组的成员
+        for syn in synonyms:
+            syn_norm = _normalize(syn)
+            if syn_norm in norm or norm in syn_norm:
+                if base_norm not in seen:
+                    seen.add(base_norm)
+                    expanded.append(base)
+                for other in synonyms:
+                    other_norm = _normalize(other)
+                    if other_norm not in seen:
+                        seen.add(other_norm)
+                        expanded.append(other)
+
+    return list(dict.fromkeys(expanded))  # 去重保持顺序
+
+
 def dict_from_row(row, columns):
     return dict(zip(columns, row))
 
@@ -61,11 +171,23 @@ class QuestionService:
         if newbie:
             conditions.append("q.newbie_flag = 1")
         if keyword:
-            pattern = f"%{keyword}%"
-            conditions.append("""
-                (q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)
-            """)
-            params.extend([pattern, pattern, pattern])
+            # 同义表达扩展搜索
+            expanded = expand_synonyms(keyword)
+            if len(expanded) == 1:
+                # 无同义词时直接 LIKE
+                pattern = f"%{keyword}%"
+                conditions.append("""
+                    (q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)
+                """)
+                params.extend([pattern, pattern, pattern])
+            else:
+                # 多个搜索词：用 OR LIKE 组合
+                like_clauses = []
+                for kw in expanded:
+                    like_clauses.append("(q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)")
+                    pat = f"%{kw}%"
+                    params.extend([pat, pat, pat])
+                conditions.append(f"({' OR '.join(like_clauses)})")
         if region:
             conditions.append("q.scope_level = ?")
             params.append(region)
