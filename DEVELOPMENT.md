@@ -7,7 +7,7 @@
 git clone git@github.com:1076825449/Knowledge-Library.git
 cd Knowledge-Library
 
-# 创建虚拟环境（Python 3.11+）
+# 创建虚拟环境（Python 3.9+）
 python -m venv venv
 source venv/bin/activate
 
@@ -120,7 +120,7 @@ conn.execute("PRAGMA foreign_keys = ON")
 
 ## 代码规范
 
-- Python 3.11+，无重型框架依赖
+- Python 3.9+，无重型框架依赖
 - Flask 路由 → services → database 分层
 - 枚举值统一小写下划线（Python 侧常量用全大写，DB 存储用小写下划线）
 - 批量导入必须通过 `batch_import_questions.py`，不得直接 SQL INSERT
