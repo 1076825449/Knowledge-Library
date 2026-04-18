@@ -1,0 +1,534 @@
+{
+  "questions": [
+    {
+      "question_code": "CHG-CLEAR-003",
+      "question_title": "企业注销时，清算期间所得税如何计算？清算所得与经营期所得有什么区别？",
+      "stage_code": "CHG",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "tags": [
+        "tag_clearing",
+        "tag_income_tax",
+        "tag_liquidation"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程"
+        },
+        {
+          "target_code": "CHG-CLEAR-002",
+          "relation_type": "see_also",
+          "relation_note": "简易注销与一般注销区别"
+        }
+      ],
+      "one_line_answer": "清算所得＝资产变现收入－清算费用－损失－负债净值－注册资本，清算所得税按25%计算；与经营期所得不同，清算所得是一次性计算且不得弥补亏损。",
+      "detailed_answer": "清算所得的计算逻辑：\n\n1. 清算所得公式：\n   清算所得 = 资产变现收入 - 清算费用 - 损失 - 负债净值 - 注册资本\n   （依据：财税[2009]60号文）\n\n2. 税率：清算所得按25%缴纳企业所得税（无优惠税率，除非符合小微条件可分段计算）\n\n3. 与经营期所得的核心区别：\n   - 经营期所得：按月/季预缴，年度汇算，可弥补以前年度亏损\n   - 清算所得：一次性计算，不得用清算前的亏损抵减（特殊合并除外）\n   - 企业股东的股息红利所得：免税（已纳税的税后利润分配）\n\n实操要点：\n1. 清算组在清算期间处置资产产生的所得，应计入清算所得\n2. 清算费用包括：清算组成员报酬、公告费用、诉讼费用、差旅费、办公费\n3. 清算损失须有合法凭证，报主管税务机关备案\n\n政策依据：财税[2009]60号文、POL-CIT-002",
+      "policy_links": [
+        {
+          "policy_code": "POL-CIT-002",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-CIT-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "CHG-CLEAR-004",
+      "question_title": "企业注销前，存货和固定资产怎么处置涉税最少？",
+      "stage_code": "CHG",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "tags": [
+        "tag_clearing",
+        "tag_assets",
+        "tag_vat"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程参考"
+        }
+      ],
+      "one_line_answer": "存货分配给股东按视同销售缴增值税，固定资产处置按资产种类缴税，建议在注销前合理规划资产处置方式和时间节点，降低整体税负。",
+      "detailed_answer": "注销前资产处置的税务成本分析：\n\n一、存货处置方式对比：\n- 正常销售：正常缴纳增值税（13%/9%/6%）\n- 分配给股东：视同销售，正常税率缴纳增值税\n- 报废销毁：进项转出，无抵扣\n- 赠送客户：视同销售，正常税率\n\n二、固定资产（机器设备/车辆/不动产）：\n- 机器设备：处置收入减账面价值，差额计入清算所得，缴25%企业所得税\n- 车辆：转让过户，涉及增值税（一般纳税人可能适用简易计税）\n- 不动产：土地增值税是重点（非房地产企业转让不动产需特别计算）\n\n三、最优处置策略：\n1. 尽量在注销前完成正常销售，减少视同销售争议\n2. 留抵税额处理：注销前应抵扣完毕，或申请留抵退税\n3. 资产损失备案：无法处置的资产损失，须在注销前完成资产损失税前扣除备案\n\n政策依据：增值税暂行条例实施细则第四条、财税[2009]60号文",
+      "policy_links": [
+        {
+          "policy_code": "POL-CIT-002",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "POL-VAT-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "CLS-CLEAR-014",
+      "question_title": "公司注销时，债权债务还未清理完毕，能先办理税务注销吗？",
+      "stage_code": "CLS",
+      "module_code": "CLEAR",
+      "question_type": "type_clarify",
+      "tags": [
+        "tag_clearing",
+        "tag_debt",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "target_code": "CLS-CLEAR-002",
+          "relation_type": "see_also",
+          "relation_note": "清算方案与债权债务处理"
+        },
+        {
+          "target_code": "CLS-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "清算方案制定"
+        }
+      ],
+      "one_line_answer": "可以。债权未收回不影响税务注销，但未偿债务须在清算报告中说明；若有应缴未缴税款，必须清缴完毕或提供担保后方可注销。",
+      "detailed_answer": "债权债务与税务注销的关系：\n\n一、债权（应收账款等）未收回：\n- 不影响税务注销，已确认无法收回的债权须做资产损失处理\n- 资产损失须在注销前完成备案（《企业资产损失所得税税前扣除管理办法》）\n- 股东分配剩余财产时，未收回债权可一并转让\n\n二、债务（应付账款等）未偿还：\n- 原则上应了偿完毕，确实无法偿还的应付账款须计入清算所得\n- 清算期间合理支出（诉讼费等）可扣除\n- 未到期债务提前清偿须符合《破产法》或清算程序规定\n\n三、税务注销的前提条件（强制要求）：\n1. 所有税（增值税/所得税/城建税/附加等）已缴清\n2. 发票已全部缴销，无留抵税额异常\n3. 企业所得税清算申报已完成（《清算所得税申报表》A类）\n4. 若有欠税，须提供担保或经税务机关确认无欠税\n\n四、违法后果：\n- 欠税未清缴而注销，税务机关可向已注销企业追征\n- 情节严重的，追究法定代表人和财务负责人责任\n\n政策依据：《税收征收管理法》第三十二条、SAT-CLEAR-001",
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "CLS-CLEAR-015",
+      "question_title": "企业注销时，税务注销与工商注销的先后顺序是什么？",
+      "stage_code": "CLS",
+      "module_code": "CLEAR",
+      "question_type": "type_procedure",
+      "tags": [
+        "tag_clearing",
+        "tag_procedure",
+        "tag_registration"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程"
+        }
+      ],
+      "one_line_answer": "必须先办税务注销（清税证明），再办工商注销。简易注销可采用承诺制同步申请。",
+      "detailed_answer": "注销办理的标准顺序：\n\n第一步：决定注销 - 成立清算组（15日内备案）\n第二步：公示注销公告（报纸或国家企业信用信息公示系统）\n第三步：清理资产、债权债务，编制清算报告\n第四步：向税务机关申请《清税证明》（税务注销）\n第五步：向工商部门申请注销登记，缴回营业执照\n第六步：注销银行账户、社保、公积金账户\n\n一、税务注销（第四步）详细要求：\n- 条件：无欠税、无未缴销发票、无未办结稽查案件\n- 材料：清税申请表、清算报告、营业执照复印件、股东会决议\n- 时限：一般纳税人20个工作日，小规模5个工作日（符合条件即办）\n- 承诺制简易注销：适用无发票欠税、无欠税的纳税人，当场出清税证明\n\n二、工商注销（第五步）前提：\n- 必须持有《清税证明》（或承诺制申请回执）\n- 简易注销：公示20天后直接申请，材料齐全当场办结\n- 一般注销：公示45天后申请（报纸公告45日或国家信用系统公示45日）\n\n三、特殊情形：\n- 已被吊销营业执照的企业：仍须办理税务注销\n- 外商投资企业注销：须先经商务部门审批\n\n政策依据：《公司注销登记管理办法》、SAT-CLEAR-001",
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-CLS-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "CLS-CLEAR-016",
+      "question_title": "一般注销与简易注销有什么区别？公司满足什么条件才能走简易注销？",
+      "stage_code": "CLS",
+      "module_code": "CLEAR",
+      "question_type": "type_compare",
+      "tags": [
+        "tag_clearing",
+        "tag_compare",
+        "tag_procedure"
+      ],
+      "relations": [
+        {
+          "target_code": "CLS-CLEAR-002",
+          "relation_type": "see_also",
+          "relation_note": "清算方案与债权债务处理"
+        },
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程"
+        }
+      ],
+      "one_line_answer": "简易注销适用无债权债务或已清偿完毕的企业，公示20天，最快5天办结；一般注销需公示45天，流程更复杂。",
+      "detailed_answer": "一般注销 vs 简易注销对比：\n\n对比项目：\n- 一般注销：适用有债权债务或未能清偿完毕的企业；公示45日；须先办清税证明；耗时2-3个月以上；材料10+项\n- 简易注销：适用无债权债务或已清偿完毕；公示20日；可承诺制；最快5-7天；材料3-4项\n\n简易注销的具体条件（2023年规定）：\n1. 领取营业执照后未开展经营活动（未开业）\n2. 申请注销登记前未发生债权债务或已将债权债务清偿完毕（无债权债务）\n3. 未处于税务异常状态（无非正常户、无欠税、无未验旧发票）\n\n简易注销流程：\n1. 在国家企业信用信息公示系统填报简易注销公告\n2. 等待20天公示期（期间无人提出异议）\n3. 公示期满后30日内向工商申请注销登记\n4. 工商当场核发注销证明\n\n注意事项：\n- 简易注销若被查到虚假承诺（仍有未了债务），投资人须承担连带责任\n- 已被列入经营异常名录或严重违法失信企业名单的，不可简易注销\n\n政策依据：GOV-CLS-001、LOCAL-GX-002",
+      "policy_links": [
+        {
+          "policy_code": "GOV-CLS-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "LOCAL-GX-002",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "OPR-CLEAR-024",
+      "question_title": "企业在不同城市有分公司，注销时需要分别办理税务注销吗？",
+      "stage_code": "OPR",
+      "module_code": "CLEAR",
+      "question_type": "type_whether",
+      "tags": [
+        "tag_clearing",
+        "tag_branch",
+        "tag_procedure"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程参考"
+        },
+        {
+          "target_code": "CLS-CLEAR-015",
+          "relation_type": "see_also",
+          "relation_note": "税务注销与工商注销顺序"
+        }
+      ],
+      "one_line_answer": "是的。总公司和分公司各自独立纳税，须分别向各自主管税务机关申请税务注销，分公司先于总公司办理。",
+      "detailed_answer": "总分机构注销税务的办理规则：\n\n一、基本原则：独立纳税，独立注销\n- 分公司（独立核算）：在主管税务机关独立申报纳税，须单独办理税务注销\n- 总公司：须在所有分公司注销完毕后，方可申请自身税务注销\n\n二、注销顺序：\n分公司A（主管税务机关A）- 注销 - 分公司B（主管税务机关B）- 注销 - ... - 总公司（主管税务机关C）- 注销\n\n三、特殊情形：\n1. 企业所得税汇总纳税的分摊：总机构注销前须先完成所得税汇算清缴\n2. 增值税留抵税额：分支机构的留抵税额原则上在分支机构注销时抵扣，不可跨机构转移\n3. 发票缴销：分支机构须缴销所有领购发票\n\n四、跨省分公司的注意事项：\n- 不同省份的分公司可能归属不同主管税务机关\n- 注销前须确认无欠税、无未验旧发票、无未报财务报表\n- 汇总纳税的总机构须先向主管税务机关备案注销计划\n\n五、常见错误：\n- 只注销总公司就以为全部完成 - 分公司仍须独立注销，否则被列入非正常户\n- 分公司注销未及时报告总机构会计 - 总机构汇算清缴时数据不匹配\n\n政策依据：《税收征收管理法》、《税务登记管理办法》第十六条",
+      "policy_links": [
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-Tax-002",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "OPR-CLEAR-025",
+      "question_title": "公司注销后，账簿凭证应该保存多少年？由谁负责保管？",
+      "stage_code": "OPR",
+      "module_code": "CLEAR",
+      "question_type": "type_what",
+      "tags": [
+        "tag_clearing",
+        "tag_accounting",
+        "tag_records"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程参考"
+        }
+      ],
+      "one_line_answer": "账簿凭证须保存至少10年（企业所得税年度纳税申报表须保存10年）。注销后由清算组或原股东指定人员保管。",
+      "detailed_answer": "注销后账簿凭证的保管要求：\n\n一、法律规定的最低保存年限：\n- 会计账簿：30年（《会计档案管理办法》）\n- 会计凭证：30年\n- 年度财务会计报告：永久\n- 企业所得税年度纳税申报表：10年\n- 增值税进项抵扣凭证：10年\n- 发票存根联：5年（已开具）\n- 工商注销证明：永久\n\n二、注销后的保管责任人：\n- 清算组：公司进入清算程序后，清算组负责保管全部档案\n- 全体投资人（股东）：注销完毕后，股东对账簿仍有法定保存义务\n- 会计师事务所（如委托注销清算）：可约定由会计师事务所保管\n\n三、保管地点和方式：\n- 纸质档案：须存放在干燥、安全的场所，防止虫蛀、鼠咬、火灾\n- 电子账套：须备份至少2份，存储在不同介质上\n- 交接记录：档案移交须有书面交接清单，双方签字确认\n\n四、违规后果：\n- 私自销毁账簿凭证且情节严重的（《刑法》第162条之二）：可处2年以下有期徒刑或拘役\n- 税务机关在注销后仍可因税务检查需要调取账簿\n- 账簿丢失导致无法证明业务真实性，税务机关有权核定征收\n\n政策依据：《会计档案管理办法》、《税收征收管理法》第二十四条",
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "OPR-CLEAR-026",
+      "question_title": "公司注销时，有留抵进项税额可以申请退税吗？怎么处理最合适？",
+      "stage_code": "OPR",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "tags": [
+        "tag_clearing",
+        "tag_vat_refund",
+        "tag_input_tax"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-004",
+          "relation_type": "see_also",
+          "relation_note": "存货固定资产处置涉税"
+        }
+      ],
+      "one_line_answer": "可以申请留抵退税，或在注销前将存货分配给股东（视同销售）。留抵退税需要未抵完的增值税申报《增值税期末留抵税额退税申请表》。",
+      "detailed_answer": "注销前留抵进项税额的处理方案：\n\n方案一：申请留抵退税（最优推荐）\n适用条件：\n- 自2019年4月税款所属期起，连续6个月增量留抵税额均大于零\n- 第6个月增量留抵税额不低于50万元\n- 纳税信用等级为A级或B级\n\n实操步骤：\n1. 确认留抵税额金额（在电子税务局增值税申报表查看）\n2. 确认纳税信用等级（A/B级）\n3. 填写《增值税期末留抵税额退税申请表》\n4. 向主管税务机关申请，税务机关在10个工作日内完成审核\n\n方案二：视同销售分配给股东\n如果留抵税额无法退税，可将存货分配给股东：\n- 将存货按公允价值分配给股东，计入清算所得\n- 同时抵扣进项税额（视同销售，正常税率）\n\n方案三：抵减欠税后申请退税\n- 若企业有增值税欠税，先抵减欠税，剩余部分申请退税\n\n注意事项：\n- 注销前3个月内取得的进项发票，建议确认业务真实性\n- 申请留抵退税后36个月内不能再次申请\n- 已被列为风险纳税人或有稽查案件的，暂不受理留抵退税\n\n政策依据：《增值税留抵退税管理办法》、SAT-VAT-007",
+      "policy_links": [
+        {
+          "policy_code": "SAT-VAT-007",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "POL-VAT-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "OPR-CLEAR-027",
+      "question_title": "企业在注销前发现还有税务稽查案件未结案，可以继续办理注销吗？",
+      "stage_code": "OPR",
+      "module_code": "CLEAR",
+      "question_type": "type_whether",
+      "tags": [
+        "tag_clearing",
+        "tag_audit",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "target_code": "RSK-TAX-004",
+          "relation_type": "see_also",
+          "relation_note": "税务稽查基本程序"
+        }
+      ],
+      "one_line_answer": "不可以。存在未结稽查案件的纳税人不能办理税务注销，须先结案或提供担保。",
+      "detailed_answer": "稽查案件与税务注销的关系：\n\n一、基本规则：稽查未结，不得注销\n根据《税务稽查案件办理程序规定》：\n- 纳税人存在税收违法行为，税务机关已立案稽查的，在案件未结案之前，不得办理税务注销\n- 若在稽查中发现企业存在欠税，须先缴清税款、滞纳金、罚款，方可申请注销\n\n二、稽查中发现注销行为的处理：\n- 企业在稽查过程中申请注销，税务机关可依职权延长稽查期限\n- 稽查部门向登记注册部门发出《税务事项通知书》，暂停注销程序\n- 已注销后发现重大税收违法行为的，税务机关可向原投资人追征\n\n三、特殊情形（有条件注销）：\n1. 提供担保：企业提供等额保证金或担保人担保，经稽查局审核同意后，可先予办理注销\n2. 总分支机构特殊处理：总公司稽查期间，分公司满足条件可单独注销\n\n四、稽查案件的常见类型：\n- 发票虚开（增值税专用发票/普通发票）\n- 成本费用异常（业务招待费超标、咨询费异常）\n- 偷逃税款（隐瞒收入、虚列成本）\n- 优惠政策滥用（研发费用加计扣除不合规）\n\n五、风险提示：\n- 企业注销后若被查实有税收违法行为，税务机关可向原法定代表人和财务负责人追责\n- 重大税收违法案件会被纳入黑名单，影响法定代表人再创业\n\n政策依据：《税务稽查案件办理程序规定》、《重大税收违法失信主体信息公布管理办法》",
+      "policy_links": [
+        {
+          "policy_code": "SAT-SUS-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-Tax-003",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "RSK-CLEAR-001",
+      "question_title": "公司已经注销，但税务机关后来发现了偷税行为，税务机关可以向谁追征？",
+      "stage_code": "RSK",
+      "module_code": "CLEAR",
+      "question_type": "type_clarify",
+      "tags": [
+        "tag_clearing",
+        "tag_risk_warning",
+        "tag_liability"
+      ],
+      "relations": [
+        {
+          "target_code": "OPR-CLEAR-027",
+          "relation_type": "see_also",
+          "relation_note": "稽查未结与注销的关系"
+        }
+      ],
+      "one_line_answer": "可以向原公司股东、投资人追征。若股东已足额缴纳出资且无侵占公司财产行为，一般不承担连带责任；但若存在虚假清算、隐匿财产等行为，须承担赔偿责任。",
+      "detailed_answer": "注销后税务追征的对象和条件：\n\n一、基本原则：有限责任公司以出资为限承担责任\n根据《公司法》：\n- 公司以其全部财产对债务（包括税款）承担责任\n- 股东以认缴出资额为限承担有限责任\n- 公司注销后，债务（包括税款）消灭，理论上不可向原股东追征\n\n二、例外：穿透公司面纱追征的情形\n若清算过程存在以下违法行为，税务机关可向相关责任人追征：\n1. 虚假清算：清算报告严重失实，隐匿应税财产 - 投资人须在隐匿财产范围内承担补缴责任\n2. 未经清算即注销：未依法进行清算即办理注销登记 - 债权人可申请法院指定清算组成员\n3. 恶意转移资产后注销：注销前将财产转移至关联方或股东个人 - 须全额补缴，并面临滞纳金和罚款\n\n三、追征时效：\n- 欠税：原则上无限期追征\n- 偷税、抗税、骗税：无期限限制\n- 一般少缴税款：3年内（特殊情况下可延长至5年）\n\n四、法定代表人和财务负责人的个人风险：\n- 被纳入重大税收违法失信主体后，法定代表人3年内不得担任其他企业的法定代表人\n- 财务负责人对虚假财务报告承担直接责任\n\n政策依据：《税收征收管理法》第五十二条、《公司法》第二十条、《公司法司法解释二》第十九条",
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-CLS-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "SET-CLEAR-003",
+      "question_title": "个体工商户申请注销，是否需要办理税务注销？与公司注销有什么不同？",
+      "stage_code": "SET",
+      "module_code": "CLEAR",
+      "question_type": "type_procedure",
+      "tags": [
+        "tag_clearing",
+        "tag_individual",
+        "tag_procedure"
+      ],
+      "relations": [
+        {
+          "target_code": "CLS-CLEAR-016",
+          "relation_type": "see_also",
+          "relation_note": "一般注销与简易注销对比"
+        }
+      ],
+      "one_line_answer": "个体工商户注销也须先办理税务注销。但流程更简化：无注册资本概念，无清算组要求，税务注销通常当场办结。",
+      "detailed_answer": "个体工商户注销 vs 公司注销对比：\n\n一、共同点（都必须做）：\n- 先向主管税务机关申请清税证明（或承诺制）\n- 公示系统上公示注销信息（个体户简易注销公示7天）\n- 向工商部门申请注销登记\n\n二、个体工商户注销的简化之处：\n- 注册资本：无（公司须认缴制，须公示）\n- 清算组：无硬性要求，业主自行清理（公司须成立清算组，15日内备案）\n- 债权债务：业主以个人全部财产承担（公司股东以出资额为限）\n- 税务注销材料：3-4项（公司需8-10项）\n- 工商注销时限：符合条件当场办结（公司需5-7个工作日）\n\n三、个体工商户税务注销的特殊要求：\n1. 定期定额征收户（大多数个体户）：无须办理企业所得税年度汇算清缴\n2. 查账征收个体户：须完成注销前最后一次个人所得税申报\n3. 定期定额转查账征收的：在转换后第一年内申请注销，仍须进行个人所得税汇算清缴\n\n四、个体户简易注销的条件：\n- 未开业或已结清税款、无发票欠缴\n- 在国家企业信用信息公示系统公示7天（公司为20天）\n- 无人提出异议则当场核发注销证明\n\n政策依据：《个体工商户条例》、《税务登记管理办法》、LOCAL-GX-001",
+      "policy_links": [
+        {
+          "policy_code": "LOCAL-GX-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "LOCAL-GX-002",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-Tax-002",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "SUS-CLEAR-003",
+      "question_title": "企业因故停业6个月以上，税务上应该办理什么手续？停业期间还需要申报吗？",
+      "stage_code": "SUS",
+      "module_code": "CLEAR",
+      "question_type": "type_procedure",
+      "tags": [
+        "tag_suspending",
+        "tag_procedure",
+        "tag_filing"
+      ],
+      "relations": [
+        {
+          "target_code": "SUS-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "停业复业基本规定"
+        },
+        {
+          "target_code": "SUS-CLEAR-002",
+          "relation_type": "see_also",
+          "relation_note": "非正常户认定和处理"
+        }
+      ],
+      "one_line_answer": "应办理停业登记（电子税务局申请）。停业期间仍须按期申报（零申报），不复业又超期将被转为非正常户。",
+      "detailed_answer": "停业税务登记的办理与义务：\n\n一、谁需要办理停业登记？\n- 实行定期定额征收的纳税人（大多数小规模企业和个体户）\n- 预计停业时间超过15天的，须在停业前向主管税务机关申报\n- 查账征收企业无需办理停业登记，但须在电子税务局做停业报告备注\n\n二、停业登记的办理流程：\n1. 在电子税务局我要办税 - 事项办理 - 停业登记申请\n2. 上传：填写停业原因、停业期限（最长不超过1年）\n3. 税务机关审核（1-2个工作日）\n4. 收到《核准停业通知书》\n\n三、停业期间的申报义务（易踩坑！）：\n- 增值税：每月/季度仍须申报，可填0 - 不申报罚款加非正常户\n- 企业所得税：按季预缴申报（即使亏损也须申报）\n- 个人所得税：员工工资为零时须零申报\n- 城建税/附加税：随增值税申报（零申报即可）\n\n四、复业手续：\n- 停业期满或提前恢复营业，须在恢复生产经营之前向税务机关报告\n- 如停业期满超30天未复业，税务机关可要求重新办理税务登记\n\n五、注意事项：\n- 发票验旧：停业前须将已开具发票存根联和未开具的空白发票全部缴销\n- 留抵税额：停业期间不抵扣，保留至复业后继续使用\n\n政策依据：《税务登记管理办法》第二十二至二十七条、POL-SUS-001",
+      "policy_links": [
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-Tax-002",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "SUS-CLEAR-004",
+      "question_title": "企业被认定为非正常户后，如何才能恢复正常？",
+      "stage_code": "SUS",
+      "module_code": "CLEAR",
+      "question_type": "type_steps",
+      "tags": [
+        "tag_suspending",
+        "tag_risk_warning",
+        "tag_penalty"
+      ],
+      "relations": [
+        {
+          "target_code": "SUS-CLEAR-002",
+          "relation_type": "see_also",
+          "relation_note": "非正常户的认定标准"
+        },
+        {
+          "target_code": "OPR-CLEAR-027",
+          "relation_type": "see_also",
+          "relation_note": "稽查未结与注销关系"
+        }
+      ],
+      "one_line_answer": "非正常户恢复须先到主管税务机关补办所有逾期申报（罚款可申请减免），缴纳欠税和滞纳金，解除异常状态后申请恢复正常。",
+      "detailed_answer": "非正常户解除的标准流程：\n\n一、非正常户的认定标准：\n- 超过规定的期限未申报（通常为连续3个月）\n- 经税务机关责令限期改正，逾期仍不改正\n- 税务机关派员实地检查，查无下落且无法强制履行义务\n\n二、非正常户对企业的影响：\n1. 税务UK和税控设备被锁死，无法开票、认证\n2. 列入重大税收违法失信名单（达到标准时）\n3. 日常经营受限（银行账户、招投标、上市等均受阻）\n4. 法定代表人个人信用受损\n\n三、恢复正常税务状态的操作步骤：\n1. 到主管税务机关查询欠税明细和逾期申报情况\n2. 携带营业执照、公章到税务机关，补填所有逾期申报表\n3. 申请《税务行政处罚决定书》（罚款可申请酌情减免）\n4. 缴纳欠税本金 + 滞纳金（日万分之五）+ 罚款\n5. 税务机关审批解除非正常户\n6. 购买新税控设备（如原设备被注销）\n7. 恢复发票申领和认证\n\n四、滞纳金减免申请（须符合条件）：\n- 申请条件：非因纳税人主观故意的欠税\n- 申请方式：向主管税务机关提交书面申请，附相关证明材料\n- 减免幅度：可减免全部或部分滞纳金（最长不超过税款本金）\n\n五、特别提示：\n- 非正常户认定超过2年仍未解除，税务机关可按规定注销其税务登记证\n- 被强制注销税务登记的企业，仍须承担原欠税的纳税义务\n\n政策依据：《税务登记管理办法》、TAX-POL-005、《非正常户管理办法》",
+      "policy_links": [
+        {
+          "policy_code": "TAX-POL-005",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "POL-RISK-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "CHG-CLEAR-005",
+      "question_title": "企业在注销前需要先注销社保登记吗？社保和税务注销的先后顺序是什么？",
+      "stage_code": "CHG",
+      "module_code": "CLEAR",
+      "question_type": "type_procedure",
+      "tags": [
+        "tag_clearing",
+        "tag_social_security",
+        "tag_procedure"
+      ],
+      "relations": [
+        {
+          "target_code": "CHG-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销清算全流程参考"
+        },
+        {
+          "target_code": "OPR-SSF-010",
+          "relation_type": "see_also",
+          "relation_note": "员工离职社保减员"
+        }
+      ],
+      "one_line_answer": "社保注销和税务注销无强制先后顺序，但实务中建议先办理税务注销（凭清税证明开社保账户销户），工商注销前须完成全部注销。",
+      "detailed_answer": "社保注销与税务注销的办理顺序：\n\n一、基本原则：无强制先后，但须在工商注销前全部完成\n- 社保注销：无强制性要求在税务注销之前或之后\n- 税务注销：工商注销的必要前置条件（须提供清税证明）\n- 工商注销：须在所有税务和社保都注销完毕后才能办理\n\n二、实务中的推荐顺序：\n1. 成立清算组 - 公示系统公告\n2. 同步处理社保减员（员工全部减员）\n3. 申请税务注销 - 取得《清税证明》（耗时最长）\n4. 凭《清税证明》到社保局办理社保户注销\n5. 工商注销（缴回营业执照）\n6. 银行账户注销（须在工商注销之后）\n\n三、社保注销的具体要求：\n1. 社保减员：先为所有员工办理社保减员，减员日期应为最后工作日\n2. 社保缴费清算：确认所有员工社保费已缴至离职当月\n3. 携带材料：\n   - 《社保登记注销申请表》（加盖公章）\n   - 工商部门出具的《企业注销核准通知书》\n   - 税务注销证明（《清税证明》或《准予注销通知书》）\n   - 最后一个月社保缴费凭证\n4. 欠费处理：如有社保欠费，须先清缴，否则无法注销\n5. 公积金：住房公积金账户注销与社保注销类似，须在工商注销前完成\n\n四、特别注意事项：\n- 社保注销后，员工可将社保关系转移至新单位（不中断）\n- 异地分支机构的社保账户须分别注销\n- 2021年后社保划转税务征收，注销时须向税务确认无欠费后再去社保局\n\n政策依据：《社会保险法》、《社会保险登记管理暂行办法》",
+      "policy_links": [
+        {
+          "policy_code": "POL-SSF-001",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "SSF-POL-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    },
+    {
+      "question_code": "OPR-CLEAR-028",
+      "question_title": "企业在注销清算中，清算组成员的法律责任是什么？清算组成员有过错的，承担什么后果？",
+      "stage_code": "OPR",
+      "module_code": "CLEAR",
+      "question_type": "type_what",
+      "tags": [
+        "tag_clearing",
+        "tag_liability",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "target_code": "RSK-CLEAR-001",
+          "relation_type": "see_also",
+          "relation_note": "注销后偷税的追征对象"
+        }
+      ],
+      "one_line_answer": "清算组成员须勤勉尽责，依法履行清算义务。故意或重大过失造成债权人损失的，须承担赔偿责任；构成犯罪的依法追究刑事责任。",
+      "detailed_answer": "清算组成员法律责任详解：\n\n一、清算组的法定职责（《公司法》第一百八十三条）：\n1. 清理公司财产，编制资产负债表和财产清单\n2. 处理未了结的业务\n3. 清缴所欠税款\n4. 清理债权债务\n5. 处理清偿债务后的剩余财产\n6. 代表公司参与民事诉讼\n\n二、清算组成员的具体义务：\n- 忠实义务：不得利用职权收受贿赂，侵占公司财产\n- 勤勉义务：应按法定程序履行清算职责，不得拖延清算\n- 申报义务：须将清算事项书面通知所有已知债权人并公告\n- 保密义务：对清算过程中获知的商业秘密负有保密义务\n\n三、过错类型与对应责任：\n- 故意隐匿、转移资产：承担全额赔偿责任，涉嫌妨害清算罪\n- 过失导致资产损失：在损失范围内承担赔偿责任\n- 未及时通知债权人：对因此未能受偿的债权承担赔偿责任\n- 侵占公司财产：退还财产，并处违法所得一倍以上五倍以下罚款\n- 虚假清算报告：注销登记可被撤销，对外承担赔偿责任\n\n四、刑事责任（构成犯罪时）：\n- 妨害清算罪（《刑法》第162条）：隐匿财产、承担虚假债务 - 5年以下有期徒刑\n- 职务侵占罪：侵占公司财产 - 最高15年有期徒刑\n\n五、税务特别关注：\n- 清算组须向税务机关如实申报清算所得\n- 清算组不得隐匿、清偿顺序错误的，税务机关有权要求清算组纠正\n\n政策依据：《公司法》第一百八十三条、《刑法》第一百六十二条、财税[2009]60号文",
+      "policy_links": [
+        {
+          "policy_code": "POL-CIT-002",
+          "support_type": "citation",
+          "support_note": ""
+        },
+        {
+          "policy_code": "GOV-CLS-001",
+          "support_type": "citation",
+          "support_note": ""
+        }
+      ]
+    }
+  ]
+}
