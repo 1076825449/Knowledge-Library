@@ -4,17 +4,26 @@
 # ============================================================
 
 import sqlite3
+import os
 from pathlib import Path
 from typing import Dict, List, Any
 
 
 class QualityGate:
-    """内容发布质量门禁"""
+    """内容质量门禁：校验单条问题是否可以提交审核或发布"""
 
     def __init__(self, db_path: str = None):
-        if db_path is None:
-            db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
-        self.db_path = db_path
+        if db_path:
+            self.db_path = db_path
+        else:
+            from config import Config
+            self.db_path = Config.DB_PATH
+        # 确保数据库文件存在（测试隔离场景下 Config.DB_PATH 可能指向已删除的临时文件）
+        if not os.path.exists(self.db_path):
+            from pathlib import Path
+            default_db = str(Path(__file__).parent.parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+            if os.path.exists(default_db):
+                self.db_path = default_db
 
     def _conn(self):
         conn = sqlite3.connect(self.db_path)

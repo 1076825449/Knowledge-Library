@@ -13,6 +13,13 @@ from services.question_service import QuestionService
 
 @pytest.fixture
 def svc():
+    import os
+    from config import Config
+    # 恢复到真实生产 DB（不要恢复到 test_routes 留下的已删除临时文件路径）
+    from pathlib import Path
+    real_db = str(Path(__file__).parent.parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+    if os.path.exists(real_db):
+        Config.DB_PATH = real_db
     return QuestionService()
 
 
@@ -163,3 +170,111 @@ class TestQuestionService:
         for q in result['questions']:
             assert q['module_code'] in valid, \
                 f"{q['question_code']} module='{q['module_code']}' 不在合法字典: {valid}"
+
+
+class TestQualityGate:
+    """质量门禁测试（只读，验证现有数据模式）"""
+
+    @pytest.fixture
+    def gate(self):
+        import os
+        from config import Config
+        # 恢复到真实生产 DB（不要恢复到 test_routes 留下的已删除临时文件路径）
+        from pathlib import Path
+        real_db = str(Path(__file__).parent.parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        if os.path.exists(real_db):
+            Config.DB_PATH = real_db
+        from services.quality_gate import QualityGate
+        return QualityGate()
+
+    def test_validate_for_publish_blocks_needs_update_policy(self, gate):
+        """关联 needs_update 政策不能发布"""
+        import sqlite3, tempfile, os
+        from config import Config
+        # 创建临时测试数据库（隔离，不依赖 Config.DB_PATH）
+        tmp = tempfile.NamedTemporaryFile(suffix='.db', delete=False)
+        tmp.close()
+        src = Config.DB_PATH  # 只读参考，不修改
+        conn_src = sqlite3.connect(src)
+        conn_src.backup(sqlite3.connect(tmp.name))
+        conn_src.close()
+        # 用临时库测试
+        from services.quality_gate import QualityGate
+        tmp_gate = QualityGate(tmp.name)
+        # 在临时库中找一个 pending_review + needs_update 组合
+        conn_tmp = sqlite3.connect(tmp.name)
+        conn_tmp.row_factory = sqlite3.Row
+        cur = conn_tmp.cursor()
+        cur.execute("""
+            SELECT DISTINCT qm.question_code
+            FROM question_master qm
+            JOIN question_policy_link qpl ON qpl.question_id = qm.id
+            JOIN policy_basis pb ON pb.id = qpl.policy_id
+            WHERE qm.status = 'pending_review' AND pb.verification_status = 'needs_update'
+            LIMIT 1
+        """)
+        row = cur.fetchone()
+        conn_tmp.close()
+        os.unlink(tmp.name)
+        if not row:
+            pytest.skip("无满足条件数据，跳过")
+
+        result = tmp_gate.validate_for_publish(row['question_code'])
+        assert not result['ok'], "关联 needs_update 政策应阻止发布"
+        err_text = ' '.join(result['errors'])
+        assert any(kw in err_text for kw in ['待更新', 'needs_update']), \
+            f"错误应说明政策待更新：{result['errors']}"
+
+    def test_validate_for_publish_blocks_source_pending_policy(self, gate):
+        """关联 source_pending 政策不能发布"""
+        import sqlite3, tempfile, os
+        from config import Config
+        tmp = tempfile.NamedTemporaryFile(suffix='.db', delete=False)
+        tmp.close()
+        conn_src = sqlite3.connect(Config.DB_PATH)
+        conn_src.backup(sqlite3.connect(tmp.name))
+        conn_src.close()
+        from services.quality_gate import QualityGate
+        tmp_gate = QualityGate(tmp.name)
+        conn_tmp = sqlite3.connect(tmp.name)
+        conn_tmp.row_factory = sqlite3.Row
+        cur = conn_tmp.cursor()
+        cur.execute("""
+            SELECT DISTINCT qm.question_code
+            FROM question_master qm
+            JOIN question_policy_link qpl ON qpl.question_id = qm.id
+            JOIN policy_basis pb ON pb.id = qpl.policy_id
+            WHERE qm.status = 'pending_review' AND pb.verification_status = 'source_pending'
+            LIMIT 1
+        """)
+        row = cur.fetchone()
+        conn_tmp.close()
+        os.unlink(tmp.name)
+        if not row:
+            pytest.skip("无满足条件数据，跳过")
+
+        result = tmp_gate.validate_for_publish(row['question_code'])
+        assert not result['ok'], "关联 source_pending 政策应阻止发布"
+        err_text = ' '.join(result['errors'])
+        assert any(kw in err_text for kw in ['来源', 'source_pending']), \
+            f"错误应说明来源待核实：{result['errors']}"
+
+    def test_validate_for_review_returns_valid_structure(self, gate):
+        """validate_for_review 对真实 draft 条目返回正确的结构"""
+        import sqlite3
+        from config import Config
+        conn = sqlite3.connect(Config.DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        # 找一条真实 draft 问题
+        cur.execute("SELECT question_code FROM question_master WHERE status='draft' LIMIT 1")
+        row = cur.fetchone()
+        conn.close()
+        if not row:
+            pytest.skip("数据库中没有 draft 条目，无法测试 validate_for_review")
+        code = row['question_code']
+        result = gate.validate_for_review(code)
+        assert isinstance(result, dict)
+        assert 'ok' in result
+        assert 'errors' in result
+        assert 'warnings' in result

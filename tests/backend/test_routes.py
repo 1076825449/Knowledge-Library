@@ -78,7 +78,7 @@ def real_code():
     """找一个数据库中真实存在的问题编码（独立创建 app，不依赖其他 fixture）"""
     app = create_app()
     app.config["TESTING"] = True
-    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+    app.secret_key = "test-secret-key-for-testing-only"
     with app.test_client() as c:
         rv = c.get("/questions?page=1")
     import re
@@ -403,7 +403,7 @@ class TestReviewWorkflowAPI:
         """未登录 JSON POST -> 401"""
         app = create_app()
         app.config["TESTING"] = True
-        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        app.secret_key = "test-secret-key-for-testing-only"
         with app.test_client() as client:
             rv = client.post("/api/questions/TST-XXX/submit-review",
                              headers={"Content-Type": "application/json"}, data="{}")
@@ -414,7 +414,7 @@ class TestReviewWorkflowAPI:
         """reviewer JSON POST submit-review -> 403 权限不足"""
         app = create_app()
         app.config["TESTING"] = True
-        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        app.secret_key = "test-secret-key-for-testing-only"
         with app.test_client() as client:
             with client.session_transaction() as sess:
                 sess["user_id"] = 3
@@ -429,7 +429,7 @@ class TestReviewWorkflowAPI:
         """reviewer JSON POST archive -> 403 权限不足（需要 admin）"""
         app = create_app()
         app.config["TESTING"] = True
-        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        app.secret_key = "test-secret-key-for-testing-only"
         with app.test_client() as client:
             with client.session_transaction() as sess:
                 sess["user_id"] = 3
@@ -444,7 +444,7 @@ class TestReviewWorkflowAPI:
         """admin POST archive 找不存在的问题返回 success:true（rowcount=0时仍返回success）"""
         app = create_app()
         app.config["TESTING"] = True
-        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        app.secret_key = "test-secret-key-for-testing-only"
         with app.test_client() as client:
             with client.session_transaction() as sess:
                 sess["user_id"] = 1
@@ -459,7 +459,7 @@ class TestReviewWorkflowAPI:
         """归档不存在的问题，API 返回 success:true 而非 error（防止前端误判）"""
         app = create_app()
         app.config["TESTING"] = True
-        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        app.secret_key = "test-secret-key-for-testing-only"
         with app.test_client() as client:
             with client.session_transaction() as sess:
                 sess["user_id"] = 1

@@ -16,7 +16,7 @@ def env_bool(name, default=False):
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 class Config:
-    DB_PATH = os.environ.get('DATABASE_PATH', DEFAULT_DB_PATH)
+    DB_PATH = os.environ.get('DATABASE_PATH') or os.environ.get('TAX_DB_PATH') or DEFAULT_DB_PATH
     # 编辑页面访问密码（修改这里或通过环境变量 ADMIN_PASSWORD 覆盖）
     ADMIN_PASSWORD=os.environ.get('ADMIN_PASSWORD')
     SECRET_KEY=os.environ.get('SECRET_KEY')
