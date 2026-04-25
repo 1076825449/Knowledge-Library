@@ -495,6 +495,102 @@ def create_app():
                                all_tags=all_tags, business_tags=business_tags,
                                all_policies=all_policies)
 
+    # ---------- 审核操作 API ----------
+    @app.route('/api/questions/<question_code>/submit-review', methods=['POST'])
+    @require_auth('editor')
+    def submit_for_review(question_code):
+        """将问题从 draft 提交为 pending_review"""
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        user = get_authenticated_user()
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute(
+            "UPDATE question_master SET status = 'pending_review' WHERE question_code = ? AND status = 'draft'",
+            (question_code,)
+        )
+        if cur.rowcount == 0:
+            conn.close()
+            return jsonify({'error': '只有草稿状态的问题可以提交审核'}), 400
+        cur.execute(
+            "INSERT INTO question_update_log (question_id, version_no, update_date, update_type, updated_by, change_summary) "
+            "SELECT id, COALESCE(MAX(version_no),0)+1, datetime('now'), 'submit_review', ?, '提交待审核' "
+            "FROM question_update_log WHERE question_id = (SELECT id FROM question_master WHERE question_code = ?)",
+            (user['username'], question_code)
+        )
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/api/questions/<question_code>/approve', methods=['POST'])
+    @require_auth('reviewer')
+    def approve_question(question_code):
+        """审核通过 → active"""
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        user = get_authenticated_user()
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute(
+            "UPDATE question_master SET status = 'active' WHERE question_code = ? AND status = 'pending_review'",
+            (question_code,)
+        )
+        if cur.rowcount == 0:
+            conn.close()
+            return jsonify({'error': '只有待审核状态的问题可以批准'}), 400
+        cur.execute(
+            "INSERT INTO question_update_log (question_id, version_no, update_date, update_type, updated_by, reviewed_by, change_summary) "
+            "SELECT id, COALESCE(MAX(version_no),0)+1, datetime('now'), 'approve', 'system', ?, '审核通过' "
+            "FROM question_update_log WHERE question_id = (SELECT id FROM question_master WHERE question_code = ?)",
+            (user['username'], question_code)
+        )
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/api/questions/<question_code>/reject', methods=['POST'])
+    @require_auth('reviewer')
+    def reject_question(question_code):
+        """审核拒绝 → draft，附原因"""
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        user = get_authenticated_user()
+        reason = request.form.get('reason', '').strip() or '未说明原因'
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute(
+            "UPDATE question_master SET status = 'draft' WHERE question_code = ? AND status = 'pending_review'",
+            (question_code,)
+        )
+        if cur.rowcount == 0:
+            conn.close()
+            return jsonify({'error': '只有待审核状态的问题可以退回'}), 400
+        cur.execute(
+            "INSERT INTO question_update_log (question_id, version_no, update_date, update_type, updated_by, reviewed_by, change_summary) "
+            "SELECT id, COALESCE(MAX(version_no),0)+1, datetime('now'), 'reject', 'system', ?, ? "
+            "FROM question_update_log WHERE question_id = (SELECT id FROM question_master WHERE question_code = ?)",
+            (user['username'], f'退回原因：{reason}', question_code)
+        )
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/api/questions/<question_code>/archive', methods=['POST'])
+    @require_auth('admin')
+    def archive_question(question_code):
+        """归档问题"""
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute(
+            "UPDATE question_master SET status = 'archived' WHERE question_code = ?",
+            (question_code,)
+        )
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
     @app.route('/admin/quality')
     @require_admin
     def admin_quality():
