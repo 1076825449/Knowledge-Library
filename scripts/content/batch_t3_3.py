@@ -1,6 +1,7 @@
 
-import sqlite3
-DB = "/Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db"
+import sqlite3, os
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB = os.path.join(PROJECT_ROOT, "database", "db", "tax_knowledge.db")
 conn = sqlite3.connect(DB)
 cur = conn.cursor()
 

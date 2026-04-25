@@ -284,7 +284,7 @@ python scripts/export/export_chunks.py
 - 最小生产部署闭环（Gunicorn / Docker / Procfile / WSGI）
 - 公开说明与上线准备闭环（about / methodology / launch-readiness / robots / sitemap）
 
-详细路线和验收标准见 [ROADMAP.md](/Volumes/外接硬盘/vibe coding/网站/知识库/ROADMAP.md)。
+详细路线和验收标准见 [ROADMAP.md](ROADMAP.md)。
 
 ---
 

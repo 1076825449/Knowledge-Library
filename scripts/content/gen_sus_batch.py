@@ -2,7 +2,8 @@
 """生成 SUS 暂停期问题 JSON"""
 import json, sys, os
 
-BASE = "/Volumes/外接硬盘/vibe coding/知识库"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Each question is a tuple: (question_code, question_title, one_line, detailed,
 #   core_def, applicable, exceptions, practical, risk,

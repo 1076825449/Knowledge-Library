@@ -1,5 +1,5 @@
 -- 批量插入type_why问题：补8条"为什么"类问题
--- 执行: cd /Volumes/外接硬盘/vibe/coding/网站/知识库 && python3 scripts/content/batch_type_why.py
+-- 执行: cd 项目根目录 && python3 scripts/content/batch_type_why.py
 
 -- OPR-REG-002: 企业为什么要进行税务登记？不登记会有什么后果？
 INSERT INTO question_master (question_code, question_title, question_plain, stage_code, module_code, question_type, one_line_answer, detailed_answer, core_definition, applicable_conditions, exceptions_boundary, practical_steps, risk_warning, scope_level, answer_certainty, high_frequency_flag, newbie_flag, keywords, status, version_no, created_at, updated_at)

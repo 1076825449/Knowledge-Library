@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """T3.4 CLEAR模块扩容：8条 → 18条，差10条"""
-import sqlite3, sys
-sys.path.insert(0, '/Volumes/外接硬盘/vibe coding/网站/知识库/scripts/content')
+import sqlite3, sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content_shared import CONTENT_DB, ensure_active, next_id
 
 conn = sqlite3.connect(CONTENT_DB)

@@ -93,12 +93,12 @@ WorkingDirectory=/opt/tax-knowledge
 
 仓库已经提供：
 
-- [Dockerfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Dockerfile)
-- [docker-compose.yml](/Volumes/外接硬盘/vibe coding/网站/知识库/docker-compose.yml)
-- [Procfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Procfile)
-- [wsgi.py](/Volumes/外接硬盘/vibe coding/网站/知识库/wsgi.py)
-- [deploy/nginx/tax-knowledge.conf.example](/Volumes/外接硬盘/vibe coding/网站/知识库/deploy/nginx/tax-knowledge.conf.example)
-- [deploy/systemd/tax-knowledge.service.example](/Volumes/外接硬盘/vibe coding/网站/知识库/deploy/systemd/tax-knowledge.service.example)
+- [Dockerfile](Dockerfile)
+- [docker-compose.yml](docker-compose.yml)
+- [Procfile](Procfile)
+- [wsgi.py](wsgi.py)
+- [deploy/nginx/tax-knowledge.conf.example](deploy/nginx/tax-knowledge.conf.example)
+- [deploy/systemd/tax-knowledge.service.example](deploy/systemd/tax-knowledge.service.example)
 
 构建镜像：
 
@@ -137,7 +137,7 @@ docker compose up -d --build
 
 ## 方式三：支持 Procfile 的平台
 
-仓库根目录已提供 [Procfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Procfile)：
+仓库根目录已提供 [Procfile](Procfile)：
 
 ```bash
 web: gunicorn --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:${PORT:-5000} wsgi:app

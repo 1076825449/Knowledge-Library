@@ -127,7 +127,7 @@
 5. 强化录入、巡检、测试守门
 6. 最后再推进 AI 检索 contract 和部署闭环
 
-详细路线以 [ROADMAP.md](/Volumes/外接硬盘/vibe coding/网站/知识库/ROADMAP.md) 为准。
+详细路线以 [ROADMAP.md](ROADMAP.md) 为准。
 
 ---
 

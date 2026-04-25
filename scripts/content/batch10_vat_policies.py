@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """批量补充增值税申报抵扣相关政策 — batch10_vat_policies.py"""
-import sqlite3
-
-DB_PATH = "/Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db"
+import os, sqlite3
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'db', 'tax_knowledge.db')
 
 POLICIES = [
     {

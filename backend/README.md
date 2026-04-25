@@ -10,8 +10,8 @@
 ## 启动方式
 
 ```bash
-cd /Volumes/外接硬盘/vibe\ coding/知识库
-pip install -r ../requirements.txt   # 安装 Flask + flask-cors
+cd ..   # 项目根目录
+pip install -r requirements.txt   # 安装 Flask + flask-cors
 python backend/app.py
 # 服务启动在 http://localhost:5000
 ```

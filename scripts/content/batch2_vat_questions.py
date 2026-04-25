@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """VAT模块问题扩容第二批 — batch2_vat_questions.py"""
-import sqlite3
-
-DB_PATH = '/Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db'
+import os, sqlite3
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'db', 'tax_knowledge.db')
 
 QUESTIONS = [
     ('RSK-VAT-001', '取得增值税异常扣税凭证后，企业应如何处理？进项税额是否需要转出？', '失控发票/异常凭证怎么处理？要不要转出进项税？', 'RSK', 'VAT', 'type_steps', '取得异常增值税扣税凭证后，纳税人应立即停止抵扣该凭证注明的进项税额，已抵扣的需做进项税额转出处理，同时应积极向主管税务机关提交核实申请。', '根据POL-RISK-003（异常增值税扣税凭证处理公告）等文件规定，增值税异常扣税凭证是指增值税发票综合服务平台显示状态为异常、失控、作废等的扣税凭证。纳税人取得异常扣税凭证后，尚未申报抵扣的，暂不允许抵扣进项税额；已申报抵扣的，应在收到通知的当期做进项税额转出处理。纳税人如有异议，可在规定期限内向主管税务机关提交核实申请。', '增值税异常扣税凭证的处理核心是业务真实性优先原则。', '增值税一般纳税人；取得的增值税扣税凭证在发票综合服务平台显示异常状态。', '税务机关已书面认定为非正常户开具的发票、失控发票、涉嫌虚开的发票均属于异常扣税凭证范围。', '1.在增值税发票综合服务平台查询发票状态，如显示异常立即停止抵扣；2.已申报抵扣的，在当期增值税申报中做进项税额转出处理；3.整理交易相关的合同、付款记录、物流单据等证明材料；4.向主管税务机关提交核实申请；5.配合税务机关实地核查；6.根据核实结果做后续处理。', '取得异常凭证后继续抵扣或不做转出处理的，将被主管税务机关认定为偷税，除补缴增值税外，还需缴纳滞纳金，并可能处0.5倍至5倍罚款。', 'scope_national', None, 'certain_clear', '异常凭证,失控发票,进项转出,凭证异常', 1, 0, 'active'),
