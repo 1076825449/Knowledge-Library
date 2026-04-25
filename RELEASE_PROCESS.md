@@ -4,7 +4,7 @@
 
 ### 1. 本地开发
 ```bash
-cd "/Volumes/外接硬盘/vibe coding/网站/知识库"
+cd /path/to/knowledge-library
 source .venv/bin/activate
 
 # 创建功能分支

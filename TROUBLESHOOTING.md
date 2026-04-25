@@ -153,7 +153,7 @@ cp database/backups/<备份文件> database/db/tax_knowledge.db
 
 ```bash
 # 确保在项目根目录
-cd "/Volumes/外接硬盘/vibe coding/网站/知识库"
+cd /path/to/knowledge-library
 
 # 激活虚拟环境
 source .venv/bin/activate
