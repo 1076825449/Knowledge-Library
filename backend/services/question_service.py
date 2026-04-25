@@ -173,21 +173,26 @@ class QuestionService:
         if keyword:
             # 同义表达扩展搜索
             expanded = expand_synonyms(keyword)
-            if len(expanded) == 1:
-                # 无同义词时直接 LIKE
-                pattern = f"%{keyword}%"
-                conditions.append("""
-                    (q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)
-                """)
-                params.extend([pattern, pattern, pattern])
-            else:
-                # 多个搜索词：用 OR LIKE 组合
-                like_clauses = []
-                for kw in expanded:
-                    like_clauses.append("(q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?)")
-                    pat = f"%{kw}%"
-                    params.extend([pat, pat, pat])
-                conditions.append(f"({' OR '.join(like_clauses)})")
+            # 搜索字段：问题标题/简述/详细解答/核心定义/关键词/结论 + 政策文号/名称 + 标签名
+            like_fields = [
+                "q.question_title", "q.question_plain", "q.keywords",
+                "q.one_line_answer", "q.detailed_answer", "q.core_definition"
+            ]
+            or_parts = []
+            vals = []
+            words = expanded if len(expanded) > 1 else [keyword]
+            for kw in words:
+                pat = "%" + kw + "%"
+                for f in like_fields:
+                    or_parts.append("(" + f + " LIKE ?)")
+                    vals.append(pat)
+                or_parts.append("(pb.document_no LIKE ?)")
+                or_parts.append("(pb.policy_name LIKE ?)")
+                or_parts.append("(td.tag_name LIKE ?)")
+                vals.extend([pat, pat, pat])
+            or_expr = " OR ".join(or_parts)
+            conditions.append("(" + or_expr + ")")
+            params.extend(vals)
         if region:
             conditions.append("q.scope_level = ?")
             params.append(region)
@@ -197,23 +202,34 @@ class QuestionService:
 
         where_clause = " AND ".join(conditions)
 
+        # 关键词搜索时需要 LEFT JOIN policy_basis 和 tag_dict
+        join_clause = ""
+        if keyword:
+            join_clause = """
+            LEFT JOIN question_policy_link qpl ON qpl.question_id = q.id
+            LEFT JOIN policy_basis pb ON pb.id = qpl.policy_id
+            LEFT JOIN question_tag_link qtl ON qtl.question_id = q.id
+            LEFT JOIN tag_dict td ON td.id = qtl.tag_id
+            """
+
         # 统计总数
-        count_sql = f"SELECT COUNT(*) as total FROM question_master q WHERE {where_clause}"
+        count_sql = f"SELECT COUNT(DISTINCT q.id) as total FROM question_master q {join_clause} WHERE {where_clause}"
         total = self._query_one(count_sql, params)['total']
 
         # 查询列表
-        sql = f"""
-            SELECT
+        list_sql = f"""
+            SELECT DISTINCT
                 q.question_code, q.question_title, q.question_plain, q.one_line_answer,
                 q.stage_code, q.module_code, q.question_type, q.answer_certainty,
                 q.high_frequency_flag, q.newbie_flag, q.updated_at
             FROM question_master q
+            {join_clause}
             WHERE {where_clause}
             ORDER BY q.high_frequency_flag DESC, q.updated_at DESC
             LIMIT ? OFFSET ?
         """
         params.extend([page_size, offset])
-        questions = self._query(sql, params)
+        questions = self._query(list_sql, params)
 
         return {
             'questions': questions,
