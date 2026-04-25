@@ -37,6 +37,13 @@ database/db/*.db
 database/db/*.db-journal
 database/db/*.db-wal
 database/db/*.db-shm
+database/db/*.db-*
+
+# 运行报告（每次运行重新生成）
+data/reports/
+
+# Playwright 自动化测试截图
+.playwright-cli/
 
 # 导出数据（每次运行重新生成）
 data/exports/*.json

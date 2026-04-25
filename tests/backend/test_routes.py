@@ -28,20 +28,20 @@ def anon_client():
     """匿名 client（未认证），用于测试未登录拦截路径"""
     app = create_app()
     app.config["TESTING"] = True
+    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
     with app.test_client() as client:
         yield client
 
 
 @pytest.fixture
 def auth_client():
-    """已认证 admin client，通过 POST 正确密码建立 session"""
+    """已认证 admin client，直接设置 session['admin_authenticated']"""
     app = create_app()
     app.config["TESTING"] = True
+    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
     with app.test_client() as client:
-        # admin_required 对 POST 校验密码，正确则设置 session['admin_authenticated']
-        client.post("/question/new",
-                    data={"password": app.config.get("ADMIN_PASSWORD", "tax2026")},
-                    follow_redirects=False)
+        with client.session_transaction() as sess:
+            sess["admin_authenticated"] = True
         yield client
 
 
@@ -50,6 +50,7 @@ def real_code():
     """找一个数据库中真实存在的问题编码（独立创建 app，不依赖其他 fixture）"""
     app = create_app()
     app.config["TESTING"] = True
+    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
     with app.test_client() as c:
         rv = c.get("/questions?page=1")
     import re

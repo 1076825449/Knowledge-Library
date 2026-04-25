@@ -16,7 +16,7 @@ python backend/app.py
 # 服务启动在 http://localhost:5000
 ```
 
-> 密码通过环境变量 `ADMIN_PASSWORD` 修改，默认密码为 `tax2026`。
+> 密码通过环境变量 `ADMIN_PASSWORD` 设置，**生产环境必须设置强密码，不得使用默认值**。
 > `SECRET_KEY` 通过环境变量 `SECRET_KEY` 修改，生产环境必须更换。
 
 ## 目录结构
@@ -56,6 +56,6 @@ backend/
 
 ## 注意事项
 
-- 编辑/新建问题需要admin密码（默认`tax2026`）
-- `SECRET_KEY` 默认硬编码，生产环境请通过环境变量覆盖
+- 编辑/新建问题需要admin密码（通过环境变量 `ADMIN_PASSWORD` 设置，必须设置）
+- `SECRET_KEY` 通过环境变量 `SECRET_KEY` 设置，生产环境必须设置
 - 当前为原型阶段，数据库为文件数据库（`tax_knowledge.db`），无并发写入保护

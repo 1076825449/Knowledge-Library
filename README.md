@@ -6,7 +6,7 @@
 
 覆盖企业从**设立、开业、日常经营、变更、风险异常、停业、注销**的全生命周期。
 
-> 当前项目已经具备数据库、网站原型、内容导入、质量巡检和 AI 导出预留能力，但不应理解为已经达到最终目标。后续执行顺序和验收口径以 [ROADMAP.md](/Volumes/外接硬盘/vibe coding/网站/知识库/ROADMAP.md) 为准。
+> 当前项目已经具备数据库、网站原型、内容导入、质量巡检和 AI 导出预留能力，但不应理解为已经达到最终目标。后续执行顺序和验收口径以 [ROADMAP.md](ROADMAP.md) 为准。
 
 ## 快速开始
 
@@ -40,11 +40,11 @@ cd backend && python app.py
 
 正式上线前的验收口径，请同时查看：
 
-- [ROADMAP.md](/Volumes/外接硬盘/vibe%20coding/网站/知识库/ROADMAP.md)
-- [TASKS_PROGRESS.md](/Volumes/外接硬盘/vibe%20coding/网站/知识库/TASKS_PROGRESS.md)
-- [LAUNCH_CHECKLIST.md](/Volumes/外接硬盘/vibe%20coding/网站/知识库/LAUNCH_CHECKLIST.md)
-- [CONTENT_REVIEW_PLAYBOOK.md](/Volumes/外接硬盘/vibe%20coding/网站/知识库/CONTENT_REVIEW_PLAYBOOK.md)
-- [RELEASE_POSITIONING.md](/Volumes/外接硬盘/vibe%20coding/网站/知识库/RELEASE_POSITIONING.md)
+- [ROADMAP.md](ROADMAP.md)
+- [TASKS_PROGRESS.md](TASKS_PROGRESS.md)
+- [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md)
+- [CONTENT_REVIEW_PLAYBOOK.md](CONTENT_REVIEW_PLAYBOOK.md)
+- [RELEASE_POSITIONING.md](RELEASE_POSITIONING.md)
 
 ## 核心设计
 
@@ -246,7 +246,7 @@ python scripts/export/export_chunks.py
 
 ## 当前阶段判断
 
-按 [ROADMAP.md](/Volumes/外接硬盘/vibe coding/网站/知识库/ROADMAP.md) 的执行口径，当前项目应理解为：
+按 [ROADMAP.md](ROADMAP.md) 的执行口径，当前项目应理解为：
 
 - 数据底座已建立
 - 网站最小闭环已建立

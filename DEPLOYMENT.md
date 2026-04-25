@@ -39,8 +39,8 @@ python scripts/content/quality_report.py
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
-| `SECRET_KEY` | `tax-knowledge-library-secret-2026` | Flask 会话密钥，生产必须替换 |
-| `ADMIN_PASSWORD` | `tax2026` | 后台编辑密码，生产必须替换 |
+| `SECRET_KEY` | — | Flask 会话密钥，**生产必须设置，不得为空** |
+| `ADMIN_PASSWORD` | — | 后台编辑密码，**生产必须设置，不得为空** |
 | `HOST` | `0.0.0.0` | 监听地址 |
 | `PORT` | `5000` | 服务端口 |
 | `FLASK_DEBUG` | `0` | 生产环境必须关闭 |
@@ -52,8 +52,8 @@ python scripts/content/quality_report.py
 示例：
 
 ```bash
-export SECRET_KEY='replace-with-a-long-random-secret'
-export ADMIN_PASSWORD='replace-with-a-strong-password'
+export SECRET_KEY='<请生成随机密钥>'
+export ADMIN_PASSWORD='<请设置强密码>'
 export HOST='0.0.0.0'
 export PORT='5000'
 export FLASK_DEBUG='0'

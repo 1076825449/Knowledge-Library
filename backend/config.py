@@ -18,11 +18,11 @@ def env_bool(name, default=False):
 class Config:
     DB_PATH = os.environ.get('DATABASE_PATH', DEFAULT_DB_PATH)
     # 编辑页面访问密码（修改这里或通过环境变量 ADMIN_PASSWORD 覆盖）
-    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'tax2026')
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'tax-knowledge-library-secret-2026')
+    ADMIN_PASSWORD=os.environ.get('ADMIN_PASSWORD')
+    SECRET_KEY=os.environ.get('SECRET_KEY')
     HOST = os.environ.get('HOST', '0.0.0.0')
     PORT = int(os.environ.get('PORT', '5000'))
-    DEBUG = env_bool('FLASK_DEBUG', True)
+    DEBUG = env_bool('FLASK_DEBUG', False)
     SITE_NAME = os.environ.get('SITE_NAME', '企业税务知识库')
     SITE_URL = os.environ.get('SITE_URL', f'http://127.0.0.1:{PORT}')
     SITE_DESCRIPTION = os.environ.get(
