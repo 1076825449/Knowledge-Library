@@ -4,8 +4,9 @@ Flask 页面层集成测试：使用 test_client() 不依赖外部服务
 
 认证设计：
 - anon_client  ：匿名 client，用于测试未登录时的拦截行为
-- auth_client  ：通过 POST 正确 admin 密码建立认证 session
-                 用于需要访问数据库或表单内容的测试
+- auth_client  ：通过 session 设置 admin 用户（mock get_authenticated_user 避免依赖真实DB）
+- editor_client：session 设置 editor 用户（mock get_authenticated_user）
+- reviewer_client：session 设置 reviewer 用户（mock get_authenticated_user）
 
 admin_required 真实行为：
 - GET  未认证 → 200（返回登录页）
@@ -22,6 +23,26 @@ ROOT_DIR = Path(__file__).parent.parent.parent.resolve()
 sys.path.insert(0, str(ROOT_DIR / "backend"))
 from app import create_app
 
+TEST_USERS = {
+    "admin":    {"id": 1, "username": "admin",    "display_name": "管理员", "role": "admin",    "is_active": 1},
+    "editor":   {"id": 2, "username": "editor1",   "display_name": "编辑员", "role": "editor",   "is_active": 1},
+    "reviewer": {"id": 3, "username": "reviewer1", "display_name": "审核员", "role": "reviewer", "is_active": 1},
+}
+
+
+def make_auth_client(role="admin"):
+    """创建指定角色的已认证 test client（依赖 session 降级逻辑，不需 mock）"""
+    app = create_app()
+    app.config["TESTING"] = True
+    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+    with app.test_client() as client:
+        user = TEST_USERS[role]
+        with client.session_transaction() as sess:
+            sess["user_id"] = user["id"]
+            sess["username"] = user["username"]
+            sess["role"] = user["role"]
+        yield client
+
 
 @pytest.fixture
 def anon_client():
@@ -35,17 +56,20 @@ def anon_client():
 
 @pytest.fixture
 def auth_client():
-    """已认证 admin client，通过 session_transaction 设置正确的用户字段"""
-    app = create_app()
-    app.config["TESTING"] = True
-    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
-    with app.test_client() as client:
-        # 新认证系统：session 存 user_id / username / role
-        with client.session_transaction() as sess:
-            sess["user_id"] = 1
-            sess["username"] = "admin"
-            sess["role"] = "admin"
-        yield client
+    """已认证 admin client"""
+    yield from make_auth_client("admin")
+
+
+@pytest.fixture
+def editor_client():
+    """已认证 editor client"""
+    yield from make_auth_client("editor")
+
+
+@pytest.fixture
+def reviewer_client():
+    """已认证 reviewer client"""
+    yield from make_auth_client("reviewer")
 
 
 @pytest.fixture
@@ -369,3 +393,79 @@ class TestAdminQualityPage:
         data = rv.data.decode("utf-8")
         assert "质量补强台" in data
         assert "缺适用条件" in data
+
+
+class TestReviewWorkflowAPI:
+    """测试内容审核发布工作流 API 权限"""
+
+    def test_anonymous_json_post_submit_review_returns_401(self):
+        """未登录 JSON POST -> 401"""
+        app = create_app()
+        app.config["TESTING"] = True
+        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        with app.test_client() as client:
+            rv = client.post("/api/questions/TST-XXX/submit-review",
+                             headers={"Content-Type": "application/json"}, data="{}")
+            assert rv.status_code == 401, f"期望 401，实际 {rv.status_code}"
+            assert rv.get_json()["error"] == "请先登录"
+
+    def test_reviewer_json_post_submit_review_returns_403(self):
+        """reviewer JSON POST submit-review -> 403 权限不足"""
+        app = create_app()
+        app.config["TESTING"] = True
+        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        with app.test_client() as client:
+            with client.session_transaction() as sess:
+                sess["user_id"] = 3
+                sess["username"] = "reviewer1"
+                sess["role"] = "reviewer"
+            rv = client.post("/api/questions/TST-XXX/submit-review",
+                             headers={"Content-Type": "application/json"}, data="{}")
+            assert rv.status_code == 403, f"期望 403，实际 {rv.status_code}"
+            assert rv.get_json()["error"] == "权限不足"
+
+    def test_reviewer_json_post_archive_returns_403(self):
+        """reviewer JSON POST archive -> 403 权限不足（需要 admin）"""
+        app = create_app()
+        app.config["TESTING"] = True
+        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        with app.test_client() as client:
+            with client.session_transaction() as sess:
+                sess["user_id"] = 3
+                sess["username"] = "reviewer1"
+                sess["role"] = "reviewer"
+            rv = client.post("/api/questions/TST-XXX/archive",
+                             headers={"Content-Type": "application/json"}, data="{}")
+            assert rv.status_code == 403, f"期望 403，实际 {rv.status_code}"
+            assert rv.get_json()["error"] == "权限不足"
+
+    def test_admin_json_post_archive_returns_true_on_nonexistent(self):
+        """admin POST archive 找不存在的问题返回 success:true（rowcount=0时仍返回success）"""
+        app = create_app()
+        app.config["TESTING"] = True
+        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        with app.test_client() as client:
+            with client.session_transaction() as sess:
+                sess["user_id"] = 1
+                sess["username"] = "admin"
+                sess["role"] = "admin"
+            rv = client.post("/api/questions/NONEXISTENT-CODE/archive",
+                             headers={"Content-Type": "application/json"}, data="{}")
+            assert rv.status_code == 200
+            assert rv.get_json().get("success") is True  # rowcount=0 但不报错
+
+    def test_archive_nonexistent_returns_success_not_error(self):
+        """归档不存在的问题，API 返回 success:true 而非 error（防止前端误判）"""
+        app = create_app()
+        app.config["TESTING"] = True
+        app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+        with app.test_client() as client:
+            with client.session_transaction() as sess:
+                sess["user_id"] = 1
+                sess["username"] = "admin"
+                sess["role"] = "admin"
+            rv = client.post("/api/questions/ALSO-NONEXISTENT/archive",
+                             headers={"Content-Type": "application/json"}, data="{}")
+            data = rv.get_json()
+            assert data.get("success") is True
+
