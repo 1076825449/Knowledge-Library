@@ -35,13 +35,16 @@ def anon_client():
 
 @pytest.fixture
 def auth_client():
-    """已认证 admin client，直接设置 session['admin_authenticated']"""
+    """已认证 admin client，通过 session_transaction 设置正确的用户字段"""
     app = create_app()
     app.config["TESTING"] = True
     app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
     with app.test_client() as client:
+        # 新认证系统：session 存 user_id / username / role
         with client.session_transaction() as sess:
-            sess["admin_authenticated"] = True
+            sess["user_id"] = 1
+            sess["username"] = "admin"
+            sess["role"] = "admin"
         yield client
 
 
@@ -251,20 +254,16 @@ class TestQuestionFormPages:
     # ── 未登录拦截路径（使用 anon_client）────────────────────────────
 
     def test_new_question_page_requires_auth(self, anon_client):
-        """GET /question/new 未认证时返回登录页（200），页面包含密码输入框"""
+        """GET /question/new 未认证时返回 302 重定向到 /login"""
         rv = anon_client.get("/question/new", follow_redirects=False)
-        assert rv.status_code == 200
-        data = rv.data.decode("utf-8")
-        assert "password" in data.lower() or "登录" in data
+        assert rv.status_code == 302
+        assert rv.location == "/login"
 
     def test_edit_question_page_requires_auth(self, anon_client, real_code):
-        """GET /question/<code>/edit 未认证时返回登录页，不返回编辑表单"""
+        """GET /question/<code>/edit 未认证时返回 302 重定向到 /login"""
         rv = anon_client.get(f"/question/{real_code}/edit", follow_redirects=False)
-        assert rv.status_code == 200
-        data = rv.data.decode("utf-8")
-        # 必须证明返回的是登录页（含密码输入），而不是编辑表单（含 /question/<code>/edit 提交目标）
-        assert "password" in data.lower() or "登录" in data
-        assert f"/question/{real_code}/edit" not in data, "匿名用户不应看到编辑表单的 action 地址"
+        assert rv.status_code == 302
+        assert rv.location == "/login"
 
     # ── 已登录可访问表单内容（使用 auth_client）────────────────────
 
@@ -359,10 +358,10 @@ class TestAdminQualityPage:
     """测试质量补强台页面"""
 
     def test_quality_dashboard_requires_auth(self, anon_client):
+        """GET /admin/quality 未认证时返回 302 重定向到 /login"""
         rv = anon_client.get("/admin/quality", follow_redirects=False)
-        assert rv.status_code == 200
-        data = rv.data.decode("utf-8")
-        assert "password" in data.lower() or "登录" in data
+        assert rv.status_code == 302
+        assert rv.location == "/login"
 
     def test_quality_dashboard_renders_for_admin(self, auth_client):
         rv = auth_client.get("/admin/quality", follow_redirects=False)

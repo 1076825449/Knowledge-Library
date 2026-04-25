@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 
-{% block title %}管理员登录 - 企业税务知识库{% endblock %}
+{% block title %}登录 - 企业税务知识库{% endblock %}
 {% block meta_robots %}noindex,nofollow{% endblock %}
-{% block canonical_url %}{{ site_url }}/question/new{% endblock %}
-{% block og_url %}{{ site_url }}/question/new{% endblock %}
 
 {% block main %}
 <div class="login-container">
     <div class="login-box">
-        <h1>管理员登录</h1>
-        <p class="login-desc">请输入管理员密码以访问编辑功能</p>
+        <h1>登录</h1>
+        <p class="login-desc">访问企业税务知识库</p>
         <form method="post" class="login-form">
-            <input type="password" name="password" placeholder="请输入密码" class="login-input" autofocus>
+            <input type="text" name="username" placeholder="用户名" class="login-input" autofocus value="{{ request.form.username or '' }}" required>
+            <input type="password" name="password" placeholder="密码" class="login-input" required>
             {% if error %}
             <p class="login-error">{{ error }}</p>
             {% endif %}
-            <button type="submit" class="login-btn">确认</button>
+            <button type="submit" class="login-btn">登录</button>
         </form>
-        <p class="login-hint">密码通过环境变量 <code>ADMIN_PASSWORD</code> 设置，生产环境必须修改默认密码</p>
     </div>
 </div>
+{% endblock %}
+
+{% block styles %}
 <style>
 .login-container { display: flex; align-items: center; justify-content: center; min-height: 60vh; }
 .login-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 40px; width: 360px; text-align: center; }
@@ -31,6 +32,5 @@
 .login-error { color: #d32f2f; font-size: 13px; margin: 0; }
 .login-btn { padding: 10px; background: var(--accent); color: white; border: none; border-radius: 4px; font-size: 15px; cursor: pointer; }
 .login-btn:hover { opacity: 0.9; }
-.login-hint { font-size: 12px; color: var(--text-secondary); margin-top: 16px; }
 </style>
 {% endblock %}

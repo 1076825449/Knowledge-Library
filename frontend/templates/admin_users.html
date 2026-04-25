@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}用户管理 - 企业税务知识库{% endblock %}
+{% block meta_robots %}noindex,nofollow{% endblock %}
+
+{% block main %}
+<div class="page-container" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+        <h1>用户管理</h1>
+        <a href="/" class="btn-secondary">返回首页</a>
+    </div>
+
+    <div class="card" style="margin-bottom: 24px;">
+        <h3 style="margin-top: 0;">新增用户</h3>
+        <form id="addUserForm" class="user-form">
+            <div class="form-row">
+                <input type="text" name="username" placeholder="用户名（唯一）" required>
+                <input type="password" name="password" placeholder="密码（至少8位）" required>
+            </div>
+            <div class="form-row">
+                <input type="text" name="display_name" placeholder="显示名称（可选）">
+                <select name="role">
+                    <option value="viewer">viewer（浏览）</option>
+                    <option value="editor">editor（编辑）</option>
+                    <option value="reviewer">reviewer（审核）</option>
+                    <option value="admin">admin（管理）</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary">添加用户</button>
+            <span id="addUserMsg" style="margin-left: 12px;"></span>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-top: 0;">现有用户</h3>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>显示名</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr data-user-id="{{ u.id }}">
+                    <td><code>{{ u.username }}</code></td>
+                    <td>{{ u.display_name or '-' }}</td>
+                    <td>
+                        <select class="role-select" data-user-id="{{ u.id }}" {{ 'disabled' if u.username == 'admin' else '' }}>
+                            <option value="viewer" {{ 'selected' if u.role == 'viewer' else '' }}>viewer</option>
+                            <option value="editor" {{ 'selected' if u.role == 'editor' else '' }}>editor</option>
+                            <option value="reviewer" {{ 'selected' if u.role == 'reviewer' else '' }}>reviewer</option>
+                            <option value="admin" {{ 'selected' if u.role == 'admin' else '' }}>admin</option>
+                        </select>
+                    </td>
+                    <td>
+                        <span class="badge badge-{{ 'active' if u.is_active else 'inactive' }}">
+                            {{ '正常' if u.is_active else '已禁用' }}
+                        </span>
+                    </td>
+                    <td>{{ u.created_at[:10] }}</td>
+                    <td>
+                        <button class="btn-sm btn-toggle" data-user-id="{{ u.id }}">
+                            {{ '禁用' if u.is_active else '启用' }}
+                        </button>
+                        <button class="btn-sm btn-reset" data-user-id="{{ u.id }}">重置密码</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('addUserForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const res = await fetch('/admin/users/add', { method: 'POST', body: fd });
+    const json = await res.json();
+    const msg = document.getElementById('addUserMsg');
+    if (json.success) {
+        msg.textContent = '✓ 添加成功'; msg.style.color = 'green';
+        setTimeout(() => location.reload(), 800);
+    } else {
+        msg.textContent = '✗ ' + json.error; msg.style.color = 'red';
+    }
+});
+
+document.querySelectorAll('.role-select').forEach(sel => {
+    sel.addEventListener('change', async () => {
+        const fd = new FormData();
+        fd.append('role', sel.value);
+        await fetch(`/admin/users/${sel.dataset.userId}/change-role`, { method: 'POST', body: fd });
+    });
+});
+
+document.querySelectorAll('.btn-toggle').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        await fetch(`/admin/users/${btn.dataset.userId}/toggle`, { method: 'POST' });
+        location.reload();
+    });
+});
+
+document.querySelectorAll('.btn-reset').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const pwd = prompt('请输入新密码（至少8位）：');
+        if (!pwd || pwd.length < 8) return;
+        const fd = new FormData();
+        fd.append('password', pwd);
+        await fetch(`/admin/users/${btn.dataset.userId}/reset-password`, { method: 'POST', body: fd });
+        alert('密码已重置');
+    });
+});
+</script>
+{% endblock %}
+
+{% block styles %}
+<style>
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+.form-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.form-row input, .form-row select { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--text); font-size: 14px; }
+.users-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.users-table th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 12px; text-transform: uppercase; }
+.users-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
+.users-table tr:last-child td { border-bottom: none; }
+.role-select { padding: 4px 8px; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--text); }
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+.badge-active { background: #e8f5e9; color: #2e7d32; }
+.badge-inactive { background: #ffebee; color: #c62828; }
+.btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 4px; cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.btn-sm:hover { background: var(--border); }
+.btn-secondary { padding: 8px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--text); text-decoration: none; font-size: 14px; }
+.btn-primary { padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+</style>
+{% endblock %}

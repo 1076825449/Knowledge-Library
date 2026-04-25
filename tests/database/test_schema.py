@@ -34,7 +34,7 @@ class TestDatabaseSchema:
         expected = {
             "local_rule_note", "policy_basis", "question_master",
             "question_policy_link", "question_relation", "question_tag_link",
-            "question_update_log", "tag_dict"
+            "question_update_log", "tag_dict", "users"
         }
         # sqlite_sequence 是 SQLite 内部表，不属于业务表
         user_tables = {t for t in tables if not t.startswith("sqlite_")}

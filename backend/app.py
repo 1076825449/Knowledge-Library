@@ -4,9 +4,11 @@
 # ============================================================
 
 import os
+from pathlib import Path
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, Response
 from flask_cors import CORS
 from functools import wraps
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from routes.questions import questions_bp
 from routes.search import search_bp
@@ -61,21 +63,193 @@ def create_app():
             'relation_type_options': all_options(RELATION_TYPE_META),
         }
 
-    def admin_required(f):
-        """验证管理员密码的装饰器"""
-        @wraps(f)
-        def decorated_function(*args, **kwargs):
-            if session.get('admin_authenticated'):
+    # ---------- 认证工具函数 ----------
+    def get_authenticated_user():
+        """返回当前登录用户信息，无则返回 None"""
+        user_id = session.get('user_id')
+        if not user_id:
+            return None
+        import sqlite3
+        conn = sqlite3.connect(str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db'))
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        user = cur.execute('SELECT * FROM users WHERE id = ? AND is_active = 1', (user_id,)).fetchone()
+        conn.close()
+        return dict(user) if user else None
+
+    def require_auth(roles=None):
+        """验证登录状态的装饰器，roles 可为 str 或 list"""
+        if isinstance(roles, str):
+            roles = [roles]
+        def decorator(f):
+            @wraps(f)
+            def decorated(*args, **kwargs):
+                user = get_authenticated_user()
+                if not user:
+                    if request.is_json:
+                        return jsonify({'error': '请先登录'}), 401
+                    return redirect(url_for('login'))
+                if roles and user['role'] not in roles:
+                    if request.is_json:
+                        return jsonify({'error': '权限不足'}), 403
+                    return redirect(url_for('index'))
                 return f(*args, **kwargs)
-            # 显示密码输入页面
-            if request.method == 'POST':
-                password = request.form.get('password', '')
-                if password == Config.ADMIN_PASSWORD:
-                    session['admin_authenticated'] = True
-                    return f(*args, **kwargs)
-                return render_template('admin_login.html', error='密码错误，请重试')
-            return render_template('admin_login.html', error=None)
-        return decorated_function
+            return decorated
+        return decorator
+
+    def require_login(f):
+        return require_auth()(f)
+
+    def require_admin(f):
+        return require_auth('admin')(f)
+
+    # ---------- 登录 / 登出 ----------
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        if request.method == 'POST':
+            username = request.form.get('username', '').strip()
+            password = request.form.get('password', '')
+            if not username or not password:
+                return render_template('admin_login.html', error='请输入用户名和密码')
+            conn = sqlite3.connect(db_path)
+            conn.row_factory = sqlite3.Row
+            cur = conn.cursor()
+            user = cur.execute(
+                "SELECT * FROM users WHERE username = ? AND is_active = 1", (username,)
+            ).fetchone()
+            conn.close()
+            if user and check_password_hash(user['password_hash'], password):
+                session.clear()
+                session['user_id'] = user['id']
+                session['username'] = user['username']
+                session['role'] = user['role']
+                next_url = request.args.get('next', '/')
+                return redirect(next_url)
+            return render_template('admin_login.html', error='用户名或密码错误')
+        if get_authenticated_user():
+            return redirect(url_for('index'))
+        return render_template('admin_login.html', error=None)
+
+    @app.route('/logout')
+    def logout():
+        session.clear()
+        return redirect(url_for('login'))
+
+    # ---------- 用户管理（admin only） ----------
+    @app.route('/admin/users')
+    @require_admin
+    def admin_users():
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        users = cur.execute("SELECT id, username, display_name, role, is_active, created_at, last_login FROM users ORDER BY id").fetchall()
+        conn.close()
+        return render_template('admin_users.html', users=[dict(u) for u in users])
+
+    @app.route('/admin/users/add', methods=['POST'])
+    @require_admin
+    def admin_add_user():
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
+        display_name = request.form.get('display_name', '').strip()
+        role = request.form.get('role', 'viewer')
+        if not username or not password:
+            return jsonify({'error': '用户名和密码不能为空'}), 400
+        if len(password) < 8:
+            return jsonify({'error': '密码长度至少8位'}), 400
+        if role not in ('admin', 'editor', 'reviewer', 'viewer'):
+            return jsonify({'error': '无效的角色'}), 400
+        pw_hash = generate_password_hash(password)
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        try:
+            cur.execute(
+                "INSERT INTO users (username, password_hash, display_name, role) VALUES (?, ?, ?, ?)",
+                (username, pw_hash, display_name or username, role)
+            )
+            conn.commit()
+            return jsonify({'success': True})
+        except sqlite3.IntegrityError:
+            return jsonify({'error': '用户名已存在'}), 409
+        finally:
+            conn.close()
+
+    @app.route('/admin/users/<int:user_id>/toggle', methods=['POST'])
+    @require_admin
+    def admin_toggle_user(user_id):
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("UPDATE users SET is_active = NOT is_active WHERE id = ?", (user_id,))
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/admin/users/<int:user_id>/change-role', methods=['POST'])
+    @require_admin
+    def admin_change_role(user_id):
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        role = request.form.get('role', '')
+        if role not in ('admin', 'editor', 'reviewer', 'viewer'):
+            return jsonify({'error': '无效的角色'}), 400
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("UPDATE users SET role = ? WHERE id = ?", (role, user_id))
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/admin/users/<int:user_id>/reset-password', methods=['POST'])
+    @require_admin
+    def admin_reset_password(user_id):
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        password = request.form.get('password', '')
+        if len(password) < 8:
+            return jsonify({'error': '密码长度至少8位'}), 400
+        pw_hash = generate_password_hash(password)
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("UPDATE users SET password_hash = ? WHERE id = ?", (pw_hash, user_id))
+        conn.commit()
+        conn.close()
+        return jsonify({'success': True})
+
+    @app.route('/profile', methods=['GET', 'POST'])
+    @require_login
+    def profile():
+        import sqlite3
+        db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
+        user = get_authenticated_user()
+        if request.method == 'POST':
+            display_name = request.form.get('display_name', '').strip()
+            new_password = request.form.get('new_password', '')
+            if new_password:
+                if len(new_password) < 8:
+                    return render_template('profile.html', user=user, error='新密码长度至少8位')
+                pw_hash = generate_password_hash(new_password)
+            else:
+                pw_hash = None
+            conn = sqlite3.connect(db_path)
+            cur = conn.cursor()
+            if pw_hash:
+                cur.execute("UPDATE users SET display_name = ?, password_hash = ? WHERE id = ?",
+                            (display_name, pw_hash, user['id']))
+            else:
+                cur.execute("UPDATE users SET display_name = ? WHERE id = ?",
+                            (display_name, user['id']))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('profile'))
+        return render_template('profile.html', user=user, error=None)
 
     @app.route('/api/health')
     def health():
@@ -208,7 +382,7 @@ def create_app():
 
     # ---------- 新增问题页面 ----------
     @app.route('/question/new', methods=['GET', 'POST'])
-    @admin_required
+    @require_admin
     def new_question():
         from services.question_service import QuestionService
         svc = QuestionService()
@@ -251,7 +425,7 @@ def create_app():
 
     # ---------- 编辑问题页面 ----------
     @app.route('/question/<question_code>/edit', methods=['GET', 'POST'])
-    @admin_required
+    @require_admin
     def edit_question(question_code):
         from services.question_service import QuestionService
         svc = QuestionService()
@@ -322,7 +496,7 @@ def create_app():
                                all_policies=all_policies)
 
     @app.route('/admin/quality')
-    @admin_required
+    @require_admin
     def admin_quality():
         from services.question_service import QuestionService
         svc = QuestionService()
