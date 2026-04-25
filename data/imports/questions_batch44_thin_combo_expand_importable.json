@@ -1,0 +1,924 @@
+{
+  "questions": [
+    {
+      "question_title": "企业注销清算时，以前年度尚未弥补完的亏损还能在清算所得里继续扣吗？",
+      "question_plain": "企业准备注销，账上还有以前年度形成且尚未弥补完的亏损。进入清算阶段后，清算所得计算与平时年度汇算不同，这部分历史亏损还能不能继续参与扣除？",
+      "stage_code": "CLS",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "one_line_answer": "进入注销清算后，历史亏损并不是当然都能继续按普通年度汇算逻辑扣减，关键要区分年度经营所得处理和清算所得处理，不能把两个口径直接混算。",
+      "detailed_answer": "很多企业把“以前年度亏损可结转弥补”直接套用到注销清算阶段，但清算所得的形成逻辑与正常经营年度并不完全一样。真正要看的是企业在注销年度里，正常经营期间的年度汇算部分如何处理，以及进入清算程序后形成的清算所得如何计算。\n\n因此，历史亏损能否继续发挥作用，不是一个简单的“能”或“不能”，而是要把年度经营所得、清算期间损益和清算所得拆开判断。若直接把历史亏损整包冲减清算所得，后续解释风险会很高。",
+      "core_definition": "注销阶段企业所得税要区分普通经营年度口径与清算所得口径，历史亏损的适用范围不能机械照搬。",
+      "applicable_conditions": "适用于企业进入注销或清算阶段，且存在以前年度未弥补亏损，需要判断其在注销年度和清算所得中的处理方式的情形。",
+      "exceptions_boundary": "（1）若企业尚未实质进入清算，仅是准备注销，仍应先按正常年度汇算规则判断。\n\n（2）若属于分支机构或特殊重组衔接情形，处理口径可能更复杂。\n\n（3）最终是否可扣，仍需结合清算税表和事实资料核定。",
+      "practical_steps": "第一步：区分注销年度内正常经营期间与清算期间。\n\n第二步：核对以前年度亏损余额及来源年度。\n\n第三步：分别测算年度汇算口径与清算所得口径，不要混算。\n\n第四步：保留亏损台账、年度申报表与清算测算底稿。\n\n第五步：在正式申报前复核是否存在口径交叉冲减。",
+      "risk_warning": "（1）把历史亏损直接冲减清算所得，是注销阶段常见误判。\n\n（2）只看账面亏损、不看申报口径，后续最容易被要求重算。\n\n（3）没有测算底稿时，很难说明扣除逻辑是否成立。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销清算,历史亏损,清算所得,企业所得税,亏损弥补",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑企业所得税基本处理规则"
+        },
+        {
+          "policy_code": "GOV-CIT-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑企业清算业务企业所得税处理口径"
+        }
+      ],
+      "tags": [
+        "tag_注销清算",
+        "tag_清算所得",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-CIT-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-CIT-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业注销前一次性支付搬离费、清场费和合同解约费，这些支出能税前扣除吗？",
+      "question_plain": "企业在注销前为了退出经营场地、处理仓库和终止合同，一次性支付了搬离费、清场费、解约费等。此类支出是否可以作为企业所得税前扣除项目处理？",
+      "stage_code": "CLS",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前发生的搬离费、清场费、合同解约费并非天然不能扣，关键要看是否与注销清算和资产处置相关、凭证是否完整、金额是否具备合理商业必要性。",
+      "detailed_answer": "企业进入注销阶段后，很多支出不再是日常经营费用，而是围绕退出经营、清理现场和终止合同产生的处置性费用。这类费用能否税前扣除，核心不在于名称，而在于是否与注销清算过程直接相关，且能否提供合同、结算单、付款凭证和业务背景说明。\n\n如果只是笼统记成“杂费”，或者付款对象、事项内容和合同解除过程对不上，后续扣除会很被动。相反，若能形成完整留痕，通常更容易说明其合理性。",
+      "core_definition": "注销期费用扣除的重点是业务相关性、真实性和凭证链完整性，而不是费用名称本身。",
+      "applicable_conditions": "适用于企业在注销、退租、清场、合同终止、搬离资产等阶段发生的一次性退出类费用。",
+      "exceptions_boundary": "（1）若支出与股东个人安排混同，不能简单作为企业费用处理。\n\n（2）若属于罚款、滞纳金或明显不合理支出，扣除口径会不同。\n\n（3）若付款无合同依据，仅有转账记录，风险较高。",
+      "practical_steps": "第一步：按搬离费、清场费、解约费分别建立费用台账。\n\n第二步：补齐对应合同、终止协议、结算依据和付款凭证。\n\n第三步：说明该支出与注销清算或资产退出的直接关系。\n\n第四步：与罚款、赔偿、股东个人支出做口径切分。\n\n第五步：在清算和汇算资料中保留专项说明。",
+      "risk_warning": "（1）退出费用最怕混入个人支出或无关支出。\n\n（2）只有付款、没有合同终止和结算依据，税前扣除最难自证。\n\n（3）大额一次性费用不做专项说明，后续很容易被重点关注。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销费用,搬离费,清场费,解约费,税前扣除",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税前扣除凭证和真实性要求"
+        },
+        {
+          "policy_code": "SAT-FEE-001",
+          "support_type": "support_definition",
+          "support_note": "支撑企业所得税费用处理原则"
+        }
+      ],
+      "tags": [
+        "tag_注销清算",
+        "tag_payment",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-FEE-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-CIT-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业准备注销，但原法定代表人已经离任或失联，税务注销还能继续推进吗？",
+      "question_plain": "企业已经停摆并准备办理税务注销，但原法定代表人、原办税员或关键实名人员已经离任、联系不上，系统中实名信息也没有同步更新。这种情况下税务注销还能不能继续办理？",
+      "stage_code": "CLS",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "原法定代表人或实名办税人离任后，税务注销通常不是完全不能办，而是应先把当前有权代表主体和实名权限链恢复清楚，再继续推进注销流程。",
+      "detailed_answer": "很多注销项目卡住，并不是因为企业本身不能注销，而是因为系统中的实名主体和现实中的管理主体已经脱节。税务机关需要确认是谁在代表企业办理、谁承担材料真实性责任、谁接收后续通知。若这些基础信息没有恢复，注销流程就很容易卡在入口处。\n\n因此，这类问题的优先顺序不是先硬闯注销，而是先恢复代表主体、实名办税和通知送达链路，再进入清税或注销步骤。否则即使提交成功，后续补件和确认也可能失控。",
+      "core_definition": "注销登记的前置条件之一，是企业当前的法定代表关系、实名办税权限和送达链路处于可识别状态。",
+      "applicable_conditions": "适用于企业办理税务注销时，存在法定代表人离任、失联、实名办税人停用或系统权限失效的情形。",
+      "exceptions_boundary": "（1）若工商层面代表人已变更但税务端未同步，应先看同步路径。\n\n（2）若企业已进入司法清算或强制注销程序，办理链路可能不同。\n\n（3）若仅是联系人失效而非法定代表失效，处理压力较小。",
+      "practical_steps": "第一步：核对工商登记、税务登记和电子税务局实名主体是否一致。\n\n第二步：明确当前可依法代表企业办理的人。\n\n第三步：先修复实名办税和通知接收权限。\n\n第四步：保存离任、授权或变更衔接材料。\n\n第五步：再继续推进清税和注销事项。",
+      "risk_warning": "（1）实名主体失效时强行提交，常见结果是流程半途卡死。\n\n（2）谁在代表企业不清楚，后续责任链很难厘清。\n\n（3）不先恢复通知送达链路，补件和异议处理会非常被动。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销实名失效,法定代表人离任,税务注销,实名办税,登记修复",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税务登记变更和征管基础要求"
+        },
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑税务注销办理程序"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_register",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-REG-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-REG-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业注销前把库存低价处理给关联方，增值税上只看合同价就行吗？",
+      "question_plain": "企业在注销前为了尽快处理库存，把货物低价甚至接近成本价卖给关联方。税务上是否只要按合同和发票上的价格申报增值税就可以，还是还要关注明显偏低价格的风险？",
+      "stage_code": "CLS",
+      "module_code": "VAT",
+      "question_type": "type_risk",
+      "one_line_answer": "注销前低价向关联方处理库存，不是只看合同价就够，若价格明显异常且缺乏商业理由，仍要关注计税依据和交易合理性风险。",
+      "detailed_answer": "很多企业在注销前为了快速退出，把库存打包给关联方处理，看上去只是清仓动作，但由于交易对手具有关联关系，价格明显偏低时，税务机关通常不会只机械接受合同数字。真正关键的是，这个价格是否有真实商业背景、是否有市场或处置压力依据、是否能解释为什么必须按该价格成交。\n\n如果低价是清库、临期、损耗、型号淘汰等客观原因形成，还应把相应证据同步留存。否则注销前集中低价交易，很容易被认为存在异常转移利益或计税基础不足的风险。",
+      "core_definition": "关联方低价交易在增值税处理中，不只看形式合同价，还要关注交易真实性、商业合理性和计税基础风险。",
+      "applicable_conditions": "适用于企业在注销、清库、资产处置阶段，将库存商品低价出售给关联方的情形。",
+      "exceptions_boundary": "（1）若交易对象并非关联方，风险重心会有所不同。\n\n（2）若货物确有临期、残次或淘汰事实，应重点保留佐证资料。\n\n（3）是否涉及其他税种调整，还需结合整体交易安排判断。",
+      "practical_steps": "第一步：确认交易对象是否属于关联方。\n\n第二步：整理低价成交的商业原因和定价依据。\n\n第三步：保留盘点、估价、处置审批和合同资料。\n\n第四步：核对增值税申报与发票开具口径是否一致。\n\n第五步：对明显异常低价交易做专项留痕说明。",
+      "risk_warning": "（1）注销前集中向关联方低价出货，最容易被关注交易合理性。\n\n（2）只有合同没有定价依据，后续解释空间很小。\n\n（3）把处置价当成天然安全价，容易忽视税务重估风险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前低价销售,关联方,库存处理,增值税,计税依据",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-VAT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑增值税基本纳税规则"
+        },
+        {
+          "policy_code": "SAT-VAT-001",
+          "support_type": "support_risk",
+          "support_note": "支撑纳税义务和销售额口径判断"
+        }
+      ],
+      "tags": [
+        "tag_注销清算",
+        "tag_liquidation_asset",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-VAT-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-INV-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业已经走到简易注销公告阶段，税务又发现历史漏报，还能继续简易注销吗？",
+      "question_plain": "企业已经准备按简易注销推进，甚至公告都发了，但税务端又发现历史申报遗漏、未处理事项或异常记录。这种情况下能否继续按简易注销走完，还是必须先退出简易流程处理历史问题？",
+      "stage_code": "RSK",
+      "module_code": "CLEAR",
+      "question_type": "type_whether",
+      "one_line_answer": "简易注销进入公告阶段后又发现历史漏报或异常，通常不能把问题搁置继续冲流程，原则上应先判断是否已不再符合简易注销条件，再处理历史问题后重新选择路径。",
+      "detailed_answer": "简易注销的前提是企业整体状态相对干净、历史问题较少。如果已经进入公告阶段才暴露出漏报、欠税、异常发票或非正常事项，问题重点就不再是“公告发没发”，而是企业是否仍然符合简易注销的适用基础。\n\n因此，此时最稳妥的做法不是继续赌流程能过，而是先明确历史问题性质，判断是否需要退出简易路径并转一般注销或先整改后重新申请。流程越往后越不能忽视前置条件。",
+      "core_definition": "简易注销并不是独立于历史涉税状态存在的快捷键，前置条件一旦被打破，流程路径也要调整。",
+      "applicable_conditions": "适用于企业已经启动简易注销公告或准备简易注销，但税务端新发现历史漏报、异常或欠税事项的情形。",
+      "exceptions_boundary": "（1）若只是轻微资料补充，不一定当然退出简易路径。\n\n（2）若异常事项已在公告期内完成整改，应结合主管机关口径判断。\n\n（3）不同地区对流程衔接节奏可能存在差异。",
+      "practical_steps": "第一步：确认新发现问题属于漏报、欠税、异常还是资料瑕疵。\n\n第二步：判断该问题是否影响简易注销适用条件。\n\n第三步：必要时暂停当前流程，先完成补报、补税或解除异常。\n\n第四步：保存整改回执和公告期内处理记录。\n\n第五步：重新判断应继续简易注销还是转一般注销。",
+      "risk_warning": "（1）公告已发不等于路径已经绝对安全。\n\n（2）问题性质判断错误，最容易导致重复走流程。\n\n（3）未留存整改留痕时，后续很难说明为何继续或退出简易注销。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "简易注销公告,历史漏报,注销异常,整改后注销,清税风险",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税务注销办理与简易注销衔接"
+        },
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_risk",
+          "support_note": "支撑注销流程异常处理"
+        }
+      ],
+      "tags": [
+        "tag_简易注销",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-CLEAR-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-REG-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "上游企业走逃失联，但我方业务真实，收到的异常扣税凭证第一步该怎么做？",
+      "question_plain": "企业取得的专票后来被提示异常，上游供应商又处于走逃失联或无法联系状态，但我方业务本身真实发生。这种情况下，企业面对异常扣税凭证，第一步最应该先做什么？",
+      "stage_code": "RSK",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "遇到异常扣税凭证且上游已走逃失联时，第一步不是先争论责任，而是立即把业务真实性、交易链和付款留痕收齐，再判断进项处理和说明路径。",
+      "detailed_answer": "企业在收到异常扣税凭证提示时，最容易直接陷入“是不是我要承担责任”的焦虑，但对后续最关键的其实是证据链。只要业务真实、货物流和资金流能自证，企业就比单纯拿着一张发票更有底气。\n\n因此，第一步应优先把合同、订单、物流、入库、付款、对账、沟通记录等业务真实性材料快速收拢，再配合异常凭证处理要求判断是否需要转出、待核实或提交说明。先把证据补齐，比先口头申辩更有价值。",
+      "core_definition": "异常扣税凭证处理中，核心不是先定性责任，而是先建立业务真实性与善意取得的证据链。",
+      "applicable_conditions": "适用于企业取得的发票被提示异常扣税凭证，且上游已走逃失联、无法配合说明，但本企业认为交易真实的情形。",
+      "exceptions_boundary": "（1）若业务本身存在明显虚假迹象，不能仅凭付款记录对抗风险。\n\n（2）若尚未抵扣，处理路径与已抵扣情形不同。\n\n（3）不同票种和异常类型，处理节奏可能不同。",
+      "practical_steps": "第一步：立即归集合同、收货、入库、付款和对账资料。\n\n第二步：区分发票是否已认证、已抵扣、已入账。\n\n第三步：按异常类型整理书面说明。\n\n第四步：同步关注进项转出或后续核实要求。\n\n第五步：保留与上游失联、无法补证的客观记录。",
+      "risk_warning": "（1）只拿发票不拿业务资料，最容易在异常处理中失去主动权。\n\n（2）上游失联不等于我方当然免责。\n\n（3）处理过慢，容易错过说明和补证窗口。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "异常扣税凭证,上游走逃失联,业务真实,发票风险,进项处理",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-RISK-003",
+          "support_type": "support_direct",
+          "support_note": "支撑异常扣税凭证处理规则"
+        },
+        {
+          "policy_code": "SAT-VAT-006",
+          "support_type": "support_risk",
+          "support_note": "支撑异常增值税扣税凭证管理要求"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_runaway_invoice",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-INV-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-INV-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业实名办税人全部离职，系统业务都卡住时，登记修复第一步先做什么？",
+      "question_plain": "企业还能正常经营，但原实名办税人、财务负责人、办税员都已离职，导致电子税务局多项业务受限。这种情况下，登记修复和权限恢复第一步最应该优先处理什么？",
+      "stage_code": "RSK",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "实名链条失效后，第一步应先恢复当前合法代表主体和核心实名权限，再谈其他业务修复；不先恢复身份链，后续事项都会持续卡顿。",
+      "detailed_answer": "企业登记异常里最容易被低估的一类，就是人还在经营，但系统里的“谁能代表企业”已经失真。此时问题不是某个具体申报事项，而是实名身份链断裂，导致后续任何线上动作都可能受限。\n\n因此，修复顺序应从代表主体和核心实名权限入手，而不是从零散事项逐个抢修。只有把法定代表、财务负责人、办税员的现状和授权链恢复清楚，后面的申报、变更、发票和注销事项才有稳定入口。",
+      "core_definition": "登记修复中的优先级，应先处理主体身份链和实名权限链，再处理依附其上的具体涉税事项。",
+      "applicable_conditions": "适用于企业因实名办税人离职、授权失效、联系方式过期等原因，导致电子税务局业务受限的情形。",
+      "exceptions_boundary": "（1）若只是单一经办人失效，未必需要全面重建权限链。\n\n（2）若工商和税务端主体信息不一致，应同步处理。\n\n（3）线下窗口与线上实名要求可能存在衔接差异。",
+      "practical_steps": "第一步：确认当前法定代表、财务负责人和办税授权现状。\n\n第二步：恢复最核心的实名办税主体和通知接收链。\n\n第三步：再处理具体业务权限和历史失效账号。\n\n第四步：保存离职交接、授权和变更留痕。\n\n第五步：复核电子税务局关键入口是否已恢复正常。",
+      "risk_warning": "（1）身份链不修，后续所有修补都只是临时止痛。\n\n（2）离职人员仍挂在系统内，会持续放大内部控制风险。\n\n（3）不处理通知接收链，容易漏掉后续系统提示。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "实名办税人离职,登记修复,电子税务局受限,权限恢复,风险登记",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税务登记和变更基础要求"
+        },
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑税务登记管理程序判断"
+        }
+      ],
+      "tags": [
+        "tag_register",
+        "tag_ca_cert",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-REG-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-REG-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新设企业筹办期发生的开办费，第一年企业所得税上什么时候处理更稳妥？",
+      "question_plain": "企业刚设立时还在筹办，已经发生了注册、租赁、招聘、装修前准备等一系列开办支出。企业所得税上这些开办费应该何时处理，才不容易在首年汇算时出问题？",
+      "stage_code": "SET",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "新设企业筹办期开办费不宜只按付款时间机械处理，更稳妥的做法是结合开始经营时点、费用性质和首年汇算口径统一安排。",
+      "detailed_answer": "新设企业最常见的误区之一，就是开办费一发生就随手入账、随手税前处理，到了首年汇算时才发现口径前后不一致。筹办期费用看起来零碎，但税务上更关注企业何时进入实际经营状态、费用是否属于开办性质、是否有完整凭证。\n\n因此，处理重点不是“越早扣越好”，而是让开始经营时点、会计处理和税务口径保持一致。只要前期台账和界限划分清楚，首年汇算会稳很多。",
+      "core_definition": "开办费处理的关键是明确筹办期与正式经营期边界，并保证税会口径和资料留痕一致。",
+      "applicable_conditions": "适用于新设企业在筹办阶段发生注册、招聘、咨询、筹建办公等支出，需要在首年企业所得税处理中安排口径的情形。",
+      "exceptions_boundary": "（1）若支出本质属于固定资产或长期待摊，不宜混入开办费。\n\n（2）若企业已实际经营，再继续按筹办期处理会有风险。\n\n（3）不同会计政策下列报方式可能有差异，但税务留痕仍需清楚。",
+      "practical_steps": "第一步：划分筹办期和正式经营起点。\n\n第二步：把开办费与资产购置、长期待摊项目分开。\n\n第三步：补齐发票、合同、支付和用途说明。\n\n第四步：在首年汇算前形成开办费处理台账。\n\n第五步：确保税务口径与账务处理前后一致。",
+      "risk_warning": "（1）筹办费和资产支出混放，是首年汇算常见问题。\n\n（2）没有经营起点说明，后续很难解释为何这样处理。\n\n（3）只按付款时间处理，容易造成税会口径脱节。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业,开办费,筹办期,企业所得税,首年汇算",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑企业所得税一般规则"
+        },
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑税前扣除凭证和留痕要求"
+        }
+      ],
+      "tags": [
+        "tag_setup",
+        "tag_business_start",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-CIT-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-CIT-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新设企业刚办完税务登记就决定不开了，还没正式经营也要走清税注销吗？",
+      "question_plain": "企业刚设立并办完税务登记，还没真正开展经营活动就决定不做了。此时因为几乎没有业务，是否可以直接不管，还是仍然需要按清税注销流程处理？",
+      "stage_code": "SET",
+      "module_code": "CLEAR",
+      "question_type": "type_whether",
+      "one_line_answer": "即使新设企业尚未正式经营，只要已经形成登记主体和涉税状态，原则上也不能直接放着不管，仍应按实际状态判断并办理清税或注销收尾。",
+      "detailed_answer": "不少新设企业误以为“没开业=没税务风险”，于是注册后很快搁置，结果几年后才发现出现申报、登记或非正常状态问题。税务上看重的不是企业有没有赚钱，而是主体是否已经建立、税费种是否认定、是否存在应履行而未履行的基础义务。\n\n因此，刚设立就决定不开，不代表可以自然失效。越早把清税和注销路径走清楚，后面越不容易留下长期尾项。",
+      "core_definition": "新设未经营不等于税务状态自动归零，已建立的登记和认定义务仍需收口。",
+      "applicable_conditions": "适用于企业完成设立和税务登记后，尚未正式开展经营即准备终止项目的情形。",
+      "exceptions_boundary": "（1）若连税务登记和税费种认定都未真正完成，路径可能更简化。\n\n（2）若已领票、开户或聘工，收尾事项会更多。\n\n（3）是否适用简易注销，还需看历史状态是否干净。",
+      "practical_steps": "第一步：确认是否已完成税务登记、税费种认定、开户和领票。\n\n第二步：核对是否存在未履行的申报或备案义务。\n\n第三步：办理必要的清税和注销前收尾事项。\n\n第四步：保留未经营事实和收尾凭证。\n\n第五步：在系统中确认主体状态已真正关闭。",
+      "risk_warning": "（1）最常见风险不是有税，而是长期放着不处理。\n\n（2）以为没开业就不用申报，容易埋下非正常户隐患。\n\n（3）没有收尾回执，后续很难证明当时已处理完毕。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设未经营,清税注销,税务登记,不开业,主体收尾",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税务注销办理程序"
+        },
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑登记主体和基础征管要求"
+        }
+      ],
+      "tags": [
+        "tag_setup",
+        "tag_税务注销",
+        "tag_newbie"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-CLEAR-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-REG-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新设企业首年多个税种都长期零申报，怎样做才不容易被系统预警？",
+      "question_plain": "新设企业成立后暂时没有收入，多个税种连续几个月都是零申报。企业如果确实还在起步阶段，怎样做才能降低被系统当成异常主体预警的概率？",
+      "stage_code": "SET",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "首年连续零申报不是当然违规，但不能只做零申报本身；企业还应同步维护登记、实名、经营留痕和待办核对，避免让系统看到的是“长期静默主体”。",
+      "detailed_answer": "很多新设企业认为只要按期零申报就已经足够安全，但系统判断风险时，看的往往不止申报表本身，还会结合主体活跃度、实名状态、登记信息、发票状态、待办事项和经营痕迹。若一个新设主体长期只有零申报，没有任何其他正常管理动作，就容易被判定为沉默或异常主体。\n\n因此，降低预警概率的关键不是“少报”或“躲开”，而是证明企业虽然暂时没有收入，但主体管理和基础税务行为仍然正常。",
+      "core_definition": "新设企业零申报风险控制，不只是申报动作本身，更包括主体状态是否保持正常可识别。",
+      "applicable_conditions": "适用于新设企业成立初期无收入、连续零申报，但希望降低税务系统预警概率的情形。",
+      "exceptions_boundary": "（1）若企业实际上已有经营却长期零申报，风险性质完全不同。\n\n（2）若已被提示异常，重点应转向排查和修复而不是一般预防。\n\n（3）不同地区风控模型细节可能不同。",
+      "practical_steps": "第一步：确保所有应申报税种按期完成申报。\n\n第二步：持续核对登记、实名、联系方式和待办状态。\n\n第三步：保留筹办、洽谈、试运营等合理经营留痕。\n\n第四步：避免领票后长期零活动又无解释材料。\n\n第五步：定期自查系统风险提示并及时处理。",
+      "risk_warning": "（1）零申报合规不等于主体一定不会预警。\n\n（2）长期静默又不查待办，是新设企业最容易踩的坑。\n\n（3）有经营实质却仍长期零申报，后续风险会明显升级。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业零申报,系统预警,首年风险,税务风控,风险控制",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "POL-RISK-001",
+          "support_type": "support_direct",
+          "support_note": "支撑非正常户与风险管理基础"
+        },
+        {
+          "policy_code": "SAT-RISK-001",
+          "support_type": "support_risk",
+          "support_note": "支撑纳税信用与风险管理口径"
+        }
+      ],
+      "tags": [
+        "tag_zero_report",
+        "tag_risk_warning",
+        "tag_newbie"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-RISK-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-RISK-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新设企业拿到第一笔政府补贴，税务上应该先看申报口径还是先看是否要缴税？",
+      "question_plain": "新设企业刚成立不久就拿到一笔创业扶持、设备补贴或项目补助。面对第一笔政府补贴时，企业税务处理最先应该关注什么，申报口径和是否纳税应该怎么判断？",
+      "stage_code": "SET",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "one_line_answer": "新设企业收到第一笔政府补贴时，不能先凭直觉判断免税或应税，优先要看补贴性质、资金用途、文件条件和会税口径，再决定申报方式。",
+      "detailed_answer": "政府补贴看起来像“政策好处”，但税务处理并不统一。对新设企业来说，最容易犯的错就是一拿到补贴就直接当营业外收入处理，或者反过来直接认定为不用纳税。真正关键的是，这笔钱是什么性质、是否限定专项用途、是否有文件要求、后续是否需要专款专用。\n\n因此，第一反应不应是简单问“交不交税”，而是先把补贴文件、拨付条件、用途限制和后续考核要求看清。只有性质判断正确，后面的企业所得税、增值税和申报列示才不容易偏。",
+      "core_definition": "政府补贴税务处理的起点，是先识别补贴性质和用途限制，而不是先假设其当然免税或当然应税。",
+      "applicable_conditions": "适用于新设企业收到创业扶持、专项补贴、设备补助、奖励资金等各类政府资金的情形。",
+      "exceptions_boundary": "（1）不同补贴在企业所得税和增值税上的影响并不相同。\n\n（2）专项用途资金与一般奖励资金，判断逻辑差别很大。\n\n（3）地方补贴还可能附带地方执行口径。",
+      "practical_steps": "第一步：收集补贴文件、申请材料和拨付通知。\n\n第二步：识别补贴是否限定用途、是否要求专账管理。\n\n第三步：区分会计确认与税务处理口径。\n\n第四步：判断是否涉及申报表专项列示或税收优惠衔接。\n\n第五步：在首年汇算前复核补贴处理是否前后一致。",
+      "risk_warning": "（1）把所有补贴都当作当然免税，是新设企业常见误判。\n\n（2）只看到账不看文件，最容易把性质判断做错。\n\n（3）专项补贴不留用途台账，后续会失去解释基础。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业政府补贴,申报口径,是否缴税,专项资金,税务综合",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "POL-TAX-001",
+          "support_type": "support_direct",
+          "support_note": "支撑专项用途财政性资金企业所得税处理"
+        },
+        {
+          "policy_code": "GOV-CIT-001",
+          "support_type": "support_definition",
+          "support_note": "支撑企业所得税一般处理逻辑"
+        }
+      ],
+      "tags": [
+        "tag_setup",
+        "tag_policy_benefit",
+        "tag_declaration"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-TAX-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-PREF-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间处置以前购入的旧设备取得收入，企业所得税要并到哪一段处理？",
+      "question_plain": "企业已经办理停业，但停业期间又把以前购入使用过的设备卖掉，取得了一笔收入。这类收入在企业所得税上应如何理解，是否仍要并入停业期间相关处理口径中？",
+      "stage_code": "SUS",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "停业并不等于企业所得税口径冻结；停业期间处置旧设备取得收入，仍应结合资产处置事实、期间损益和申报年度口径纳入企业所得税处理。",
+      "detailed_answer": "很多企业把停业理解成“税务暂停”，但实际上只要主体仍然存在、资产仍在处置，相关税务后果并不会自动暂停。停业期间出售旧设备，本质上仍然是企业资产处置行为，对企业所得税的影响要看资产原值、折旧、处置收入和形成期间，而不是因为企业停业就视同不需要处理。\n\n因此，关键在于把停业期间的资产处置收入和对应成本、损益归属梳理清楚，并在对应申报年度中按真实事实处理。",
+      "core_definition": "停业状态不改变资产处置的税务属性，企业所得税仍按实际收入和损益事实判断。",
+      "applicable_conditions": "适用于企业办理停业后，在停业期间出售旧设备、旧车辆或其他固定资产并取得收入的情形。",
+      "exceptions_boundary": "（1）若仅为报废而非出售，处理关注点会不同。\n\n（2）若资产处置跨越多个会计年度，应注意期间归属。\n\n（3）同时可能涉及增值税和资产损失等其他问题。",
+      "practical_steps": "第一步：确认资产原值、折旧、账面净值和处置收入。\n\n第二步：判断收入发生时点和对应申报年度。\n\n第三步：保留处置合同、发票、收款和资产台账。\n\n第四步：测算处置损益并纳入企业所得税口径。\n\n第五步：与停业期间其他收尾事项同步复核。",
+      "risk_warning": "（1）把停业理解成不用处理税，会导致资产处置漏报。\n\n（2）只申报收入不看净值和损益，会造成口径失真。\n\n（3）资产台账和处置合同对不上，后续很难解释。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间资产处置,旧设备出售,企业所得税,停业收入,固定资产",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑企业所得税一般收入处理"
+        },
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑凭证和资料留痕要求"
+        }
+      ],
+      "tags": [
+        "tag_payment",
+        "tag_declaration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-CIT-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-VAT-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间支付办公室提前退租违约金，企业所得税前能不能扣？",
+      "question_plain": "企业停业后为了降本提前终止办公室租赁合同，向房东支付了违约金或补偿款。这类支出在企业所得税前能否扣除，税务上应怎么留痕？",
+      "stage_code": "SUS",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间支付退租违约金并非当然不能扣，关键要看支出是否因企业经营调整真实发生、合同依据是否明确、资料是否足以证明商业合理性。",
+      "detailed_answer": "停业期的费用常被误解为“只要没经营就都不能扣”，但真正的判断重点仍然是费用是否与企业主体管理和经营收缩相关、是否真实必要、是否有合同和结算依据。提前退租违约金如果是企业为降低持续成本、结束租赁关系而发生，往往比单纯的“停业”标签更重要。\n\n因此，不要只围绕“停业期能不能扣”争论，而应把合同条款、解约协议、付款凭证和退租背景说明保留下来，让费用逻辑说得清楚。",
+      "core_definition": "停业期费用是否可扣，不取决于企业是否完全停摆，而取决于费用与主体管理和经营调整的真实关联。",
+      "applicable_conditions": "适用于企业停业、收缩经营期间，因提前解约租赁合同而支付违约金、补偿款等支出的情形。",
+      "exceptions_boundary": "（1）若违约金带有明显罚款或行政处罚性质，应区别处理。\n\n（2）若支付对象、合同主体与企业不一致，风险较高。\n\n（3）若实际上已恢复经营，不能长期沿用停业口径。",
+      "practical_steps": "第一步：留存原租赁合同、退租协议和违约条款。\n\n第二步：保留付款凭证和对方收款确认。\n\n第三步：说明停业或收缩经营背景与退租必要性。\n\n第四步：与其他停业费用分开建台账。\n\n第五步：在汇算前复核费用性质和凭证完整性。",
+      "risk_warning": "（1）没有合同解约条款支撑的付款，最难税前解释。\n\n（2）把违约金与行政罚款混淆，容易造成口径错误。\n\n（3）停业期大额费用不做说明，后续复核压力会升高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业退租违约金,企业所得税,费用扣除,停业费用,退租补偿",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税前扣除凭证要求"
+        },
+        {
+          "policy_code": "SAT-FEE-001",
+          "support_type": "support_definition",
+          "support_note": "支撑企业所得税费用处理口径"
+        }
+      ],
+      "tags": [
+        "tag_payment",
+        "tag_risk_warning",
+        "tag_change"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-FEE-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-FEE-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间补发员工停业前工资，个人所得税应按哪个时间点扣缴？",
+      "question_plain": "企业已进入停业状态，但后来又补发了员工停业前应发未发的工资或奖金。企业在个人所得税扣缴上，应按原所属月份理解，还是按实际发放月份处理？",
+      "stage_code": "SUS",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间补发工资时，个人所得税不能只按“对应哪段工作”直觉判断，实际扣缴通常仍要围绕实际发放时点和对应收入性质来处理。",
+      "detailed_answer": "停业后补发工资是非常常见的收尾情形。企业最容易犯的错，是把收入所属期间和扣缴时点完全等同，或者反过来完全忽略收入形成背景。个人所得税处理时，既要看补发工资的收入性质，也要看实际支付时点和申报口径。\n\n因此，更稳妥的做法是先确认这笔钱是正常工资、补发奖金还是离职补偿，再按对应扣缴规则结合实际发放月份处理，而不是单纯回填到历史月份。",
+      "core_definition": "个税补发收入处理中，收入所属期间与实际扣缴申报时点需要区分判断，不能机械合并。",
+      "applicable_conditions": "适用于企业停业期间向员工补发停业前工资、奖金、补差等劳动报酬类收入的情形。",
+      "exceptions_boundary": "（1）若属于解除劳动关系补偿，口径可能不同。\n\n（2）若员工已离职，实名和申报衔接要额外关注。\n\n（3）不同类型收入的申报栏次和预扣方式可能不同。",
+      "practical_steps": "第一步：确认补发收入属于工资、奖金还是补偿。\n\n第二步：核对实际发放日期和收款主体。\n\n第三步：按收入性质匹配对应个税扣缴口径。\n\n第四步：保存工资表、补发说明和付款记录。\n\n第五步：完成对应月份扣缴申报并留痕。",
+      "risk_warning": "（1）把补发工资简单回填历史月份，可能造成申报口径冲突。\n\n（2）离职员工补发收入不做专项说明，后续容易对不上。\n\n（3）停业不代表个税扣缴义务自动消失。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间补发工资,个人所得税,扣缴时点,工资补发,停业个税",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-IIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑新个税法征管衔接事项"
+        },
+        {
+          "policy_code": "POL-WHT-003",
+          "support_type": "support_procedure",
+          "support_note": "支撑代扣代缴处理要求"
+        }
+      ],
+      "tags": [
+        "tag_withholding",
+        "tag_declaration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-IIT-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CHG-IIT-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业后不再继续享受优惠了，以前年度优惠备案和留痕资料还要保留吗？",
+      "question_plain": "企业停业后已经不准备继续申报某些税收优惠，比如小微优惠、高新或研发相关优惠。此时以前年度形成的优惠留痕、备案资料和辅助台账是否还需要继续保留？",
+      "stage_code": "SUS",
+      "module_code": "PREF",
+      "question_type": "type_whether",
+      "one_line_answer": "停业后不继续享受优惠，不等于以前年度优惠资料就可以丢；历史优惠依据、备案和留痕仍应按复核和追溯要求妥善保留。",
+      "detailed_answer": "企业一停业，最容易出现的管理松懈之一，就是把以前年度形成的优惠资料、辅助台账、备查文件一起打包搁置甚至遗失。但税收优惠的后续风险，很多并不是在享受当期暴露，而是在后续抽查、复核、复业或注销时回头看出来。\n\n因此，只要以前年度享受过优惠，就不能因为当前停业、不再继续申报而放松资料管理。停业期更应该把历史资料整理好，而不是更散。",
+      "core_definition": "优惠停止享受，并不等于历史优惠依据失去保存价值；资料保留仍是后续复核的基础。",
+      "applicable_conditions": "适用于企业在停业后不再继续申报各类税收优惠，但以前年度曾享受过优惠，需要判断资料保留要求的情形。",
+      "exceptions_boundary": "（1）不同优惠项目的资料细节和保存重点不同。\n\n（2）若企业准备复业并再次申请优惠，还应关注连续性资料。\n\n（3）地方专项优惠可能附带地方留痕要求。",
+      "practical_steps": "第一步：梳理以前年度已享受的优惠项目清单。\n\n第二步：把申报表、备案材料、辅助台账和支持资料分类归档。\n\n第三步：区分需要长期留存与一般业务资料。\n\n第四步：在停业期间完成一次资料完整性复核。\n\n第五步：为复业或注销预留历史优惠查询路径。",
+      "risk_warning": "（1）停业后资料最容易散失，后续追溯成本最高。\n\n（2）没有辅助台账时，历史优惠很难自证。\n\n（3）把“现在不用”误解为“以后也不会再被看”，是典型误区。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间优惠资料,历史优惠留痕,备案资料保存,税收优惠,停业管理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-PREF-001",
+          "support_type": "support_direct",
+          "support_note": "支撑小微等优惠政策背景"
+        },
+        {
+          "policy_code": "POL-PREF-005",
+          "support_type": "support_aux",
+          "support_note": "支撑研发优惠资料留痕要求"
+        }
+      ],
+      "tags": [
+        "tag_policy_benefit",
+        "tag_risk_warning",
+        "tag_self_check"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-PREF-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-PREF-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间只保留一名负责人值守，社保费上最容易漏掉哪一步？",
+      "question_plain": "企业停业后大部分员工已离开，只保留一名负责人或留守人员处理收尾事务。此时在社保费管理上，企业最容易漏掉哪一步，应该怎样避免后续问题？",
+      "stage_code": "SUS",
+      "module_code": "SSF",
+      "question_type": "type_how",
+      "one_line_answer": "停业后只留少量人员时，社保费管理最容易漏掉的不是‘是否还要缴’，而是人员状态、缴费关系和申报口径是否同步收口。",
+      "detailed_answer": "企业停业后如果只剩一名负责人或留守人员，社保费处理往往变得很容易被简化成“还交不交”这个单一问题。但真正容易出错的是：人员劳动关系是否还在、社保关系是否已转移、系统申报是否已同步调整、历史基数是否需要收尾。\n\n因此，少人值守并不意味着管理更简单，反而更需要把人员状态和社保口径对齐。否则最常见的问题就是名单和申报状态不一致。",
+      "core_definition": "停业期间社保费管理的核心，是实际用工状态、参保状态和申报状态三者保持一致。",
+      "applicable_conditions": "适用于企业停业期间仅保留少量留守人员或负责人处理收尾事务，需要判断社保费管理重点的情形。",
+      "exceptions_boundary": "（1）若留守人员并非劳动关系主体，处理方式可能不同。\n\n（2）若员工已全部离职且关系转出，重点转向停保收尾。\n\n（3）社保费地方执行细节可能存在差异。",
+      "practical_steps": "第一步：确认留守人员的劳动关系和岗位状态。\n\n第二步：核对社保参保名单与实际在岗名单是否一致。\n\n第三步：处理停保、减员或继续缴费的系统动作。\n\n第四步：保留离职、留守和值守安排资料。\n\n第五步：复核社保费申报和缴费结果是否同步收口。",
+      "risk_warning": "（1）名单不清是停业期社保最常见问题。\n\n（2）实际已离职却未减员，后续会持续形成尾项。\n\n（3）只看缴费结果、不看申报状态，容易留下系统错口径。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间社保费,留守人员,减员停保,社保申报,停业社保",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-SSF-001",
+          "support_type": "support_direct",
+          "support_note": "支撑社会保险费征缴一般规则"
+        },
+        {
+          "policy_code": "SSF-POL-001",
+          "support_type": "support_definition",
+          "support_note": "支撑社保登记基础要求"
+        }
+      ],
+      "tags": [
+        "tag_ssf",
+        "tag_risk_warning",
+        "tag_self_check"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-SSF-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-SSF-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间把之前收的预收款退回客户，增值税申报上要注意什么？",
+      "question_plain": "企业办理停业后，发现以前收过客户预收款但业务最终没做成，需要把钱退回。此时增值税上是否只要退款就行，申报和发票还需要注意哪些问题？",
+      "stage_code": "SUS",
+      "module_code": "VAT",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间退回预收款，不是简单退款就结束；仍要同步核对原先是否已开票、是否已确认销售或申报，以及退款后的发票和申报衔接。",
+      "detailed_answer": "企业停业后处理历史预收款，是非常典型的尾项问题。很多人只盯着资金退回，却忽视了原先是否已经开具发票、是否已形成增值税申报记录。若这些前置动作已发生，后续退款就不能只停留在银行层面，而要把票、表和资金链条一并收口。\n\n因此，最稳妥的做法是先回溯原始预收款在发票和申报中的位置，再决定退款后的处理动作，而不是把退款视为天然消除税务影响。",
+      "core_definition": "预收款退款的增值税处理，核心是回看原先是否已形成开票和申报事实，并与退款动作一并闭环。",
+      "applicable_conditions": "适用于企业停业期间退回以前收取的预收款、定金或业务未成款项的情形。",
+      "exceptions_boundary": "（1）若从未开票且未形成销售申报，处理相对简单。\n\n（2）若已开票、已申报，则应重点关注红字或冲回衔接。\n\n（3）不同业务类型的纳税义务时间还需结合实际判断。",
+      "practical_steps": "第一步：确认原预收款是否已开票、已申报或已确认收入。\n\n第二步：核对退款原因和合同终止依据。\n\n第三步：根据原处理状态安排发票和申报衔接动作。\n\n第四步：保留退款凭证、协议和客户确认材料。\n\n第五步：在当期申报前完成一轮自查，避免票款表脱节。",
+      "risk_warning": "（1）只退钱不回看发票和申报，最容易形成尾项差异。\n\n（2）历史预收款记录不清，后续退款会变得难解释。\n\n（3）停业期常因忽视尾项导致后续复业或注销再出问题。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间退预收款,增值税申报,退款发票,尾项处理,停业增值税",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-VAT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑增值税纳税义务时间判断"
+        },
+        {
+          "policy_code": "SAT-INV-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑红字发票处理路径"
+        }
+      ],
+      "tags": [
+        "tag_vat_special",
+        "tag_red_invoice",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-VAT-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-INV-032",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业注销前发现一笔长期挂账的关联方往来大概率收不回，这笔坏账能直接在清算里处理吗？",
+      "question_plain": "企业准备注销时，账上还有一笔与关联方形成的长期往来，已经基本判断难以收回。进入清算前后，这类坏账是否可以直接在税务上处理，还是要先满足更多证据条件？",
+      "stage_code": "CLS",
+      "module_code": "CIT",
+      "question_type": "type_risk",
+      "one_line_answer": "注销前关联方长期挂账想按坏账处理，不能因为准备清算就直接冲掉，仍要看形成原因、追偿过程和证据完整度，尤其关联关系下更要谨慎。",
+      "detailed_answer": "关联方往来在企业注销时经常被拿出来集中处理，因为管理者会希望一次性把账做平。但税务上最关注的，不是企业想不想清掉，而是这笔款项究竟是什么性质、为什么形成、是否真走到无法收回、是否存在利益转移或虚列损失的可能。\n\n因此，注销前处理关联方坏账，重点不是‘能不能快点做掉’，而是能否拿出充分证据说明其坏账事实和追偿过程。关联关系越强，留痕要求越高。",
+      "core_definition": "关联方往来坏账处理的核心，是证明其真实发生、真实无法收回和已尽合理追偿，而非仅凭内部判断认定。",
+      "applicable_conditions": "适用于企业注销前或清算阶段，拟对关联方长期挂账、长期应收往来按坏账或损失处理的情形。",
+      "exceptions_boundary": "（1）若款项本质并非应收款，而是投资、分红或资金占用，判断逻辑不同。\n\n（2）若尚未充分追偿，不宜直接按坏账定性。\n\n（3）清算处理不等于自动放宽损失证据要求。",
+      "practical_steps": "第一步：确认该往来款项的真实形成背景和法律性质。\n\n第二步：整理催收、对账、函件和无法回收的证据。\n\n第三步：评估是否存在关联交易和利益输送疑点。\n\n第四步：将账务处理与税务处理分开测算。\n\n第五步：在清算前形成专项说明和底稿。",
+      "risk_warning": "（1）关联方坏账最怕只有内部判断、没有外部证据。\n\n（2）想借清算一次性冲账，是高风险动作。\n\n（3）未区分往来性质，后续很容易被重分类处理。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前坏账,关联方往来,清算所得,企业所得税,坏账处理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-CIT-002",
+          "support_type": "support_direct",
+          "support_note": "支撑资产损失税前扣除管理口径"
+        },
+        {
+          "policy_code": "GOV-CIT-002",
+          "support_type": "support_risk",
+          "support_note": "支撑清算阶段企业所得税处理"
+        }
+      ],
+      "tags": [
+        "tag_注销清算",
+        "tag_liquidation_asset",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-CIT-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-CLEAR-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业注销时被要求先补历史变更登记，应该先做登记修正还是先继续清税？",
+      "question_plain": "企业在办理注销或清税时，税务机关提示历史上有地址、法定代表人、开户信息等变更未同步处理。此时企业应该先把历史变更登记补齐，还是可以先继续做清税和注销？",
+      "stage_code": "CLS",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "注销时被发现历史变更未同步，通常不宜硬跳过；更稳妥的顺序是先判断哪些登记缺口会直接影响当前主体识别和注销流程，再优先补关键登记后继续清税。",
+      "detailed_answer": "很多企业以为到了注销阶段，以前的变更问题都可以不再补，但税务机关在注销时恰恰会回头核对主体信息是否闭合。若地址、法定代表、账户或联系链条存在明显断点，注销流程本身就失去了稳定基础。\n\n因此，处理顺序不能凭感觉。应先识别这些历史变更中，哪些属于会直接影响主体识别、送达、实名权限和税款处理的关键项，再决定是否必须先补。关键项不补，后面清税动作常常会反复被打回。",
+      "core_definition": "注销阶段的历史变更补录，重点不是形式完整，而是当前主体识别和流程闭环是否受影响。",
+      "applicable_conditions": "适用于企业办理清税或注销时，被提示历史变更登记未同步、登记信息断档的情形。",
+      "exceptions_boundary": "（1）若历史变更仅属轻微信息瑕疵，未必构成实质阻碍。\n\n（2）若变更涉及主体资格、地址、账户等核心信息，通常优先级更高。\n\n（3）不同事项可能存在并行补办的空间。",
+      "practical_steps": "第一步：列出被提示的全部历史变更缺口。\n\n第二步：判断哪些会直接影响主体识别、实名和通知送达。\n\n第三步：优先补办关键登记事项。\n\n第四步：保存变更前后衔接和补录回执。\n\n第五步：再继续推进清税和注销主流程。",
+      "risk_warning": "（1）带着关键登记断点去清税，流程很容易反复打回。\n\n（2）把历史变更都当成小事，往往会低估注销阻力。\n\n（3）没有补录回执，后续很难证明已完成修复。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前补变更登记,清税顺序,历史变更,登记修正,税务注销",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_direct",
+          "support_note": "支撑变更登记办理链路"
+        },
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑税务注销程序"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_税务注销",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-REG-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CHG-REG-009",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业刚解除税务异常，多久后再申请简易注销会更稳妥？",
+      "question_plain": "企业此前因漏报、异常或非正常状态被卡住，后来已经完成修复并恢复正常。现在准备重新申请简易注销，是否刚恢复正常就可以立即申请，还是最好先再做一轮状态复核？",
+      "stage_code": "RSK",
+      "module_code": "CLEAR",
+      "question_type": "type_whether",
+      "one_line_answer": "异常刚解除并不等于简易注销条件已经完全稳定，是否立即申请更稳妥，要看异常是否真正闭环、相关状态是否同步恢复以及是否还有残留尾项。",
+      "detailed_answer": "不少企业在异常解除后急于马上走简易注销，逻辑上可以理解，但问题在于“解除”有时只是一个节点，不一定代表所有相关模块都已经同步恢复。比如申报状态恢复了，发票、实名、信用或欠税尾项还未完全收口，这时立即申请简易注销，很可能再次被打回。\n\n因此，更稳妥的判断不是单看异常解除时间，而是看异常事项有没有真正闭环，系统状态是不是已经恢复到适合简易注销的程度。快不一定更省事，稳才更省流程。",
+      "core_definition": "简易注销申请时机的判断，不应只看异常解除动作本身，还要看相关涉税状态是否同步收口。",
+      "applicable_conditions": "适用于企业解除税务异常、恢复正常后，准备重新申请简易注销或继续注销流程的情形。",
+      "exceptions_boundary": "（1）若异常仅属轻微资料问题，恢复后等待压力可能较小。\n\n（2）若此前涉及欠税、发票或非正常户事项，复核范围应更广。\n\n（3）地方系统状态更新节奏可能存在差异。",
+      "practical_steps": "第一步：确认异常解除事项的回执和完成节点。\n\n第二步：复核申报、发票、实名、信用和欠税状态是否同步恢复。\n\n第三步：清点是否仍有历史尾项未收口。\n\n第四步：保留异常解除后的复核留痕。\n\n第五步：确认符合简易注销条件后再提交申请。",
+      "risk_warning": "（1）异常解除当天立刻冲简易注销，容易因为残留尾项再被打回。\n\n（2）只看一个模块恢复，不看整体状态，会误判申请时机。\n\n（3）没有复核留痕时，后续难说明已做过闭环检查。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "异常解除后简易注销,注销时机,税务异常,清税风险,简易注销条件",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_direct",
+          "support_note": "支撑税务注销路径判断"
+        },
+        {
+          "policy_code": "POL-RISK-001",
+          "support_type": "support_risk",
+          "support_note": "支撑异常状态管理背景"
+        }
+      ],
+      "tags": [
+        "tag_简易注销",
+        "tag_risk_warning",
+        "tag_self_check"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-CLEAR-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-REG-001",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

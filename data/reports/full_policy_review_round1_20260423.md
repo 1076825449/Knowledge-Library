@@ -1,0 +1,127 @@
+# 全库政策复核 Round 1
+
+- 生成时间：2026-04-23 11:23:36
+- 数据库：/Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db
+- policy_basis 总数：102
+- 本轮写入复核结论：102 条记录
+- active 引用政策仍缺官方 source_url：43
+- 受 `needs_update` 政策影响的 active 问题：154
+
+## 状态分布
+
+- `manual_local_review`: 7
+- `needs_update`: 14
+- `source_found`: 42
+- `source_pending`: 39
+
+## 口径说明
+
+- `source_found`：已找到官方或税务机关转载来源，但答案尚未逐条签收。
+- `needs_update`：已发现废止、替代或重大口径变化，相关问题必须修订。
+- `source_pending`：已纳入全库复核，但本轮未确认稳定官方来源或现行状态。
+- `manual_local_review`：地方口径必须由对应地区官方渠道二次确认。
+
+## 本轮明细
+
+- `CLEAR-POL-001` 税务登记管理办法（注销登记）: `source_found`
+- `GOV-BIZ-001` 企业经营范围登记管理规定: `source_pending`
+- `GOV-CIT-001` 企业所得税法: `source_found`
+- `GOV-CIT-002` 关于企业清算业务企业所得税处理若干问题的通知: `source_found`
+- `GOV-CLS-001` 公司注销登记管理办法: `source_pending`
+- `GOV-IIT-001` 关于个人独资企业和合伙企业投资者征收个人所得税的规定: `source_pending`
+- `GOV-PEN-001` 行政处罚法: `source_found`
+- `GOV-REG-001` 税务登记管理办法: `source_found`
+- `GOV-REG-002` 税务登记管理办法: `source_found`
+- `GOV-REG-003` 税务登记管理办法: `source_found`
+- `GOV-REG-004` 税务登记管理办法: `source_found`
+- `GOV-Tax-001` 中华人民共和国税收征收管理法: `source_found`
+- `GOV-Tax-002` 税务登记管理办法: `source_found`
+- `GOV-Tax-003` 重大税收违法失信主体信息公布管理办法: `source_found`
+- `GOV-VAT-001` 增值税暂行条例: `needs_update`
+- `GOV-VAT-002` 关于增值税若干政策的通知: `needs_update`
+- `GOV-VAT-003` 关于全面推开营业税改征增值税试点的通知: `source_found`
+- `IIT-POL-001` 关于股权激励有关个人所得税问题的通知: `source_pending`
+- `IIT-POL-002` 关于个人所得税若干政策问题的通知: `source_found`
+- `LOCAL-GX-001` 广西壮族自治区优化营商环境条例: `manual_local_review`
+- `LOCAL-GX-002` 广西税务系统关于优化税务注销程序的通告: `manual_local_review`
+- `POL-CIT-001` 企业所得税法: `source_found`
+- `POL-CIT-002` 企业资产损失所得税税前扣除管理办法: `source_found`
+- `POL-DEC-001` 关于小规模纳税人免征增值税政策有关征管问题的公告: `needs_update`
+- `POL-DEC-002` 税务行政处罚程序规定: `source_found`
+- `POL-INV-001` 发票管理办法: `source_found`
+- `POL-INV-002` 增值税专用发票使用规定: `source_pending`
+- `POL-INV-003` 关于红字增值税发票开具有关问题的公告: `needs_update`
+- `POL-INV-004` 关于取消发票丢失抄报税的公告: `source_pending`
+- `POL-LOCAL-GD-001` 广东省税务行政处罚裁量基准: `manual_local_review`
+- `POL-LOCAL-GD-002` 广东省增值税小规模纳税人减免增值税具体规定: `manual_local_review`
+- `POL-LOCAL-GD-003` 广东省企业所得税核定征收操作规程: `manual_local_review`
+- `POL-LOCAL-SH-001` 上海市税务行政处罚裁量基准: `manual_local_review`
+- `POL-LOCAL-SH-002` 上海市增值税小规模纳税人地方留成部分减免规定: `manual_local_review`
+- `POL-PREF-001` 关于实施小微企业普惠性税收减免政策的通知: `source_pending`
+- `POL-PREF-002` 关于进一步支持小微企业的增值税政策的公告: `needs_update`
+- `POL-PREF-003` 关于小微企业和个体工商户所得税优惠政策的公告: `source_pending`
+- `POL-PREF-004` 个人所得税专项附加扣除标准提高: `source_pending`
+- `POL-PREF-005` 关于进一步完善研发费用税前加计扣除政策的公告: `source_found`
+- `POL-PREF-006` 高新技术企业认定管理办法: `source_pending`
+- `POL-PREF-007` 关于促进残疾人就业增值税优惠政策的通知: `source_pending`
+- `POL-PREF-008` 关于进一步加大增值税期末留抵退税政策实施力度的公告: `source_pending`
+- `POL-PREF-009` 关于小规模纳税人免征增值税政策的公告: `needs_update`
+- `POL-PREF-010` 关于促进集成电路产业和软件产业高质量发展企业所得税政策的公告: `source_pending`
+- `POL-RISK-001` 非正常户管理办法: `source_pending`
+- `POL-RISK-002` 非正常户管理办法: `source_pending`
+- `POL-RISK-003` 关于异常增值税扣税凭证处理有关问题的公告: `source_pending`
+- `POL-SSF-001` 社会保险费征缴暂行条例: `source_found`
+- `POL-SUS-001` 税务登记管理办法（停业复业章节）: `source_found`
+- `POL-TAX-001` 关于专项用途财政性资金企业所得税处理问题的通知: `source_pending`
+- `POL-VAT-001` 增值税暂行条例: `needs_update`
+- `POL-VAT-002` 关于深化增值税改革有关政策的公告: `source_found`
+- `POL-VAT-003` 关于继续执行的部分增值税税收优惠政策: `source_pending`
+- `POL-VAT-004` 关于明确农产品增值税进项税额核定扣除有关事项的公告: `source_pending`
+- `POL-VAT-005` 关于进一步优化增值税优惠政策办理程序的公告: `source_pending`
+- `POL-VAT-006` 增值税发票管理等有关事项的公告: `source_pending`
+- `POL-VAT-007` 关于全面推开营业税改征增值税试点后增值税纳税申报有关事项的公告: `needs_update`
+- `POL-VAT-008` 关于二手车经销企业减征增值税等政策的公告: `source_pending`
+- `POL-VAT-009` 关于增值税即征即退政策的公告: `source_pending`
+- `POL-WHT-001` 中华人民共和国企业所得税法: `source_found`
+- `POL-WHT-002` 中华人民共和国个人所得税法: `source_found`
+- `POL-WHT-003` 个人所得税代扣代缴暂行办法: `source_pending`
+- `SAT-2024-033` 关于优化税务登记管理有关问题的公告: `source_found`
+- `SAT-CIT-001` 企业所得税税前扣除凭证管理办法: `source_found`
+- `SAT-CLEAR-001` 关于优化税务注销程序的公告: `source_pending`
+- `SAT-CLEAR-002` 关于优化税务注销若干事项的公告: `source_pending`
+- `SAT-DEC-006` 关于进一步推进税费种认定便利化的公告: `source_pending`
+- `SAT-FEE-001` 关于企业所得税若干问题的公告: `source_found`
+- `SAT-IIT-001` 关于全面实施新个人所得税法若干征管的衔接事项公告: `source_found`
+- `SAT-IIT-002` 关于全年一次性奖金等政策的公告: `source_found`
+- `SAT-IIT-003` 关于完善调整部分纳税人个人所得税预扣预缴方法的公告: `source_found`
+- `SAT-INV-001` 关于红字增值税发票开具有关问题的公告: `source_found`
+- `SAT-INV-002` 红字增值税发票开具有关问题公告: `source_found`
+- `SAT-RISK-001` 纳税信用管理办法（试行）: `needs_update`
+- `SAT-RISK-002` 纳税信用管理办法（试行）: `needs_update`
+- `SAT-RISK-003` 纳税信用管理有关问题的公告: `needs_update`
+- `SAT-SSF-001` 关于非居民企业所得税源泉扣缴有关问题的公告: `source_pending`
+- `SAT-SSF-002` 关于发布《非居民纳税人享受协定待遇管理办法》的公告: `source_pending`
+- `SAT-SUS-001` 关于修订《重大税收违法失信主体信息公布管理办法》的公告: `source_found`
+- `SAT-SUS-002` 关于税务文书电子送达有关问题的公告: `source_found`
+- `SAT-SUS-003` 关于欠税公告与信用惩戒衔接有关问题的通知: `source_pending`
+- `SAT-TAX-001` 税务登记管理办法: `source_found`
+- `SAT-TAX-002` 关于发布企业所得税年度纳税申报表有关问题的公告: `source_pending`
+- `SAT-TAX-003` 关于关联申报和国别报告事项的公告: `source_pending`
+- `SAT-VAT-001` 增值税暂行条例实施细则: `needs_update`
+- `SAT-VAT-002` 增值税一般纳税人登记管理办法: `source_found`
+- `SAT-VAT-003` 增值税发票管理等有关事项公告: `source_pending`
+- `SAT-VAT-004` 增值税纳税申报管理暂行办法: `needs_update`
+- `SAT-VAT-005` 支持个体工商户复工复业税收征管公告: `source_pending`
+- `SAT-VAT-006` 关于异常增值税扣税凭证管理等事项的公告: `source_pending`
+- `SAT-VAT-007` 关于进一步优化增值税优惠政策办理程序的通知: `source_pending`
+- `SAT-VAT-008` 关于深化增值税改革有关政策衔接事项的公告: `source_found`
+- `SSF-POL-001` 社会保险法第五十七条（社保登记）: `source_found`
+- `SSF-POL-002` 劳动合同法第四十四条（劳动合同终止）: `source_found`
+- `TAX-POL-001` 税收征收管理法第三十二条（滞纳金）: `source_found`
+- `TAX-POL-002` 关于纳税人虚开增值税专用发票征屿税款问题的公告: `source_pending`
+- `TAX-POL-003` 税务稽查随机抽查对象名录库管理办法: `source_pending`
+- `TAX-POL-004` 税务稽查一案双查办法（试行）: `source_pending`
+- `TAX-POL-005` 税务登记管理办法（2019修正）第四十条（非正常户认定）: `source_found`
+- `TAX-POL-006` 企业所得税法第三条、第三十七条（预提所得税）: `source_found`
+- `TAX-POL-007` 企业所得税法第五十四条（汇算清缴）: `source_found`
+- `TAX-POL-008` 增值税暂行条例实施细则第四条（视同销售）: `needs_update`

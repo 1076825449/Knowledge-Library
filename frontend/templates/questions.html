@@ -2,10 +2,9 @@
 
 {# ===== 辅助宏 ===== #}
 {% macro certainty_label(code) %}
-    {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
-    {% elif code == 'certain_conditional' %}<span class="certainty-tag condition">有条件</span>
-    {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
-    {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
+    {% set meta = answer_certainty_meta.get(code) %}
+    {% if meta %}
+    <span class="certainty-tag {{ 'clear' if code == 'certain_clear' else 'condition' if code in ['certain_condition', 'certain_conditional'] else 'dispute' if code == 'certain_dispute' else 'practice' }}">{{ meta.label }}</span>
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
 {% endmacro %}
 
@@ -27,40 +26,15 @@
 
 {# ===== 中文标签宏 ===== #}
 {% macro stage_label(code) %}
-    {% if code == 'SET' %}设立期
-    {% elif code == 'OPR' %}开业/日常经营期
-    {% elif code == 'CHG' %}变更期
-    {% elif code == 'RSK' %}风险异常期
-    {% elif code == 'SUS' %}停业期
-    {% elif code == 'CLS' %}注销期
-    {% else %}{{ code }}{% endif %}
+    {{ stage_labels.get(code, code) }}
 {% endmacro %}
 
 {% macro module_label(code) %}
-    {% if code == 'REG' %}登记管理
-    {% elif code == 'DEC' %}申报纳税
-    {% elif code == 'INV' %}发票管理
-    {% elif code == 'VAT' %}增值税
-    {% elif code == 'CIT' %}企业所得税
-    {% elif code == 'IIT' %}个人所得税
-    {% elif code == 'SSF' %}社保费
-    {% elif code == 'FEE' %}成本费用
-    {% elif code == 'PREF' %}优惠政策
-    {% elif code == 'RISK' %}风险管控
-    {% elif code == 'CLEAR' %}清税注销
-    {% elif code == 'ETAX' %}电子税务局/系统办理
-    {% else %}{{ code }}{% endif %}
+    {{ module_labels.get(code, code) }}
 {% endmacro %}
 
 {% macro question_type_label(code) %}
-    {% if code == 'type_why' %}原因
-    {% elif code == 'type_whether' %}是否
-    {% elif code == 'type_how' %}如何
-    {% elif code == 'type_what' %}是什么
-    {% elif code == 'type_define' %}定义
-    {% elif code == 'type_time' %}时限
-    {% elif code == 'type_risk' %}风险
-    {% else %}{{ code }}{% endif %}
+    {{ question_type_meta.get(code, {}).get('label', code) }}
 {% endmacro %}
 
 {% block title %}问题列表 - 企业税务知识库{% endblock %}
@@ -68,16 +42,19 @@
 {% block main %}
 {# ========== 页面标题 + 搜索框 ========== #}
 <div class="page-header">
-    <h1>问题列表</h1>
+    <div>
+        <div class="home-kicker">问题检索</div>
+        <h1>按场景筛选问题</h1>
+    </div>
     <form action="/questions" method="get" class="search-form">
-        <input type="text" name="keyword" placeholder="搜索问题…" class="search-input" value="{{ keyword }}">
-        <button type="submit" class="search-btn">搜索</button>
+        <input type="text" name="keyword" placeholder="搜索你的税务问题，例如“零申报是不是不用报”..." class="search-input" value="{{ keyword }}">
+        <button type="submit" class="search-btn">查询</button>
     </form>
 </div>
 
 {# ========== 筛选器 ========== #}
 <div class="filters">
-    <span class="filter-label">阶段：</span>
+    <span class="filter-label">生命周期：</span>
     <a href="{{ filter_url({'stage': ''}) }}" class="filter-chip {% if not current_stage %}active{% endif %}">全部</a>
     {% for s in stages %}
     <a href="{{ filter_url({'stage': s.tag_code}) }}" class="filter-chip {% if current_stage == s.tag_code %}active{% endif %}">{{ s.tag_name }}</a>
@@ -85,7 +62,7 @@
 </div>
 
 <div class="filters">
-    <span class="filter-label">模块：</span>
+    <span class="filter-label">税种事项：</span>
     <a href="{{ filter_url({'module': ''}) }}" class="filter-chip {% if not current_module %}active{% endif %}">全部</a>
     {% for m in modules %}
     <a href="{{ filter_url({'module': m.tag_code}) }}" class="filter-chip {% if current_module == m.tag_code %}active{% endif %}">{{ m.tag_name }}</a>
@@ -132,14 +109,14 @@
 
 {# ========== 快捷筛选 ========== #}
 <div class="filters filters-quick">
-    <span class="filter-label">快捷：</span>
+    <span class="filter-label">常用入口：</span>
     <a href="{{ filter_url({'hf': '1'}) }}" class="filter-chip {% if request.args.get('hf') == '1' %}active{% endif %}">只看高频</a>
     <a href="{{ filter_url({'newbie': '1'}) }}" class="filter-chip {% if request.args.get('newbie') == '1' %}active{% endif %}">只看新手</a>
 </div>
 
 {# ========== 列表 ========== #}
 {% if questions %}
-<p class="result-count">共 {{ total }} 条结果</p>
+<p class="result-count">当前筛出 {{ total }} 条问题。点击问题卡片查看完整答案、处理步骤和政策依据。</p>
 <ul class="question-list">
     {% for q in questions %}
     <li class="question-item">
@@ -164,6 +141,7 @@
             <div class="q-answer">{{ q.one_line_answer }}</div>
             {% endif %}
             {% if q.updated_at %}<div class="q-updated">更新：{{ q.updated_at[:10] }}</div>{% endif %}
+            <span class="q-arrow">›</span>
         </a>
     </li>
     {% endfor %}
@@ -202,6 +180,6 @@
 {% endif %}
 
 {% else %}
-<p class="empty-state">没有找到符合条件的問題。</p>
+<p class="empty-state">没有找到符合条件的问题。</p>
 {% endif %}
 {% endblock %}

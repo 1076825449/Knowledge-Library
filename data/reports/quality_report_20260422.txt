@@ -1,0 +1,252 @@
+============================================================
+税务知识库数据质量巡检报告
+生成时间: 2026-04-22 20:16:42
+数据库: /Volumes/外接硬盘/vibe coding/网站/知识库/database/db/tax_knowledge.db
+总问题数: 742 条
+============================================================
+
+============================================================
+【检查1】FK约束状态
+============================================================
+✅ PRAGMA foreign_keys = 1 (已启用)
+
+============================================================
+【检查2】代码一致性 (question_code 前缀匹配)
+============================================================
+✅ 所有 742 条问题编码与 stage/module 前缀一致
+
+============================================================
+【检查3】必填字段完整性
+============================================================
+✅ 所有必填字段均已填写
+
+============================================================
+【检查4】答案确定性合理性
+============================================================
+❌ 143 条 answer_certainty 值不合法：
+   [OPR-INV-001] certain_condition
+   [OPR-INV-004] certain_condition
+   [OPR-INV-006] certain_condition
+   [OPR-DEC-004] certain_condition
+   [OPR-CIT-002] certain_condition
+   [OPR-CIT-003] certain_condition
+   [OPR-CIT-004] certain_condition
+   [OPR-DEC-005] certain_condition
+   [OPR-IIT-002] certain_condition
+   [OPR-FEE-002] certain_condition
+   [OPR-FEE-003] certain_condition
+   [OPR-IIT-004] certain_condition
+   [OPR-IIT-005] certain_condition
+   [SET-DEC-005] certain_condition
+   [OPR-DEC-013] certain_condition
+   [OPR-INV-013] certain_condition
+   [OPR-RISK-010] certain_condition
+   [OPR-PREF-002] certain_condition
+   [SET-PREF-001] certain_condition
+   [OPR-PREF-005] certain_condition
+   [RSK-RISK-026] certain_condition
+   [OPR-VAT-018] certain_condition
+   [OPR-SSF-023] certain_condition
+   [CHG-IIT-002] certain_condition
+   [CHG-CIT-003] certain_condition
+   [CHG-FEE-003] certain_condition
+   [CLS-CIT-003] certain_condition
+   [CLS-FEE-003] certain_condition
+   [CLS-RISK-003] certain_condition
+   [SUS-CIT-003] certain_condition
+   [SUS-FEE-003] certain_condition
+   [CHG-ETAX-003] certain_condition
+   [CHG-IIT-003] certain_condition
+   [RSK-CLEAR-003] certain_condition
+   [SET-ETAX-003] certain_condition
+   [RSK-ETAX-003] certain_condition
+   [RSK-ETAX-004] certain_condition
+   [SUS-RISK-004] certain_condition
+   [CLS-CLEAR-017] certain_condition
+   [SET-ETAX-004] certain_condition
+   [SET-DEC-010] certain_condition
+   [SET-IIT-006] certain_condition
+   [SET-SSF-004] certain_condition
+   [OPR-DEC-046] certain_condition
+   [OPR-INV-030] certain_condition
+   [OPR-FEE-033] certain_condition
+   [OPR-IIT-031] certain_condition
+   [OPR-ETAX-005] certain_condition
+   [RSK-RISK-033] certain_condition
+   [RSK-ETAX-005] certain_condition
+   [RSK-DEC-005] certain_condition
+   [CHG-REG-009] certain_condition
+   [CHG-DEC-004] certain_condition
+   [CHG-INV-004] certain_condition
+   [CHG-RISK-004] certain_condition
+   [OPR-INV-032] certain_condition
+   [OPR-DEC-047] certain_condition
+   [SUS-CLEAR-006] certain_condition
+   [SUS-CLEAR-007] certain_condition
+   [CLS-RISK-004] certain_condition
+   [CHG-TAX-006] certain_condition
+   [CHG-TAX-007] certain_condition
+   [OPR-FEE-034] certain_condition
+   [OPR-DEC-048] certain_condition
+   [CHG-IIT-004] certain_condition
+   [SUS-DEC-005] certain_condition
+   [CHG-CIT-004] certain_condition
+   [CHG-ETAX-004] certain_condition
+   [CHG-FEE-004] certain_condition
+   [SUS-DEC-006] certain_condition
+   [CLS-CIT-004] certain_condition
+   [CLS-FEE-004] certain_condition
+   [CLS-REG-004] certain_condition
+   [CLS-VAT-004] certain_condition
+   [RSK-CLEAR-004] certain_condition
+   [RSK-INV-004] certain_condition
+   [RSK-REG-004] certain_condition
+   [SET-CIT-004] certain_condition
+   [SET-CLEAR-004] certain_condition
+   [SET-RISK-004] certain_condition
+   [SET-TAX-005] certain_condition
+   [SUS-CIT-004] certain_condition
+   [SUS-FEE-004] certain_condition
+   [SUS-IIT-004] certain_condition
+   [SUS-PREF-004] certain_condition
+   [SUS-SSF-004] certain_condition
+   [SUS-VAT-004] certain_condition
+   [CLS-CIT-005] certain_condition
+   [CLS-REG-005] certain_condition
+   [RSK-CLEAR-005] certain_condition
+   [CHG-CIT-005] certain_condition
+   [CHG-DEC-005] certain_condition
+   [CHG-ETAX-005] certain_condition
+   [CHG-FEE-005] certain_condition
+   [CHG-IIT-005] certain_condition
+   [CHG-INV-005] certain_condition
+   [CHG-RISK-005] certain_condition
+   [CLS-DEC-005] certain_condition
+   [CLS-IIT-005] certain_condition
+   [CLS-PREF-005] certain_condition
+   [CLS-TAX-005] certain_condition
+   [CLS-VAT-005] certain_condition
+   [RSK-CIT-007] certain_condition
+   [RSK-INV-005] certain_condition
+   [RSK-PREF-005] certain_condition
+   [RSK-REG-005] certain_condition
+   [SET-CIT-005] certain_condition
+   [SET-CLEAR-005] certain_condition
+   [SET-ETAX-005] certain_condition
+   [SET-SSF-005] certain_condition
+   [SET-VAT-005] certain_condition
+   [CLS-FEE-005] certain_condition
+   [SET-RISK-005] certain_condition
+   [SET-TAX-006] certain_condition
+   [SUS-CIT-005] certain_condition
+   [SUS-FEE-005] certain_condition
+   [SUS-IIT-005] certain_condition
+   [SUS-INV-005] certain_condition
+   [SUS-PREF-005] certain_condition
+   [SUS-REG-005] certain_condition
+   [SUS-SSF-005] certain_condition
+   [SUS-TAX-005] certain_condition
+   [SUS-VAT-005] certain_condition
+   [CHG-CIT-006] certain_condition
+   [CHG-DEC-006] certain_condition
+   [CHG-ETAX-006] certain_condition
+   [CHG-FEE-006] certain_condition
+   [CHG-IIT-006] certain_condition
+   [CHG-INV-006] certain_condition
+   [CHG-RISK-006] certain_condition
+   [CLS-CIT-006] certain_condition
+   [CLS-DEC-006] certain_condition
+   [CLS-ETAX-006] certain_condition
+   [CLS-FEE-006] certain_condition
+   [CLS-IIT-006] certain_condition
+   [CLS-INV-006] certain_condition
+   [CLS-PREF-006] certain_condition
+   [CLS-REG-006] certain_condition
+   [CLS-RISK-006] certain_condition
+   [CLS-SSF-006] certain_condition
+   [CLS-TAX-006] certain_condition
+   [CLS-VAT-006] certain_condition
+   [OPR-ETAX-006] certain_condition
+
+============================================================
+【检查5】适用范围合理性
+============================================================
+✅ 所有 scope_level 值合法
+
+============================================================
+【检查6】问题类型合理性
+============================================================
+✅ 所有 question_type 值合法
+
+============================================================
+【检查7】草稿状态问题清单
+============================================================
+✅ 无草稿状态问题
+
+============================================================
+【检查8】缺少政策依据的问题
+============================================================
+✅ 所有问题均已关联政策依据
+
+============================================================
+【检查9】缺少业务标签的问题
+============================================================
+✅ 所有问题均已关联标签
+
+============================================================
+【检查10】孤立政策关联
+============================================================
+✅ 所有政策关联均有效
+
+============================================================
+【检查11】孤立标签关联
+============================================================
+✅ 所有标签关联均有效
+
+============================================================
+【检查12】重复问题代码
+============================================================
+✅ 无重复问题代码
+
+============================================================
+【检查13】问题类型分布统计
+============================================================
+   type_how: 209 条 (28.2%)
+   type_whether: 138 条 (18.6%)
+   type_steps: 69 条 (9.3%)
+   type_clarify: 68 条 (9.2%)
+   type_what: 59 条 (8.0%)
+   type_define: 57 条 (7.7%)
+   type_risk: 44 条 (5.9%)
+   type_procedure: 43 条 (5.8%)
+   type_compare: 18 条 (2.4%)
+   type_compliance: 16 条 (2.2%)
+   type_why: 14 条 (1.9%)
+   type_time: 7 条 (0.9%)
+
+============================================================
+【检查14】阶段×模块覆盖矩阵
+============================================================
+Stage/Module     CIT   CLEAR     DEC    ETAX     FEE     IIT     INV    PREF     REG    RISK     SSF     TAX     VAT
+--------------------------------------------------------------------------------------------------------------------
+CHG                6       6       6       6       6       6       6       7       9       6       9       7       6
+CLS                6      18       6       6       6       6       6       6       6       6       6       6       6
+OPR               36      15      29       6      34      31      32      22      25      18      23      23      19
+RSK                5       5       5       5       5       6       5       5       5      33       5      10       7
+SET                5       5      10       5       5       6       6       5      17       5       5       5       5
+SUS                5       7       6       5       5       5       5       5       5       5       5       5       5
+
+============================================================
+【检查15】长期未复审内容
+============================================================
+✅ 所有问题均在 1 年内完成过创建或复审
+
+============================================================
+【检查16】support_type 枚举值合法性
+============================================================
+✅ 所有 policy_link 的 support_type 均为标准值
+
+============================================================
+【检查17】stage_code / module_code 字典域合法性
+============================================================
+✅ 所有 stage_code / module_code 均在合法字典内

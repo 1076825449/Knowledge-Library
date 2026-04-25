@@ -1,57 +1,154 @@
 # 企业税务知识库 — 部署说明
 
-## 快速启动
+## 目标
+
+本项目当前采用单体部署：
+
+- Web：Flask + Gunicorn
+- 数据：SQLite 文件
+- 静态资源：由 Flask 直接提供
+
+适合以下场景：
+
+- 本地私有部署
+- 单机内网部署
+- 轻量云主机部署
+- 容器化单实例部署
+
+不适合以下场景：
+
+- 多实例横向扩容且共用 SQLite
+- 高频并发写入
+- 复杂后台协作编辑
+
+## 部署前检查
 
 ```bash
-git clone git@github.com:1076825449/Knowledge-Library.git
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+python scripts/ops/check_env.py
+python -m pytest tests/ -q
+python scripts/content/quality_report.py
+```
+
+## 环境变量
+
+生产部署至少应设置以下变量：
+
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
+| `SECRET_KEY` | `tax-knowledge-library-secret-2026` | Flask 会话密钥，生产必须替换 |
+| `ADMIN_PASSWORD` | `tax2026` | 后台编辑密码，生产必须替换 |
+| `HOST` | `0.0.0.0` | 监听地址 |
+| `PORT` | `5000` | 服务端口 |
+| `FLASK_DEBUG` | `0` | 生产环境必须关闭 |
+| `DATABASE_PATH` | `database/db/tax_knowledge.db` | SQLite 数据库文件路径 |
+| `SITE_URL` | `http://127.0.0.1:5000` | 站点对外访问地址，用于 canonical / sitemap / robots |
+| `SITE_NAME` | `企业税务知识库` | 站点名称 |
+| `SITE_DESCRIPTION` | 内置默认描述 | 站点公共描述文案 |
+
+示例：
+
+```bash
+export SECRET_KEY='replace-with-a-long-random-secret'
+export ADMIN_PASSWORD='replace-with-a-strong-password'
+export HOST='0.0.0.0'
+export PORT='5000'
+export FLASK_DEBUG='0'
+export DATABASE_PATH='/opt/tax-knowledge/database/db/tax_knowledge.db'
+export SITE_URL='https://your-domain.example.com'
+```
+
+## 方式一：Gunicorn 直接部署
+
+这是当前最推荐的最小生产方案。
+
+```bash
+git clone <your-repo-url>
 cd Knowledge-Library
 
-python -m venv venv
-source venv/bin/activate
-
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+
+mkdir -p database/db database/backups data/reports data/exports
+
+# 全新初始化时执行
 bash scripts/db/init_db.sh
 
-cd backend && python app.py
-# → http://localhost:5000
+# 已有数据库时，把数据库文件放到 DATABASE_PATH 指向的位置
+gunicorn --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:5000 wsgi:app
 ```
 
-## 部署方式
+如果使用 systemd，推荐的 `ExecStart` 类似：
 
-### 方式一：直接运行（开发 / 最小部署）
+```ini
+ExecStart=/opt/tax-knowledge/.venv/bin/gunicorn --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:5000 wsgi:app
+WorkingDirectory=/opt/tax-knowledge
+```
+
+## 方式二：Docker 部署
+
+仓库已经提供：
+
+- [Dockerfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Dockerfile)
+- [docker-compose.yml](/Volumes/外接硬盘/vibe coding/网站/知识库/docker-compose.yml)
+- [Procfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Procfile)
+- [wsgi.py](/Volumes/外接硬盘/vibe coding/网站/知识库/wsgi.py)
+- [deploy/nginx/tax-knowledge.conf.example](/Volumes/外接硬盘/vibe coding/网站/知识库/deploy/nginx/tax-knowledge.conf.example)
+- [deploy/systemd/tax-knowledge.service.example](/Volumes/外接硬盘/vibe coding/网站/知识库/deploy/systemd/tax-knowledge.service.example)
+
+构建镜像：
 
 ```bash
-source venv/bin/activate
-cd backend && python app.py
-# Flask 监听 localhost:5000
+docker build -t tax-knowledge:latest .
 ```
 
-### 方式二：Gunicorn（生产推荐）
+运行容器：
 
 ```bash
-pip install gunicorn
-cd backend
-gunicorn -w 2 -b 0.0.0.0:5000 --timeout 60 app:app
-```
-
-### 方式三：Docker
-
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--timeout", "60", "backend/app:app"]
-```
-
-```bash
-docker build -t tax-knowledge .
-docker run -d -p 5000:5000 \
+docker run -d \
+  --name tax-knowledge \
+  -p 5000:5000 \
+  -e SECRET_KEY='replace-with-a-long-random-secret' \
+  -e ADMIN_PASSWORD='replace-with-a-strong-password' \
+  -e FLASK_DEBUG='0' \
+  -e DATABASE_PATH='/app/database/db/tax_knowledge.db' \
   -v $(pwd)/database/db:/app/database/db \
-  tax-knowledge
+  -v $(pwd)/database/backups:/app/database/backups \
+  tax-knowledge:latest
 ```
+
+如果是全新容器部署，先在宿主机初始化数据库：
+
+```bash
+bash scripts/db/init_db.sh
+```
+
+再挂载 `database/db` 目录启动容器。
+
+也可以直接使用：
+
+```bash
+docker compose up -d --build
+```
+
+## 方式三：支持 Procfile 的平台
+
+仓库根目录已提供 [Procfile](/Volumes/外接硬盘/vibe coding/网站/知识库/Procfile)：
+
+```bash
+web: gunicorn --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:${PORT:-5000} wsgi:app
+```
+
+适用于支持 Procfile 的轻量 PaaS，但前提仍是：
+
+- 平台允许持久化或挂载 SQLite 文件
+- 只运行单实例
+
+如果平台不支持持久化磁盘，不建议直接部署当前 SQLite 版本。
 
 ## 数据库初始化与恢复
 
@@ -110,21 +207,6 @@ cp database/backups/tax_knowledge_YYYYMMDD_HHMMSS.db database/db/tax_knowledge.d
 0 3 * * * cd /path/to/Knowledge-Library && /usr/bin/python3 scripts/ops/backup_db.py >> logs/backup.log 2>&1
 ```
 
-## 环境变量
-
-| 变量 | 默认值 | 说明 |
-|------|--------|------|
-| `FLASK_ENV` | `development` | production 模式下关闭 debug |
-| `FLASK_SECRET_KEY` | （空） | 生产环境必须设置随机密钥 |
-| `ADMIN_PASSWORD` | `tax2026` | 编辑页面访问密码，生产环境必须更换 |
-| `DATABASE_PATH` | `database/db/tax_knowledge.db` | 可指定外部数据库路径 |
-
-**重要**：首次部署前必须更改 `ADMIN_PASSWORD`：
-```bash
-export ADMIN_PASSWORD='your-strong-password-here'
-cd backend && python app.py
-```
-
 ## 测试
 
 ```bash
@@ -147,25 +229,40 @@ database/db/      → 需要读写权限（SQLite 需要写锁文件）
 database/backups/ → 需要写权限
 logs/             → 需要写权限（如启用日志）
 data/exports/     → 自动创建（运行时）
+data/reports/     → 建议保留写权限（质量巡检报告输出）
 ```
 
-## 目录结构总览
+## 上线后最小运维动作
 
+推荐固定执行以下动作：
+
+```bash
+# 部署前检查
+python scripts/ops/deploy_preflight.py
+
+# 每次内容批量更新后
+python scripts/content/quality_report.py
+python -m pytest tests/ -q
+
+# 每天或每次重要更新后
+python scripts/ops/backup_db.py
 ```
-backend/           — Flask 应用（含路由、服务、配置）
-frontend/          — Jinja2 模板和静态文件
-database/
-  schema/          — 建表 SQL 脚本（可重建数据库）
-  seed/            — 初始化数据
-  db/              — SQLite 数据文件（不纳入版本控制）
-  backups/         — 自动备份（保留10份）
-scripts/
-  db/init_db.sh   — 数据库初始化脚本
-  content/         — 内容管理（导入、审计、报告）
-  export/          — AI 检索数据导出
-  ops/             — 运维脚本（备份、环境检查）
-data/
-  imports/         — 批量导入 JSON 源文件（纳入版本控制）
-  exports/         — 导出数据（每次运行重新生成，不纳入版本控制）
-tests/             — 测试套件
-```
+
+## 当前部署结论
+
+截至当前仓库状态，项目已经具备最小生产部署闭环：
+
+- 支持 `DATABASE_PATH / PORT / HOST / FLASK_DEBUG` 环境变量
+- 支持 `SITE_URL / SITE_NAME / SITE_DESCRIPTION` 站点级环境变量
+- 提供 Gunicorn WSGI 入口
+- 提供 Dockerfile
+- 提供 Procfile
+- 提供数据库初始化、备份、质量巡检和测试命令
+- 提供 `robots.txt`、`sitemap.xml` 和公开说明页面
+
+后续如果继续产品化，下一步应考虑：
+
+1. 反向代理（Nginx/Caddy）
+2. HTTPS 与域名接入
+3. SQLite 向 PostgreSQL/MySQL 迁移预案
+4. 管理员操作日志与只读公开访问分层

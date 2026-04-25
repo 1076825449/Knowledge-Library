@@ -63,6 +63,15 @@ class TestQuestionService:
         for q in result['questions']:
             assert q.get('question_type') == 'type_whether'
 
+    def test_search_questions_reuses_list_logic(self, svc):
+        """search_questions 应复用 list_questions 的搜索口径，避免页面/API 行为分叉"""
+        via_list = svc.list_questions(keyword='没收入', page=1, page_size=10)
+        via_search = svc.search_questions('没收入', page=1, page_size=10)
+        assert via_search['total'] == via_list['total']
+        assert [q['question_code'] for q in via_search['questions']] == [
+            q['question_code'] for q in via_list['questions']
+        ]
+
     def test_list_questions_default_status_is_active(self, svc):
         """不传 status 时，默认只返回 active 问题。
         list_questions() SELECT 不含 status 列，通过 get_question_detail()

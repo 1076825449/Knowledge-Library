@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}企业税务知识库{% endblock %}</title>
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ site_description }}{% endblock %}">
+    <meta name="robots" content="{% block meta_robots %}index,follow{% endblock %}">
+    <link rel="canonical" href="{% block canonical_url %}{{ request.url }}{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ self.title()|striptags }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ self.meta_description()|striptags }}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ request.url }}{% endblock %}">
+    <meta property="og:site_name" content="{{ site_name }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header class="site-header">
         <div class="container header-inner">
-            <a href="/" class="logo">企业税务知识库</a>
+            <a href="/" class="logo">税问</a>
             <nav class="main-nav">
-                <a href="/">首页</a>
-                <a href="/questions">问题列表</a>
+                <a href="/">按阶段浏览</a>
+                <a href="/questions">按税种和查询</a>
+                <a href="/admin/quality">风险自查</a>
+                <a href="/methodology">政策速递</a>
+                <a href="/launch-readiness">复核状态</a>
                 <a href="/question/new">新建问题</a>
             </nav>
         </div>
@@ -24,7 +35,12 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>企业税务知识库 · 数据来源于公开税务政策</p>
+            <div class="footer-links">
+                <a href="/about">项目说明</a>
+                <a href="/methodology">方法说明</a>
+                <a href="/launch-readiness">上线准备</a>
+            </div>
+            <p>{{ site_name }} · 数据来源于公开税务政策与结构化整理，不构成个案法律、税务或审计意见。</p>
         </div>
     </footer>
 </body>

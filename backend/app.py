@@ -4,7 +4,7 @@
 # ============================================================
 
 import os
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for, Response
 from flask_cors import CORS
 from functools import wraps
 
@@ -12,6 +12,12 @@ from routes.questions import questions_bp
 from routes.search import search_bp
 from routes.tags import tags_bp
 from config import Config
+from metadata import (
+    QUESTION_TYPE_META, ANSWER_CERTAINTY_META, SCOPE_LEVEL_META,
+    STATUS_META, POLICY_LEVEL_META, POLICY_STATUS_META,
+    SUPPORT_TYPE_META, RELATION_TYPE_META, STAGE_LABELS, MODULE_LABELS,
+    active_options, all_options,
+)
 
 def create_app():
     app = Flask(__name__,
@@ -25,6 +31,35 @@ def create_app():
     app.register_blueprint(questions_bp, url_prefix='/api/questions')
     app.register_blueprint(search_bp, url_prefix='/api/search')
     app.register_blueprint(tags_bp, url_prefix='/api/tags')
+
+    @app.context_processor
+    def inject_metadata():
+        return {
+            'site_name': Config.SITE_NAME,
+            'site_url': Config.SITE_URL.rstrip('/'),
+            'site_description': Config.SITE_DESCRIPTION,
+            'question_type_meta': QUESTION_TYPE_META,
+            'answer_certainty_meta': ANSWER_CERTAINTY_META,
+            'scope_level_meta': SCOPE_LEVEL_META,
+            'status_meta': STATUS_META,
+            'policy_level_meta': POLICY_LEVEL_META,
+            'policy_status_meta': POLICY_STATUS_META,
+            'support_type_meta': SUPPORT_TYPE_META,
+            'relation_type_meta': RELATION_TYPE_META,
+            'stage_labels': STAGE_LABELS,
+            'module_labels': MODULE_LABELS,
+            'question_type_options': all_options(QUESTION_TYPE_META),
+            'active_question_type_options': active_options(QUESTION_TYPE_META),
+            'answer_certainty_options': all_options(ANSWER_CERTAINTY_META),
+            'scope_level_options': all_options(SCOPE_LEVEL_META),
+            'status_options': [
+                {'code': 'active', 'label': STATUS_META['active']['label']},
+                {'code': 'draft', 'label': STATUS_META['draft']['label']},
+                {'code': 'archived', 'label': STATUS_META['archived']['label']},
+            ],
+            'support_type_options': all_options(SUPPORT_TYPE_META),
+            'relation_type_options': all_options(RELATION_TYPE_META),
+        }
 
     def admin_required(f):
         """验证管理员密码的装饰器"""
@@ -46,6 +81,45 @@ def create_app():
     def health():
         return {'status': 'ok'}
 
+    @app.route('/robots.txt')
+    def robots_txt():
+        body = "\n".join([
+            "User-agent: *",
+            "Allow: /",
+            f"Sitemap: {Config.SITE_URL.rstrip('/')}/sitemap.xml",
+            ""
+        ])
+        return Response(body, mimetype='text/plain')
+
+    @app.route('/sitemap.xml')
+    def sitemap_xml():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        base = Config.SITE_URL.rstrip('/')
+        static_pages = [
+            ('/', None),
+            ('/questions', None),
+            ('/about', None),
+            ('/methodology', None),
+            ('/launch-readiness', None),
+        ]
+        urls = [(f"{base}{path}", lastmod) for path, lastmod in static_pages]
+        for item in svc.get_all_active_question_codes():
+            urls.append((f"{base}/question/{item['question_code']}", item.get('updated_at')))
+
+        xml = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        ]
+        for loc, lastmod in urls:
+            xml.append("  <url>")
+            xml.append(f"    <loc>{loc}</loc>")
+            if lastmod:
+                xml.append(f"    <lastmod>{lastmod}</lastmod>")
+            xml.append("  </url>")
+        xml.append("</urlset>")
+        return Response("\n".join(xml), mimetype='application/xml')
+
     # ---------- 前端页面路由 ----------
     @app.route('/')
     def index():
@@ -61,6 +135,24 @@ def create_app():
                                stages=stages, modules=modules,
                                high_freq=high_freq, newbie=newbie, recent=recent,
                                stats=stats)
+
+    @app.route('/about')
+    def about():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        return render_template('about.html', stats=svc.get_stats())
+
+    @app.route('/methodology')
+    def methodology():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        return render_template('methodology.html', stats=svc.get_stats())
+
+    @app.route('/launch-readiness')
+    def launch_readiness():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        return render_template('launch_readiness.html', stats=svc.get_stats())
 
     @app.route('/questions')
     def questions_list():
@@ -229,6 +321,15 @@ def create_app():
                                all_tags=all_tags, business_tags=business_tags,
                                all_policies=all_policies)
 
+    @app.route('/admin/quality')
+    @admin_required
+    def admin_quality():
+        from services.question_service import QuestionService
+        svc = QuestionService()
+        gaps = svc.get_quality_gaps(limit=200)
+        summary = svc.get_quality_gap_summary()
+        return render_template('quality_dashboard.html', gaps=gaps, summary=summary)
+
     # ---------- 导航条加新增入口 ----------
     # （导航条在 base.html 里直接写死，这里不需要改动）
 
@@ -236,4 +337,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host=Config.HOST, port=Config.PORT, debug=Config.DEBUG)

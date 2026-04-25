@@ -98,18 +98,17 @@
             <div class="form-group">
                 <label for="answer_certainty">结论稳定度</label>
                 <select name="answer_certainty" id="answer_certainty">
-                    <option value="certain_clear">明确（无附加条件）</option>
-                    <option value="certain_conditional">有条件（明确条件下成立）</option>
-                    <option value="certain_dispute">有争议（实务中存在分歧）</option>
-                    <option value="certain_practice">实务做法（仅为经验总结）</option>
+                    {% for option in answer_certainty_options %}
+                    <option value="{{ option.code }}">{{ option.label }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="scope_level">适用范围</label>
                 <select name="scope_level" id="scope_level">
-                    <option value="scope_national">全国通用</option>
-                    <option value="scope_local">地方口径</option>
-                    <option value="scope_mixed">混合口径</option>
+                    {% for option in scope_level_options %}
+                    <option value="{{ option.code }}">{{ option.label }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -117,13 +116,9 @@
         <div class="form-group">
             <label for="question_type">问题类型</label>
             <select name="question_type" id="question_type">
-                <option value="type_whether">是否类（能不能/要不要/会不会…）</option>
-                <option value="type_how">怎么办类（如何处理/怎么申报…）</option>
-                <option value="type_define">定义类（什么是/包含哪些…）</option>
-                <option value="type_what">是什么类（属于什么/有哪些情形…）</option>
-                <option value="type_risk">风险类（有什么风险/注意什么…）</option>
-                <option value="type_time">时限类（什么时候/几天/几号之前…）</option>
-                <option value="type_why">为什么类（为什么要/原因是什么…）</option>
+                {% for option in question_type_options %}
+                <option value="{{ option.code }}">{{ option.label }}{% if not option.active %}（历史兼容）{% endif %}</option>
+                {% endfor %}
             </select>
         </div>
 
@@ -191,12 +186,9 @@
                         <label for="support_type_{{ i }}">支撑类型</label>
                         <select name="support_type_{{ i }}" id="support_type_{{ i }}">
                             <option value="">请选择</option>
-                            <option value="support_direct">直接依据</option>
-                            <option value="support_aux">辅助依据</option>
-                            <option value="support_definition">定义依据</option>
-                            <option value="support_procedure">办理依据</option>
-                            <option value="support_risk">风险依据</option>
-                            <option value="support_local">地方执行依据</option>
+                            {% for option in support_type_options %}
+                            <option value="{{ option.code }}">{{ option.label }}{% if not option.active %}（历史兼容）{% endif %}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>

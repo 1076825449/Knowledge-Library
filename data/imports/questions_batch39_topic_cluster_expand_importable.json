@@ -1,0 +1,924 @@
+{
+  "questions": [
+    {
+      "question_title": "新办企业扣款协议还没签好，能不能先完成首次申报？",
+      "question_plain": "新设企业已经完成税费种认定并进入首个申报期，但银行扣款协议还没签好时，是否可以先完成首次申报，再补扣款协议和缴款动作？",
+      "stage_code": "SET",
+      "module_code": "ETAX",
+      "question_type": "type_whether",
+      "one_line_answer": "扣款协议没签好，不一定影响企业先提交首次申报，但会直接影响后续缴款闭环；企业不能把“已经报了”误当成“已经办完了”。",
+      "detailed_answer": "新办企业首次办税时，申报和扣款经常不是同一步完成。很多企业能进入申报页面、也能提交报表，就以为整个链路已经跑通。实际上，申报成功只是前半段，后半段的税款缴纳、自动扣款和留痕闭环，还取决于账户报告、扣款协议和银行链路是否真正配置完成。\n\n因此，扣款协议未就绪时，企业应区分“能不能先报”和“能不能顺利缴”。前者往往可以先完成，后者则不能掉以轻心。如果企业首报后不继续跟进扣款设置，很容易在真正到缴款节点时临时卡住。",
+      "core_definition": "首次申报是报表提交动作，扣款协议则是后续自动缴税或线上扣款的基础配置，两者相关但不完全等同。",
+      "applicable_conditions": "适用于新设企业已进入首个申报期，但存款账户报告或银行扣款协议尚未完全办妥的情形。",
+      "exceptions_boundary": "（1）若具体税种或地方系统要求先完成扣款配置后再允许办理申报，应以实际系统限制为准。\n\n（2）若企业采用非自动扣款路径，也不能忽视后续缴款时点和留痕。\n\n（3）若系统同时提示实名、登记或税费种问题，不能只盯着扣款协议。",
+      "practical_steps": "第一步：确认申报入口是否已正常开放。\n\n第二步：若可先申报，则按时完成报表提交。\n\n第三步：同步推进存款账户报告和扣款协议配置。\n\n第四步：在缴款期限前做一次扣款或缴税链路验证。\n\n第五步：保留申报和缴款两段的留痕，避免只完成一半。",
+      "risk_warning": "（1）只完成申报不完成缴款，会形成新的逾期和欠税风险。\n\n（2）首次申报期才发现扣款链路不通，留给修正的时间通常很短。\n\n（3）把系统能提交报表误判为全流程已打通，是新办企业常见失误。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "首次申报,扣款协议,银行签约,电子税务局,首报缴款",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "SAT-DEC-006",
+          "support_type": "support_procedure",
+          "support_note": "支撑税费种认定和首次办税衔接口径"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑线上登记与办税链路配置"
+        }
+      ],
+      "tags": [
+        "tag_first_tax",
+        "tag_payment",
+        "tag_ca_cert"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-ETAX-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-ETAX-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新办企业第一次做税务资料备案时，开户地址、电话、财务负责人信息要准备到什么程度？",
+      "question_plain": "新设企业第一次办理税务登记、账户报告和办税资料备案时，开户地址、联系电话、财务负责人和办税人信息需要准备到什么程度，才不容易来回退回？",
+      "stage_code": "SET",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "新办企业第一次做税务资料备案时，不能只准备营业执照和税号，还应把开户行信息、联系方式、财务负责人和办税人链条准备完整，否则很容易出现资料能提但后续处处不一致。",
+      "detailed_answer": "首次税务备案最容易被低估的，是那些看起来像“辅助信息”的字段。很多企业只关注主体名称、税号和注册信息，却忽略开户行、联系电话、财务负责人、办税员和实名链条的完整性。结果不是材料完全提不上去，而是前面能提交，后面在扣款、消息接收、实名授权和异常排查时不断返工。\n\n对新办企业来说，首次备案的价值不是把页面填完，而是把企业和税务系统之间的基础识别链条一次性搭稳。资料准备越完整，后续申报、扣款、发票、文书接收就越顺。",
+      "core_definition": "首次税务资料备案，是把企业主体、账户、联系人和办税链条同步到征管系统的基础动作。",
+      "applicable_conditions": "适用于新设企业首次进行税务登记衔接、账户报告、办税资料备案或类似初始信息录入场景。",
+      "exceptions_boundary": "（1）不同地区线上表单字段可能略有差异，但基础识别链条要求一致。\n\n（2）若企业由代理机构代办，也应同时准备企业内部责任人信息。\n\n（3）若开户信息尚未完成，部分备案动作可先行，但不能长期空缺。",
+      "practical_steps": "第一步：整理营业执照、统一社会信用代码和注册地址信息。\n\n第二步：同步准备开户行、账号、联系电话和邮箱等基础联系信息。\n\n第三步：明确财务负责人、办税员和实名办税责任人。\n\n第四步：录入后逐项复核字段一致性。\n\n第五步：完成后做一次消息接收和办税入口验证。",
+      "risk_warning": "（1）基础资料不完整，最容易导致后续看似无关的环节反复退回。\n\n（2）联系方式和责任链条不清，文书和提醒容易断档。\n\n（3）开户和实名信息不一致，会放大后续扣款和登录问题。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "首次备案,开户地址,财务负责人,办税员,税务登记资料",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "support_definition",
+          "support_note": "支撑税务登记和涉税信息管理基础规则"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑首次登记和线上资料办理流程"
+        }
+      ],
+      "tags": [
+        "tag_first_tax",
+        "tag_tax_registration",
+        "tag_register"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-REG-017",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-ETAX-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新办企业首个申报期没有主营收入，但收到银行利息，算不算真正的零申报？",
+      "question_plain": "新设企业在首个申报期内没有主营业务收入，也没有开票，但账户里产生了银行利息收入时，税务上还能不能按简单零申报理解？",
+      "stage_code": "SET",
+      "module_code": "DEC",
+      "question_type": "type_whether",
+      "one_line_answer": "没有主营收入，不等于一定可以按简单零申报处理；如果已经发生银行利息等应纳税或应确认的收入项目，企业就不能只按“完全没收入”来理解首个申报期。",
+      "detailed_answer": "很多新办企业把“没开票、没营业额”直接等同于“绝对零申报”。但从税务角度看，是否能零申报，关键不只看主营业务有没有开展，还要看企业在这个申报期内是否已经发生其他需要确认和反映的收入或税务事项。银行利息就是最常见的例子。\n\n虽然利息金额往往不大，但它提醒企业：申报判断要看税务事实，而不是只看业务感觉。首个申报期如果已经出现利息、补贴或其他收入项目，企业就应该结合税种口径去判断如何填报，而不是机械地把所有项目都报零。",
+      "core_definition": "零申报的核心不是“没主营业务”而是“该税种在该申报期内是否确实没有应申报的计税依据或相关事项”。",
+      "applicable_conditions": "适用于新办企业首个申报期没有主营业务收入，但存在银行利息或其他零星收入项目的情形。",
+      "exceptions_boundary": "（1）不同税种的申报口径不同，不能只凭一个收入事实对所有税种都作同样判断。\n\n（2）利息收入是否影响具体税种申报，还应结合企业会计处理和税种口径判断。\n\n（3）若仅判断增值税，不应把所有非主营收入都当然理解为应税销售额。",
+      "practical_steps": "第一步：确认首个申报期内是否发生利息、补贴或其他零星收入。\n\n第二步：区分这些项目影响哪些税种和报表。\n\n第三步：不要先入为主按完全零申报处理。\n\n第四步：必要时结合会计科目和税种口径做一次核对。\n\n第五步：按最终判断完成首次申报并留痕。",
+      "risk_warning": "（1）把“没主营收入”误当成“所有税种都能报零”，容易形成错报。\n\n（2）金额虽小，但首报口径错了，后续更正成本更高。\n\n（3）首个申报期形成错误习惯，容易带来后续连续零申报误判。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "首个申报期,银行利息,零申报,没有收入,首次报税",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑按期申报和征管基础要求"
+        },
+        {
+          "policy_code": "SAT-VAT-004",
+          "support_type": "support_procedure",
+          "support_note": "支撑申报管理口径"
+        }
+      ],
+      "tags": [
+        "tag_first_tax",
+        "tag_declaration",
+        "tag_zero_report"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-DEC-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-DEC-011",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新办企业只有法人一个人、暂时不发工资，个税扣缴申报从什么时候才开始看？",
+      "question_plain": "新设企业初期只有法定代表人或老板一人，暂时不发工资、也没有其他自然人收入项目时，个人所得税扣缴申报从什么时候需要真正开始关注和办理？",
+      "stage_code": "SET",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "企业只有法人一人且暂不发工资，不等于永远不用看个税扣缴；是否开始办理，关键看是否已经发生工资薪金、劳务、分红或其他需要扣缴的自然人支付事项。",
+      "detailed_answer": "新办企业在初期很容易把“暂时没人发工资”理解成“个税模块可以先完全不管”。这种理解只对了一半。个税扣缴申报确实与实际发生的自然人支付事项紧密相关，但企业不能因为当前还没发工资，就完全忽视个税办税链条。\n\n正确的判断标准是：企业是否已经对自然人发生了需要代扣代缴个税的支付事实。只要工资薪金、劳务报酬、股息红利或其他相关支付开始发生，企业就需要进入对应的扣缴申报路径。没有实际支付时，可以先不机械申报，但不应忽略后续启动节点。",
+      "core_definition": "个税扣缴义务通常与企业向自然人实际发生特定支付行为相联系，而不是只看企业是否已经成立。",
+      "applicable_conditions": "适用于新办企业初期人员少、暂未发工资或未发生自然人支付事项时，对个税扣缴申报起点的判断。",
+      "exceptions_boundary": "（1）若企业虽未发工资，但已经发生分红、劳务报酬或其他对自然人的支付，不能按“没人发工资”处理。\n\n（2）个体工商户、合伙企业与公司在所得税口径上并不相同。\n\n（3）具体首次申报操作仍应结合系统配置和当地执行口径确认。",
+      "practical_steps": "第一步：确认企业当前是否存在工资、劳务、分红等自然人支付事项。\n\n第二步：若暂未发生，则先把个税模块作为待启动事项关注。\n\n第三步：一旦开始支付，立即核对实名、人员信息和扣缴配置。\n\n第四步：按实际支付项目进入对应个税申报路径。\n\n第五步：保留首次启动节点和申报留痕。",
+      "risk_warning": "（1）把“暂不发工资”误当成“以后都不用做个税”，容易错过首次扣缴节点。\n\n（2）工资之外的自然人支付也可能触发扣缴义务。\n\n（3）启动时才发现人员和实名链条没配好，容易在首次申报节点卡住。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "个税扣缴,法人一人公司,不发工资,首次个税,代扣代缴",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "POL-WHT-003",
+          "support_type": "support_direct",
+          "support_note": "支撑扣缴义务基本规则"
+        },
+        {
+          "policy_code": "SAT-IIT-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑新个税法征管衔接事项"
+        }
+      ],
+      "tags": [
+        "tag_first_tax",
+        "tag_withholding",
+        "tag_declaration"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-IIT-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-IIT-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "新办企业还没招人，社保登记和首次社保申报可以等招人后再做吗？",
+      "question_plain": "新设企业已经成立，但暂时还没有员工时，社保登记和首次社保申报是否可以完全等到正式招人以后再办理，还是仍需提前关注税务侧和社保费侧的配置？",
+      "stage_code": "SET",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "one_line_answer": "暂时没招人，不等于社保费相关配置可以完全忽略；是否需要立即办理，要看当地登记、费种认定和后续用工启动时间，但企业至少应提前确认启动路径，而不是等到发薪前一天才补做。",
+      "detailed_answer": "新办企业在人力未到位前，经常把社保事项整体往后推，这在实务上很常见，但不能因此认为社保费模块完全不需要提前准备。社保登记、费种认定和首次申报虽然与实际用工密切相关，但一旦企业开始招人、签劳动合同并发薪，启动节奏通常会很紧。\n\n因此，更稳妥的做法不是机械提前申报，也不是完全不管，而是先确认当地办理要求、税务端费种配置和企业自己的用工计划。这样真正开始用工时，才不会把社保登记、社保费申报和工资个税同时堆到一个节点上。",
+      "core_definition": "社保登记与社保费申报通常围绕用工事实展开，但前置配置和启动路径需要企业提前确认。",
+      "applicable_conditions": "适用于新办企业暂时没有员工、尚未正式发薪，但准备后续用工时，对社保登记与首次申报时点的判断。",
+      "exceptions_boundary": "（1）不同地区在人社、税务、社保费征缴衔接上可能存在执行差异。\n\n（2）企业负责人本人是否参保、以何种身份参保，不能简单套用普通员工口径。\n\n（3）一旦实际用工开始，就不能再按“还没招人”的逻辑拖延。",
+      "practical_steps": "第一步：确认当地社保登记和税务费种配置的基本要求。\n\n第二步：结合企业用工计划判断启动时间。\n\n第三步：提前准备参保单位信息、联系人和办理路径。\n\n第四步：真正用工前完成必要登记和费种确认。\n\n第五步：用工后按实际口径及时完成首次申报。",
+      "risk_warning": "（1）把社保事项完全拖到发薪节点，容易和个税、合同、入职手续一起挤压。\n\n（2）不了解当地征缴口径，容易错过首次办理时点。\n\n（3）企业刚启动用工时最怕链路不清，导致社保和个税同时掉链子。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新办企业社保,还没招人,首次社保申报,社保登记,用工前准备",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        {
+          "policy_code": "POL-SSF-001",
+          "support_type": "support_direct",
+          "support_note": "支撑社会保险费征缴基础规则"
+        },
+        {
+          "policy_code": "SSF-POL-001",
+          "support_type": "support_definition",
+          "support_note": "支撑社保登记基础要求"
+        }
+      ],
+      "tags": [
+        "tag_first_tax",
+        "tag_ssf",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "SET-SSF-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-SSF-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "上个月已经申报成功，但后来发现数据填错了，是先作废申报还是直接更正申报？",
+      "question_plain": "企业某一税种上个月已经按期申报成功，但申报后才发现数据填错时，应该先尝试撤销、作废，还是直接走更正申报路径，顺序上如何判断？",
+      "stage_code": "OPR",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "已申报成功后发现数据有误，通常不能再按“作废申报”理解，而应优先判断是否进入更正申报路径；已正式生效的申报记录，核心是更正，不是回到未申报状态。",
+      "detailed_answer": "企业在申报后发现错误时，最常见的误区是把申报当成普通表单，觉得填错了就直接撤回重填。实际上，一旦申报记录已经正式生成并生效，后续处理重点通常是更正申报，而不是简单作废。\n\n判断关键在于：申报是否已经提交成功、是否已形成正式记录、是否已发生缴款或其他后续影响。只要已经进入正式申报状态，企业就应优先沿着更正路径处理，并同步关注由此带来的补税、滞纳金或附加影响。",
+      "core_definition": "更正申报，是对已生效申报记录进行修正；与未提交成功前的修改、撤销不是同一回事。",
+      "applicable_conditions": "适用于企业某税种申报已经成功，但事后发现申报数据、金额、口径或项目填报有误的情形。",
+      "exceptions_boundary": "（1）若申报尚未正式提交成功，系统中仍可能允许直接修改而不是更正。\n\n（2）不同税种和地区系统在更正入口和限制上可能存在差异。\n\n（3）若错误同时影响发票、附加税或企业所得税口径，还需联动复核，不宜只改一个页面。",
+      "practical_steps": "第一步：确认原申报是否已经正式成功生效。\n\n第二步：判断错误影响的是税额、税种、附加项目还是基础信息。\n\n第三步：进入更正申报路径，而不是先假设可以作废重来。\n\n第四步：更正后同步复核是否涉及补税、滞纳金或其他联动调整。\n\n第五步：保留原申报和更正申报的完整留痕。",
+      "risk_warning": "（1）已生效申报还按“作废思路”处理，容易走错路径。\n\n（2）只改主税不看联动税费，可能造成口径再次不一致。\n\n（3）申报错了拖着不改，往往比尽快更正成本更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "更正申报,申报填错,作废申报,申报成功后修改,补报",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑按期申报和征管更正处理基础规则"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑申报差错后续处理程序口径"
+        }
+      ],
+      "tags": [
+        "tag_declaration",
+        "tag_overdue",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-DEC-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-DEC-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "增值税已经报完了，附加税忘了申报，应该怎么补？",
+      "question_plain": "企业本期已经完成增值税申报，但后来发现附加税费没有同步申报时，应如何处理，是否需要重报增值税，还是单独补附加税即可？",
+      "stage_code": "OPR",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "增值税已报完但附加税漏报时，重点通常是补做附加税申报并核对联动口径，而不是机械重报整个增值税；是否需要同步调整，要看附加税计税基础和原申报数据是否一致。",
+      "detailed_answer": "附加税漏报是经营期很常见的操作失误。企业容易走两个极端：一个是以为附加税会自动没事，一个是发现漏报就想把整个增值税重新报一遍。实际上，大多数情况下更关键的是判断附加税计税基础和原增值税申报记录是否一致，再决定是单独补报还是联动更正。\n\n如果原增值税申报数据本身没有问题，而只是附加税没有按联动口径完成申报，企业往往应优先补附加税并完成相应缴款和留痕，而不是无差别重做主税申报。",
+      "core_definition": "附加税通常以相关主税的计税结果为基础，但漏报附加税并不当然意味着主税申报也需要重报。",
+      "applicable_conditions": "适用于企业已完成增值税申报，但附加税费未同步申报或未正确申报的情形。",
+      "exceptions_boundary": "（1）若原增值税申报本身也有错误，则不能只补附加税。\n\n（2）不同地区附加税在系统联动和操作路径上可能不同。\n\n（3）若已产生滞纳或逾期提示，还应同步处理后续风险留痕。",
+      "practical_steps": "第一步：确认原增值税申报数据是否正确。\n\n第二步：核对附加税应申报金额和原主税计税基础是否一致。\n\n第三步：若主税无误，优先补做附加税申报。\n\n第四步：完成对应缴款并留存回执。\n\n第五步：检查系统中是否仍有逾期或异常提示未消除。",
+      "risk_warning": "（1）附加税漏报长期不处理，会形成新的逾期风险。\n\n（2）主税没错却盲目重报，反而可能制造新的口径冲突。\n\n（3）漏报附加税时只盯税额不看系统提示，容易遗漏后续整改动作。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "附加税漏报,增值税已报完,补申报,附加税申报,更正申报",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-VAT-004",
+          "support_type": "support_procedure",
+          "support_note": "支撑申报管理和联动申报口径"
+        },
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑按期申报和征管义务"
+        }
+      ],
+      "tags": [
+        "tag_declaration",
+        "tag_payment",
+        "tag_overdue"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-DEC-045",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-PREF-001",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "客户临时要求改开专票，之前已经开的普票还能直接换吗？",
+      "question_plain": "企业已经按客户要求开具了增值税普通发票，但对方后来又要求改开专用发票时，之前开的普通发票能否直接换成专票，还是需要先满足特定处理条件？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_whether",
+      "one_line_answer": "普通发票开出后，不能简单理解为“想换专票就直接换”；是否能改开，关键看原票状态、交易事实、客户资格和是否需要先作废或红冲收回原票。",
+      "detailed_answer": "客户改票需求在日常经营里很常见，但票种变化不是简单的重新打印。企业已经开出普通发票后，如果对方要求改成专票，通常要先判断原票是否仍可作废、是否已入账或已交付、客户是否具备接收专票条件，以及是否需要通过红冲或其他合法路径收口原票。\n\n发票管理的核心不是满足客户临时想法，而是在不破坏票据链条真实性和合规性的前提下做调整。只要原票已经进入对方账务或不能直接作废，就更应谨慎处理，不能随意“旧票不管、再开新票”。",
+      "core_definition": "票种变更不是简单重开，实质上涉及原票收口、票据链条一致和受票方资格判断。",
+      "applicable_conditions": "适用于企业已开具增值税普通发票，后续客户要求改开增值税专用发票的情形。",
+      "exceptions_boundary": "（1）若原普通发票仍处于可直接作废的状态，处理路径相对简单。\n\n（2）若原票已入账、已使用或不具备直接作废条件，通常需要先按规范路径收口原票。\n\n（3）受票方是否具备接收专票资格，也会影响能否改开。",
+      "practical_steps": "第一步：确认原普通发票当前状态，是否仍可直接作废。\n\n第二步：核对客户是否具备接收专票所需信息和资格。\n\n第三步：若原票不可直接作废，先依法收口原票，再判断后续改开路径。\n\n第四步：按规范完成专票开具并保留前后留痕。\n\n第五步：避免出现原普票未收口、新专票又重复开具的情况。",
+      "risk_warning": "（1）旧票不收口直接补开专票，最容易形成重复开票风险。\n\n（2）只满足客户要求，不核对票据状态，容易留下票链断裂问题。\n\n（3）票种变更看似小事，实质上是发票合规高风险节点。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "普票改专票,改开发票,普通发票,专用发票,客户改抬头",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_direct",
+          "support_note": "支撑发票管理基础规则"
+        },
+        {
+          "policy_code": "SAT-INV-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑红字和发票后续处理规则"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_invoice_issue",
+        "tag_red_invoice"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-INV-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-INV-014",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "当月多张发票都开错了，但有的已入账、有的还没交付，作废和红冲应该怎么分开判断？",
+      "question_plain": "企业当月发现多张发票开具错误，但这些发票状态并不一致，有的尚未交付、有的对方已收票甚至已入账时，应该怎样分别判断作废和红冲路径？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "同一批错票不能一刀切处理，核心要按每张发票的状态分别判断：仍具备作废条件的走作废，已进入对方使用或账务链条的通常应走红冲或其他规范收口路径。",
+      "detailed_answer": "企业批量开票时，一旦发现错误，最容易想“全部按一个办法处理”。但发票处理并不看企业有多着急，而是看每张票当前处于什么状态。尚未交付、未使用、仍符合系统作废条件的，处理相对直接；已经交付、已入账或已进入对方流程的，就不能再按简单作废理解。\n\n因此，面对同一批错票，企业首先要做的不是马上统一操作，而是先按状态分组。只有把可作废、需红冲、需补充沟通的票据拆开，后续处理才不会越弄越乱。",
+      "core_definition": "发票作废与红冲的判断核心，是每张票据是否已经进入对方使用或账务链条，而不是是否都属于“同一次开错”。",
+      "applicable_conditions": "适用于企业同月多张发票开错，但不同票据所处状态不一致，需要分类处理的情形。",
+      "exceptions_boundary": "（1）不同票种、不同系统入口下，作废条件可能存在差异。\n\n（2）若同时涉及金额、税率、抬头和项目错误，沟通和留痕要求更高。\n\n（3）若部分发票已形成下游抵扣或更深链条，不能简单按普通错票理解。",
+      "practical_steps": "第一步：逐张列出错票并标记当前状态。\n\n第二步：区分哪些仍符合作废条件，哪些需要走红冲或其他收口路径。\n\n第三步：先处理最容易造成重复或链条断裂的票。\n\n第四步：对需要与客户协同的票据同步确认回收、红冲和重开路径。\n\n第五步：保存整批票据的处理台账和留痕。",
+      "risk_warning": "（1）批量错票最怕统一粗暴处理，导致本可作废的票拖成红冲，或本应红冲的票被误作废。\n\n（2）不做台账留痕，后续很难证明哪张票是怎么收口的。\n\n（3）同月票据状态复杂时，越急着“一次清掉”越容易出错。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "批量错票,作废还是红冲,发票状态,已入账发票,错开发票",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_direct",
+          "support_note": "支撑发票管理基础要求"
+        },
+        {
+          "policy_code": "SAT-INV-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑红字和后续规范处理口径"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_invoice_void",
+        "tag_red_invoice"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-INV-027",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-INV-013",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "电子发票下载或打印得不太清楚，还能不能作为报销和入账凭证？",
+      "question_plain": "企业取得电子发票后，下载文件显示模糊、打印不清或格式不规整时，是否仍能直接作为报销和入账凭证使用，还是需要先补做核验和重新留存？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "电子发票显示或打印不清，不等于当然不能报销，但企业不能只凭一张模糊截图入账；关键要看发票信息是否完整可核验、留存链条是否可追溯。",
+      "detailed_answer": "电子发票时代，很多企业取得凭证后习惯直接截图、转存或打印，但一旦文件不清晰，就容易产生两个误区：一个是觉得模糊也无所谓，另一个是认为只要不清楚就一律作废重取。更合理的判断是先看核心信息能否完整识别、发票真伪是否可核验、留存格式是否满足内部和税务留存要求。\n\n对报销和入账来说，关键不是纸面看起来漂不漂亮，而是凭证是否真实、完整、可追溯。如果原始电子文件有问题，应优先补齐留存链条，而不是继续沿用模糊版本。",
+      "core_definition": "电子发票凭证合格的关键，是信息完整、可核验、可追溯，而不只是是否打印得漂亮。",
+      "applicable_conditions": "适用于企业取得电子发票后，遇到文件模糊、打印不清或留存格式异常，需要判断能否报销入账的情形。",
+      "exceptions_boundary": "（1）若关键字段已无法识别或无法核验真伪，不能按正常凭证直接入账。\n\n（2）企业内部报销制度可能对留存格式有更高要求。\n\n（3）若只是打印件不清但原始电子文件清晰可核验，判断口径与原始文件也不清的情况不同。",
+      "practical_steps": "第一步：确认原始电子文件是否完整可打开。\n\n第二步：核对发票代码、号码、金额、购销双方等关键字段是否清晰。\n\n第三步：通过可用渠道完成真伪和信息核验。\n\n第四步：优先保存清晰原始电子文件，再决定是否打印和报销。\n\n第五步：对模糊版本不要直接作为唯一入账留痕。",
+      "risk_warning": "（1）只保存模糊截图，后续最容易在复核时证明力不足。\n\n（2）把打印不清等同于原始文件无效，会增加不必要的返工。\n\n（3）电子凭证留存链条断裂，比纸面清不清楚更危险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "电子发票模糊,报销凭证,入账凭证,电子发票留存,发票核验",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税前扣除凭证管理要求"
+        },
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_definition",
+          "support_note": "支撑发票真实性和管理规则"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_payment",
+        "tag_invoice_certification"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-FEE-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-FEE-002",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "员工离职当月既有工资又有报销补发，个税应该怎么拆分看？",
+      "question_plain": "员工离职当月，企业既发放工资薪金，又补发报销款、补贴或其他款项时，个人所得税扣缴上应如何区分哪些属于工资薪金、哪些不应简单并入同一口径？",
+      "stage_code": "OPR",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "one_line_answer": "离职当月同时发生工资和其他支付项目时，不能一股脑都按工资薪金并入扣税；关键要先区分支付性质，再判断是否属于工资薪金、报销 reimbursement 还是其他自然人所得项目。",
+      "detailed_answer": "员工离职当月的个税最容易出错，因为企业常常为了结清款项，把工资、报销、补贴、补发奖金甚至离职补偿混在一起一次发完。问题在于，这些项目在税务性质上并不一定相同。真正的工资薪金、合规报销、离职补偿和其他奖励款，在个税处理上可能存在不同口径。\n\n因此，离职结算最重要的不是“同月一起发”，而是“发的到底是什么”。先把支付性质拆清，再进入相应的个税判断，企业的扣缴留痕才站得住。",
+      "core_definition": "个税扣缴判断首先看支付性质，不是看企业是否在同一次付款中一起发放。",
+      "applicable_conditions": "适用于员工离职当月存在工资、报销、补发奖金、补贴或其他支付项目并行发放的情形。",
+      "exceptions_boundary": "（1）若报销项目本身不合规或缺少凭证，不能简单按免税报销处理。\n\n（2）离职补偿有其专门判断规则，不应与普通工资一并粗暴处理。\n\n（3）支付项目越复杂，越应留存拆分依据和内部说明。",
+      "practical_steps": "第一步：逐项列明离职当月发放的每一笔款项。\n\n第二步：区分工资薪金、合规报销、补偿和其他支付性质。\n\n第三步：对需要扣缴的项目分别按相应口径测算。\n\n第四步：不要因为同月支付就自动并入同一工资口径。\n\n第五步：保存拆分表和扣缴依据，便于后续复核。",
+      "risk_warning": "（1）离职月把所有款项都当工资处理，容易造成多扣或错扣。\n\n（2）报销和补偿不拆分，后续员工争议和税务复核都容易出问题。\n\n（3）一次性结清越多，越需要事前拆清项目性质。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "离职当月个税,工资和报销,补发工资,离职补偿,代扣代缴",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-WHT-003",
+          "support_type": "support_direct",
+          "support_note": "支撑扣缴义务和项目分类判断"
+        },
+        {
+          "policy_code": "SAT-IIT-003",
+          "support_type": "support_procedure",
+          "support_note": "支撑预扣预缴和个税申报处理口径"
+        }
+      ],
+      "tags": [
+        "tag_withholding",
+        "tag_declaration",
+        "tag_payment"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-IIT-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CHG-IIT-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "换了电脑或浏览器后电子税务局突然不能签章提交，应该先查什么？",
+      "question_plain": "企业日常经营中更换电脑、浏览器或办公环境后，电子税务局出现能登录但不能签章、不能提交、证书识别异常等问题时，应该先排查哪些层面？",
+      "stage_code": "OPR",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "更换电脑或浏览器后电子税务局不能签章提交时，通常应先分层排查证书、签章插件、浏览器环境、实名账号和具体业务模块，而不是一上来就认定系统崩了。",
+      "detailed_answer": "经营期电子税务局异常里，有一类非常常见但容易被误判：更换终端环境后，系统看起来能登录、能查询，但一到签章、提交或证书调用就失败。这个问题往往不是税务口径变化，而是本地终端环境和线上办税链路之间的兼容问题。\n\n正确排查顺序不是反复点提交，而是先分清：是证书没识别、插件没加载、浏览器权限问题、实名登录身份不对，还是某个具体模块单独受限。分层判断越快，恢复越快。",
+      "core_definition": "电子税务局签章和提交异常，常常是终端环境、证书链路和具体业务模块共同作用的结果。",
+      "applicable_conditions": "适用于企业更换电脑、浏览器或办公终端后，电子税务局出现签章、提交或证书识别异常的情形。",
+      "exceptions_boundary": "（1）若同时存在税务风险限制或实名问题，仅修终端环境可能无法解决。\n\n（2）不同地区、不同开票或办税插件的兼容问题会有差异。\n\n（3）若只个别模块异常，应重点排查模块级兼容或前置条件问题。",
+      "practical_steps": "第一步：确认异常发生在登录、签章还是提交环节。\n\n第二步：检查证书、插件、浏览器版本和安全权限。\n\n第三步：核对当前实名登录身份和经办权限是否正确。\n\n第四步：区分是全部模块异常还是某个模块单独异常。\n\n第五步：保留报错截图和环境变更记录，必要时用于进一步排查。",
+      "risk_warning": "（1）把终端兼容问题误当成税务系统故障，会浪费大量时间。\n\n（2）没有保留报错信息，后续定位会很低效。\n\n（3）临近申报或开票节点才更换环境，最容易把小问题放大。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "电子税务局签章失败,换电脑,浏览器异常,证书识别,不能提交",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑线上办理和电子税务局链路口径"
+        },
+        {
+          "policy_code": "SAT-SUS-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑电子文书和线上系统使用场景"
+        }
+      ],
+      "tags": [
+        "tag_ca_cert",
+        "tag_risk_control",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-ETAX-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-ETAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "收到纳税信用降级或扣分提示后，应该先补资料还是先等年度评价结果？",
+      "question_plain": "企业在经营或风险处理中收到纳税信用扣分、降级或相关提示后，应该立即按提示整改补资料，还是可以等到年度纳税信用评价正式结果出来再统一处理？",
+      "stage_code": "RSK",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "收到纳税信用扣分或降级提示后，通常不应被动等年度评价结果，而应先核对扣分原因并尽快补做能即时整改的事项；很多信用问题拖着不动，只会把后续影响放大。",
+      "detailed_answer": "纳税信用问题最容易被误判成“年底统一出结果，到时候再说”。但企业一旦收到扣分或降级提示，往往已经说明某些基础问题、历史义务或风险处理存在缺口。此时如果继续被动等待，企业后续在发票、融资、便利办税和风险核查上都可能承受更高成本。\n\n更稳妥的逻辑是先看扣分原因是否已经明确、是否存在可立即整改的事项，如未申报、信息不一致、风险提示未反馈等。只要这些项目能提前修，就不应拖到年度结果出来再统一补救。",
+      "core_definition": "纳税信用提示是风险信号，不只是年度结果通知。可即时整改的事项，应尽量在影响进一步放大前处理。",
+      "applicable_conditions": "适用于企业收到纳税信用扣分、降级或相关风险提示，需要判断整改时点的情形。",
+      "exceptions_boundary": "（1）若提示原因尚不明确，应先核实事实基础，再决定整改路径。\n\n（2）部分信用结果确有年度评价节奏，但不代表企业在此之前不能修正事实问题。\n\n（3）若事项已进入正式争议或救济程序，应同步保留申诉和整改留痕。",
+      "practical_steps": "第一步：确认扣分或降级提示对应的事实原因。\n\n第二步：区分哪些问题能立即整改，哪些需等待正式评价或进一步核实。\n\n第三步：优先处理未申报、信息异常、风险提示未反馈等即时问题。\n\n第四步：保留整改留痕，便于后续信用修复和解释。\n\n第五步：持续跟踪信用状态是否改善或仍有后续限制。",
+      "risk_warning": "（1）把信用提示拖到年度结果再看，往往会错过最佳修复窗口。\n\n（2）信用问题表面是评分，实质会影响办税便利和经营外部评价。\n\n（3）不核实原因就盲目处理，可能在错误方向上浪费时间。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "纳税信用扣分,信用降级,先整改还是等年度评价,信用修复,税务风险",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-RISK-001",
+          "support_type": "support_risk",
+          "support_note": "支撑纳税信用管理基础规则"
+        },
+        {
+          "policy_code": "SAT-RISK-003",
+          "support_type": "support_risk",
+          "support_note": "支撑信用和风险后续处理口径"
+        }
+      ],
+      "tags": [
+        "tag_credit_rating",
+        "tag_risk_warning",
+        "tag_risk_control"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-RISK-003",
+          "relation_type": "see_also"
+        },
+        {
+          "question_code": "RSK-RISK-026",
+          "relation_type": "related"
+        }
+      ]
+    },
+    {
+      "question_title": "风险提示已经显示解除，但系统还是不能开票或申报，下一步该怎么查？",
+      "question_plain": "企业收到的税务风险提示在系统页面上已经显示处理完成或解除，但后续发票、申报或其他具体业务仍然受限时，应该如何判断是缓存延迟、链路未同步，还是还存在其他叠加问题？",
+      "stage_code": "RSK",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "风险提示页面显示解除，不等于所有业务限制都已同步恢复；企业应继续区分是系统同步延迟、模块缓存，还是欠税、实名、登记等其他限制仍在叠加。",
+      "detailed_answer": "风险处置完成后最容易出现的误判，就是看到页面状态变成“已处理”或“已解除”，便认为所有限制都会立刻消失。实际上，风险页面状态更新和具体业务模块恢复之间，可能还存在同步差、缓存延迟，或者更常见的是，企业其实还叠加着其他限制项。\n\n因此，风险状态解除后仍无法办业务时，不能只回头反复看风险页面，而要重新分层判断受限范围：究竟是开票模块受限、申报模块受限，还是全局办税能力仍受限；同时还要排查欠税、实名、登记、非正常状态等其他链路问题。",
+      "core_definition": "风险提示状态解除，是一个节点，不是全部业务自动恢复的最终保证；业务恢复需要看限制是否真正从各模块释放。",
+      "applicable_conditions": "适用于企业税务风险事项页面已显示处理完成或解除，但具体业务模块仍无法正常办理的情形。",
+      "exceptions_boundary": "（1）若主管税务机关仍要求线下核验或后续补件，不能只看线上状态。\n\n（2）不同业务模块的状态同步时间可能不同。\n\n（3）若企业还叠加其他限制项，单一风险解除不会自动恢复所有功能。",
+      "practical_steps": "第一步：记录当前仍受限的具体业务模块和报错信息。\n\n第二步：确认风险页面是否已显示明确解除，并保留留痕。\n\n第三步：区分是短暂同步延迟还是其他限制项叠加。\n\n第四步：继续排查欠税、实名、登记和非正常状态等因素。\n\n第五步：若长期未恢复，带着解除留痕和报错信息继续跟进。",
+      "risk_warning": "（1）状态页面一解除就停止跟踪，容易让真正的叠加问题被忽略。\n\n（2）不区分模块级限制和全局限制，排查方向会很乱。\n\n（3）没有保留解除留痕，后续沟通会比较被动。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "风险解除后仍受限,电子税务局,不能开票,不能申报,系统同步延迟",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-RISK-003",
+          "support_type": "support_risk",
+          "support_note": "支撑风险管理和后续状态处理口径"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑线上办税事项和系统链路处理"
+        }
+      ],
+      "tags": [
+        "tag_risk_control",
+        "tag_risk_warning",
+        "tag_ca_cert"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-ETAX-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-ETAX-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "更正申报已经提交了，滞纳金或罚款提示还没消失，是不是说明还没处理完？",
+      "question_plain": "企业已经完成更正申报或补报，但系统里滞纳金、罚款或整改提示仍未消失时，是否就意味着前一步没成功，后续应该怎样继续判断和处理？",
+      "stage_code": "RSK",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "更正申报提交成功后，滞纳金或罚款提示没有立刻消失，并不一定表示前一步失败；企业应继续区分是税款、滞纳金、处罚程序尚未收口，还是系统状态尚未同步。",
+      "detailed_answer": "企业在更正申报后最焦虑的点之一，就是看到提示还在，担心自己白做了。实际上，申报更正、税款补缴、滞纳金处理和行政处罚，原本就不是完全同时清零的同一步骤。更正申报成功，通常只说明申报状态被修正了；后续是否还有滞纳金、罚款或程序提示，要看缴款、处罚程序和系统同步进度。\n\n因此，企业不能简单用“提示还在”来推翻前面的更正动作，而应继续按链路判断当前卡在哪一段。只有把申报、缴款、滞纳和处罚拆开看，才能知道下一步该跟进什么。",
+      "core_definition": "更正申报只是纠正申报记录的一步，不当然等于滞纳金、罚款和全部提示已同步结案。",
+      "applicable_conditions": "适用于企业已完成更正申报、补报或补税，但系统中相关提示尚未完全消失的情形。",
+      "exceptions_boundary": "（1）若系统明确提示更正申报失败或未受理，则应优先处理申报本身问题。\n\n（2）处罚程序是否作出、如何作出，属于另一条程序线，不能混同为申报问题。\n\n（3）不同税种和地区在提示消除速度上可能存在差异。",
+      "practical_steps": "第一步：确认更正申报是否已正式提交成功并留存回执。\n\n第二步：核对是否已同步补税、处理滞纳金或其他缴款事项。\n\n第三步：区分剩余提示属于申报状态、缴款状态还是处罚程序。\n\n第四步：对未收口的链路继续跟进，不要重复无效更正。\n\n第五步：保留更正、缴款和提示变化的完整留痕。",
+      "risk_warning": "（1）提示未消失就反复重提更正，可能制造更多重复动作。\n\n（2）把缴款、滞纳和处罚都误当成申报问题，会影响处理顺序。\n\n（3）没有保留回执和时间节点，后续很难证明已及时整改。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "更正申报后提示未消失,滞纳金,罚款提示,补报,整改进度",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑申报、补税和滞纳处理基础规则"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑后续行政程序判断口径"
+        }
+      ],
+      "tags": [
+        "tag_declaration",
+        "tag_overdue",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "RSK-DEC-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-DEC-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间电子税务局密码、验证码手机号或实名账号失效了，应该先修哪个？",
+      "question_plain": "企业停业期间负责盯系统的人变动较少，但一旦电子税务局登录密码、验证码手机号或实名账号失效，应该先修复哪一层，才能尽快恢复对消息、文书和待办的查看能力？",
+      "stage_code": "SUS",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间登录链路失效时，应先区分是密码问题、验证码接收问题还是实名账号链条失效；先恢复最底层的可达性，再处理具体权限和待办查看。",
+      "detailed_answer": "停业企业的电子税务局问题往往不是频繁出错，而是一旦出错就很久没人发现。尤其是密码忘记、验证码手机号失效、原实名账号人员离岗等情况，最容易让企业失去最基本的系统可达性。此时如果不先分层判断，就容易反复卡在表面登录问题上。\n\n更合理的顺序是先恢复能够接收验证码和进入系统的最底层链路，再核对实名和权限是否仍然对应当前责任人。只有先把“能进系统”恢复，后面的文书、待办和风险巡检才有意义。",
+      "core_definition": "停业期间电子税务局可达性，首先取决于密码、验证码接收链路和实名账号是否仍可用。",
+      "applicable_conditions": "适用于停业期间企业电子税务局出现密码遗失、验证码手机号失效或实名账号失效等登录链路异常的情形。",
+      "exceptions_boundary": "（1）若企业还存在风险限制、实名异常或登记异常，单纯修密码可能无法恢复全部功能。\n\n（2）若原责任人已离职，应同步做责任链交接，而不是只找回原账号。\n\n（3）不同地区登录验证方式可能略有不同。",
+      "practical_steps": "第一步：确认当前问题发生在密码、验证码还是实名账号层面。\n\n第二步：先恢复短信接收或登录入口的基础可达性。\n\n第三步：再核对实名账号和当前责任人是否一致。\n\n第四步：恢复后立即检查消息、待办和文书入口。\n\n第五步：补做责任人、联系方式和权限链条更新。",
+      "risk_warning": "（1）停业期间最怕登录链路失效但没人知道。\n\n（2）只找回旧账号不修责任链，问题还会反复。\n\n（3）不能进入系统时，很多文书和风险提示会被动积压。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "停业期间登录异常,电子税务局密码,手机号失效,实名账号,系统可达性",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-SUS-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑电子送达和线上消息链路"
+        },
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业阶段管理规则"
+        }
+      ],
+      "tags": [
+        "tag_ca_cert",
+        "tag_risk_warning",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-ETAX-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-ETAX-004",
+          "relation_type": "related"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间收到税务抽查、核查或配合通知，能不能以停业为由先不处理？",
+      "question_plain": "企业已经停业，但期间仍收到税务抽查、核查、资料补充或配合调查通知时，是否可以因为没有经营收入就先不处理，还是仍需在停业状态下配合完成？",
+      "stage_code": "SUS",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "停业并不当然使企业免于配合税务抽查或核查；只要通知针对历史属期、历史事项或当前状态管理，企业通常仍应按要求处理，不能简单以停业为由搁置。",
+      "detailed_answer": "停业企业最容易产生一种误判：既然当前没有经营，也就不需要再配合任何税务动作。这个判断在面对抽查、核查、资料补充和历史事项调查时，通常并不成立。因为这些通知关注的往往是过去已经发生的交易、申报和票证事实，而不是企业现在有没有新收入。\n\n因此，企业停业后收到相关通知，重点不在于“我现在有没有业务”，而在于通知要求处理的事项是否仍属于企业的法定义务范围。只要历史问题还在，企业就不能用停业状态直接跳过配合。",
+      "core_definition": "停业改变的是经营状态，不当然消灭企业对历史税务事项的配合和说明义务。",
+      "applicable_conditions": "适用于企业停业期间收到税务抽查、核查、资料补充或类似配合通知的情形。",
+      "exceptions_boundary": "（1）若企业确因客观原因无法在原期限内配合，应尽早说明并申请合理调整，而不是完全不回应。\n\n（2）不同通知的法律性质和时限要求可能不同。\n\n（3）若企业已进入注销路径，还需把抽查事项与注销阻断项统筹判断。",
+      "practical_steps": "第一步：确认通知针对的是历史属期、当前状态还是特定交易事项。\n\n第二步：不要因为停业就默认可以不处理。\n\n第三步：按要求准备资料、说明和配合路径。\n\n第四步：若确需延期，尽早说明原因并保留沟通留痕。\n\n第五步：配合完成后同步记录其对复业、注销或风险状态的影响。",
+      "risk_warning": "（1）把停业当成免配合理由，容易把普通核查拖成更严重问题。\n\n（2）历史事项不处理，会继续影响复业、注销和信用状态。\n\n（3）不回应通知，通常比暂时无法完整配合更危险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "停业期间抽查,税务核查,配合通知,资料补充,历史事项",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑征管配合和纳税义务基础规则"
+        },
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业阶段基础管理规则"
+        }
+      ],
+      "tags": [
+        "tag_risk_warning",
+        "tag_tax_registration",
+        "tag_self_check"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-TAX-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-RISK-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间如果连续忽略风险提示，复业前会放大成哪些具体障碍？",
+      "question_plain": "企业停业后如果长期不看系统、连续忽略税务风险提示、信用提醒或待办事项，到复业前通常会累积成哪些具体障碍，哪些最值得提前收口？",
+      "stage_code": "SUS",
+      "module_code": "RISK",
+      "question_type": "type_risk",
+      "one_line_answer": "停业期间连续忽略风险提示，最容易在复业前集中放大成申报异常、实名失效、信用扣分、办税受限和注销阻断项；停业并不是风险静止期，而是风险被发现得更晚的时期。",
+      "detailed_answer": "停业期间最大的危险不是某一个单独风险，而是小问题长期无人处理后，在复业前同时爆发。企业越久不看系统，越容易把原本分散的小提醒，积累成申报异常、信用扣分、实名和责任链失效、发票模块受限、非正常状态甚至注销障碍。\n\n因此，停业期间的风险管理重点不是高频处理，而是低频但持续地把风险控制在不扩大的水平。尤其在准备复业前，更应先做一次清单式排查，而不是等恢复经营时再边做业务边救火。",
+      "core_definition": "停业期间风险不会自动冻结，更多只是因为缺乏持续巡检而延后暴露。",
+      "applicable_conditions": "适用于企业停业期间长期忽略税务系统提醒、风险提示或待办事项，需要评估复业前障碍的情形。",
+      "exceptions_boundary": "（1）若企业停业期间已建立固定巡检节奏，风险累积程度会显著不同。\n\n（2）不同企业受到的影响会因税种、信用状态和历史问题不同而不同。\n\n（3）若企业最终不复业而改走注销路径，风险表现会更多转为注销阻断项。",
+      "practical_steps": "第一步：复业前先全面拉取停业期间的消息、待办和风险提示清单。\n\n第二步：优先识别会直接影响复业和申报的阻断项。\n\n第三步：对实名、信用、申报和发票四条链路做重点排查。\n\n第四步：在恢复经营前尽量先收口历史提示和异常。\n\n第五步：复业后建立更稳定的巡检节奏，避免再次积压。",
+      "risk_warning": "（1）停业期间越久不看系统，复业节点越容易集中爆雷。\n\n（2）很多企业不是不能复业，而是旧问题太多导致复业体验极差。\n\n（3）把停业误当成风险休眠期，会把本可前置处理的问题推迟到最忙的时候。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "停业风险积压,复业障碍,信用扣分,办税受限,风险提示",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-RISK-001",
+          "support_type": "support_risk",
+          "support_note": "支撑纳税信用管理基本规则"
+        },
+        {
+          "policy_code": "SAT-SUS-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑电子文书和线上消息链路"
+        }
+      ],
+      "tags": [
+        "tag_credit_rating",
+        "tag_risk_warning",
+        "tag_risk_control"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-RISK-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-ETAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "注销前系统显示没待办，但清税申请还是提不上去，应该优先怀疑哪一类问题？",
+      "question_plain": "企业注销前在电子税务局里看起来已经没有明显待办事项，但实际提交清税申请时仍然失败或被拦截，这种情况下通常应先怀疑哪类隐藏问题？",
+      "stage_code": "CLS",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "清税申请提不上去时，不能只看首页有没有待办；更应优先排查历史漏报、票证未收口、风险状态、欠税、登记链路和系统同步差这些隐藏阻断项。",
+      "detailed_answer": "企业注销前经常会先看一眼系统待办，发现页面挺干净，就以为已经能顺利清税。结果真正提交申请时却被系统拦住。这种情况并不罕见，因为清税阻断项并不总以“首页待办”形式出现，很多问题藏在历史申报、票证库存、风险状态、欠税、登记信息不一致或流程同步差里。\n\n因此，提交不上去时不应只回头刷新首页，而应把视角从“有没有待办”切换到“前置条件有没有真正收口”。只要隐藏阻断项还在，表面页面再干净也无法代替真实清税条件。",
+      "core_definition": "清税申请的可提交性，取决于前置条件是否收口，而不是首页待办是否为空。",
+      "applicable_conditions": "适用于企业注销前系统表面看似无待办，但清税申请仍无法提交的情形。",
+      "exceptions_boundary": "（1）若确系系统技术性故障，应结合报错信息判断，不宜全部归为业务阻断。\n\n（2）若企业同时处于简易注销、公示或跨区事项处理中，流程同步也会影响提交结果。\n\n（3）不同地区电子税务局的阻断提示展示方式可能不同。",
+      "practical_steps": "第一步：保存提交失败页面和报错信息。\n\n第二步：按历史申报、票证、风险、欠税、登记和系统同步六类排查。\n\n第三步：优先查最常见的隐藏阻断项，而不是只盯首页待办。\n\n第四步：处理完成后再重新验证提交链路。\n\n第五步：必要时带着报错和排查结果继续跟进主管税务机关。",
+      "risk_warning": "（1）首页没待办不等于清税条件都满足。\n\n（2）反复重提但不排查根因，只会浪费时间。\n\n（3）隐藏阻断项不清掉，越接近注销越容易形成返工。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "清税申请提不上去,没有待办,注销前自查,隐藏阻断项,电子税务局",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑优化税务注销和清税办理流程"
+        },
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑税务注销前置条件和收口要求"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-ETAX-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-ETAX-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "清税完成后、工商注销前，企业还应该保留哪些税务资料和系统留痕？",
+      "question_plain": "企业已经完成清税或税务注销关键步骤，但工商注销尚未彻底办结前，哪些税务资料、回执、票证和系统留痕仍应保留，才不至于后面说不清？",
+      "stage_code": "CLS",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "one_line_answer": "清税完成不等于所有税务资料都可以立刻丢掉；在工商注销彻底办结前，企业仍应系统保留清税证明、申报回执、票证收口记录、风险处理留痕和关键台账。",
+      "detailed_answer": "企业完成清税后，最容易出现一种放松心理：税务这边已经结束，资料也没必要再细留了。实际上，从清税完成到工商注销彻底办结，再到后续可能出现的历史追溯、股东问询、审计留痕和争议说明，中间仍然需要一整套完整资料来支撑。\n\n尤其是清税证明、申报回执、票证缴销记录、风险解除留痕、欠税处理说明和关键台账，这些看起来像“已经过去”的材料，往往恰恰是在后续最能说明问题的证据。企业应把清税理解为“进入收口阶段”，而不是“马上可以丢材料”。",
+      "core_definition": "清税后资料留存，是对税务注销全过程形成可追溯证据链的动作，不是可有可无的整理工作。",
+      "applicable_conditions": "适用于企业已完成清税或税务注销关键步骤，但仍处于工商注销衔接或后续资料留存阶段的情形。",
+      "exceptions_boundary": "（1）资料保留年限和方式还应结合会计档案、发票档案和企业内部制度综合判断。\n\n（2）不同企业是否还存在后续争议、追溯或审计需求，会影响留存深度。\n\n（3）完成清税后仍不能忽视对电子留痕的保存。",
+      "practical_steps": "第一步：整理清税证明、申报回执和缴款回执。\n\n第二步：保留发票、票证、设备缴销和风险处理收口记录。\n\n第三步：将关键电子回执和系统截图做统一归档。\n\n第四步：在工商注销办结前，不要急于清理税务资料。\n\n第五步：结合档案规则确定后续保存责任人和保管方式。",
+      "risk_warning": "（1）清税完成后过早丢资料，后续最容易在追溯时失去证据。\n\n（2）只保留纸质不保留电子回执，很多线上链路会断掉。\n\n（3）注销阶段资料最怕分散在不同人和不同设备里，没有统一归档。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "清税完成后资料,税务注销留痕,清税证明,回执保存,工商注销前",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑清税办理和后续收口逻辑"
+        },
+        {
+          "policy_code": "CLEAR-POL-001",
+          "support_type": "support_definition",
+          "support_note": "支撑注销登记基础规则"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_清税",
+        "tag_发票缴销"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-CLEAR-017",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-INV-005",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

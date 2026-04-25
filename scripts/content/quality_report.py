@@ -14,7 +14,13 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'db', 'tax_knowledge.db')
 REPORTS_DIR = os.path.join(PROJECT_ROOT, 'data', 'reports')
 
-VALID_ANSWER_CERTAINTY = {'certain_clear', 'certain_conditional', 'certain_dispute', 'certain_practice'}
+VALID_ANSWER_CERTAINTY = {
+    'certain_clear',
+    'certain_condition',
+    'certain_conditional',
+    'certain_dispute',
+    'certain_practice',
+}
 VALID_SCOPE_LEVEL = {'scope_national', 'scope_local', 'scope_mixed'}
 VALID_QUESTION_TYPE = {'type_whether', 'type_how', 'type_define', 'type_risk',
                        'type_time', 'type_what', 'type_why',
@@ -53,7 +59,7 @@ def write_report(path, lines):
 
 
 # =============================================================================
-# 15 项检查
+# 18 项检查
 # =============================================================================
 
 def check01_fk_status(conn):
@@ -68,6 +74,7 @@ def check02_code_consistency(conn):
     rows = conn.execute("""
         SELECT question_code, stage_code, module_code
         FROM question_master
+        WHERE status = 'active'
         ORDER BY question_code
     """).fetchall()
 
@@ -93,7 +100,7 @@ def check03_required_fields(conn):
         rows = conn.execute(f"""
             SELECT question_code, question_title, {field}
             FROM question_master
-            WHERE {field} IS NULL OR {field} = ''
+            WHERE status = 'active' AND ({field} IS NULL OR {field} = '')
         """).fetchall()
         if rows:
             all_issues[field] = rows
@@ -105,6 +112,7 @@ def check04_answer_certainty(conn):
     rows = conn.execute("""
         SELECT question_code, question_title, answer_certainty
         FROM question_master
+        WHERE status = 'active'
     """).fetchall()
     invalid = [r for r in rows if r['answer_certainty'] not in VALID_ANSWER_CERTAINTY]
     return invalid
@@ -115,6 +123,7 @@ def check05_scope_level(conn):
     rows = conn.execute("""
         SELECT question_code, question_title, scope_level
         FROM question_master
+        WHERE status = 'active'
     """).fetchall()
     invalid = [r for r in rows if r['scope_level'] not in VALID_SCOPE_LEVEL]
     return invalid
@@ -125,6 +134,7 @@ def check06_question_type(conn):
     rows = conn.execute("""
         SELECT question_code, question_title, question_type
         FROM question_master
+        WHERE status = 'active'
     """).fetchall()
     invalid = [r for r in rows if r['question_type'] not in VALID_QUESTION_TYPE]
     return invalid
@@ -147,7 +157,7 @@ def check08_missing_policy(conn):
         SELECT q.question_code, q.question_title, q.stage_code, q.module_code, q.status
         FROM question_master q
         LEFT JOIN question_policy_link p ON q.id = p.question_id
-        WHERE p.id IS NULL
+        WHERE q.status = 'active' AND p.id IS NULL
     """).fetchall()
     return rows
 
@@ -158,7 +168,7 @@ def check09_missing_tags(conn):
         SELECT q.question_code, q.question_title
         FROM question_master q
         LEFT JOIN question_tag_link t ON q.id = t.question_id
-        WHERE t.id IS NULL
+        WHERE q.status = 'active' AND t.id IS NULL
     """).fetchall()
     return rows
 
@@ -174,6 +184,7 @@ def check10_orphan_policy_links(conn):
         FROM question_policy_link qpl
         JOIN question_master q ON qpl.question_id = q.id
         JOIN policy_basis pb ON qpl.policy_id = pb.id
+        WHERE q.status = 'active'
     """).fetchall()
 
     orphan = [r for r in rows if r['policy_code'] not in valid_codes]
@@ -190,6 +201,7 @@ def check11_orphan_tag_links(conn):
         FROM question_tag_link qtl
         JOIN question_master q ON qtl.question_id = q.id
         JOIN tag_dict td ON qtl.tag_id = td.id
+        WHERE q.status = 'active'
     """).fetchall()
 
     orphan = [r for r in rows if r['tag_code'] not in valid_codes]
@@ -201,6 +213,7 @@ def check12_duplicate_codes(conn):
     rows = conn.execute("""
         SELECT question_code, COUNT(*) as cnt
         FROM question_master
+        WHERE status = 'active'
         GROUP BY question_code
         HAVING cnt > 1
     """).fetchall()
@@ -212,6 +225,7 @@ def check13_type_distribution(conn):
     rows = conn.execute("""
         SELECT question_type, COUNT(*) as cnt
         FROM question_master
+        WHERE status = 'active'
         GROUP BY question_type
         ORDER BY cnt DESC
     """).fetchall()
@@ -223,6 +237,7 @@ def check14_stage_module_matrix(conn):
     rows = conn.execute("""
         SELECT stage_code, module_code, COUNT(*) as cnt
         FROM question_master
+        WHERE status = 'active'
         GROUP BY stage_code, module_code
         ORDER BY stage_code, module_code
     """).fetchall()
@@ -237,18 +252,21 @@ def check14_stage_module_matrix(conn):
 
 
 def check15_stale_content(conn):
-    """15. 更新记录缺失（updated_at 为空或 created_at == updated_at）"""
-    one_year_ago = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')
+    """15. 长期未复审内容（最后更新时间早于 1 年前，或创建后 1 年内从未复审）"""
+    one_year_ago = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d %H:%M:%S')
 
     rows = conn.execute("""
         SELECT question_code, question_title, created_at, updated_at, status
         FROM question_master
-        WHERE updated_at IS NULL
-           OR updated_at = ''
-           OR updated_at = created_at
-           OR updated_at < ?
+        WHERE status = 'active'
+          AND (
+              updated_at IS NULL
+              OR updated_at = ''
+              OR (updated_at = created_at AND created_at < ?)
+              OR updated_at < ?
+          )
         ORDER BY updated_at
-    """, (one_year_ago,)).fetchall()
+    """, (one_year_ago, one_year_ago)).fetchall()
     return rows
 
 
@@ -258,6 +276,7 @@ def check16_support_type(conn):
         SELECT q.question_code, q.question_title, qpl.support_type, qpl.support_note
         FROM question_policy_link qpl
         JOIN question_master q ON q.id = qpl.question_id
+        WHERE q.status = 'active'
     """).fetchall()
     invalid = [r for r in rows if r['support_type'] not in VALID_SUPPORT_TYPE]
     return invalid
@@ -274,11 +293,46 @@ def check17_stage_module_domain(conn):
     rows = conn.execute("""
         SELECT question_code, stage_code, module_code
         FROM question_master
+        WHERE status = 'active'
     """).fetchall()
 
     bad_stage = [r for r in rows if r['stage_code'] not in valid_stages]
     bad_module = [r for r in rows if r['module_code'] not in valid_modules]
     return bad_stage, bad_module, valid_stages, valid_modules
+
+
+def check18_policy_verification_gate(conn):
+    """18. active 问题政策依据复核门禁"""
+    impacted_questions = conn.execute("""
+        SELECT
+            q.question_code,
+            q.question_title,
+            q.stage_code,
+            q.module_code,
+            q.high_frequency_flag,
+            COUNT(DISTINCT pb.id) AS blocker_policy_count,
+            GROUP_CONCAT(DISTINCT pb.policy_code) AS blocker_policies
+        FROM question_master q
+        JOIN question_policy_link qpl ON qpl.question_id = q.id
+        JOIN policy_basis pb ON pb.id = qpl.policy_id
+        WHERE q.status = 'active'
+          AND COALESCE(pb.verification_status, 'unverified') IN (
+              'needs_update', 'source_pending', 'manual_local_review', 'unverified'
+          )
+        GROUP BY q.id
+        ORDER BY q.high_frequency_flag DESC, blocker_policy_count DESC, q.module_code, q.question_code
+    """).fetchall()
+
+    policy_summary = conn.execute("""
+        SELECT
+            COALESCE(verification_status, 'unverified') AS verification_status,
+            COUNT(*) AS policy_count
+        FROM policy_basis
+        GROUP BY COALESCE(verification_status, 'unverified')
+        ORDER BY verification_status
+    """).fetchall()
+
+    return impacted_questions, policy_summary
 
 
 def generate_quality_report(conn):
@@ -288,11 +342,13 @@ def generate_quality_report(conn):
     today_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     total = conn.execute("SELECT COUNT(*) FROM question_master").fetchone()[0]
+    active_total = conn.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active'").fetchone()[0]
     report_lines.append(f"{'='*60}")
     report_lines.append(f"税务知识库数据质量巡检报告")
     report_lines.append(f"生成时间: {today_str}")
     report_lines.append(f"数据库: {DB_PATH}")
     report_lines.append(f"总问题数: {total} 条")
+    report_lines.append(f"active 问题数: {active_total} 条")
     report_lines.append(f"{'='*60}")
 
     # 1. FK约束状态
@@ -311,7 +367,7 @@ def generate_quality_report(conn):
     report_lines.append(f"【检查2】代码一致性 (question_code 前缀匹配)")
     report_lines.append(f"{'='*60}")
     if not code_issues:
-        report_lines.append(f"✅ 所有 {total} 条问题编码与 stage/module 前缀一致")
+        report_lines.append(f"✅ 所有 {active_total} 条 active 问题编码与 stage/module 前缀一致")
     else:
         report_lines.append(f"❌ 发现 {len(code_issues)} 条编码不一致：")
         for i in code_issues[:10]:
@@ -454,7 +510,7 @@ def generate_quality_report(conn):
     report_lines.append(f"【检查13】问题类型分布统计")
     report_lines.append(f"{'='*60}")
     for r in type_dist:
-        pct = r['cnt'] / total * 100 if total > 0 else 0
+        pct = r['cnt'] / active_total * 100 if active_total > 0 else 0
         report_lines.append(f"   {r['question_type']}: {r['cnt']} 条 ({pct:.1f}%)")
 
     # 14. 阶段×模块覆盖矩阵
@@ -477,15 +533,15 @@ def generate_quality_report(conn):
             row += f"{cnt:>8}"
         report_lines.append(row)
 
-    # 15. 更新记录缺失
+    # 15. 长期未复审内容
     stale_rows = check15_stale_content(conn)
     report_lines.append(f"\n{'='*60}")
-    report_lines.append(f"【检查15】更新记录缺失（长期未更新）")
+    report_lines.append(f"【检查15】长期未复审内容")
     report_lines.append(f"{'='*60}")
     if not stale_rows:
-        report_lines.append(f"✅ 所有问题均有有效更新记录")
+        report_lines.append(f"✅ 所有问题均在 1 年内完成过创建或复审")
     else:
-        report_lines.append(f"⚠️  {len(stale_rows)} 条问题长期未更新（created_at == updated_at 或 updated_at > 1年前）：")
+        report_lines.append(f"⚠️  {len(stale_rows)} 条问题长期未复审（最后更新时间早于 1 年前，或创建后 1 年内从未复审）：")
         for r in stale_rows[:20]:
             report_lines.append(f"   [{r['question_code']}] {r['question_title'][:35]} | updated={r['updated_at']}")
         if len(stale_rows) > 20:
@@ -526,6 +582,28 @@ def generate_quality_report(conn):
             if len(bad_module) > 10:
                 report_lines.append(f"   ... 还有 {len(bad_module) - 10} 条")
 
+    # 18. active 问题政策依据复核门禁
+    policy_blockers, policy_status_summary = check18_policy_verification_gate(conn)
+    report_lines.append(f"\n{'='*60}")
+    report_lines.append(f"【检查18】政策依据联网复核门禁")
+    report_lines.append(f"{'='*60}")
+    report_lines.append("政策状态分布：")
+    for r in policy_status_summary:
+        report_lines.append(f"   {r['verification_status']}: {r['policy_count']} 条")
+    if not policy_blockers:
+        report_lines.append("✅ active 问题未关联需更新、待补源、地方待复核或未核验政策")
+    else:
+        hf_count = sum(1 for r in policy_blockers if r['high_frequency_flag'])
+        report_lines.append(f"❌ {len(policy_blockers)} 条 active 问题仍关联政策复核阻断项，其中高频 {hf_count} 条")
+        report_lines.append("   阻断状态包括：needs_update / source_pending / manual_local_review / unverified")
+        for r in policy_blockers[:30]:
+            report_lines.append(
+                f"   [{r['question_code']}] {r['question_title'][:42]} "
+                f"({r['stage_code']}/{r['module_code']}) -> {r['blocker_policies']}"
+            )
+        if len(policy_blockers) > 30:
+            report_lines.append(f"   ... 还有 {len(policy_blockers) - 30} 条")
+
     # ---- 生成子报告 ----
 
     # missing_policy_report
@@ -561,9 +639,9 @@ def generate_quality_report(conn):
     if stale_rows:
         sc_lines = [
             f"{'='*60}",
-            f"长期未更新问题清单",
+            f"长期未复审问题清单",
             f"生成时间: {today_str}",
-            f"判定标准: updated_at 为空 / updated_at == created_at / updated_at 早于1年前",
+            f"判定标准: updated_at 为空 / updated_at 早于1年前 / created_at=updated_at 且创建时间早于1年前",
             f"总计: {len(stale_rows)} 条",
             f"{'='*60}",
         ]
@@ -572,6 +650,23 @@ def generate_quality_report(conn):
             sc_lines.append(f"   created={r['created_at']}, updated={r['updated_at']}, status={r['status']}")
         write_report(get_report_path('stale_content_report'), sc_lines)
         print(f"📄 已生成: stale_content_report_{datetime.now().strftime('%Y%m%d')}.txt")
+
+    if policy_blockers:
+        pv_lines = [
+            f"{'='*60}",
+            f"政策复核阻断问题清单",
+            f"生成时间: {today_str}",
+            f"总计: {len(policy_blockers)} 条 active 问题",
+            f"{'='*60}",
+        ]
+        for i, r in enumerate(policy_blockers, 1):
+            pv_lines.append(f"{i}. [{r['question_code']}] {r['question_title']}")
+            pv_lines.append(
+                f"   stage={r['stage_code']}, module={r['module_code']}, "
+                f"high_frequency={r['high_frequency_flag']}, policies={r['blocker_policies']}"
+            )
+        write_report(get_report_path('policy_verification_blockers'), pv_lines)
+        print(f"📄 已生成: policy_verification_blockers_{datetime.now().strftime('%Y%m%d')}.txt")
 
     # 写入主报告
     write_report(get_report_path('quality_report'), report_lines)

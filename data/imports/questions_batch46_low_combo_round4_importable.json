@@ -1,0 +1,340 @@
+{
+  "questions": [
+    {
+      "question_title": "企业注销清算时支付员工离职补偿，税前扣除留痕最关键的是哪一层？",
+      "question_plain": "企业进入注销清算阶段后，向员工支付离职补偿、经济补偿或收尾安置费用。面对这类支出，企业所得税前扣除时最关键的留痕重点是什么？",
+      "stage_code": "CLS",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "one_line_answer": "注销阶段离职补偿能否稳妥税前扣除，关键不只是付款本身，而是补偿依据、人员名单、计算逻辑和支付链条能否完整对应。",
+      "detailed_answer": "离职补偿在注销阶段很常见，但这类支出最容易在后续复核时被问到“为什么付、付给谁、怎么算出来”。如果只有转账，没有解除关系、补偿协议和测算依据，税前解释空间会明显变小。\n\n因此，这类费用的关键不是名称，而是证据链是否闭合。只要依据和支付逻辑能说清，处理就会稳很多。",
+      "core_definition": "注销期离职补偿的税前扣除重点，在于补偿事实、计算依据和支付留痕完整对应。",
+      "applicable_conditions": "适用于企业注销、清算或整体收尾时向员工支付离职补偿、安置补偿等支出的情形。",
+      "exceptions_boundary": "（1）若实为行政处罚或与劳动关系无关的赔付，口径会不同。\n\n（2）若支付对象并非企业员工，处理应另行判断。\n\n（3）仍需结合劳动关系和支付背景综合判断。",
+      "practical_steps": "第一步：整理解除劳动关系文件和补偿协议。\n\n第二步：形成补偿计算清单和人员名单。\n\n第三步：保留付款回单和签收确认。\n\n第四步：把补偿与其他清算费用分开建账。\n\n第五步：在清算资料中附一页专项说明。",
+      "risk_warning": "（1）只有付款没有补偿依据，是最常见风险。\n\n（2）补偿标准解释不清，后续容易被反问。\n\n（3）把员工补偿与股东支出混在一起，风险更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销清算离职补偿,税前扣除,员工安置费,清算费用,费用留痕",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_definition", "support_note": "支撑费用处理一般规则" }
+      ],
+      "tags": ["tag_注销清算", "tag_payment", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-FEE-004", "relation_type": "related" },
+        { "question_code": "CLS-IIT-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业首年已经零申报几个月，突然收到风险提示，第一步应该先查什么？",
+      "question_plain": "新设企业成立后连续零申报了几个月，突然在系统里收到风险提醒或异常提示。此时企业第一步最应该先查哪一项，避免误判方向？",
+      "stage_code": "SET",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "新设企业收到首个风险提示时，第一步不应先猜原因，而应先确认提示对应的是申报、登记、发票、实名还是待办链路中的哪一层。",
+      "detailed_answer": "新设企业的风险提示往往不是一个孤立问题，而是某条基础链路没有跟上。若一上来就凭感觉解释，很容易查偏。\n\n因此，首轮排查应先定位风险来源模块，再决定是看零申报、登记、发票还是实名状态，这样效率最高。",
+      "core_definition": "风险提示排查的起点，是先确定提示来源模块，再进入具体原因分析。",
+      "applicable_conditions": "适用于新设企业成立初期收到系统风险提醒、异常提示或待核查标记的情形。",
+      "exceptions_boundary": "（1）若提示内容已非常具体，可直接针对性处理。\n\n（2）若同时存在多个异常，应先处理阻断主流程的项目。\n\n（3）不同地区风险页面展示方式不同。",
+      "practical_steps": "第一步：查看提示归属的具体模块。\n\n第二步：核对近期申报、登记和实名状态。\n\n第三步：确认是否与零申报、发票或待办有关。\n\n第四步：保存风险页面截图和提示时间。\n\n第五步：再做针对性排查和修复。",
+      "risk_warning": "（1）不先定位来源模块，最容易查偏。\n\n（2）只盯零申报，可能漏掉实名或登记问题。\n\n（3）没有提示留痕，后续难复盘变化过程。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业风险提示,零申报风险,首轮排查,系统异常,税务风控",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "POL-RISK-001", "support_type": "support_direct", "support_note": "支撑风险和非正常管理背景" },
+        { "policy_code": "SAT-RISK-001", "support_type": "support_risk", "support_note": "支撑风险管理口径" }
+      ],
+      "tags": ["tag_zero_report", "tag_risk_warning", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-RISK-004", "relation_type": "related" },
+        { "question_code": "SET-ETAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业第一年发生一笔偶发补贴退款，税务上要怎么跟原处理衔接？",
+      "question_plain": "新设企业第一年已经收到并处理过一笔政府补贴，后来又因为项目调整退回了部分资金。面对这种退款，税务口径应如何与原先处理衔接？",
+      "stage_code": "SET",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "one_line_answer": "补贴退款时，不能只看退款动作本身，更要回看原补贴性质、原申报口径和退款原因，再决定如何衔接处理。",
+      "detailed_answer": "新设企业处理补贴时，最怕前后口径断开。原来怎么认定、怎么入账、是否影响申报，都会决定退款时的处理方式。\n\n因此，退款不是独立事项，而是原补贴税务处理的延续。先把原口径拉出来，后续才不容易错。",
+      "core_definition": "补贴退款处理应建立在原补贴性质和原申报口径已明确的基础上。",
+      "applicable_conditions": "适用于新设企业收到政府补贴后，又因项目终止、条件变更等原因退回部分或全部资金的情形。",
+      "exceptions_boundary": "（1）专项用途资金与一般奖励资金的衔接逻辑不同。\n\n（2）不同税种影响可能并不一致。\n\n（3）仍需结合具体拨付文件判断。",
+      "practical_steps": "第一步：找出原补贴文件和原处理底稿。\n\n第二步：确认退款原因和退款金额。\n\n第三步：回看原申报和入账口径。\n\n第四步：形成退款衔接说明。\n\n第五步：在当期资料中保留前后对照。",
+      "risk_warning": "（1）不回看原口径，退款很容易处理断层。\n\n（2）只做账务退款、不做税务衔接，后续难解释。\n\n（3）没有文件支撑时，很难说明退款性质。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业补贴退款,税务衔接,政府补贴,申报口径,税务综合",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "POL-TAX-001", "support_type": "support_direct", "support_note": "支撑专项用途财政性资金处理" },
+        { "policy_code": "GOV-CIT-001", "support_type": "support_aux", "support_note": "支撑企业所得税一般处理背景" }
+      ],
+      "tags": ["tag_policy_benefit", "tag_declaration", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-TAX-005", "relation_type": "related" },
+        { "question_code": "SUS-PREF-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间收到以前年度所得税退税款，企业所得税资料上还要补什么说明？",
+      "question_plain": "企业已经办理停业，但停业期间又收到一笔以前年度企业所得税退税或退库款。面对这种情况，企业在资料和申报口径上还需要补哪些说明？",
+      "stage_code": "SUS",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间收到以前年度所得税退税款时，不能只收款不说明，应同步说明退款来源年度、形成原因和停业期口径衔接。",
+      "detailed_answer": "停业并不意味着以前年度事项已经完全静止。退税款进入账户后，如果没有把来源年度和形成背景说清，后续最容易在账、税、停业口径之间出现断层。\n\n因此，这类资金最稳妥的处理方式，是把历史来源和停业期收到的事实一起留痕。",
+      "core_definition": "停业期收到历史退税款，核心在于把来源年度和当前收到事实衔接清楚。",
+      "applicable_conditions": "适用于企业停业期间收到以前年度企业所得税退税、退库或更正返还款项的情形。",
+      "exceptions_boundary": "（1）不同退税原因的资料重点不同。\n\n（2）若涉及多年度更正，说明应更细。\n\n（3）是否影响当期其他税种，需另行判断。",
+      "practical_steps": "第一步：确认退税对应的历史年度。\n\n第二步：整理退税原因和原申报背景。\n\n第三步：保留退税回执和银行入账记录。\n\n第四步：形成停业期收款说明。\n\n第五步：与历史底稿一并归档。",
+      "risk_warning": "（1）只记收款、不留来源说明，后续最难解释。\n\n（2）退税跨年度不拉通，容易账税断层。\n\n（3）停业期收到历史款项更需要专项留痕。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间所得税退税,历史退税,企业所得税,停业口径,资料衔接",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-CIT-001", "support_type": "support_direct", "support_note": "支撑企业所得税一般规则" },
+        { "policy_code": "TAX-POL-007", "support_type": "support_procedure", "support_note": "支撑汇算清缴背景" }
+      ],
+      "tags": ["tag_refund", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-CIT-004", "relation_type": "related" },
+        { "question_code": "SUS-TAX-003", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间支付仓库清理和搬运费，费用上最容易漏掉哪条留痕？",
+      "question_plain": "企业停业期间为了收尾库存、整理仓库、搬离物料，发生了清理费、搬运费、临时劳务费。此类费用在税务留痕上最容易漏掉哪一块？",
+      "stage_code": "SUS",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间仓库清理和搬运费最容易漏掉的，不是付款，而是与停业收尾事项的直接对应关系说明。",
+      "detailed_answer": "这类费用金额往往不大，但特别容易被简单记成“杂费”。一旦后面需要解释，就会发现只有支付记录，没有发生背景和具体对应事项。\n\n因此，关键是让费用和停业收尾动作一一对上，而不是只留下一个金额。",
+      "core_definition": "停业期收尾费用的核心留痕，是费用与具体收尾动作的对应关系。",
+      "applicable_conditions": "适用于企业停业期间发生仓库清理、物料搬运、场地整理等收尾类费用的情形。",
+      "exceptions_boundary": "（1）若属于长期资产处置，口径可能更复杂。\n\n（2）若支付对象为个人，还需注意凭证留痕。\n\n（3）费用真实性仍需结合实际事项判断。",
+      "practical_steps": "第一步：列出对应的清理或搬运事项。\n\n第二步：保留协议、工单或现场记录。\n\n第三步：匹配付款和收款方信息。\n\n第四步：在费用台账中写明收尾背景。\n\n第五步：与库存或场地收尾资料一并归档。",
+      "risk_warning": "（1）最常见问题是只有转账、没有事项说明。\n\n（2）杂费化处理会削弱解释力。\n\n（3）支付对象不清时，后续风险更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间搬运费,仓库清理费,费用留痕,停业收尾,税前扣除",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_definition", "support_note": "支撑费用处理背景" }
+      ],
+      "tags": ["tag_payment", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "SUS-FEE-004", "relation_type": "related" },
+        { "question_code": "CLS-FEE-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间补发年终奖，个人所得税上要和补发工资分开看吗？",
+      "question_plain": "企业已经停业，但仍需要向员工补发上一年度或停业前形成的年终奖。面对这类补发，个人所得税上是否应与补发工资分开判断？",
+      "stage_code": "SUS",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "one_line_answer": "停业期间补发年终奖时，个税处理不宜简单套用补发工资逻辑，应先区分收入性质，再决定扣缴口径。",
+      "detailed_answer": "补发工资和补发奖金看起来都属于“晚发”，但税务处理关注点并不完全一样。若直接把年终奖按普通工资思路处理，容易忽视收入性质差异。\n\n因此，更稳妥的做法是先确认这笔钱到底属于工资、奖金还是补偿，再匹配对应申报口径。",
+      "core_definition": "个税补发收入处理中，收入性质判断先于具体申报动作。",
+      "applicable_conditions": "适用于企业停业期间向员工补发停业前形成的年终奖、绩效奖或类似奖金的情形。",
+      "exceptions_boundary": "（1）若实为离职补偿，不应混同为奖金。\n\n（2）若员工已离职，需同步核对实名链和付款对象。\n\n（3）仍需结合当期有效政策判断。",
+      "practical_steps": "第一步：明确补发款项性质。\n\n第二步：核对发放时间和对应人员。\n\n第三步：按性质匹配个税口径。\n\n第四步：保留奖金计算和付款记录。\n\n第五步：完成对应月份扣缴留痕。",
+      "risk_warning": "（1）把奖金直接当工资处理，可能口径偏差。\n\n（2）人员已离职时更要注意对应关系。\n\n（3）没有计算底稿，后续难复核。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间补发年终奖,个人所得税,奖金补发,扣缴申报,停业个税",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-IIT-002", "support_type": "support_direct", "support_note": "支撑全年一次性奖金等政策" },
+        { "policy_code": "POL-WHT-003", "support_type": "support_procedure", "support_note": "支撑代扣代缴规则" }
+      ],
+      "tags": ["tag_withholding", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-IIT-004", "relation_type": "related" },
+        { "question_code": "CLS-IIT-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间已经不开票了，但收到客户要求重开发票，能直接开吗？",
+      "question_plain": "企业已办理停业，平时也不再正常开票，但之前的业务客户又提出补票、换票或重开发票需求。此时企业能否直接处理开票？",
+      "stage_code": "SUS",
+      "module_code": "INV",
+      "question_type": "type_whether",
+      "one_line_answer": "停业期间客户要求补票或重开发票时，不能只看客户催促，应先核对原业务事实、停业状态下的开票权限和当前发票链路是否仍有效。",
+      "detailed_answer": "停业并不一定意味着完全不能开票，但也绝不是客户一催就能随时处理。关键在于原业务是否真实存在、当前票种和权限是否仍在、以及补票动作是否与原业务闭环一致。\n\n因此，应先查清事实和权限，再决定能不能开、该怎么开，而不是直接按客户要求操作。",
+      "core_definition": "停业期发票处理的核心，是业务事实、开票权限和当前状态三者一致。",
+      "applicable_conditions": "适用于企业停业期间收到客户补票、换票、重开发票等请求的情形。",
+      "exceptions_boundary": "（1）不同票种和业务情形处理路径可能不同。\n\n（2）若原业务本身存在争议，应更谨慎。\n\n（3）是否涉及红字冲销，还需结合原票状态判断。",
+      "practical_steps": "第一步：回看原业务合同和交付事实。\n\n第二步：核对当前发票核定和开票权限。\n\n第三步：确认客户需求属于补票还是换票。\n\n第四步：保留业务和沟通留痕。\n\n第五步：按当前有效链路处理发票事项。",
+      "risk_warning": "（1）停业期直接补票，最怕忽视当前权限状态。\n\n（2）原业务不清，后续发票风险会放大。\n\n（3）客户催促不等于企业可以跳过核查。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间开发票,补票,重开发票,停业发票管理,客户补票",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理规则" },
+        { "policy_code": "SAT-INV-001", "support_type": "support_procedure", "support_note": "支撑票据处理路径" }
+      ],
+      "tags": ["tag_invoice", "tag_risk_warning", "tag_red_invoice"],
+      "relations": [
+        { "question_code": "SUS-INV-004", "relation_type": "related" },
+        { "question_code": "OPR-INV-032", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业后准备复业，原来享受过的优惠要先复核哪几类资料？",
+      "question_plain": "企业停业一段时间后准备恢复经营，以前曾享受过小微、高新、研发等优惠。复业前最先应该复核哪些优惠资料，避免恢复后直接踩坑？",
+      "stage_code": "SUS",
+      "module_code": "PREF",
+      "question_type": "type_how",
+      "one_line_answer": "停业后准备复业时，优惠资料不应从零开始找，最先应复核资格条件、历史留痕、辅助台账和停业期间是否发生影响条件的变化。",
+      "detailed_answer": "复业时最容易忽略的，就是历史优惠链条是否还能接得上。企业若只想着恢复经营，而不先核对以前享受优惠的资料状态，后面很容易出现“想继续享受，但资料链断了”的问题。\n\n因此，复业前先把资格条件、台账和停业期间变化点摸清，会比事后补救省事很多。",
+      "core_definition": "复业前优惠复核的核心，是确认历史资格链和资料链是否仍可连续使用。",
+      "applicable_conditions": "适用于企业停业后准备恢复经营，且此前曾享受各类税收优惠政策的情形。",
+      "exceptions_boundary": "（1）不同优惠项目的资格条件不同。\n\n（2）若停业期间发生重大变化，应重点复核。\n\n（3）地方优惠还需关注地方口径更新。",
+      "practical_steps": "第一步：列出以前已享受的优惠项目。\n\n第二步：核对资格条件是否仍满足。\n\n第三步：检查历史台账和留痕资料完整性。\n\n第四步：复核停业期间是否发生影响条件的变化。\n\n第五步：为复业后的首次申报准备说明底稿。",
+      "risk_warning": "（1）复业前不查优惠资料，恢复后最容易断档。\n\n（2）资格条件变化没被识别，会直接影响后续享受。\n\n（3）没有台账时很难延续以前口径。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业后复业优惠,优惠资料复核,历史台账,复业准备,税收优惠",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-PREF-001", "support_type": "support_direct", "support_note": "支撑优惠政策背景" },
+        { "policy_code": "POL-PREF-005", "support_type": "support_aux", "support_note": "支撑研发优惠资料要求" }
+      ],
+      "tags": ["tag_policy_benefit", "tag_self_check", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-PREF-004", "relation_type": "related" },
+        { "question_code": "SUS-REG-003", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间更换了联系方式但没同步税务，复业前先补哪一步最关键？",
+      "question_plain": "企业停业期间负责人、手机号、邮箱或办税联系人发生变化，但一直没有及时同步到税务系统。现在准备复业，最关键的第一步是什么？",
+      "stage_code": "SUS",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "复业前若联系方式和联系人链条已变化，最关键的是先恢复通知接收和实名联络链，而不是直接跳到复业申报。",
+      "detailed_answer": "复业不只是重新做申报，更是把沉寂状态切回正常状态。如果联系方式和办税联络链已经失效，即使复业动作做了，后续系统通知和待办仍可能接不上。\n\n因此，复业前应先把联系链和实名链恢复到可用状态，再继续其他动作。",
+      "core_definition": "复业前登记修复的优先级，应先恢复通知链和实名联络链。",
+      "applicable_conditions": "适用于企业停业期间联系方式、办税联系人或实名链发生变化，准备复业的情形。",
+      "exceptions_boundary": "（1）若仅变更普通联系人，压力较小。\n\n（2）若涉及法定代表或主管归属变化，应更谨慎。\n\n（3）不同系统模块同步时间可能不同。",
+      "practical_steps": "第一步：核对当前联系人和实名状态。\n\n第二步：补更新联系方式和通知接收链。\n\n第三步：确认电子税务局关键入口已恢复可用。\n\n第四步：保存更新回执。\n\n第五步：再继续复业和申报动作。",
+      "risk_warning": "（1）联络链不修，复业后仍可能漏通知。\n\n（2）只顾恢复申报，不修联系人，是常见误区。\n\n（3）无回执留痕时，后续难证明已更新。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业后复业,联系方式变更,实名办税,登记修复,通知链",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑登记和征管基础要求" },
+        { "policy_code": "SAT-TAX-001", "support_type": "support_procedure", "support_note": "支撑登记管理程序" }
+      ],
+      "tags": ["tag_register", "tag_ca_cert", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-REG-003", "relation_type": "related" },
+        { "question_code": "RSK-REG-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间给留守负责人继续缴社保，但工资停发了，社保口径要特别注意什么？",
+      "question_plain": "企业停业期间只保留一名负责人处理收尾事务，没有继续正常发工资，但仍为其缴纳社保。面对这种情况，社保费管理上需要特别注意什么？",
+      "stage_code": "SUS",
+      "module_code": "SSF",
+      "question_type": "type_risk",
+      "one_line_answer": "停业期间只缴社保不正常发薪时，最需要注意的是人员关系、社保基数口径和留守安排是否能自洽解释。",
+      "detailed_answer": "这类情形并不少见，但最容易在后续复核时被问到：既然还保留参保，人员是什么状态、费用依据是什么、为什么工资与社保表现不同。若这些解释链不完整，就容易留下疑点。\n\n因此，关键不是能不能缴，而是是否能把人员安排和社保口径说清楚。",
+      "core_definition": "停业期社保口径判断的核心，是人员状态、缴费依据和留守安排一致。",
+      "applicable_conditions": "适用于企业停业期间为少量留守人员继续缴纳社保，但工资发放不连续或已暂停的情形。",
+      "exceptions_boundary": "（1）若劳动关系已解除，不应继续按原口径处理。\n\n（2）地方社保管理细节可能存在差异。\n\n（3）仍需结合实际缴费基数和人员安排判断。",
+      "practical_steps": "第一步：确认留守人员的劳动关系状态。\n\n第二步：说明为何继续参保和不连续发薪。\n\n第三步：保留留守安排和内部审批资料。\n\n第四步：核对社保基数和申报状态。\n\n第五步：定期复核是否仍需继续该安排。",
+      "risk_warning": "（1）社保与工资表现割裂，最容易被问原因。\n\n（2）没有留守安排说明，证据链不稳。\n\n（3）劳动关系已变更仍继续按旧口径处理，风险更大。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间社保,留守负责人,工资停发,社保基数,社保风险",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-SSF-001", "support_type": "support_direct", "support_note": "支撑社会保险费征缴规则" },
+        { "policy_code": "SSF-POL-001", "support_type": "support_definition", "support_note": "支撑社保登记要求" }
+      ],
+      "tags": ["tag_ssf", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "SUS-SSF-004", "relation_type": "related" },
+        { "question_code": "SUS-FEE-003", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间收到补税通知但金额有争议，能先不缴等复业再说吗？",
+      "question_plain": "企业处于停业状态时收到补税或更正通知，但对金额存在争议，企业能否因为暂时停业就先不处理，等恢复经营后再统一处理？",
+      "stage_code": "SUS",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "停业并不是暂停处理补税争议的理由，收到补税通知后仍应先回应、核对和留痕，而不是默认等复业再说。",
+      "detailed_answer": "很多企业停业后对税务通知的反应会放慢，但补税通知一旦到了，就已经不是普通待办。即使对金额有争议，也应该及时进入核对和回应节奏。\n\n因此，不能因为停业就默认把争议事项往后拖。先回应、先留痕，比先搁置更重要。",
+      "core_definition": "停业状态不影响企业对正式税务通知的回应义务。",
+      "applicable_conditions": "适用于企业停业期间收到补税、更正或核查通知，且对金额或口径存在争议的情形。",
+      "exceptions_boundary": "（1）争议不等于一定要立即缴清，但不能不回应。\n\n（2）不同通知类型处理节奏可能不同。\n\n（3）仍需结合具体程序判断后续路径。",
+      "practical_steps": "第一步：确认通知性质和期限要求。\n\n第二步：整理争议点和对应资料。\n\n第三步：在期限内先作回应或说明。\n\n第四步：保留沟通和提交回执。\n\n第五步：再继续争议处理或补税安排。",
+      "risk_warning": "（1）停业不处理正式通知，风险会继续累积。\n\n（2）有争议但不回应，最容易失去主动权。\n\n（3）没有书面留痕，后续很难证明已及时处理。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间补税通知,金额争议,先不缴可以吗,税务通知,停业处理",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑征管和通知处理基础要求" },
+        { "policy_code": "POL-DEC-002", "support_type": "support_procedure", "support_note": "支撑程序性处理背景" }
+      ],
+      "tags": ["tag_declaration", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "SUS-TAX-003", "relation_type": "related" },
+        { "question_code": "SUS-TAX-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业停业期间以前开的票后来整单取消了，增值税上先退钱还是先看票？",
+      "question_plain": "企业停业期间，以前已经开票的业务后来整体取消，企业需要退回款项。此时在增值税处理上，是先退款就行，还是应先回看原发票和申报状态？",
+      "stage_code": "SUS",
+      "module_code": "VAT",
+      "question_type": "type_how",
+      "one_line_answer": "停业期整单取消并退款时，增值税处理不应只盯资金动作，第一步应先回看原发票、原申报和当前票据处理路径。",
+      "detailed_answer": "业务取消看起来像民事收尾，但税务上最关键的是原来有没有开票、有没有申报、现在还能走哪条票据调整路径。若不先回看这些基础事实，退款动作很容易和税务口径脱节。\n\n因此，先看票和表，再安排退款和后续调整，顺序更稳。",
+      "core_definition": "整单取消的增值税处理核心，是原票原表状态与当前退款动作闭环一致。",
+      "applicable_conditions": "适用于企业停业期间取消以前已开票业务、退回款项并需要处理增值税衔接的情形。",
+      "exceptions_boundary": "（1）若从未开票或未申报，处理相对简单。\n\n（2）不同票种和业务类型处理路径不同。\n\n（3）仍需结合原纳税义务发生节点判断。",
+      "practical_steps": "第一步：确认原发票和原申报状态。\n\n第二步：核对取消原因和退款安排。\n\n第三步：确定当前可用的票据调整路径。\n\n第四步：保留退款和客户确认材料。\n\n第五步：完成当期申报衔接说明。",
+      "risk_warning": "（1）只退款不看原票原表，最容易留下尾项。\n\n（2）业务取消与税务处理不同步，会放大风险。\n\n（3）停业期更应保留完整客户确认留痕。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业期间退票退款,整单取消,增值税处理,红字发票,停业增值税",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-INV-001", "support_type": "support_direct", "support_note": "支撑红字发票处理" },
+        { "policy_code": "SAT-VAT-001", "support_type": "support_procedure", "support_note": "支撑增值税纳税义务判断" }
+      ],
+      "tags": ["tag_red_invoice", "tag_refund", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-VAT-004", "relation_type": "related" },
+        { "question_code": "SUS-INV-004", "relation_type": "see_also" }
+      ]
+    }
+  ]
+}

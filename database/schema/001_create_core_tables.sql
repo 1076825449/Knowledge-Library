@@ -73,6 +73,14 @@ CREATE TABLE IF NOT EXISTS policy_basis (
     -- 适用范围
     region_scope    TEXT DEFAULT 'national',
 
+    -- 官方来源与核验状态
+    source_url      TEXT,
+    source_org      TEXT,
+    source_type     TEXT NOT NULL DEFAULT 'official',
+    last_verified_at TEXT,
+    verification_status TEXT NOT NULL DEFAULT 'unverified',
+    verification_note TEXT,
+
     -- 备注
     remarks         TEXT,
 

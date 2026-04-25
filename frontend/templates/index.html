@@ -1,33 +1,45 @@
 {% extends "base.html" %}
 
 {% block title %}首页 - 企业税务知识库{% endblock %}
+{% block meta_description %}企业全生命周期税务问题知识库，支持按阶段、模块、标签和关键词检索，查看问题结论、政策依据与关联问题。{% endblock %}
 
 {% block main %}
 {# ========== 搜索框 ========== #}
 <section class="search-section">
-    <h1>查税务问题</h1>
+    <div class="home-kicker">内部自用复核版</div>
+    <h1>先把税务问题问清楚</h1>
+    <p class="hero-subtitle">按企业生命周期、税种和关键词查问题。先看大白话结论，再核适用条件、风险提示和政策依据。</p>
     <form action="/questions" method="get" class="search-form">
-        <input type="text" name="keyword" placeholder="输入问题关键词，如：零申报、发票、地址变更…" class="search-input">
-        <button type="submit" class="search-btn">搜索</button>
+        <input type="text" name="keyword" placeholder="搜索你的税务问题，例如“买车能抵税吗”..." class="search-input">
+        <button type="submit" class="search-btn">查询</button>
     </form>
     {% if stats %}
     <div class="stats-bar">
-        <span><strong>{{ stats.total_questions }}</strong> 问题</span>
-        <span><strong>{{ stats.total_hf }}</strong> 高频</span>
-        <span><strong>{{ stats.total_newbie }}</strong> 新手</span>
-        <span><strong>{{ stats.total_policies }}</strong> 政策依据</span>
+        <span><strong>{{ stats.total_questions }}</strong> 条问题</span>
+        <span><strong>{{ stats.total_hf }}</strong> 个高频入口</span>
+        <span><strong>{{ stats.total_newbie }}</strong> 个新手入口</span>
+        <span><strong>{{ stats.total_policies }}</strong> 条政策依据</span>
     </div>
     {% endif %}
 </section>
 
 {# ========== 生命周期阶段入口 ========== #}
-<section class="nav-section">
-    <h2 class="section-title">按生命周期阶段</h2>
-    <div class="card-grid stage-grid">
+<section class="nav-section stage-flow-section">
+    <div class="section-heading-row">
+        <h2 class="section-title">按生命周期浏览</h2>
+        <span class="section-count">从注册到注销，一路往下看</span>
+    </div>
+    <div class="stage-flow">
         {% for s in stages %}
-        <a href="/questions?stage={{ s.tag_code }}" class="card card-stage">
-            <span class="card-code">{{ s.tag_code }}</span>
+        <a href="/questions?stage={{ s.tag_code }}" class="card card-stage stage-step step-{{ loop.index }}">
+            <span class="stage-index">{{ loop.index }}</span>
             <span class="card-name">{{ s.tag_name }}</span>
+            {% if loop.index == 1 %}<span class="stage-hint">0~3个月</span>{% endif %}
+            {% if loop.index == 2 %}<span class="stage-hint">税种核定、发票申请</span>{% endif %}
+            {% if loop.index == 3 %}<span class="stage-hint">体量最大、最常查</span>{% endif %}
+            {% if loop.index == 4 %}<span class="stage-hint">股权变更、优惠申请</span>{% endif %}
+            {% if loop.index == 5 %}<span class="stage-hint">稽查、补税、行政复议</span>{% endif %}
+            {% if loop.index == 6 %}<span class="stage-hint">清税、清算所得</span>{% endif %}
         </a>
         {% endfor %}
     </div>
@@ -35,11 +47,13 @@
 
 {# ========== 主题模块入口 ========== #}
 <section class="nav-section">
-    <h2 class="section-title">按主题模块</h2>
+    <div class="section-heading-row">
+        <h2 class="section-title">按税种和事项</h2>
+        <span class="section-count">适合已经知道大概方向时使用</span>
+    </div>
     <div class="card-grid module-grid">
         {% for m in modules %}
         <a href="/questions?module={{ m.tag_code }}" class="card card-module">
-            <span class="card-code">{{ m.tag_code }}</span>
             <span class="card-name">{{ m.tag_name }}</span>
         </a>
         {% endfor %}
@@ -49,7 +63,10 @@
 {# ========== 高频问题 ========== #}
 {% if high_freq %}
 <section class="list-section">
-    <h2 class="section-title">高频问题</h2>
+    <div class="section-heading-row">
+        <h2 class="section-title">高频问题</h2>
+        <span class="section-count">先从这些入口看</span>
+    </div>
     <ul class="question-list">
         {% for q in high_freq %}
         <li class="question-item">
@@ -67,7 +84,10 @@
 {# ========== 新手必看 ========== #}
 {% if newbie %}
 <section class="list-section">
-    <h2 class="section-title">新手必看</h2>
+    <div class="section-heading-row">
+        <h2 class="section-title">新手必看</h2>
+        <span class="section-count">适合刚接触办税的人</span>
+    </div>
     <ul class="question-list">
         {% for q in newbie %}
         <li class="question-item">
@@ -86,7 +106,10 @@
 {# ========== 最近更新 ========== #}
 {% if recent %}
 <section class="list-section">
-    <h2 class="section-title">最近更新</h2>
+    <div class="section-heading-row">
+        <h2 class="section-title">最近更新</h2>
+        <span class="section-count">最近整理过的问题</span>
+    </div>
     <ul class="question-list">
         {% for q in recent %}
         <li class="question-item">
@@ -100,4 +123,19 @@
     </ul>
 </section>
 {% endif %}
+
+<section class="info-strip">
+    <div class="info-item">
+        <strong>检索入口</strong>
+        <span>按生命周期、税种分类和关键词三种方式进入。</span>
+    </div>
+    <div class="info-item">
+        <strong>每条问答字段</strong>
+        <span>问题、简明答案、适用条件、风险提示和政策依据分开维护。</span>
+    </div>
+    <div class="info-item">
+        <strong>内容治理</strong>
+        <span>政策专项标注、有效期标记、地方差异说明和定期复核。</span>
+    </div>
+</section>
 {% endblock %}

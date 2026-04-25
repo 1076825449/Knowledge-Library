@@ -92,33 +92,28 @@
             <div class="form-group">
                 <label for="answer_certainty">结论稳定度</label>
                 <select name="answer_certainty" id="answer_certainty">
-                    <option value="certain_clear" {% if detail.answer_certainty == 'certain_clear' %}selected{% endif %}>明确（无附加条件）</option>
-                    <option value="certain_conditional" {% if detail.answer_certainty == 'certain_conditional' %}selected{% endif %}>有条件（明确条件下成立）</option>
-                    <option value="certain_dispute" {% if detail.answer_certainty == 'certain_dispute' %}selected{% endif %}>有争议（实务中存在分歧）</option>
-                    <option value="certain_practice" {% if detail.answer_certainty == 'certain_practice' %}selected{% endif %}>实务做法（仅为经验总结）</option>
+                    {% for option in answer_certainty_options %}
+                    <option value="{{ option.code }}" {% if detail.answer_certainty == option.code %}selected{% endif %}>{{ option.label }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="scope_level">适用范围</label>
                 <select name="scope_level" id="scope_level">
-                    <option value="scope_national" {% if detail.scope_level == 'scope_national' %}selected{% endif %}>全国通用</option>
-                    <option value="scope_local" {% if detail.scope_level == 'scope_local' %}selected{% endif %}>地方口径</option>
-                    <option value="scope_mixed" {% if detail.scope_level == 'scope_mixed' %}selected{% endif %}>混合口径</option>
+                    {% for option in scope_level_options %}
+                    <option value="{{ option.code }}" {% if detail.scope_level == option.code %}selected{% endif %}>{{ option.label }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
 
         <div class="form-group">
             <label for="question_type">问题类型</label>
-                <select name="question_type" id="question_type">
-                    <option value="type_whether" {% if detail.question_type == 'type_whether' %}selected{% endif %}>是否类</option>
-                    <option value="type_how" {% if detail.question_type == 'type_how' %}selected{% endif %}>怎么办类</option>
-                    <option value="type_define" {% if detail.question_type == 'type_define' %}selected{% endif %}>定义类</option>
-                    <option value="type_what" {% if detail.question_type == 'type_what' %}selected{% endif %}>是什么类</option>
-                    <option value="type_risk" {% if detail.question_type == 'type_risk' %}selected{% endif %}>风险类</option>
-                    <option value="type_time" {% if detail.question_type == 'type_time' %}selected{% endif %}>时限类</option>
-                    <option value="type_why" {% if detail.question_type == 'type_why' %}selected{% endif %}>为什么类</option>
-                </select>
+            <select name="question_type" id="question_type">
+                {% for option in question_type_options %}
+                <option value="{{ option.code }}" {% if detail.question_type == option.code %}selected{% endif %}>{{ option.label }}{% if not option.active %}（历史兼容）{% endif %}</option>
+                {% endfor %}
+            </select>
         </div>
 
         <div class="form-group">
@@ -202,12 +197,9 @@
                         <label for="support_type_{{ i }}">支撑类型</label>
                         <select name="support_type_{{ i }}" id="support_type_{{ i }}">
                             <option value="">请选择</option>
-                            <option value="support_direct" {% if existing and existing.support_type == 'support_direct' %}selected{% endif %}>直接依据</option>
-                            <option value="support_aux" {% if existing and existing.support_type == 'support_aux' %}selected{% endif %}>辅助依据</option>
-                            <option value="support_definition" {% if existing and existing.support_type == 'support_definition' %}selected{% endif %}>定义依据</option>
-                            <option value="support_procedure" {% if existing and existing.support_type == 'support_procedure' %}selected{% endif %}>办理依据</option>
-                            <option value="support_risk" {% if existing and existing.support_type == 'support_risk' %}selected{% endif %}>风险依据</option>
-                            <option value="support_local" {% if existing and existing.support_type == 'support_local' %}selected{% endif %}>地方执行依据</option>
+                            {% for option in support_type_options %}
+                            <option value="{{ option.code }}" {% if existing and existing.support_type == option.code %}selected{% endif %}>{{ option.label }}{% if not option.active %}（历史兼容）{% endif %}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>

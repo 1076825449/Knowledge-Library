@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}上线准备 - 企业税务知识库{% endblock %}
+{% block meta_description %}查看当前站点离正式上线还差哪些项目，以及当前已经完成的产品底座。{% endblock %}
+
+{% block main %}
+<section class="doc-page">
+    <h1>上线准备</h1>
+    <p class="doc-lead">当前站点已经具备产品底座和可用闭环，但正式上线前仍应按内容、产品、技术、运维和发布口径五个维度做最后验收。</p>
+
+    <div class="doc-grid">
+        <div class="doc-card">
+            <h2>已完成</h2>
+            <p>活跃问题 <strong>{{ stats.total_questions }}</strong> 条，问题详情、搜索、筛选、关联问题、质量巡检和部署底座已具备。</p>
+        </div>
+        <div class="doc-card">
+            <h2>当前定位</h2>
+            <p>更适合定义为 Beta 产品，而不是已经完成全部人工复核的正式 1.0。</p>
+        </div>
+        <div class="doc-card">
+            <h2>下一步重点</h2>
+            <p>不是继续空转开发，而是做内容复审、上线验收、监控备份和对外发布口径统一。</p>
+        </div>
+    </div>
+
+    <section class="doc-section">
+        <h2>正式上线前必须过的五道关</h2>
+        <ul class="doc-list">
+            <li>内容关：高频专题做完人工复核、争议问题补清边界、地方口径明确标注。</li>
+            <li>产品关：公开说明、方法说明、使用边界、站内导航和信任表达清楚。</li>
+            <li>技术关：部署、域名、反向代理、健康检查、备份、恢复演练可执行。</li>
+            <li>运维关：内容复审节奏、负责人、巡检任务、日志和告警路径明确。</li>
+            <li>发布关：对外统一口径，避免把 Beta 阶段包装成“官方终局答案库”。</li>
+        </ul>
+    </section>
+
+    <section class="doc-section">
+        <h2>配套文档</h2>
+        <ul class="doc-list">
+            <li><a href="/questions">前台问题列表</a></li>
+            <li><a href="/Volumes/外接硬盘/vibe%20coding/网站/知识库/ROADMAP.md">ROADMAP.md</a></li>
+            <li><a href="/Volumes/外接硬盘/vibe%20coding/网站/知识库/TASKS_PROGRESS.md">TASKS_PROGRESS.md</a></li>
+            <li><a href="/Volumes/外接硬盘/vibe%20coding/网站/知识库/LAUNCH_CHECKLIST.md">LAUNCH_CHECKLIST.md</a></li>
+            <li><a href="/Volumes/外接硬盘/vibe%20coding/网站/知识库/CONTENT_REVIEW_PLAYBOOK.md">CONTENT_REVIEW_PLAYBOOK.md</a></li>
+        </ul>
+    </section>
+</section>
+{% endblock %}

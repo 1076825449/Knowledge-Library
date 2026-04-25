@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "税问" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "按阶段浏览" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "按税种和查询" [ref=e7] [cursor=pointer]:
+          - /url: /questions
+        - link "风险自查" [ref=e8] [cursor=pointer]:
+          - /url: /admin/quality
+        - link "政策速递" [ref=e9] [cursor=pointer]:
+          - /url: /methodology
+        - link "复核状态" [ref=e10] [cursor=pointer]:
+          - /url: /launch-readiness
+        - link "新建问题" [ref=e11] [cursor=pointer]:
+          - /url: /question/new
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]: 内部自用复核版
+      - heading "先把税务问题问清楚" [level=1] [ref=e15]
+      - paragraph [ref=e16]: 按企业生命周期、税种和关键词查问题。先看大白话结论，再核适用条件、风险提示和政策依据。
+      - generic [ref=e17]:
+        - text: ⌕
+        - textbox "搜索你的税务问题，例如“买车能抵税吗”..." [ref=e18]
+        - button "查询" [ref=e19] [cursor=pointer]
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - strong [ref=e22]: "724"
+          - text: 条问题
+        - generic [ref=e23]:
+          - strong [ref=e24]: "191"
+          - text: 个高频入口
+        - generic [ref=e25]:
+          - strong [ref=e26]: "108"
+          - text: 个新手入口
+        - generic [ref=e27]:
+          - strong [ref=e28]: "102"
+          - text: 条政策依据
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - heading "按生命周期浏览" [level=2] [ref=e31]
+        - generic [ref=e32]: 从注册到注销，一路往下看
+      - generic [ref=e33]:
+        - link "1 设立期 0~3个月 ↓" [ref=e34] [cursor=pointer]:
+          - /url: /questions?stage=SET
+          - generic [ref=e35]: "1"
+          - generic [ref=e36]: 设立期
+          - generic [ref=e37]: 0~3个月
+          - text: ↓
+        - link "2 开业/日常经营期 税种核定、发票申请 ↓" [ref=e38] [cursor=pointer]:
+          - /url: /questions?stage=OPR
+          - generic [ref=e39]: "2"
+          - generic [ref=e40]: 开业/日常经营期
+          - generic [ref=e41]: 税种核定、发票申请
+          - text: ↓
+        - link "3 变更期 体量最大、最常查 ↓" [ref=e42] [cursor=pointer]:
+          - /url: /questions?stage=CHG
+          - generic [ref=e43]: "3"
+          - generic [ref=e44]: 变更期
+          - generic [ref=e45]: 体量最大、最常查
+          - text: ↓
+        - link "4 风险异常期 股权变更、优惠申请 ↓" [ref=e46] [cursor=pointer]:
+          - /url: /questions?stage=RSK
+          - generic [ref=e47]: "4"
+          - generic [ref=e48]: 风险异常期
+          - generic [ref=e49]: 股权变更、优惠申请
+          - text: ↓
+        - link "5 停业期 稽查、补税、行政复议 ↓" [ref=e50] [cursor=pointer]:
+          - /url: /questions?stage=SUS
+          - generic [ref=e51]: "5"
+          - generic [ref=e52]: 停业期
+          - generic [ref=e53]: 稽查、补税、行政复议
+          - text: ↓
+        - link "6 注销期 清税、清算所得" [ref=e54] [cursor=pointer]:
+          - /url: /questions?stage=CLS
+          - generic [ref=e55]: "6"
+          - generic [ref=e56]: 注销期
+          - generic [ref=e57]: 清税、清算所得
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - heading "按税种和事项" [level=2] [ref=e60]
+        - generic [ref=e61]: 适合已经知道大概方向时使用
+      - generic [ref=e62]:
+        - link "登记管理" [ref=e63] [cursor=pointer]:
+          - /url: /questions?module=REG
+          - generic [ref=e64]: 登记管理
+        - link "税务综合" [ref=e65] [cursor=pointer]:
+          - /url: /questions?module=TAX
+          - generic [ref=e66]: 税务综合
+        - link "申报纳税" [ref=e67] [cursor=pointer]:
+          - /url: /questions?module=DEC
+          - generic [ref=e68]: 申报纳税
+        - link "发票管理" [ref=e69] [cursor=pointer]:
+          - /url: /questions?module=INV
+          - generic [ref=e70]: 发票管理
+        - link "增值税" [ref=e71] [cursor=pointer]:
+          - /url: /questions?module=VAT
+          - generic [ref=e72]: 增值税
+        - link "企业所得税" [ref=e73] [cursor=pointer]:
+          - /url: /questions?module=CIT
+          - generic [ref=e74]: 企业所得税
+        - link "个人所得税" [ref=e75] [cursor=pointer]:
+          - /url: /questions?module=IIT
+          - generic [ref=e76]: 个人所得税
+        - link "社保费" [ref=e77] [cursor=pointer]:
+          - /url: /questions?module=SSF
+          - generic [ref=e78]: 社保费
+        - link "成本费用" [ref=e79] [cursor=pointer]:
+          - /url: /questions?module=FEE
+          - generic [ref=e80]: 成本费用
+        - link "优惠政策" [ref=e81] [cursor=pointer]:
+          - /url: /questions?module=PREF
+          - generic [ref=e82]: 优惠政策
+        - link "风险应对" [ref=e83] [cursor=pointer]:
+          - /url: /questions?module=RISK
+          - generic [ref=e84]: 风险应对
+        - link "清税注销" [ref=e85] [cursor=pointer]:
+          - /url: /questions?module=CLEAR
+          - generic [ref=e86]: 清税注销
+        - link "电子税务局/系统办理" [ref=e87] [cursor=pointer]:
+          - /url: /questions?module=ETAX
+          - generic [ref=e88]: 电子税务局/系统办理
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - heading "高频问题" [level=2] [ref=e91]
+        - generic [ref=e92]: 先从这些入口看
+      - list [ref=e93]:
+        - listitem [ref=e94]:
+          - link "[CHG-DEC-006] 企业在变更当月已经按旧习惯完成过一次申报，后来才发现主管归属或税种认定口径已经切换。这种情况下，原申报动作还有效吗，是否需要补救？ 简答：变更当月先按旧口径申报后又发现切换生效时，不能只凭提交成功判断有效性，应尽快核对回执结果和主管口径，再决定是否补救。" [ref=e95] [cursor=pointer]:
+            - /url: /question/CHG-DEC-006
+        - listitem [ref=e96]:
+          - link "[CHG-RISK-006] 企业刚完成变更，系统短期内连续弹出多个异常或提示，但企业实际申报、扣款、开票都还能正常进行。面对这种可能是同步延迟的问题，最值得优先保存哪些证据？ 简答：变更后连续提示异常时，最值钱的证据不是截图越多越好，而是能证明“业务动作已正常完成”的回执、记录和时间点证据。" [ref=e97] [cursor=pointer]:
+            - /url: /question/CHG-RISK-006
+        - listitem [ref=e98]:
+          - link "[CLS-DEC-006] 企业准备注销时，自认为最后一期主要税种都已申报，但之后又发现印花税等小税种有一笔遗漏。这种情况是否仍会被视为未完成申报、影响注销推进？ 简答：注销前哪怕只漏了一个小税种申报，也可能影响“申报是否完成”的判断，不能因为主税种已报就默认清税条件已满足。" [ref=e99] [cursor=pointer]:
+            - /url: /question/CLS-DEC-006
+        - listitem [ref=e100]:
+          - link "[CLS-ETAX-006] 企业在正式提交清税申请前，想先利用电子税务局做一次内部自查。此时最值得先导出或先核对哪几类事项清单？ 简答：提交清税申请前，最值得先核的不是单一页面，而是未办结事项、申报状态、发票设备和实名权限这几类能直接卡流程的清单。" [ref=e101] [cursor=pointer]:
+            - /url: /question/CLS-ETAX-006
+        - listitem [ref=e102]:
+          - link "[CLS-IIT-006] 企业注销阶段向个人股东打款，银行备注写的是“往来款退回”或“借款归还”，但同时又存在清算分配背景。此时个人所得税上为什么不能只按备注判断？ 简答：注销期向股东付款时，银行备注只能作为辅助线索，不能代替款项真实性质判断，否则个税口径很容易失真。" [ref=e103] [cursor=pointer]:
+            - /url: /question/CLS-IIT-006
+        - listitem [ref=e104]:
+          - link "[CLS-INV-006] 企业在注销前已经基本停用发票系统或税控设备，后来又发现有一张历史发票的作废、红冲或状态处理没有彻底完成。这种尾项一般该如何收口？ 简答：注销前发现历史票据尾项未收完时，不能因为系统已停用就放弃处理，应先确认票据当前状态和可用路径，再补齐收口动作。" [ref=e105] [cursor=pointer]:
+            - /url: /question/CLS-INV-006
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - heading "新手必看" [level=2] [ref=e108]
+        - generic [ref=e109]: 适合刚接触办税的人
+      - list [ref=e110]:
+        - listitem [ref=e111]:
+          - link "新手 [SET-RISK-005] 新设企业成立后连续零申报了几个月，突然在系统里收到风险提醒或异常提示。此时企业第一步最应该先查哪一项，避免误判方向？ 简答：新设企业收到首个风险提示时，第一步不应先猜原因，而应先确认提示对应的是申报、登记、发票、实名还是待办链路中的哪一层。" [ref=e112] [cursor=pointer]:
+            - /url: /question/SET-RISK-005
+        - listitem [ref=e113]:
+          - link "新手 [SET-TAX-006] 新设企业第一年已经收到并处理过一笔政府补贴，后来又因为项目调整退回了部分资金。面对这种退款，税务口径应如何与原先处理衔接？ 简答：补贴退款时，不能只看退款动作本身，更要回看原补贴性质、原申报口径和退款原因，再决定如何衔接处理。" [ref=e114] [cursor=pointer]:
+            - /url: /question/SET-TAX-006
+        - listitem [ref=e115]:
+          - link "新手 [SET-CIT-005] 新设企业刚成立，暂时没有主营业务收入，但银行账户里产生了少量利息收入。面对这种情况，企业所得税上是否要把利息收入纳入预缴和后续汇算考虑？ 简答：首年没有主营收入但有银行利息，并不等于企业所得税就完全不用看；利息收入仍应纳入企业所得税口径和后续申报判断。" [ref=e116] [cursor=pointer]:
+            - /url: /question/SET-CIT-005
+        - listitem [ref=e117]:
+          - link "新手 [SET-CLEAR-005] 新设企业刚领过发票或税控设备，还没正式做业务就决定终止项目。面对这种情况，发票缴销和清税注销的收尾顺序应该怎样安排更稳妥？ 简答：新设企业领票后即终止项目时，不宜把发票问题留到最后，通常应先核清票、设备和领用状态，再推进清税收尾。" [ref=e118] [cursor=pointer]:
+            - /url: /question/SET-CLEAR-005
+        - listitem [ref=e119]:
+          - link "新手 [SET-ETAX-005] 新办企业第一次进入电子税务局后，系统里往往会出现多个待办、提醒和确认事项。哪些内容更适合当天就处理，避免后面越拖越乱？ 简答：首次登录电子税务局时，应优先处理影响后续办税链路的基础待办，例如实名、联系方式、税费种认定和系统通知确认。" [ref=e120] [cursor=pointer]:
+            - /url: /question/SET-ETAX-005
+        - listitem [ref=e121]:
+          - link "新手 [SET-SSF-005] 新设企业刚开始运营，只招了一名员工或负责人兼任员工。此时社保费管理上，最先应该确认哪些核心口径，避免后续补手续？ 简答：新设企业人数少时，社保费管理最先应确认用工关系是否成立、参保和申报链路是否已打通，而不是简单理解为人少就能先放着。" [ref=e122] [cursor=pointer]:
+            - /url: /question/SET-SSF-005
+    - generic [ref=e123]:
+      - generic [ref=e124]:
+        - heading "最近更新" [level=2] [ref=e125]
+        - generic [ref=e126]: 最近整理过的问题
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - link "[CLS-DEC-001] 注销前须完成当期所有税种申报，包括增值税、企业所得税和个税吗？ 简答：注销前须完成当期所有税种的申报，包括增值税、企业所得税、个人所得税等，不得遗漏任一税种当期申报。" [ref=e129] [cursor=pointer]:
+            - /url: /question/CLS-DEC-001
+        - listitem [ref=e130]:
+          - link "[CLS-FEE-001] 注销时发生的资产损失（包括存货报废、固定资产盘亏等），税务上如何处理？ 简答：注销时发生的资产损失（包括存货报废、固定资产盘亏等），须按规走程序在企业所得税税前扣除，已抵扣的进项税额须转出。" [ref=e131] [cursor=pointer]:
+            - /url: /question/CLS-FEE-001
+        - listitem [ref=e132]:
+          - link "[CLS-PREF-001] 注销前已备案的税收优惠资格（如小型微利企业、高新技术企业等）还要收口吗？ 简答：注销前已备案的税收优惠资格（如小型微利企业、高新技术企业等）须在注销前自行向税务机关报告并结清优惠税款。" [ref=e133] [cursor=pointer]:
+            - /url: /question/CLS-PREF-001
+        - listitem [ref=e134]:
+          - link "[RSK-TAX-005] 企业被税务机关稽查补税后，须在规定时限内缴纳税款吗？ 简答：企业被税务机关稽查补税后，须在规定时限内（一般15日内）缴纳本金和滞纳金，逾期将加收罚款，情节严重的可能构成犯罪。" [ref=e135] [cursor=pointer]:
+            - /url: /question/RSK-TAX-005
+        - listitem [ref=e136]:
+          - link "[CLS-REG-003] 分支机构注销是否必须先于母公司完成？流程与普通注销相同吗？ 简答：分支机构注销须先于母公司完成，流程与普通注销相同：结清税款、缴销发票、取得清税证明，再到工商办理注销。" [ref=e137] [cursor=pointer]:
+            - /url: /question/CLS-REG-003
+        - listitem [ref=e138]:
+          - link "[SET-RISK-002] 新设企业预防涉税风险的核心动作有哪些？ 简答：新设企业预防涉税风险的核心是：按时申报所有税种、专人负责发票管理、保留真实凭证、杜绝买卖发票。" [ref=e139] [cursor=pointer]:
+            - /url: /question/SET-RISK-002
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - strong [ref=e142]: 检索入口
+        - text: 按生命周期、税种分类和关键词三种方式进入。
+      - generic [ref=e143]:
+        - strong [ref=e144]: 每条问答字段
+        - text: 问题、简明答案、适用条件、风险提示和政策依据分开维护。
+      - generic [ref=e145]:
+        - strong [ref=e146]: 内容治理
+        - text: 政策专项标注、有效期标记、地方差异说明和定期复核。
+  - contentinfo [ref=e147]:
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - link "项目说明" [ref=e150] [cursor=pointer]:
+          - /url: /about
+        - link "方法说明" [ref=e151] [cursor=pointer]:
+          - /url: /methodology
+        - link "上线准备" [ref=e152] [cursor=pointer]:
+          - /url: /launch-readiness
+      - paragraph [ref=e153]: 企业税务知识库 · 数据来源于公开税务政策与结构化整理，不构成个案法律、税务或审计意见。

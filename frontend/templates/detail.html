@@ -2,74 +2,41 @@
 
 {# ---- 辅助宏（必须在{% block %}之前） ---- #}
 {% macro certainty_label(code) %}
-    {% if code == 'certain_clear' %}<span class="certainty-tag clear">明确（无条件）</span>
-    {% elif code == 'certain_conditional' %}<span class="certainty-tag condition">有条件</span>
-    {% elif code == 'certain_dispute' %}<span class="certainty-tag dispute">有争议</span>
-    {% elif code == 'certain_practice' %}<span class="certainty-tag practice">实务做法</span>
+    {% set meta = answer_certainty_meta.get(code) %}
+    {% if meta %}
+    <span class="certainty-tag {{ 'clear' if code == 'certain_clear' else 'condition' if code in ['certain_condition', 'certain_conditional'] else 'dispute' if code == 'certain_dispute' else 'practice' }}">{{ meta.label }}</span>
     {% else %}<span class="certainty-tag">{{ code }}</span>{% endif %}
 {% endmacro %}
 
-{% macro policy_level_label(code) %}{{ {'level_law':'法律','level_admin':'行政法规','level_department':'部门规章','level_bulletin':'规范性文件','level_local':'地方文件'}.get(code, code or '') }}{% endmacro %}
+{% macro policy_level_label(code) %}{{ policy_level_meta.get(code, {}).get('label', code or '') }}{% endmacro %}
 
 {% macro question_type_label(code) %}
-{%- if code == 'type_whether' -%}是否类
-{%- elif code == 'type_how' -%}怎么办类
-{%- elif code == 'type_define' -%}定义类
-{%- elif code == 'type_risk' -%}风险类
-{%- elif code == 'type_time' -%}时限类
-{%- elif code == 'type_why' -%}为什么类
-{%- elif code == 'type_what' -%}是什么类
-{%- elif code == 'type_clarify' -%}是否类
-{%- elif code == 'type_steps' -%}怎么办类
-{%- else -%}{{ code }}{%- endif -%}
+{{- question_type_meta.get(code, {}).get('label', code) -}}
 {% endmacro %}
 
 {% macro status_label(code) %}
-    {% if code == 'active' %}正常
-    {% elif code == 'draft' %}草稿
-    {% elif code == 'pending' %}待复核
-    {% elif code == 'archived' %}归档
-    {% elif code == 'obsolete' %}过时
-    {% else %}{{ code }}{% endif %}
+    {{ status_meta.get(code, {}).get('label', code) }}
 {% endmacro %}
 
 {% macro stage_label(code) %}
-    {%- if code == 'SET' -%}设立期
-    {%- elif code == 'OPR' -%}开业期
-    {%- elif code == 'CHG' -%}变更期
-    {%- elif code == 'RSK' -%}风险期
-    {%- elif code == 'SUS' -%}停业期
-    {%- elif code == 'CLS' -%}注销期
-    {%- else -%}{{ code }}{%- endif -%}
+    {{- stage_labels.get(code, code) -}}
 {% endmacro %}
 
 {% macro module_label(code) %}
-    {%- if code == 'REG' -%}登记设立
-    {%- elif code == 'DEC' -%}申报纳税
-    {%- elif code == 'INV' -%}发票管理
-    {%- elif code == 'VAT' -%}增值税
-    {%- elif code == 'IIT' -%}个人所得税
-    {%- elif code == 'CIT' -%}企业所得税
-    {%- elif code == 'SSF' -%}社保公积金
-    {%- elif code == 'CHG' -%}变更登记
-    {%- elif code == 'CLEAR' -%}清税注销
-    {%- elif code == 'RISK' -%}风险应对
-    {%- elif code == 'FEE' -%}成本费用
-    {%- elif code == 'PREF' -%}优惠政策
-    {%- elif code == 'ETAX' -%}电子税务
-    {%- else -%}{{ code }}{%- endif -%}
+    {{- module_labels.get(code, code) -}}
 {% endmacro %}
 
 {% macro relation_type_label(code) %}
-    {%- if code == 'related' -%}相关问题
-    {%- elif code == 'next_step' -%}下一步
-    {%- elif code == 'prerequisite' -%}前提问题
-    {%- elif code == 'similar' -%}相似问题
-    {%- elif code == 'see_also' -%}交叉参考
-    {%- else -%}{{ code }}{%- endif -%}
+    {{- relation_type_meta.get(code, {}).get('label', code) -}}
+{% endmacro %}
+
+{% macro support_type_label(code) %}
+    {{- support_type_meta.get(code, {}).get('label', code) -}}
 {% endmacro %}
 
 {% block title %}{{ detail.question_title }} - 企业税务知识库{% endblock %}
+{% block meta_description %}{{ (detail.one_line_answer or detail.question_plain or detail.question_title)[:120] }}{% endblock %}
+{% block canonical_url %}{{ site_url }}/question/{{ detail.question_code }}{% endblock %}
 
 {% block main %}
 {# ========== 面包屑 + 问题编码 + 版本 ========== #}
@@ -98,16 +65,21 @@
 {# ========== 问题标题 ========== #}
 <h1 class="detail-title">{{ detail.question_plain if detail.question_plain else detail.question_title }}</h1>
 
+<div class="page-notice">
+    <strong>先按这个口径看：</strong>
+    这是一条内部复核版问答，适合快速判断方向；遇到实际办税、金额较大或地方口径差异时，再核政策依据。
+</div>
+
 {# ========== 一句话结论（重点突出） ========== #}
 <div class="answer-box">
-    <div class="answer-label">一句话结论</div>
+    <div class="answer-label">先给结论<span class="sr-only">（一句话结论）</span></div>
     <div class="answer-content">{{ detail.one_line_answer }}</div>
 </div>
 
 {# ========== 详细解答 ========== #}
 {% if detail.detailed_answer %}
 <div class="detail-section">
-    <h3>详细解答</h3>
+    <h3>怎么理解</h3>
     <div class="detail-text">{{ detail.detailed_answer }}</div>
 </div>
 {% endif %}
@@ -115,7 +87,7 @@
 {# ========== 核心定义 ========== #}
 {% if detail.core_definition %}
 <div class="detail-section">
-    <h3>核心定义</h3>
+    <h3>先把概念说清楚</h3>
     <div class="detail-text">{{ detail.core_definition }}</div>
 </div>
 {% endif %}
@@ -123,7 +95,7 @@
 {# ========== 适用条件 ========== #}
 {% if detail.applicable_conditions %}
 <div class="detail-section">
-    <h3>适用条件</h3>
+    <h3>什么情况下适用</h3>
     <div class="detail-text">{{ detail.applicable_conditions }}</div>
 </div>
 {% endif %}
@@ -131,7 +103,7 @@
 {# ========== 例外与边界 ========== #}
 {% if detail.exceptions_boundary %}
 <div class="detail-section exception">
-    <h3>例外与边界</h3>
+    <h3>哪些情况要小心</h3>
     <div class="detail-text">{{ detail.exceptions_boundary }}</div>
 </div>
 {% endif %}
@@ -139,7 +111,7 @@
 {# ========== 实务处理步骤 ========== #}
 {% if detail.practical_steps %}
 <div class="detail-section">
-    <h3>实务处理步骤</h3>
+    <h3>实际办理时怎么做</h3>
     <div class="detail-text">{{ detail.practical_steps }}</div>
 </div>
 {% endif %}
@@ -147,7 +119,7 @@
 {# ========== 风险提示 ========== #}
 {% if detail.risk_warning %}
 <div class="detail-section warning">
-    <h3>风险提示</h3>
+    <h3>容易踩的坑</h3>
     <div class="detail-text">{{ detail.risk_warning }}</div>
 </div>
 {% endif %}
@@ -163,19 +135,25 @@
 <div class="scope-note local">地区：{{ detail.local_region }}</div>
 {% endif %}
 
+<div class="detail-section quality-note">
+    <h3>怎么用这条答案</h3>
+    <div class="detail-text">先看结论能不能回答你的问题；再看适用条件和边界，确认是不是同一种场景；最后看政策依据和关联问题，避免只看一句话就下判断。</div>
+</div>
+
 {# ========== 政策依据（分组展示） ========== #}
 {% if detail.policies %}
 {% set direct_policies = [] %}
 {% set procedure_policies = [] %}
 {% set other_policies = [] %}
 {% for p in detail.policies %}
-    {% if p.support_type == 'support_direct' %}{% do direct_policies.append(p) %}{% endif %}
-    {% if p.support_type == 'support_procedure' %}{% do procedure_policies.append(p) %}{% endif %}
-    {% if p.support_type not in ['support_direct', 'support_procedure'] %}{% do other_policies.append(p) %}{% endif %}
+    {% set group = support_type_meta.get(p.support_type, {}).get('group', 'other') %}
+    {% if group == 'direct' %}{% do direct_policies.append(p) %}{% endif %}
+    {% if group == 'procedure' %}{% do procedure_policies.append(p) %}{% endif %}
+    {% if group not in ['direct', 'procedure'] %}{% do other_policies.append(p) %}{% endif %}
 {% endfor %}
 
 <div class="detail-section policies-section">
-    <h3>政策依据</h3>
+    <h3>依据从哪里来</h3>
 
     {% if direct_policies %}
     <div class="policy-group">
@@ -190,11 +168,12 @@
                 {% if p.article_ref %}<div class="policy-article">条款：{{ p.article_ref }}</div>{% endif %}
                 {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
                 <div class="policy-meta">
+                    <span class="policy-support-type">{{ support_type_label(p.support_type) }}</span>
                     <span class="policy-level-badge level-{{ p.policy_level }}">{{ policy_level_label(p.policy_level) }}</span>
                     {% if p.effective_date %}<span class="policy-effective">生效：{{ p.effective_date }}</span>{% endif %}
-                    {% if p.current_status == 'pol_effective' %}<span class="policy-stat effective">现行有效</span>
-                    {% elif p.current_status == 'pol_expired' %}<span class="policy-stat expired">已失效</span>
-                    {% elif p.current_status == 'pol_partial' %}<span class="policy-stat partial">部分失效</span>{% endif %}
+                    {% if policy_status_meta.get(p.current_status) %}
+                    <span class="policy-stat {{ 'effective' if p.current_status == 'pol_effective' else 'expired' if p.current_status == 'pol_expired' else 'partial' if p.current_status == 'pol_partial' else '' }}">{{ policy_status_meta[p.current_status].label }}</span>
+                    {% endif %}
                 </div>
             </li>
             {% endfor %}
@@ -212,8 +191,11 @@
                 {% if p.article_ref %}<div class="policy-article">条款：{{ p.article_ref }}</div>{% endif %}
                 {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
                 <div class="policy-meta">
+                    <span class="policy-support-type">{{ support_type_label(p.support_type) }}</span>
                     <span class="policy-level-badge level-{{ p.policy_level }}">{{ policy_level_label(p.policy_level) }}</span>
-                    {% if p.current_status == 'pol_effective' %}<span class="policy-stat effective">现行有效</span>{% endif %}
+                    {% if policy_status_meta.get(p.current_status) %}
+                    <span class="policy-stat {{ 'effective' if p.current_status == 'pol_effective' else 'expired' if p.current_status == 'pol_expired' else 'partial' if p.current_status == 'pol_partial' else '' }}">{{ policy_status_meta[p.current_status].label }}</span>
+                    {% endif %}
                 </div>
             </li>
             {% endfor %}
@@ -229,6 +211,12 @@
             <li class="policy-item type-other">
                 <div class="policy-title">{{ p.policy_name }}{% if p.article_ref %}（文号：{{ p.document_no }}）{% endif %}</div>
                 {% if p.support_note %}<div class="policy-note">{{ p.support_note }}</div>{% endif %}
+                <div class="policy-meta">
+                    <span class="policy-support-type">{{ support_type_label(p.support_type) }}</span>
+                    {% if policy_level_meta.get(p.policy_level) %}
+                    <span class="policy-level-badge level-{{ p.policy_level }}">{{ policy_level_label(p.policy_level) }}</span>
+                    {% endif %}
+                </div>
             </li>
             {% endfor %}
         </ul>
@@ -259,7 +247,7 @@
 {# ========== 标签 ========== #}
 {% if detail.tags %}
 <div class="detail-section tags-section">
-    <h3>标签</h3>
+    <h3>相关标签</h3>
     <div class="tag-list">
         {% for t in detail.tags %}
         <a href="/questions?tag={{ t.tag_code }}" class="tag-chip {% if t.is_primary %}primary{% endif %}">{{ t.tag_name }}</a>
@@ -271,7 +259,7 @@
 {# ========== 关联问题 ========== #}
 {% if detail.relations %}
 <div class="detail-section relations">
-    <h3>关联问题</h3>
+    <h3>接着看这些问题</h3>
     <ul class="relation-list">
         {% for r in detail.relations %}
         <li>

@@ -144,6 +144,11 @@ class TestQuestionsListPage:
         data = rv.data.decode("utf-8")
         assert "第" in data and "页" in data
 
+    def test_public_info_pages_return_200(self, auth_client):
+        for path in ["/about", "/methodology", "/launch-readiness"]:
+            rv = auth_client.get(path)
+            assert rv.status_code == 200
+
 
 class TestQuestionDetailPage:
     """测试 /question/<code> 详情页"""
@@ -160,7 +165,10 @@ class TestQuestionDetailPage:
         """详情页应正确显示问题类型 badge"""
         rv = auth_client.get(f"/question/{real_code}")
         data = rv.data.decode("utf-8")
-        valid = ["是否类", "怎么办类", "定义类", "风险类", "时限类", "是什么类", "为什么类"]
+        valid = [
+            "是否类", "怎么办类", "定义类", "风险类", "时限类", "是什么类", "为什么类",
+            "步骤类", "澄清类", "办理类", "比较类", "合规类",
+        ]
         assert any(label in data for label in valid), f"code={real_code}"
 
     def test_detail_shows_answer_certainty_badge(self, auth_client, real_code):
@@ -220,6 +228,22 @@ class TestQuestionDetailPage:
         assert "一句话结论" in data
 
 
+class TestSeoRoutes:
+    def test_robots_txt(self, auth_client):
+        rv = auth_client.get("/robots.txt")
+        data = rv.data.decode("utf-8")
+        assert rv.status_code == 200
+        assert "User-agent" in data
+        assert "Sitemap:" in data
+
+    def test_sitemap_xml(self, auth_client):
+        rv = auth_client.get("/sitemap.xml")
+        data = rv.data.decode("utf-8")
+        assert rv.status_code == 200
+        assert "<urlset" in data
+        assert "/questions" in data
+
+
 class TestQuestionFormPages:
     """测试新建/编辑表单页面"""
 
@@ -266,6 +290,42 @@ class TestQuestionFormPages:
         data = rv.data.decode("utf-8")
         assert "scope_provincial" not in data
 
+    def test_new_question_form_shows_legacy_compatible_types(self, auth_client):
+        """新建表单应兼容展示当前数据库中的历史 question_type 值，避免编辑/迁移丢口径"""
+        rv = auth_client.get("/question/new", follow_redirects=False)
+        assert rv.status_code == 200
+        data = rv.data.decode("utf-8")
+        for code in ["type_steps", "type_clarify", "type_procedure", "type_compare", "type_compliance"]:
+            assert code in data
+
+    def test_new_question_form_shows_citation_support_type(self, auth_client):
+        """新建表单应兼容展示历史 support_type=citation，避免已有数据在表单中失去映射"""
+        rv = auth_client.get("/question/new", follow_redirects=False)
+        assert rv.status_code == 200
+        data = rv.data.decode("utf-8")
+        assert "citation" in data
+
+
+class TestApiRoutes:
+    """测试 API 与页面查询口径的基础一致性"""
+
+    def test_api_questions_supports_qtype_filter(self, auth_client):
+        rv = auth_client.get("/api/questions/?qtype=type_whether&page_size=5")
+        assert rv.status_code == 200
+        payload = rv.get_json()
+        assert "questions" in payload
+        for item in payload["questions"]:
+            assert item["question_type"] == "type_whether"
+
+    def test_api_search_reuses_list_filters(self, auth_client):
+        rv = auth_client.get("/api/search/?keyword=发票&qtype=type_whether&page_size=5")
+        assert rv.status_code == 200
+        payload = rv.get_json()
+        assert payload["keyword"] == "发票"
+        assert "questions" in payload
+        for item in payload["questions"]:
+            assert item["question_type"] == "type_whether"
+
 
 class TestIndexPage:
     """测试首页"""
@@ -292,3 +352,20 @@ class TestIndexPage:
         rv = auth_client.get("/")
         data = rv.data.decode("utf-8")
         assert "登记管理" in data or "申报纳税" in data or "发票管理" in data
+
+
+class TestAdminQualityPage:
+    """测试质量补强台页面"""
+
+    def test_quality_dashboard_requires_auth(self, anon_client):
+        rv = anon_client.get("/admin/quality", follow_redirects=False)
+        assert rv.status_code == 200
+        data = rv.data.decode("utf-8")
+        assert "password" in data.lower() or "登录" in data
+
+    def test_quality_dashboard_renders_for_admin(self, auth_client):
+        rv = auth_client.get("/admin/quality", follow_redirects=False)
+        assert rv.status_code == 200
+        data = rv.data.decode("utf-8")
+        assert "质量补强台" in data
+        assert "缺适用条件" in data

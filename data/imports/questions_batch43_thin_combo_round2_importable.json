@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "question_title": "企业变更主营业务或组织形式后，研发费用加计扣除资料需要重新按新口径整理吗？",
+      "question_plain": "企业在经营过程中变更主营业务、组织形式或项目管理方式后，如果仍准备享受研发费用加计扣除，之前形成的辅助账和留痕资料是否还够用，还是需要按新口径重新整理？",
+      "stage_code": "CHG",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "one_line_answer": "企业变更经营结构后，研发费用加计扣除并不会自动失效，但辅助账、项目归集和留痕资料通常应按变更后的业务口径重新核对，不能机械沿用旧模板。",
+      "detailed_answer": "研发费用加计扣除看起来像税率优惠，实际更依赖资料归集口径。企业一旦改变主营业务、组织方式或项目管理架构，原先形成的研发项目边界、成本分摊和辅助账逻辑就可能不再完全适配。此时若继续直接沿用旧资料模板，后续解释成本会明显升高。\n\n因此，关键不在于“还能不能继续享受”，而在于变更后是否还能把研发项目、费用归集和业务相关性讲清楚。只要口径发生明显变化，就应主动重做核对。",
+      "core_definition": "研发费用加计扣除资料管理的重点，是项目边界、费用归集和可追溯留痕与当前业务结构保持一致。",
+      "applicable_conditions": "适用于企业在经营中发生业务方向、组织形式或内部研发管理方式变化后，继续适用研发费用加计扣除的情形。",
+      "exceptions_boundary": "（1）若变更并未影响研发项目归集逻辑，资料调整压力会较小。\n\n（2）若企业只是名称变化但研发组织未变，重点仍在资料一致性核对。\n\n（3）是否满足优惠实质条件，仍需以当期事实为准。",
+      "practical_steps": "第一步：确认本次变更是否影响研发项目边界和费用归集逻辑。\n\n第二步：核对现有辅助账和项目资料是否仍与变更后业务结构匹配。\n\n第三步：对不再适配的项目和资料重新整理说明。\n\n第四步：保留变更前后口径衔接说明。\n\n第五步：在申报前完成一次专项复核。",
+      "risk_warning": "（1）资料口径跟不上业务变化，最容易在后续复核时失分。\n\n（2）旧模板沿用过久，会把本来能享受的优惠做得很被动。\n\n（3）优惠条件和资料留痕不一致时，解释成本最高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "研发费用加计扣除,经营变更,辅助账,资料重整,企业所得税",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-PREF-005",
+          "support_type": "support_direct",
+          "support_note": "支撑研发费用税前加计扣除政策"
+        },
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑企业所得税税前扣除凭证和资料管理"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_policy_benefit",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-CIT-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-CIT-014",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后电子税务局里旧业务入口还在，但新入口也出来了，应该用哪个？",
+      "question_plain": "企业完成某项主体或资格变更后，电子税务局里短期内同时出现旧入口和新入口，或旧路径尚未消失时，企业应如何判断应该从哪个入口继续办理业务？",
+      "stage_code": "CHG",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "变更后系统里旧入口和新入口并存时，不能凭页面多寡判断，应优先按变更后当前主体状态对应的业务链路办理，并结合实际可提交结果判断旧入口是否只是历史缓存。",
+      "detailed_answer": "电子税务局在变更后的常见现象之一，就是旧入口未立刻消失，而新入口已经出现。企业此时最容易被界面误导，以为两个都能用，或者哪个熟悉就继续用哪个。实际上，页面展示与真正的办理状态不一定完全同步。\n\n因此，更稳妥的做法不是凭感觉选入口，而是先确认企业当前适用的主体状态、资格状态和流程阶段，再验证哪条入口能真正形成有效提交和留痕。旧入口很多时候只是过渡显示，并不代表仍适用。",
+      "core_definition": "变更后电子税务局入口并存，更多是系统展示与流程迁移的过渡现象，不等于所有入口都继续有效。",
+      "applicable_conditions": "适用于企业完成变更后，电子税务局中出现旧入口和新入口并存、或历史路径尚未完全隐藏的情形。",
+      "exceptions_boundary": "（1）不同模块在入口切换上的时效和表现可能不同。\n\n（2）若旧入口仍能真实办理且留痕有效，应结合实际系统结果判断，而不是只看名称。\n\n（3）若同时存在风险限制，入口问题可能只是表象。",
+      "practical_steps": "第一步：确认当前变更后的主体和资格状态。\n\n第二步：对照当前状态匹配应使用的业务入口。\n\n第三步：用最小化动作验证新入口是否能真正提交。\n\n第四步：对旧入口只作为历史过渡判断，不要长期沿用。\n\n第五步：保存入口切换期的报错和回执留痕。",
+      "risk_warning": "（1）错用旧入口，最容易形成“页面能进、结果无效”。\n\n（2）依赖熟悉路径而不看当前主体状态，会放大变更期混乱。\n\n（3）入口并存期不留痕，后续很难解释为何走某条路径。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后旧入口新入口,电子税务局,业务入口并存,系统缓存,办理路径",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑登记变更与线上办理链路"
+        },
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "support_definition",
+          "support_note": "支撑税务登记和事项办理状态判断"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_ca_cert",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-ETAX-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后重新签合同，旧合同下发生的费用和新合同下发生的费用，税务留痕要怎么分开？",
+      "question_plain": "企业发生名称、主体或账户变更后，正在执行中的旧合同与新签署的合同并行存在，后续发生的费用在税务和留痕上应如何区分，才不容易混乱？",
+      "stage_code": "CHG",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "one_line_answer": "变更后旧合同与新合同并行时，费用留痕最重要的是把发生时点、对应合同和主体状态拆清，不能把变更前后的费用混成一团解释。",
+      "detailed_answer": "企业变更后继续履行旧合同、同时又签新合同，是非常常见的场景。问题往往不在费用能不能发生，而在后续凭证、合同、付款和主体状态是否讲得清楚。如果费用发生时点、合同归属和主体状态混在一起，后面无论报销、入账还是税前扣除都容易变得被动。\n\n因此，处理重点不是“旧合同还能不能用”这么简单，而是要把旧合同费用和新合同费用的时点、依据和责任链拆开记录。",
+      "core_definition": "变更前后费用留痕的关键，是按费用发生时点和合同归属建立清晰的证据链，而不是只看合同名称新旧。",
+      "applicable_conditions": "适用于企业发生主体或信息变更后，旧合同和新合同并行、费用持续发生的情形。",
+      "exceptions_boundary": "（1）若变更导致法律主体发生重大变化，应更谨慎判断合同连续性。\n\n（2）若费用本身与合同关联弱，仍需补足其他业务事实留痕。\n\n（3）仅名称变化与实质主体变化的处理压力并不相同。",
+      "practical_steps": "第一步：按合同编号和生效时间把费用归组。\n\n第二步：记录费用发生时企业对应的主体状态。\n\n第三步：保留旧合同继续履行或新合同重新签署的衔接说明。\n\n第四步：在报销和入账时把前后费用分开留痕。\n\n第五步：必要时在台账中增加变更说明字段。",
+      "risk_warning": "（1）费用不分新旧合同，后续最难解释的是归属关系。\n\n（2）变更后如果只留付款凭证、不留合同衔接说明，证据链会很弱。\n\n（3）新旧费用混账最容易在后期复核时暴露。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后费用留痕,旧合同新合同,税前扣除,费用归属,合同衔接",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税前扣除凭证与业务真实性要求"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑变更后基础链路和留痕衔接"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_payment",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-FEE-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-FEE-034",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业停业期间已经把申报补齐了，但准备复业时还需要再看历史零申报风险吗？",
+      "question_plain": "企业停业期间已经把明显漏报、补报问题处理掉了，但此前长期零申报留下的风险提示或历史印记是否还需要在复业前再做一次回看和确认？",
+      "stage_code": "SUS",
+      "module_code": "DEC",
+      "question_type": "type_whether",
+      "one_line_answer": "即使停业期间已把表面申报补齐，复业前仍建议再回看历史零申报风险；因为“记录补齐”不一定等于“风险口径已经完全收口”。",
+      "detailed_answer": "很多企业在停业期间把漏报补完、把当前待办清掉后，就认为申报问题已经彻底结束。可是真正影响复业的，不只是有没有缺报记录，还包括此前长期零申报形成的风险印记是否已经从逻辑上和系统上都被收口。\n\n因此，复业前再回看一次历史零申报风险，价值并不在于重新做相同动作，而在于确认过去那套会触发异常的模式是否已经真正结束。否则复业后的新周期里，旧风险可能会很快以别的提示方式再冒出来。",
+      "core_definition": "零申报风险的收口，不只看表面记录是否补齐，还要看风险逻辑和系统状态是否同步恢复。",
+      "applicable_conditions": "适用于企业停业期间已完成补报、更正或表面整改，但准备复业前仍担心历史零申报风险残留的情形。",
+      "exceptions_boundary": "（1）若企业此前并不存在长期零申报印记，回看重点会相对降低。\n\n（2）若风险页面仍有明确提示，则不能只做一般性复核。\n\n（3）不同地区和模块对历史风险印记的释放方式可能不同。",
+      "practical_steps": "第一步：确认停业期间已处理的补报和更正动作是否都有回执。\n\n第二步：回看此前零申报风险对应的提示或异常是否已消除。\n\n第三步：区分是记录已补齐但风险未收口，还是两者都已恢复。\n\n第四步：必要时在复业前补做一轮解释留痕和状态核对。\n\n第五步：将零申报风险作为复业前检查项，而不是默认略过。",
+      "risk_warning": "（1）只看记录补齐、不看风险状态，复业后很容易再次被动。\n\n（2）历史零申报模式不切断，复业后的首个周期最容易重蹈覆辙。\n\n（3）没有回执和核对留痕时，很难证明此前已经做过整改。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "复业前零申报风险,停业补报,历史零申报,风险收口,申报恢复",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑按期申报与征管基础要求"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑申报整改后的后续程序判断"
+        }
+      ],
+      "tags": [
+        "tag_zero_report",
+        "tag_declaration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-DEC-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-DEC-048",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

@@ -82,5 +82,180 @@ class TestDatabaseSchema:
         cur.execute("PRAGMA table_info(policy_basis)")
         cols = {r[1] for r in cur.fetchall()}
         conn.close()
-        required = {"id", "policy_code", "policy_name", "document_no", "policy_level", "current_status"}
+        required = {
+            "id", "policy_code", "policy_name", "document_no", "policy_level", "current_status",
+            "source_url", "source_org", "source_type", "last_verified_at",
+            "verification_status", "verification_note",
+        }
         assert required.issubset(cols), f"缺少列: {required - cols}"
+
+    def test_active_questions_have_business_tags(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM question_master q
+            LEFT JOIN question_tag_link qtl ON q.id = qtl.question_id
+            WHERE q.status = 'active' AND qtl.id IS NULL
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"active 问题不应缺少标签，当前缺失 {missing} 条"
+
+    def test_active_questions_have_update_logs(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM question_master q
+            LEFT JOIN question_update_log qul ON q.id = qul.question_id
+            WHERE q.status = 'active' AND qul.id IS NULL
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"active 问题不应缺少更新记录，当前缺失 {missing} 条"
+
+    def test_active_questions_have_relations(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM question_master q
+            LEFT JOIN question_relation qr ON q.id = qr.question_id
+            WHERE q.status = 'active' AND qr.id IS NULL
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"active 问题不应缺少关联问题，当前缺失 {missing} 条"
+
+    def test_high_frequency_questions_have_at_least_two_tags(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM (
+                SELECT q.id
+                FROM question_master q
+                WHERE q.status = 'active' AND q.high_frequency_flag = 1
+                  AND (
+                    SELECT COUNT(*)
+                    FROM question_tag_link qtl
+                    WHERE qtl.question_id = q.id
+                  ) < 2
+            )
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"高频问题至少应有 2 个标签，当前缺失 {missing} 条"
+
+    def test_high_frequency_questions_have_at_least_two_policies(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM (
+                SELECT q.id
+                FROM question_master q
+                WHERE q.status = 'active' AND q.high_frequency_flag = 1
+                  AND (
+                    SELECT COUNT(*)
+                    FROM question_policy_link qpl
+                    WHERE qpl.question_id = q.id
+                  ) < 2
+            )
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"高频问题至少应有 2 条政策依据，当前缺失 {missing} 条"
+
+    def test_high_frequency_questions_have_at_least_two_relations(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT COUNT(*)
+            FROM (
+                SELECT q.id
+                FROM question_master q
+                WHERE q.status = 'active' AND q.high_frequency_flag = 1
+                  AND (
+                    SELECT COUNT(*)
+                    FROM question_relation qr
+                    WHERE qr.question_id = q.id
+                  ) < 2
+            )
+        """)
+        missing = cur.fetchone()[0]
+        conn.close()
+        assert missing == 0, f"高频问题至少应有 2 个关联问题，当前缺失 {missing} 条"
+
+    def test_active_questions_have_structured_fields(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        checks = {
+            "applicable_conditions": "适用条件",
+            "exceptions_boundary": "例外与边界",
+            "practical_steps": "实务处理步骤",
+            "risk_warning": "风险提示",
+        }
+        for field, label in checks.items():
+            cur.execute(f"""
+                SELECT COUNT(*)
+                FROM question_master
+                WHERE status = 'active' AND ({field} IS NULL OR trim({field}) = '')
+            """)
+            missing = cur.fetchone()[0]
+            assert missing == 0, f"active 问题不应缺少{label}，当前缺失 {missing} 条"
+        conn.close()
+
+    def test_etax_module_not_empty(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("SELECT COUNT(*) FROM question_master WHERE status = 'active' AND module_code = 'ETAX'")
+        count = cur.fetchone()[0]
+        conn.close()
+        assert count > 0, "ETAX 模块不应为空"
+
+    def test_etax_module_covers_all_stages(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT DISTINCT stage_code
+            FROM question_master
+            WHERE status = 'active' AND module_code = 'ETAX'
+        """)
+        stages = {row[0] for row in cur.fetchall()}
+        conn.close()
+        assert stages == {"SET", "OPR", "CHG", "CLS", "RSK", "SUS"}, \
+            f"ETAX 模块应覆盖全部阶段，当前为 {sorted(stages)}"
+
+    def test_stage_module_matrix_has_no_zero_slots(self):
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT tag_code FROM tag_dict
+            WHERE tag_category = 'stage'
+            ORDER BY tag_code
+        """)
+        stages = [row[0] for row in cur.fetchall()]
+        cur.execute("""
+            SELECT tag_code FROM tag_dict
+            WHERE tag_category = 'module'
+            ORDER BY tag_code
+        """)
+        modules = [row[0] for row in cur.fetchall()]
+        cur.execute("""
+            SELECT stage_code, module_code, COUNT(*)
+            FROM question_master
+            WHERE status = 'active'
+            GROUP BY stage_code, module_code
+        """)
+        counts = {(row[0], row[1]): row[2] for row in cur.fetchall()}
+        conn.close()
+
+        zero_slots = [
+            f"{stage}-{module}"
+            for stage in stages
+            for module in modules
+            if counts.get((stage, module), 0) == 0
+        ]
+        assert not zero_slots, f"阶段×模块矩阵不应有空槽，当前缺失: {zero_slots}"

@@ -1,0 +1,21 @@
+[Unit]
+Description=Tax Knowledge Library
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/tax-knowledge
+Environment=SECRET_KEY=replace-with-a-long-random-secret
+Environment=ADMIN_PASSWORD=replace-with-a-strong-password
+Environment=DATABASE_PATH=/opt/tax-knowledge/database/db/tax_knowledge.db
+Environment=HOST=0.0.0.0
+Environment=PORT=5000
+Environment=FLASK_DEBUG=0
+ExecStart=/opt/tax-knowledge/.venv/bin/gunicorn --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:5000 wsgi:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

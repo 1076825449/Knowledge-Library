@@ -1,0 +1,280 @@
+{
+  "questions": [
+    {
+      "question_title": "企业变更后第一次扣款失败，应该先查银行端还是先查税务端？",
+      "question_plain": "企业刚完成地址、账户或实名等信息变更后，第一次自动扣款或缴税失败时，应该优先排查银行端设置，还是先从税务端账户报告、扣款协议和系统状态入手？",
+      "stage_code": "CHG",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "one_line_answer": "变更后首次扣款失败时，不宜只怪银行或只怪税务；更稳妥的顺序通常是先确认税务端的账户报告和扣款协议是否正确，再回头核对银行端授权和账户状态。",
+      "detailed_answer": "企业信息变更后的首次缴税扣款，是最容易暴露链路问题的节点。很多企业一遇到扣款失败就立刻把责任推给银行，或者反过来只盯电子税务局页面。实际上，这类问题往往是税务端配置、账户备案、扣款协议和银行授权状态共同作用的结果。\n\n因此，排查时更重要的是顺序。先确认税务端有没有把新账户真正识别成可用缴税账户，再核对银行端是否允许扣款、账户是否正常、授权是否到位。先把税务端的基础配置排清，后面的银行排查才更高效。",
+      "core_definition": "扣款失败不是单一端口问题，通常是税务端备案链路和银行端授权链路共同决定的结果。",
+      "applicable_conditions": "适用于企业信息变更后首次发生自动扣款或线上缴税失败的情形。",
+      "exceptions_boundary": "（1）若系统已明确给出银行账户状态异常提示，可优先核对银行侧。\n\n（2）若企业使用的并非自动扣款路径，排查重点可能不同。\n\n（3）不同银行和地区在协议生效时点上存在差异。",
+      "practical_steps": "第一步：确认税务端账户报告和扣款协议是否已更新。\n\n第二步：核对默认缴税账户是否仍指向正确账户。\n\n第三步：再检查银行端授权、余额和账户状态。\n\n第四步：记录具体失败节点和报错信息。\n\n第五步：修复后尽快做一次小额或下一次缴税验证。",
+      "risk_warning": "（1）不分层排查会让扣款问题反复横跳。\n\n（2）变更后首次缴税节点最怕临近截止日才发现链路不通。\n\n（3）只看页面成功提示，不等于扣款链路已经打通。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后扣款失败,缴税失败,银行端还是税务端,扣款协议,账户报告",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑登记信息、账户链路和线上办理"
+        },
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "support_definition",
+          "support_note": "支撑税务登记和账户管理规则"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_payment",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-REG-009",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-ETAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后以前签过的税务授权、办税权限会自动跟着新责任人走吗？",
+      "question_plain": "企业在法定代表人、财务负责人、办税员或实名办税链条发生变化后，之前已经签署或配置的税务授权和办税权限是否会自动迁移到新责任人名下？",
+      "stage_code": "CHG",
+      "module_code": "TAX",
+      "question_type": "type_whether",
+      "one_line_answer": "责任人变更后，原有税务授权和办税权限通常不会当然自动、完整地迁移；企业应主动核对实名、授权、签章和具体业务权限是否都已切换到当前责任人。",
+      "detailed_answer": "很多企业在更换法定代表人、财务负责人或办税员后，会默认认为系统里的权限会自动顺着新信息走。现实中，这往往只对了一部分。主体信息可能更新了，但实名关系、授权链条、签章方式和具体业务权限不一定同时无缝迁移。\n\n因此，真正需要警惕的不是“页面显示负责人变了”，而是关键业务到底能不能由新责任人顺利完成。如果这个验证不做，问题通常会在真正提交事项、签章或处理风险时才暴露。",
+      "core_definition": "责任人变更后的授权迁移，是多个系统链路共同作用的结果，不是单个字段更新后的当然后果。",
+      "applicable_conditions": "适用于企业责任人、法定代表人、财务负责人或办税员发生变更后的授权与权限判断。",
+      "exceptions_boundary": "（1）不同系统和模块对权限迁移的自动化程度可能不同。\n\n（2）若企业仍由代理机构操作，还需区分内部责任人与外部授权边界。\n\n（3）签章、实名和功能权限并不一定完全绑定在同一层面。",
+      "practical_steps": "第一步：确认主体信息变更是否已生效。\n\n第二步：逐项核对实名、授权、签章和关键业务权限。\n\n第三步：让新责任人完成一次实际登录和提交验证。\n\n第四步：清理旧责任人的残留权限和绑定关系。\n\n第五步：保留迁移过程留痕，避免责任链断裂。",
+      "risk_warning": "（1）只看负责人字段变化，不验证实际权限，会导致关键节点掉链子。\n\n（2）旧权限不清理，容易留下管理风险。\n\n（3）新旧责任人边界不清，后续争议很难说清。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "责任人变更,税务授权,办税权限,实名迁移,签章权限",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-REG-001",
+          "support_type": "support_direct",
+          "support_note": "支撑登记信息准确和责任链管理"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑线上登记与办理权限衔接"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_risk_warning",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-REG-025",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "费用已经入账了，后来才发现发票项目名写得很笼统，会不会影响税前扣除？",
+      "question_plain": "企业日常经营中，某项费用已经先按业务事实入账，后来才发现发票上的项目名称过于笼统或与业务描述不够贴合时，这种情况会不会影响税前扣除和内部报销留痕？",
+      "stage_code": "OPR",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "发票项目名称写得笼统，不当然意味着一定不能税前扣除；关键要看发票、合同、业务事实和内部留痕能否共同证明这笔费用的真实用途和归属。",
+      "detailed_answer": "费用凭证问题里，最常见的不是完全没有发票，而是发票有、业务也是真的，但项目名称写得过于笼统，导致财务担心后续扣除站不住。此时真正重要的不是只盯着项目名称本身，而是看整套证据链是否能把这笔费用解释清楚。\n\n如果发票只是表述不够细，但合同、订单、验收、报销说明和付款链条都能证明业务真实，企业通常还有较强的解释基础。反过来，若只有一张项目名模糊的发票而缺少其他留痕，再怎么解释都比较虚。",
+      "core_definition": "税前扣除凭证的判断，不只看发票单一字段，还要结合业务真实性、相关性和完整留痕。",
+      "applicable_conditions": "适用于企业已取得费用发票但项目名称较笼统，担心影响税前扣除或报销合规性的情形。",
+      "exceptions_boundary": "（1）若发票本身与业务性质明显不符，风险会显著上升。\n\n（2）若企业内部报销制度要求更细的项目口径，还要同时满足内部规则。\n\n（3）发票项目模糊并不等于可以忽略其他证明材料。",
+      "practical_steps": "第一步：确认费用业务事实与发票是否基本对应。\n\n第二步：补齐合同、订单、付款、验收或报销说明等辅助材料。\n\n第三步：在账务和报销留痕中写清费用用途和归属。\n\n第四步：对明显不匹配的凭证及时重审，而不是硬留存。\n\n第五步：形成一套可追溯的证据链。",
+      "risk_warning": "（1）只有一张项目模糊发票而没有其他材料，后续解释空间很弱。\n\n（2）业务真实但留痕不完整，也会让可扣除性受影响。\n\n（3）越是项目名模糊，越不能偷懒不补辅助说明。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "发票项目名称笼统,税前扣除,费用入账,报销凭证,证据链",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CIT-001",
+          "support_type": "support_direct",
+          "support_note": "支撑税前扣除凭证管理要求"
+        },
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_definition",
+          "support_note": "支撑发票真实性和完整性规则"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_payment",
+        "tag_declaration"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-FEE-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-FEE-033",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "同一个申报期里先零申报了，后面又发现其实有业务，这种情况最容易错在哪里？",
+      "question_plain": "企业在同一个申报期内已经先按零申报处理，后来又发现该期其实存在收入、开票或其他应申报事项时，后续补救时最容易出现哪些典型错误？",
+      "stage_code": "OPR",
+      "module_code": "DEC",
+      "question_type": "type_risk",
+      "one_line_answer": "先零申报后发现有业务时，最容易错在把本应更正的事项当成当前期新申报、只补主税不补联动税费、以及留痕过少说不清为什么前后口径变化。",
+      "detailed_answer": "企业先零申报、后发现有业务，是实务里非常高频的一类失误。这种情况下，真正危险的往往不是最初那次零申报本身，而是后续补救路径再次走错。最常见的问题包括：把历史错期事项硬塞到当前期、只改一个税种不看联动、以及没有解释为什么先前报零、现在又改口径。\n\n因此，补救时最重要的不是赶紧把系统里的数补上，而是先回到事实层面：这笔业务属于哪个属期、影响哪些税种、应走更正还是补报路径。事实判断一错，后面再怎么操作都可能继续错。",
+      "core_definition": "零申报后的补救，核心是回到业务归属和属期判断，而不是简单在系统里把数字补进去。",
+      "applicable_conditions": "适用于企业已先做零申报，后续才发现该期实际存在业务或应申报事项的情形。",
+      "exceptions_boundary": "（1）若业务事实本身仍不明确，应先核清事实再进入系统处理。\n\n（2）若同时影响发票、附加税和后续税种，不能只改主税。\n\n（3）不同税种在更正与补报路径上的入口可能不同。",
+      "practical_steps": "第一步：确认该笔业务真实归属的属期和税种。\n\n第二步：判断应走更正申报还是其他补救路径。\n\n第三步：检查是否联动影响附加税、企业所得税或其他项目。\n\n第四步：补足为何先报零、后又更正的解释留痕。\n\n第五步：处理后复核是否还残留风险提示。",
+      "risk_warning": "（1）把本应更正的事项错放到当前期，是最典型二次错误。\n\n（2）只补主税不补联动税费，后面还会再暴露。\n\n（3）没有说明留痕，会让前后口径变化显得非常被动。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "零申报后发现有业务,更正申报,补报,错期申报,风险提示",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑征管与申报义务基础规则"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑后续申报整改路径"
+        }
+      ],
+      "tags": [
+        "tag_zero_report",
+        "tag_declaration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-DEC-047",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-DEC-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间已经决定注销，但票证和设备还没收口，应该先处理哪个？",
+      "question_plain": "企业停业后已明确不再复业，准备直接走注销路径，但发票、税控设备、数电票状态和其他票证链条尚未完全收口时，应该先处理哪些，顺序怎么排更稳？",
+      "stage_code": "SUS",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "停业转注销时，票证和设备问题通常应优先于很多一般性展示提示处理；因为发票、设备和票证链条不收口，往往会直接卡在清税或注销环节。",
+      "detailed_answer": "停业转注销时，企业最容易低估的往往就是票证收口。觉得反正已经不开发票了，票和设备问题可以后面再看。实际上，发票库存、税控设备、数电票状态和相关票证链条，常常是注销前非常硬的阻断项。\n\n因此，如果企业已经明确不再复业，票证和设备问题通常应该排在较高优先级，至少不能拖到最后才看。越早收口，后续清税和注销越顺。",
+      "core_definition": "票证和设备收口，是停业转注销前的重要前置动作，不只是发票管理小问题。",
+      "applicable_conditions": "适用于停业企业决定转注销，但发票、设备或其他票证链条尚未完全收口的情形。",
+      "exceptions_boundary": "（1）若企业已无任何票证残留，处理重点会转向申报、欠税和风险项。\n\n（2）数电票、纸票和税控设备的收口路径可能并不完全相同。\n\n（3）不同地区在具体办理细节上可能存在差异。",
+      "practical_steps": "第一步：盘点当前票种、设备和相关状态。\n\n第二步：区分哪些是必须先收口的硬阻断项。\n\n第三步：优先处理发票和设备链条，再并行处理其他一般提醒。\n\n第四步：保留全部缴销、作废、回收和处理留痕。\n\n第五步：处理后再验证清税入口是否恢复。",
+      "risk_warning": "（1）票证问题拖到最后，最容易把注销流程卡死。\n\n（2）以为不再开票就等于票证已结束，是常见误判。\n\n（3）不同票种混在一起不分类处理，会增加返工。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "停业转注销,票证收口,税控设备,发票缴销,清税阻断项",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑清税前置流程"
+        },
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业转注销阶段基本规则"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_发票缴销",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-CLEAR-006",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-INV-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "注销后如果还要补资料，最应该庆幸自己提前留了哪些东西？",
+      "question_plain": "企业完成注销后，如果又因为历史事项被要求补资料、补说明或配合调查，哪些在注销前保留下来的材料最能帮助后续快速回应和自证？",
+      "stage_code": "CLS",
+      "module_code": "RISK",
+      "question_type": "type_what",
+      "one_line_answer": "注销后最有价值的留痕，通常不是单一清税证明，而是清税证明、申报回执、票证收口记录、关键沟通记录和责任链说明这几类材料一起形成的证据链。",
+      "detailed_answer": "企业注销后再被追问历史事项时，最常见的后悔不是“当时为什么没做”，而是“当时为什么没留”。真正能帮助快速回应的，往往不是某一张孤立文件，而是一整套能串起历史事实的材料：清税证明、申报回执、票证处理记录、风险处理留痕、资料交接说明和责任链说明。\n\n这些材料之所以重要，不是因为它们看起来正式，而是因为它们能把当时企业做了什么、什么时候做的、谁负责的、是否已经收口说清楚。注销后的风险处理，最怕的不是问题复杂，而是证据断档。",
+      "core_definition": "注销后最有效的自证材料，不是单一文件，而是能说明全过程的证据链组合。",
+      "applicable_conditions": "适用于企业注销后，又收到历史事项补资料、补说明、调查配合或类似要求的情形。",
+      "exceptions_boundary": "（1）不同历史事项需要的材料重心可能不同。\n\n（2）若注销前缺少完整归档，后续只能尽量补回碎片化留痕。\n\n（3）责任是否成立仍取决于事实本身，材料只是证明工具。",
+      "practical_steps": "第一步：优先查找清税证明和申报回执。\n\n第二步：补齐票证、风险处理和缴款相关留痕。\n\n第三步：整理当时的沟通记录和责任链说明。\n\n第四步：按事项主题重组资料，而不是零散发送。\n\n第五步：形成一份能讲清时序和动作的说明包。",
+      "risk_warning": "（1）只有结果文件没有过程留痕，后续解释力会很弱。\n\n（2）材料分散在不同人和不同设备里，响应速度会非常慢。\n\n（3）注销前不做系统归档，注销后通常很难补齐完整链条。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "注销后补资料,清税证明,申报回执,票证收口,证据链",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "CLEAR-POL-001",
+          "support_type": "support_definition",
+          "support_note": "支撑注销和后续责任链理解"
+        },
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑清税和资料收口逻辑"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-CLEAR-018",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-RISK-004",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

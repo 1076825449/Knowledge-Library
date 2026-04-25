@@ -1,0 +1,564 @@
+{
+  "questions": [
+    {
+      "question_title": "企业变更后以前年度资产损失资料还没补齐，会影响后续所得税处理吗？",
+      "question_plain": "企业完成名称、股权或组织形式变更后，发现以前年度已有一笔资产损失事项，但支持资料一直没有补齐。这样的历史问题会不会影响变更后的企业所得税处理？",
+      "stage_code": "CHG",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "one_line_answer": "变更后历史资产损失资料缺口不会自动消失，若继续影响税前扣除或后续汇算，仍应尽快补齐损失事实和承接说明。",
+      "detailed_answer": "很多企业在变更后会默认旧问题已经翻篇，但资产损失这类事项只要还影响税前扣除或历史口径，就不会因为主体信息变化而自动失效。问题的关键不在于“是不是旧账”，而在于后续还能不能把损失事实和承接链讲清楚。\n\n因此，变更后遇到历史资产损失资料缺口，更稳妥的做法是及时补齐事实资料和前后承接说明，而不是继续拖着。",
+      "core_definition": "企业变更不会切断历史企业所得税事项的解释责任，历史损失资料仍需按现有主体口径承接说明。",
+      "applicable_conditions": "适用于企业发生主体信息变更后，历史年度资产损失资料不完整、仍影响后续企业所得税处理的情形。",
+      "exceptions_boundary": "（1）若该资产损失已完全不再影响后续税务口径，压力会降低。\n\n（2）若只是轻微资料瑕疵，不一定影响整体处理。\n\n（3）最终仍需结合损失事项性质和申报口径判断。",
+      "practical_steps": "第一步：确认历史资产损失是否仍影响当前税务口径。\n\n第二步：补齐损失事实、审批和对应凭证资料。\n\n第三步：形成变更前后主体承接说明。\n\n第四步：把资料归入当前企业所得税台账。\n\n第五步：在下一次汇算前做专项复核。",
+      "risk_warning": "（1）把历史损失缺口当成变更前问题不再处理，后续最容易被追问。\n\n（2）没有承接说明，变更后的主体很难解释旧事项。\n\n（3）损失资料越晚补，解释成本越高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后资产损失,企业所得税,历史资料补齐,税前扣除,主体承接",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-CIT-002", "support_type": "support_direct", "support_note": "支撑资产损失税前扣除口径" },
+        { "policy_code": "GOV-CIT-001", "support_type": "support_aux", "support_note": "支撑企业所得税一般处理规则" }
+      ],
+      "tags": ["tag_change", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "CHG-CIT-005", "relation_type": "related" },
+        { "question_code": "CLS-CIT-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更当月已经做过一次申报，后来发现主管口径切换了，还要重走吗？",
+      "question_plain": "企业在变更当月已经按旧习惯完成过一次申报，后来才发现主管归属或税种认定口径已经切换。这种情况下，原申报动作还有效吗，是否需要补救？",
+      "stage_code": "CHG",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "变更当月先按旧口径申报后又发现切换生效时，不能只凭提交成功判断有效性，应尽快核对回执结果和主管口径，再决定是否补救。",
+      "detailed_answer": "变更月最麻烦的不是不会申报，而是“已经申报了但不确定算不算数”。系统允许提交并不等于后续主管口径一定认可，尤其在认定状态切换期更容易发生误判。\n\n因此，这种场景下最稳的做法不是先猜对错，而是先查回执归属和当前生效口径，再判断是否需要更正或补提交。",
+      "core_definition": "申报动作是否有效，应以主管口径、生效状态和结果回执共同判断，而不是只看是否提交成功。",
+      "applicable_conditions": "适用于企业变更当月已完成申报，后续又发现主管口径或认定状态切换的情形。",
+      "exceptions_boundary": "（1）若系统已明确显示申报归属无误，补救压力较小。\n\n（2）若只涉及页面展示滞后，不一定需要重走。\n\n（3）不同税种对切换期的容错空间可能不同。",
+      "practical_steps": "第一步：查询原申报回执和归属信息。\n\n第二步：确认当前主管和认定生效状态。\n\n第三步：比对原申报口径与现口径是否一致。\n\n第四步：必要时补做更正或二次提交。\n\n第五步：保存切换期的核对留痕。",
+      "risk_warning": "（1）提交成功不等于后续一定有效。\n\n（2）变更月最怕做完就不复核回执归属。\n\n（3）如果事后再补救，解释成本会更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更当月申报有效性,主管口径切换,回执归属,补救申报,变更期申报",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-DEC-006", "support_type": "support_direct", "support_note": "支撑税费种认定和申报口径衔接" },
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑变更办理链路" }
+      ],
+      "tags": ["tag_change", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-DEC-005", "relation_type": "related" },
+        { "question_code": "CHG-ETAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后电子税务局菜单没变，但消息中心已经按新主体推送，这代表什么？",
+      "question_plain": "企业变更后，电子税务局左侧菜单和事项入口还像旧主体一样，但消息中心、通知提醒已经按新状态推送。遇到这种“菜单没变、消息先变”的情况该怎么理解？",
+      "stage_code": "CHG",
+      "module_code": "ETAX",
+      "question_type": "type_what",
+      "one_line_answer": "菜单未更新但消息中心已按新主体推送，通常说明系统切换处于过渡状态，消息链可能比入口展示更早同步，但仍需用回执结果做最终判断。",
+      "detailed_answer": "电子税务局各模块并不会永远同时刷新。很多时候消息通知先切到新主体，而菜单、入口和按钮还保留旧展示，这恰恰说明系统处于过渡期。\n\n因此，消息中心可作为判断信号，但不能单独代替最终结论。更稳妥的是把消息推送、当前主体状态和实际提交回执一起看。",
+      "core_definition": "系统消息链和入口展示链可能不同步，过渡期判断要综合多条线索。",
+      "applicable_conditions": "适用于企业变更后电子税务局消息中心已切换，但菜单入口仍保留旧状态展示的情形。",
+      "exceptions_boundary": "（1）不同地区和模块同步顺序可能不同。\n\n（2）消息推送本身也可能存在延迟。\n\n（3）最终是否生效仍应以提交结果和主体状态确认。",
+      "practical_steps": "第一步：截图保留消息中心和菜单状态。\n\n第二步：核对当前主体变更是否已正式生效。\n\n第三步：用最小化动作测试核心入口。\n\n第四步：查看回执是否按新主体归属。\n\n第五步：以结果为准决定后续办理路径。",
+      "risk_warning": "（1）只凭消息中心判断，可能过早下结论。\n\n（2）只看菜单不看推送，也容易漏掉切换信号。\n\n（3）过渡期不留证据，后续难解释判断过程。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "电子税务局消息中心,菜单没变,主体切换,系统过渡,变更后入口",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-2024-033", "support_type": "support_direct", "support_note": "支撑变更后线上办理链路" },
+        { "policy_code": "SAT-TAX-001", "support_type": "support_definition", "support_note": "支撑税务登记管理程序" }
+      ],
+      "tags": ["tag_change", "tag_ca_cert", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-ETAX-005", "relation_type": "related" },
+        { "question_code": "OPR-ETAX-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后旧供应商合同还在执行，后续补签的费用说明要写到什么程度？",
+      "question_plain": "企业变更后，旧供应商合同仍在继续执行，但为了后续收票或报销又补签了一份说明或补充协议。这样的费用留痕补充，应写到什么程度才更稳妥？",
+      "stage_code": "CHG",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "one_line_answer": "变更后补签费用说明时，关键不是写得越长越好，而是把主体衔接、服务期间和付款归属三件事说清楚。",
+      "detailed_answer": "企业常会在变更后补做说明来弥合旧合同和新主体之间的差异，但很多说明只有一句“双方确认继续履行”，对税务留痕帮助其实有限。真正关键的是把谁承接、何时开始承接、对应哪些服务和付款节点说明白。\n\n因此，一份有效的补充说明，不是篇幅问题，而是前后关系是否足够清楚。",
+      "core_definition": "变更后费用补充说明的有效性，取决于主体承接、服务区间和付款归属是否具体明确。",
+      "applicable_conditions": "适用于企业变更后旧合同继续履行，并通过说明或补充协议完善费用留痕的情形。",
+      "exceptions_boundary": "（1）若原合同本身已明确承接关系，补充压力较小。\n\n（2）若只是名称变更，说明重点会更偏向信息衔接。\n\n（3）仍需结合发票和付款凭证共同判断。",
+      "practical_steps": "第一步：列出旧合同的关键执行节点。\n\n第二步：在补充说明中写明承接主体和生效时间。\n\n第三步：对应服务期间和付款归属做逐项说明。\n\n第四步：让说明与发票、付款、验收资料一致。\n\n第五步：将补充说明并入费用台账。",
+      "risk_warning": "（1）空泛说明对后续解释帮助很小。\n\n（2）不写清时间和承接范围，最容易留漏洞。\n\n（3）说明与实际付款不一致时风险更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后补充协议,费用说明,主体承接,旧合同继续履行,税前扣除",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证和业务真实性要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_definition", "support_note": "支撑费用处理一般原则" }
+      ],
+      "tags": ["tag_change", "tag_payment", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-FEE-005", "relation_type": "related" },
+        { "question_code": "CHG-INV-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后员工专项附加扣除没重新确认，个税上会有什么实际影响？",
+      "question_plain": "企业发生主体或任职单位变更后，部分员工没有及时在新单位重新确认专项附加扣除信息。这样的遗漏在个税扣缴上会带来什么实际影响？",
+      "stage_code": "CHG",
+      "module_code": "IIT",
+      "question_type": "type_risk",
+      "one_line_answer": "专项附加扣除未在新单位及时重确认时，最直接影响是预扣口径可能失真，后续更正和员工解释成本都会上升。",
+      "detailed_answer": "专项附加扣除本身不是企业替员工“自动继承”的信息。单位变更后如果员工不确认，新单位往往无法自然延续原口径，导致预扣结果失真。金额可能不大，但争议最常出在员工感受和后续更正上。\n\n因此，变更后专项附加扣除这类信息最好尽快重确认，避免后面工资条和汇算解释都变复杂。",
+      "core_definition": "单位变更后专项附加扣除信息需要在新扣缴主体下重新确认，预扣口径才能稳定。",
+      "applicable_conditions": "适用于企业主体或任职单位变更后，员工专项附加扣除信息未及时在新单位确认的情形。",
+      "exceptions_boundary": "（1）若员工本身没有专项附加扣除项目，影响有限。\n\n（2）若很快完成更正，问题通常可控。\n\n（3）具体影响仍需结合员工个税申报口径判断。",
+      "practical_steps": "第一步：筛出未完成确认的员工名单。\n\n第二步：核对当前预扣口径和历史差异。\n\n第三步：通知员工补确认专项附加扣除。\n\n第四步：必要时补做更正或说明。\n\n第五步：在变更交接清单中加入此项。",
+      "risk_warning": "（1）最常见后果是预扣不准而非系统报错。\n\n（2）员工到汇算时才发现，争议会更集中。\n\n（3）单位交接不做清单，容易长期遗漏。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "专项附加扣除重确认,个税变更,新单位扣缴,预扣失真,员工个税",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-IIT-001", "support_type": "support_direct", "support_note": "支撑个税征管衔接规则" },
+        { "policy_code": "SAT-IIT-003", "support_type": "support_procedure", "support_note": "支撑预扣预缴方法背景" }
+      ],
+      "tags": ["tag_change", "tag_withholding", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-IIT-004", "relation_type": "related" },
+        { "question_code": "CHG-IIT-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后原来开的票还没入账，后来系统信息更新了，这张票还要特别备注吗？",
+      "question_plain": "企业变更前已经收到或开出一张发票，但还没来得及入账，等到准备处理时系统里的主体信息已经更新了。此时这张票是否需要额外备注或说明？",
+      "stage_code": "CHG",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "变更节点前后跨过的发票，通常不必为了形式而额外制造复杂材料，但最好保留一份能说明时间点和主体衔接的简短备注。",
+      "detailed_answer": "这种发票问题并不罕见，真正的争议点通常不是发票本身真假，而是处理时点已经跨过变更节点，后续解释是否顺畅。如果完全不留任何说明，后面容易多花口舌；但若做得过重，也会增加维护负担。\n\n因此，更实用的做法是保留一条简洁但关键的信息说明，把开票时间、变更时间和实际业务归属说清。",
+      "core_definition": "跨变更节点发票的关键不是额外造材料，而是保留足够说明业务时间点和主体衔接的最小留痕。",
+      "applicable_conditions": "适用于发票开具或取得发生在变更前，但入账、归档或使用发生在变更后的情形。",
+      "exceptions_boundary": "（1）若发票本身存在明显信息错误，应另行处理。\n\n（2）若业务归属本身有争议，说明需要更细。\n\n（3）不同票种和业务类型的留痕力度可能不同。",
+      "practical_steps": "第一步：确认开票时间、变更时间和业务发生时间。\n\n第二步：制作一条简短的衔接备注。\n\n第三步：让备注与合同、付款、收货资料一致。\n\n第四步：归档到发票或费用台账中。\n\n第五步：后续入账时保持口径一致。",
+      "risk_warning": "（1）完全不留说明，后续容易多解释一次。\n\n（2）说明与事实不一致，反而会放大问题。\n\n（3）跨节点票据处理最怕前后口径不一致。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后入账发票,跨节点发票,主体衔接,发票备注,发票管理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理一般要求" },
+        { "policy_code": "SAT-CIT-001", "support_type": "support_aux", "support_note": "支撑业务真实性和凭证留痕" }
+      ],
+      "tags": ["tag_change", "tag_invoice", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-INV-005", "relation_type": "related" },
+        { "question_code": "CHG-FEE-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后系统连续提示异常，但业务都正常，先保存哪些证据最值钱？",
+      "question_plain": "企业刚完成变更，系统短期内连续弹出多个异常或提示，但企业实际申报、扣款、开票都还能正常进行。面对这种可能是同步延迟的问题，最值得优先保存哪些证据？",
+      "stage_code": "CHG",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "变更后连续提示异常时，最值钱的证据不是截图越多越好，而是能证明“业务动作已正常完成”的回执、记录和时间点证据。",
+      "detailed_answer": "很多企业遇到提示异常时会疯狂截图，但如果缺少关键业务完成证据，截图本身价值有限。真正能帮助后续区分“同步延迟”与“真实问题”的，是已经成功完成的申报、扣款、开票或提交回执。\n\n因此，保留证据的优先级应放在能反映系统结果的凭据上，而不是只看页面红字提示。",
+      "core_definition": "判断变更后异常是否实质影响业务，关键证据是已完成业务动作的结果凭据。",
+      "applicable_conditions": "适用于企业变更后系统连续提示异常，但日常涉税动作暂未受到实质影响的情形。",
+      "exceptions_boundary": "（1）若提示已开始影响真实办理，应尽快转入实质修复。\n\n（2）若异常涉及实名或主管归属，证据范围应更广。\n\n（3）仅凭一条成功记录不一定足以覆盖全部模块。",
+      "practical_steps": "第一步：优先保存申报、扣款、开票等成功回执。\n\n第二步：记录异常提示出现的时间和模块。\n\n第三步：整理变更生效的官方回执。\n\n第四步：按模块建立过渡期证据包。\n\n第五步：若异常持续，再提交专项排查。",
+      "risk_warning": "（1）只截图异常页面，对后续判断帮助有限。\n\n（2）不记录时间线，最难判断是否只是延迟。\n\n（3）提示虽未阻断业务，也不代表可长期忽视。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后系统异常,同步延迟,保存证据,税务风控,业务回执",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-RISK-001", "support_type": "support_risk", "support_note": "支撑风险管理口径" },
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑变更办理链路" }
+      ],
+      "tags": ["tag_change", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "CHG-RISK-004", "relation_type": "related" },
+        { "question_code": "CHG-RISK-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前发现一笔预收款一直没结转，清算所得里先怎么看？",
+      "question_plain": "企业准备注销时，账上还有一笔多年未结转的预收款，既没有明确退回，也没有形成完整收入说明。面对这种尾项，在清算所得处理中应先从哪里看起？",
+      "stage_code": "CLS",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "注销前长期挂着的预收款不能在清算里简单一冲了之，先要看其真实业务背景、历史申报口径和当前是否仍存在履约义务。",
+      "detailed_answer": "多年未结转预收款在注销阶段特别容易被当成“顺手清掉”的科目，但税务上更关心这笔钱到底代表什么业务事实。若没有先厘清收入、退款或未履约状态，直接并入清算口径会有较大解释压力。\n\n因此，先看背景事实，再决定如何进入清算处理，顺序不能反过来。",
+      "core_definition": "长期预收款的清算处理应建立在真实业务性质已明确的前提上。",
+      "applicable_conditions": "适用于企业注销前仍存在长期挂账预收款，需要判断其在清算所得和收尾处理中的口径的情形。",
+      "exceptions_boundary": "（1）若已明确退款路径，处理重点会转向票款收口。\n\n（2）若早已确认收入但账务未结转，重点又不同。\n\n（3）仍需结合合同、票据和历史申报判断。",
+      "practical_steps": "第一步：追溯预收款来源业务和合同。\n\n第二步：核对历史申报、开票和收款记录。\n\n第三步：判断当前仍存在何种履约或退款义务。\n\n第四步：形成专项底稿说明。\n\n第五步：再决定清算所得处理口径。",
+      "risk_warning": "（1）预收款最怕没有业务背景说明。\n\n（2）注销阶段为图省事直接冲销，风险很高。\n\n（3）票款表不一致时，后续更难解释。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前预收款,清算所得,长期挂账,企业所得税,清算处理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-CIT-002", "support_type": "support_direct", "support_note": "支撑清算业务企业所得税处理背景" },
+        { "policy_code": "GOV-CIT-001", "support_type": "support_aux", "support_note": "支撑企业所得税一般规则" }
+      ],
+      "tags": ["tag_注销清算", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-CIT-004", "relation_type": "related" },
+        { "question_code": "CLS-VAT-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前最后一期申报已经报完，后来又发现小税种漏了，还算“未申报”吗？",
+      "question_plain": "企业准备注销时，自认为最后一期主要税种都已申报，但之后又发现印花税等小税种有一笔遗漏。这种情况是否仍会被视为未完成申报、影响注销推进？",
+      "stage_code": "CLS",
+      "module_code": "DEC",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前哪怕只漏了一个小税种申报，也可能影响“申报是否完成”的判断，不能因为主税种已报就默认清税条件已满足。",
+      "detailed_answer": "企业在注销前最容易把注意力集中在增值税、企业所得税等主税种上，而忽略综合税费或小税种。问题在于清税看的是整体状态，不是只看几个重点表单。\n\n因此，只要还存在应报未报的税种，即使金额不大，也要先补齐，再判断申报是否真正收口。",
+      "core_definition": "注销前申报完成度的判断应看整体涉税义务是否闭合，而非只看主税种。",
+      "applicable_conditions": "适用于企业注销前主税种已申报，但后续又发现小税种或综合税费漏报的情形。",
+      "exceptions_boundary": "（1）若只是资料归档遗漏而非实际未报，影响会小很多。\n\n（2）不同地区系统对小税种提示方式可能不同。\n\n（3）最终仍要以实际应报责任为准。",
+      "practical_steps": "第一步：梳理最后一期全部应报税种清单。\n\n第二步：核对是否存在漏报或未完结事项。\n\n第三步：补齐小税种申报和回执。\n\n第四步：复核系统整体状态。\n\n第五步：再继续清税注销流程。",
+      "risk_warning": "（1）主税种已报不等于全部已收口。\n\n（2）小税种最容易在注销前被忽略。\n\n（3）漏报金额小，也可能让流程反复退回。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前漏报小税种,最后一期申报,未申报,清税条件,注销申报",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑纳税申报基础义务" },
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_procedure", "support_note": "支撑税务注销流程要求" }
+      ],
+      "tags": ["tag_declaration", "tag_清税", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-DEC-005", "relation_type": "related" },
+        { "question_code": "CLS-TAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业提交清税申请前最好先在电子税务局导出哪类清单自查？",
+      "question_plain": "企业在正式提交清税申请前，想先利用电子税务局做一次内部自查。此时最值得先导出或先核对哪几类事项清单？",
+      "stage_code": "CLS",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "提交清税申请前，最值得先核的不是单一页面，而是未办结事项、申报状态、发票设备和实名权限这几类能直接卡流程的清单。",
+      "detailed_answer": "很多企业会在清税前逐页翻电子税务局，但效率并不高。真正有价值的是先抓那些最容易形成“提不上去”“提了被退”的项目清单。\n\n因此，应把未办结事项、申报状态、发票设备状态和权限链这几块优先核对，而不是平均用力。",
+      "core_definition": "清税前电子税务局自查的重点，是优先核查会直接阻断申请的关键清单。",
+      "applicable_conditions": "适用于企业正式提交清税申请前，希望通过电子税务局进行系统化自查的情形。",
+      "exceptions_boundary": "（1）不同地区电子税务局展示路径可能不同。\n\n（2）若企业线下已有完整清单，线上自查范围可缩小。\n\n（3）仍需结合企业实际涉税复杂度判断。",
+      "practical_steps": "第一步：导出或核对未办结事项清单。\n\n第二步：复核全部应申报税种状态。\n\n第三步：核对发票、税控和票种状态。\n\n第四步：检查实名和联系人权限链。\n\n第五步：形成提交前问题清单。",
+      "risk_warning": "（1）只看首页待办，容易漏掉隐藏阻断项。\n\n（2）不先查发票设备状态，清税常被退回。\n\n（3）权限链异常往往最后才暴露，代价更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "清税前自查,电子税务局导出清单,未办结事项,发票设备,注销前检查",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_direct", "support_note": "支撑税务注销程序" },
+        { "policy_code": "SAT-TAX-001", "support_type": "support_procedure", "support_note": "支撑登记管理和系统事项口径" }
+      ],
+      "tags": ["tag_清税", "tag_ca_cert", "tag_self_check"],
+      "relations": [
+        { "question_code": "CLS-ETAX-005", "relation_type": "related" },
+        { "question_code": "CLS-ETAX-002", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销清算时还有零星咨询费和代办费，费用小就不用单列了吗？",
+      "question_plain": "企业注销清算期间发生了一些金额不大的咨询费、代办费和资料整理费。因为金额小，这些费用是否可以直接并入其他费用，不再单独留痕？",
+      "stage_code": "CLS",
+      "module_code": "FEE",
+      "question_type": "type_whether",
+      "one_line_answer": "金额小不代表可以不留痕，注销期零星费用更适合按事项归类并保留最小必要说明，而不是完全混入杂费。",
+      "detailed_answer": "注销期费用往往杂、碎、急，很多企业会把小额支出直接打包进“其他费用”。这种做法短期省事，但后面要解释时，往往反而最费劲。\n\n因此，小额不等于不重要。更稳妥的做法是按事项做简洁归类和说明，不必复杂，但不能完全没有留痕。",
+      "core_definition": "注销期小额费用的关键不是做复杂台账，而是保留足够支撑业务背景的最小留痕。",
+      "applicable_conditions": "适用于企业注销清算期间发生零星咨询费、代办费、材料整理费等小额支出的情形。",
+      "exceptions_boundary": "（1）若费用与主体或股东个人事务混同，应特别谨慎。\n\n（2）若支付对象为个人，凭证要求更敏感。\n\n（3）仍需结合费用性质判断是否可扣。",
+      "practical_steps": "第一步：按事项把零星费用做基础分类。\n\n第二步：保留对应付款和服务依据。\n\n第三步：在台账中写明费用用途。\n\n第四步：避免与个人支出混账。\n\n第五步：在清算资料中统一归档。",
+      "risk_warning": "（1）小额费用最容易被混进杂费后失去解释力。\n\n（2）没有用途说明，后续几乎只能靠回忆。\n\n（3）个人与企业费用混同会明显放大风险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销期咨询费,代办费,小额费用留痕,清算费用,税前扣除",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_definition", "support_note": "支撑费用处理一般规则" }
+      ],
+      "tags": ["tag_注销清算", "tag_payment", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-FEE-005", "relation_type": "related" },
+        { "question_code": "CLS-FEE-003", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销时给个人股东退回往来款，个税上为什么不能只看打款备注？",
+      "question_plain": "企业注销阶段向个人股东打款，银行备注写的是“往来款退回”或“借款归还”，但同时又存在清算分配背景。此时个人所得税上为什么不能只按备注判断？",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_why",
+      "one_line_answer": "注销期向股东付款时，银行备注只能作为辅助线索，不能代替款项真实性质判断，否则个税口径很容易失真。",
+      "detailed_answer": "很多注销期争议都出在“打款备注写得很简单，但真实背景更复杂”。税务处理看重的不是备注文字本身，而是款项究竟源于借款清偿、投资收回，还是清算分配。\n\n因此，备注可以帮忙说明，但绝不能代替真实性质判断。尤其向自然人股东打款时，更需要把底层性质厘清。",
+      "core_definition": "个税处理依据的是款项真实法律和经济性质，而不是银行摘要或简单备注。",
+      "applicable_conditions": "适用于企业注销时向自然人股东付款，银行备注与清算背景可能不完全一致的情形。",
+      "exceptions_boundary": "（1）若确有完整借款合同和还款链路，判断会更清楚。\n\n（2）若同时存在多类款项，需分别拆分。\n\n（3）仍需结合清算报告和决议判断。",
+      "practical_steps": "第一步：列明每笔股东付款的真实背景。\n\n第二步：核对借款、往来、分配等支持资料。\n\n第三步：不要只依赖银行备注做定性。\n\n第四步：把款项按性质拆分留痕。\n\n第五步：再匹配个税扣缴口径。",
+      "risk_warning": "（1）备注简单最容易掩盖真实性质。\n\n（2）多个性质混在一笔付款里，个税风险最高。\n\n（3）没有底稿支撑时，备注几乎没有说服力。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销期股东打款,银行备注,个税判断,清算分配,自然人股东",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-WHT-002", "support_type": "support_direct", "support_note": "支撑个人所得税基本规则" },
+        { "policy_code": "POL-WHT-003", "support_type": "support_procedure", "support_note": "支撑代扣代缴处理逻辑" }
+      ],
+      "tags": ["tag_withholding", "tag_注销清算", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-IIT-005", "relation_type": "related" },
+        { "question_code": "CLS-CIT-001", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前已经停用发票系统，但后来发现还有一张作废没做完，怎么办？",
+      "question_plain": "企业在注销前已经基本停用发票系统或税控设备，后来又发现有一张历史发票的作废、红冲或状态处理没有彻底完成。这种尾项一般该如何收口？",
+      "stage_code": "CLS",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "注销前发现历史票据尾项未收完时，不能因为系统已停用就放弃处理，应先确认票据当前状态和可用路径，再补齐收口动作。",
+      "detailed_answer": "发票系统停用并不代表历史票据问题自然消失。只要还有一张票处在未作废、未红冲或状态不清的状态，它就可能继续影响注销收尾。\n\n因此，这类问题的顺序应是先确认当前票据状态，再找可用处理路径，而不是先假设已经来不及。",
+      "core_definition": "发票系统停用后，历史票据状态问题仍需通过当前可行路径完成收口。",
+      "applicable_conditions": "适用于企业注销前已停用开票系统，但后续又发现历史发票状态尾项未处理完成的情形。",
+      "exceptions_boundary": "（1）不同票种和开票系统处理路径不同。\n\n（2）若票据已进入其他异常状态，应更谨慎。\n\n（3）仍需结合客户侧联动情况判断。",
+      "practical_steps": "第一步：确认历史票据当前状态。\n\n第二步：核对系统和纸质留存是否一致。\n\n第三步：判断还能走哪条作废或调整路径。\n\n第四步：补齐客户确认和内部记录。\n\n第五步：把尾项处理结果并入注销资料。",
+      "risk_warning": "（1）系统停用不等于票据问题自动结束。\n\n（2）最后才发现历史尾项，处理窗口会更窄。\n\n（3）不补客户和内部留痕，后续难闭环。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前发票尾项,系统停用,历史发票作废,红冲收口,发票注销",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理基础要求" },
+        { "policy_code": "SAT-INV-001", "support_type": "support_procedure", "support_note": "支撑红字和状态处理路径" }
+      ],
+      "tags": ["tag_发票缴销", "tag_red_invoice", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-INV-004", "relation_type": "related" },
+        { "question_code": "CLS-ETAX-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前优惠台账还没整理完，会直接影响清税吗？",
+      "question_plain": "企业准备注销时，发现以前年度享受优惠的辅助台账和说明资料还没有完全整理好。这样的资料缺口会不会直接影响清税或注销推进？",
+      "stage_code": "CLS",
+      "module_code": "PREF",
+      "question_type": "type_whether",
+      "one_line_answer": "优惠台账未整理完不一定当场卡死清税，但会显著增加后续解释和补资料成本，最好在注销前先做一轮收口整理。",
+      "detailed_answer": "优惠资料不像欠税那样一定会立刻在系统里红字提示，但一旦后续被要求说明，准备不足会非常被动。尤其在注销阶段，人员和资料都在收缩，补资料的成本会更高。\n\n因此，即使它不一定直接阻断清税，也不应等到注销后再想办法回头补。",
+      "core_definition": "优惠资料整理不充分的风险，主要体现在后续复核和解释成本，而非一定即时形成系统阻断。",
+      "applicable_conditions": "适用于企业注销前优惠辅助台账、说明资料或备查材料尚未完成整理的情形。",
+      "exceptions_boundary": "（1）不同优惠项目对资料完整度的敏感度不同。\n\n（2）若企业从未实质享受优惠，影响较小。\n\n（3）地方专项优惠还可能附带地方要求。",
+      "practical_steps": "第一步：梳理已享受过的优惠项目清单。\n\n第二步：优先补齐最关键的台账和支持资料。\n\n第三步：形成一页式优惠收口说明。\n\n第四步：把资料与注销档案一并归档。\n\n第五步：为后续抽查留出查询路径。",
+      "risk_warning": "（1）注销前资料最容易散失，补整理窗口最短。\n\n（2）优惠台账没收口，后续最难追溯。\n\n（3）等注销后再补，成本通常更高。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前优惠台账,清税,优惠资料整理,税收优惠,注销准备",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-PREF-001", "support_type": "support_direct", "support_note": "支撑优惠政策背景" },
+        { "policy_code": "POL-PREF-005", "support_type": "support_aux", "support_note": "支撑优惠资料留痕要求" }
+      ],
+      "tags": ["tag_policy_benefit", "tag_注销清算", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-PREF-005", "relation_type": "related" },
+        { "question_code": "SUS-PREF-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前联系人链条失效，但税务又让补件，先做什么最省时间？",
+      "question_plain": "企业在注销阶段已经发现办税员、联系电话或接收通知的人都不稳定，这时税务又要求补件。面对这种情况，先做什么能最快把流程拉回正轨？",
+      "stage_code": "CLS",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "注销期补件被卡时，最省时间的动作往往不是先准备材料，而是先恢复稳定的联系人和通知接收链，再让补件流程重新可控。",
+      "detailed_answer": "很多企业一收到补件要求，就急着找材料，但如果联系人链条本身已经失效，后续沟通和再次补件仍可能继续掉线。尤其在注销期，流程往往已经非常紧凑，联络链问题会被迅速放大。\n\n因此，先把谁接收通知、谁负责提交和谁能进系统这三件事稳定下来，再做补件，通常更省时间。",
+      "core_definition": "注销期补件效率取决于联络链、权限链和材料链三者是否先后有序恢复。",
+      "applicable_conditions": "适用于企业注销阶段收到补件要求，同时存在联系人、办税员或通知接收链失效的情形。",
+      "exceptions_boundary": "（1）若补件截止时间极紧，可能需要双线并行。\n\n（2）若只是手机号变更，处理会简单一些。\n\n（3）不同地区系统权限恢复路径可能不同。",
+      "practical_steps": "第一步：明确当前可负责补件的人。\n\n第二步：恢复通知接收和系统权限链。\n\n第三步：确认补件时限和补件目录。\n\n第四步：再准备和提交材料。\n\n第五步：保留补件过程中的全部回执。",
+      "risk_warning": "（1）联系人链不稳时，材料准备也可能白做。\n\n（2）补件通知漏接最容易导致流程中断。\n\n（3）注销期权限问题通常比想象中更耽误时间。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销补件,联系人失效,办税员失效,通知接收链,税务注销",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_direct", "support_note": "支撑税务注销程序" },
+        { "policy_code": "GOV-Tax-001", "support_type": "support_procedure", "support_note": "支撑登记和通知处理基础要求" }
+      ],
+      "tags": ["tag_税务注销", "tag_register", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-REG-005", "relation_type": "related" },
+        { "question_code": "CLS-REG-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销后历史风险提示又跳出来，最先要确认是不是哪类“旧尾项”？",
+      "question_plain": "企业主体已经注销，但后来又收到历史风险提示、待处理提醒或税务关注信息。遇到这种情况，最先应该怀疑哪一类旧尾项仍未真正收口？",
+      "stage_code": "CLS",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "注销后再冒出的历史风险提示，最先应排查的通常是历史申报、票据状态、清算责任链和通知链里未完全闭合的旧尾项。",
+      "detailed_answer": "企业注销后再收到提示，很多人会先怀疑系统出错，但经验上更常见的是某条历史链路并没有真的闭合。申报、发票、清算责任或联系人链，只要有一条没有收干净，都可能在注销后再次冒头。\n\n因此，最有效的第一步不是争论提示是否合理，而是先按最典型的旧尾项去排查。",
+      "core_definition": "注销后风险提示的第一判断重点，是历史链路是否存在未真正闭合的尾项。",
+      "applicable_conditions": "适用于企业已注销后又收到历史风险提示、待办提醒或补税关注信息的情形。",
+      "exceptions_boundary": "（1）若提示明显属于系统缓存，影响会较小。\n\n（2）若已涉及正式通知程序，应及时进入实质处理。\n\n（3）不同地区提示样式可能不同。",
+      "practical_steps": "第一步：确认提示属于风险提醒还是正式程序通知。\n\n第二步：优先排查历史申报和票据尾项。\n\n第三步：核对清算资料和责任承接链。\n\n第四步：整理注销时保留的关键底稿。\n\n第五步：再决定是解释、补件还是实质处理。",
+      "risk_warning": "（1）注销后再出提示，最怕完全找不到旧资料。\n\n（2）把所有情况都当系统误报，容易耽误时机。\n\n（3）责任链不清时，后续处理会更被动。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销后风险提示,旧尾项,历史申报,发票状态,清算责任",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-RISK-001", "support_type": "support_risk", "support_note": "支撑风险管理背景" },
+        { "policy_code": "SAT-CLEAR-002", "support_type": "support_procedure", "support_note": "支撑注销后事项衔接背景" }
+      ],
+      "tags": ["tag_risk_warning", "tag_税务注销", "tag_self_check"],
+      "relations": [
+        { "question_code": "CLS-RISK-004", "relation_type": "related" },
+        { "question_code": "CLS-RISK-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销时社保已经结清，但个别员工历史增员信息没对上，会影响税务这边吗？",
+      "question_plain": "企业注销时社保费总体已经结清，但个别员工的历史增员、减员或参保时间信息存在小差异。这样的社保尾项会不会影响税务注销收尾？",
+      "stage_code": "CLS",
+      "module_code": "SSF",
+      "question_type": "type_whether",
+      "one_line_answer": "社保历史增减员细节差异不一定直接阻断税务注销，但若反映出人员关系或缴费链条未闭合，仍可能带来后续补核压力。",
+      "detailed_answer": "企业注销时，很多人以为“钱结清了就结束了”，但历史增减员和参保时间信息如果明显对不上，往往说明内部资料链还不够干净。它不一定马上卡住税务流程，但一旦被追问，准备不足会非常被动。\n\n因此，最好在注销前把这类小尾项也做一轮对表，至少保证解释链是清楚的。",
+      "core_definition": "社保收尾是否真正闭合，不只看金额结清，还要看人员和参保链路是否能对应解释。",
+      "applicable_conditions": "适用于企业注销时社保费已基本结清，但历史增员、减员或参保时间信息存在差异的情形。",
+      "exceptions_boundary": "（1）若差异仅为展示口径问题，实质影响较小。\n\n（2）若已经影响员工权益查询，应更重视。\n\n（3）地方社保系统细节差异可能存在。",
+      "practical_steps": "第一步：对表历史增减员和实际用工记录。\n\n第二步：核对是否影响缴费事实解释。\n\n第三步：补充保留离职、转移和结清回执。\n\n第四步：形成简要说明底稿。\n\n第五步：与注销档案一并归档。",
+      "risk_warning": "（1）钱结清不代表信息链一定闭合。\n\n（2）个别员工尾项最容易被忽视。\n\n（3）注销后再回头补对表，会更难找资料。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销时社保尾项,历史增员信息,税务注销,社保结清,员工参保",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-SSF-001", "support_type": "support_direct", "support_note": "支撑社会保险费征缴规则" },
+        { "policy_code": "SSF-POL-001", "support_type": "support_definition", "support_note": "支撑社保登记管理要求" }
+      ],
+      "tags": ["tag_ssf", "tag_税务注销", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-SSF-005", "relation_type": "related" },
+        { "question_code": "CLS-REG-001", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前把一批历史小税种问题一起翻出来，先按金额还是先按程序分？",
+      "question_plain": "企业在注销前集中自查时，一次性翻出了好几项历史小税种或综合税费问题。此时收口顺序更适合按金额大小排，还是先按程序影响程度排？",
+      "stage_code": "CLS",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "one_line_answer": "注销前集中发现多项小税种问题时，收口顺序通常应优先按程序阻断程度排，而不是先按金额大小排。",
+      "detailed_answer": "很多企业习惯先处理金额大的项目，但在注销阶段，真正决定流程推进快慢的常常是程序阻断项，而不是金额本身。哪怕金额很小，只要会影响申报完整性、清税状态或系统待办，就应该优先处理。\n\n因此，注销期处理顺序更适合先看谁会卡流程，再看金额影响。",
+      "core_definition": "注销阶段税务综合问题的优先级，应以流程阻断性为先，以金额大小为辅。",
+      "applicable_conditions": "适用于企业注销前集中发现多项小税种、综合税费或历史边角问题，需要排定处理顺序的情形。",
+      "exceptions_boundary": "（1）若某项金额虽大但不会阻断流程，也不应长期拖延。\n\n（2）不同问题可存在并行处理空间。\n\n（3）仍需结合时限要求综合排序。",
+      "practical_steps": "第一步：列出全部问题清单。\n\n第二步：标注是否影响申报、清税或系统状态。\n\n第三步：先处理阻断流程的问题。\n\n第四步：再按金额和复杂度安排后续收口。\n\n第五步：保留排序依据和处理记录。",
+      "risk_warning": "（1）按金额排不一定等于按影响排。\n\n（2）小问题也可能卡住大流程。\n\n（3）没有总清单时，最容易反复返工。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前小税种问题,处理顺序,按金额还是按程序,税务综合,清税收口",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑税收征管基础要求" },
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_procedure", "support_note": "支撑清税注销程序" }
+      ],
+      "tags": ["tag_清税", "tag_self_check", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-TAX-005", "relation_type": "related" },
+        { "question_code": "CLS-DEC-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销前最后一期增值税没有销售，但历史票据还没全收口，申报时重点看什么？",
+      "question_plain": "企业注销前最后一期没有新的销售收入，但历史上还有几张票据、预收款或红冲事项没有完全收口。面对这种“没销售但有尾项”的周期，增值税申报时重点应看什么？",
+      "stage_code": "CLS",
+      "module_code": "VAT",
+      "question_type": "type_how",
+      "one_line_answer": "最后一期即使没有新销售，增值税申报重点仍应放在历史票据、预收款和调整事项是否全部闭环，而不是简单按零收入处理。",
+      "detailed_answer": "企业在最后一期最容易因为“没有新业务”而误以为只要零申报即可，但注销期真正棘手的往往是历史尾项，而不是新增交易。只要历史票据、预收款或红冲事项还没闭合，申报就不能只按当前零销售理解。\n\n因此，关键是先把历史尾项盘清，再决定当期申报口径。",
+      "core_definition": "注销前最后一期增值税申报应重点关注历史尾项是否闭环，而非只看当期是否有新销售。",
+      "applicable_conditions": "适用于企业注销前最后一期无新增销售，但存在历史票据、预收款、红冲或其他增值税尾项的情形。",
+      "exceptions_boundary": "（1）若历史尾项已全部清理完，处理会简单很多。\n\n（2）不同票种和业务类型的尾项收口路径不同。\n\n（3）仍需结合原纳税义务时间判断。",
+      "practical_steps": "第一步：盘点全部历史票据和预收款尾项。\n\n第二步：确认是否仍有需调整的申报项目。\n\n第三步：核对票、款、表三者是否一致。\n\n第四步：保留当期零销售与历史尾项并存的说明。\n\n第五步：完成最后一期申报并复核回执。",
+      "risk_warning": "（1）没新销售不等于可以机械零申报。\n\n（2）尾项没盘清，最后一期最容易报偏。\n\n（3）注销期增值税错误会直接拖慢流程。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前最后一期增值税,没有销售,历史票据尾项,零申报,增值税收口",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-VAT-004", "support_type": "support_direct", "support_note": "支撑增值税申报管理要求" },
+        { "policy_code": "SAT-INV-001", "support_type": "support_procedure", "support_note": "支撑红字发票和票据调整路径" }
+      ],
+      "tags": ["tag_declaration", "tag_red_invoice", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-VAT-005", "relation_type": "related" },
+        { "question_code": "CLS-INV-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业日常经营中电子税务局明明能登录，但突然一个模块反复报错，先查权限还是环境？",
+      "question_plain": "企业平时正常使用电子税务局，突然某一个模块反复报错或提交失败，但其他模块还能正常打开。面对这种局部故障，第一步更应该先查权限问题还是浏览器、签章环境问题？",
+      "stage_code": "OPR",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "日常经营中某单一模块反复报错时，通常先查该模块依赖的本地环境和签章链，再核对是否有该模块特定权限或待办限制。",
+      "detailed_answer": "电子税务局局部模块报错最容易让人陷入两种极端：要么一上来就怀疑全站坏了，要么一味重装环境。实际上，单一模块出问题时，更常见的是该模块依赖的本地插件、签章环境或特定权限链出了偏差。\n\n因此，排查顺序不宜过散。先看环境链和模块特定限制，再决定是否上升到权限问题，效率会更高。",
+      "core_definition": "单模块报错的排查顺序，应先从模块依赖环境和模块特定权限入手，而不是泛泛重查全部系统。",
+      "applicable_conditions": "适用于企业日常经营中电子税务局仅某个模块反复报错、其他模块仍可正常使用的情形。",
+      "exceptions_boundary": "（1）若全站都异常，应优先排查网络或平台问题。\n\n（2）若模块同时提示实名或权限限制，应更早检查权限链。\n\n（3）不同浏览器和签章环境差异可能明显。",
+      "practical_steps": "第一步：确认是否只有单一模块报错。\n\n第二步：检查该模块依赖的浏览器、签章和本地环境。\n\n第三步：核对是否存在该模块特定权限或待办限制。\n\n第四步：保存报错时间、截图和控制路径。\n\n第五步：必要时再升级为权限或系统层排查。",
+      "risk_warning": "（1）单模块故障最怕一上来全盘重装，浪费时间。\n\n（2）不记录报错路径，后续难复现。\n\n（3）把环境问题误判为权限问题，会导致排查走偏。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "电子税务局模块报错,先查权限还是环境,签章环境,浏览器问题,办税系统排查",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-TAX-001", "support_type": "support_definition", "support_note": "支撑电子税务办理和权限基础口径" },
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑线上办理场景背景" }
+      ],
+      "tags": ["tag_ca_cert", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "OPR-ETAX-005", "relation_type": "related" },
+        { "question_code": "OPR-ETAX-004", "relation_type": "see_also" }
+      ]
+    }
+  ]
+}

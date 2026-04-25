@@ -1,0 +1,234 @@
+{
+  "questions": [
+    {
+      "question_title": "员工调岗或改签用工关系后，个税专项附加扣除信息要不要在新单位重新确认？",
+      "question_plain": "企业内部员工发生调岗、改签劳动关系、重新入职或关联主体切换后，原有个人所得税专项附加扣除信息是否会自动延续，还是需要在新扣缴单位重新确认和留痕？",
+      "stage_code": "CHG",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "员工关系切换后，专项附加扣除信息不宜想当然沿用；只要扣缴义务主体变化或人员归属链条变化，企业通常应重新确认相关个税信息和留痕。",
+      "detailed_answer": "企业内部关系调整时，最容易忽略的不是工资本身，而是与扣缴口径紧密相关的专项附加扣除信息。很多企业觉得员工还是同一个人，之前填过的信息应该自动就能继续用。实际上一旦扣缴主体、任职受雇关系或所属公司发生变化，就不能只凭“人没变”来判断。\n\n更稳妥的做法通常是重新确认员工当前任职状态、专项附加扣除申报情况和企业自身的留痕要求。这样后续无论是预扣、汇算还是员工异议，都更容易说清。",
+      "core_definition": "专项附加扣除信息与扣缴主体、任职受雇关系和申报留痕密切相关，不是单纯的个人静态信息。",
+      "applicable_conditions": "适用于员工调岗、改签劳动关系、主体切换或重新入职后，企业处理个税专项附加扣除信息的情形。",
+      "exceptions_boundary": "（1）若员工关系变化并未改变扣缴主体，处理复杂度相对较低。\n\n（2）若员工自行在个人端已更新信息，企业仍应关注自身留痕。\n\n（3）最终年度汇算时点仍可能对信息进行统一校正。",
+      "practical_steps": "第一步：确认员工任职受雇和扣缴主体是否已发生变化。\n\n第二步：重新核对专项附加扣除申报信息是否仍适用。\n\n第三步：必要时要求员工重新确认并留痕。\n\n第四步：在新主体下按确认后的信息执行预扣。\n\n第五步：保留主体切换和个税信息确认的衔接记录。",
+      "risk_warning": "（1）关系切换后继续机械沿用旧信息，容易造成预扣偏差。\n\n（2）只信口头确认不留痕，后续员工异议最难处理。\n\n（3）主体变化时忽略专项附加扣除，是变更期个税常见漏洞。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "调岗个税,专项附加扣除,主体切换,扣缴单位,个税留痕",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-IIT-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑新个税法征管衔接要求"
+        },
+        {
+          "policy_code": "SAT-IIT-003",
+          "support_type": "support_procedure",
+          "support_note": "支撑预扣预缴与信息留存口径"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_withholding",
+        "tag_declaration"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-IIT-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-IIT-020",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业准备做重大变更时，如果顺便想清理历史税务尾巴，哪些最适合在变更前先处理？",
+      "question_plain": "企业准备做股权、地址、主体结构或其他重大变更，同时想把历史税务尾巴一起顺手清理时，通常哪些问题更适合在变更前优先处理，避免后续叠加复杂度？",
+      "stage_code": "CHG",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "one_line_answer": "重大变更前最值得优先处理的，通常是未申报、欠税、票证残留、风险提示和实名/登记异常这几类底层问题；底层尾巴不清，变更后只会更难解释和追溯。",
+      "detailed_answer": "企业在做重大变更时，常会想着“反正都要动了，不如把税务问题留到变更后一起看”。但从执行效率看，很多底层尾巴恰恰更适合在变更前先清。因为一旦主体信息、责任链条或业务结构发生变化，原本就不清晰的问题只会更难解释。\n\n尤其是未申报、欠税、票证残留、风险提示和实名/登记异常，这些都属于底层阻断项。如果它们在变更前不先处理，变更后往往会同时叠加新旧两套问题。",
+      "core_definition": "重大变更前的税务清尾，本质上是先把旧链路里的硬阻断项收口，避免新旧问题叠加。",
+      "applicable_conditions": "适用于企业准备股权、地址、主体结构等重大变更，并希望同步清理历史税务尾巴的情形。",
+      "exceptions_boundary": "（1）若变更本身有紧迫时限，个别事项可能需要并行推进。\n\n（2）并非所有小问题都必须在变更前清掉，关键是先看阻断性。\n\n（3）若变更涉及多主体联动，应按影响范围分类处理。",
+      "practical_steps": "第一步：列出当前所有历史税务尾巴清单。\n\n第二步：优先识别会直接影响变更和后续解释的硬阻断项。\n\n第三步：在变更前先处理未申报、欠税、票证、风险和实名登记异常。\n\n第四步：保留变更前清尾动作的完整留痕。\n\n第五步：再把剩余一般问题带入变更后的新阶段处理。",
+      "risk_warning": "（1）把底层尾巴全拖到变更后，只会增加解释难度。\n\n（2）新旧责任链叠加后，很多问题更难说清是谁留下的。\n\n（3）不做优先级排序，最容易在小问题上耗掉时间。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "重大变更前清尾,未申报,欠税,票证残留,风险提示",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑清税与前置收口逻辑"
+        },
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑前置条件和收口判断"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-CLEAR-005",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-ETAX-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "经营期里有些税务问题明明不大，为什么总是拖着拖着就变成风险提示？",
+      "question_plain": "企业日常经营中，一些最初看似不大的税务小问题，比如少一个回执、漏一个附加税、晚改一条登记信息，为什么最后常常演变成系统异常、风险提示或信用影响？",
+      "stage_code": "OPR",
+      "module_code": "TAX",
+      "question_type": "type_why",
+      "one_line_answer": "很多税务问题不是一开始就大，而是因为它们正好落在申报、票证、登记和信用这些基础链路上，拖着不处理就会从小缺口积累成系统风险。",
+      "detailed_answer": "企业经营期的税务问题常常有一个共同特征：单看某一次失误，似乎都不算特别严重，比如忘了补一个附加税、少留一张回执、晚改一条登记信息。但税务系统看问题更偏向链路完整性，只要这些小缺口落在关键链路上，它们就会逐步叠加成异常状态。\n\n因此，问题变大并不一定是因为金额巨大，而往往是因为它影响了“申报是否完整、票证是否收口、登记是否真实、信用是否可持续”这些底层条件。企业越早在小问题阶段处理，越不容易让后面的问题放大。",
+      "core_definition": "经营期税务小问题之所以会放大，是因为它们常常击中征管系统的基础链路，而非单次金额大小。",
+      "applicable_conditions": "适用于企业想理解经营期常见小问题为何会逐步演变成风险提示、信用影响或办税异常的情形。",
+      "exceptions_boundary": "（1）并非所有小问题都会放大，关键在于它是否落在基础链路上。\n\n（2）金额小不等于征管影响小。\n\n（3）部分提示也可能只是短期同步问题，但仍应先做事实判断。",
+      "practical_steps": "第一步：先判断问题影响的是申报、票证、登记还是信用链路。\n\n第二步：优先处理会反复累计的小缺口。\n\n第三步：不要因为问题看起来小就长期后拖。\n\n第四步：把关键回执、说明和修正动作留痕。\n\n第五步：建立定期巡检，减少小问题反复堆积。",
+      "risk_warning": "（1）税务问题最怕不是单次错误，而是连续不收口。\n\n（2）小问题落在基础链路上时，放大速度通常比预想更快。\n\n（3）没有巡检机制时，企业往往直到被提示才发现问题已经积累很久。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "税务小问题变风险,系统异常,信用影响,基础链路,经营期税务",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑征管基础要求"
+        },
+        {
+          "policy_code": "SAT-RISK-003",
+          "support_type": "support_risk",
+          "support_note": "支撑风险识别与信用影响口径"
+        }
+      ],
+      "tags": [
+        "tag_risk_warning",
+        "tag_risk_control",
+        "tag_declaration"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-RISK-010",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-RISK-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间如果准备恢复经营，复业前最该先看哪三类税务问题？",
+      "question_plain": "企业在停业一段时间后打算恢复经营时，正式复业前最应该优先排查哪几类税务问题，才能避免刚恢复业务就立刻在申报、开票或系统上出问题？",
+      "stage_code": "SUS",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "复业前最该优先看的通常是申报链路、实名/登记链路和票证/发票链路这三类；只要这三类中有一条没收口，复业后的首月就很容易出问题。",
+      "detailed_answer": "企业复业前最容易关注的是业务侧准备，比如库存、客户和现金流，却忽略税务链路是否已经恢复到可正常运转的状态。实务上，复业后最容易出问题的往往不是复杂税筹，而是最基础的三条线：申报是否连续完整、实名和登记是否仍然有效、票证和发票链路是否能重新启用。\n\n因此，复业前的税务准备更像一次系统体检。只要这三条里有一条还处于异常或半失效状态，复业后的第一个申报期、第一张发票或第一次登录办理就可能立刻卡住。",
+      "core_definition": "复业前税务准备的核心，是确保申报、身份识别和票证三条基础链路恢复可用。",
+      "applicable_conditions": "适用于企业停业后计划恢复经营，需要确定复业前税务排查优先级的情形。",
+      "exceptions_boundary": "（1）若企业仍处于非正常状态或重大风险处理中，应先处理阻断项。\n\n（2）若企业不再复业而改走注销路径，优先级判断会不同。\n\n（3）不同企业受票种、税种和用工结构影响，具体重点会有差异。",
+      "practical_steps": "第一步：检查历史申报是否存在遗漏、更正或待处理事项。\n\n第二步：核对实名、登记、责任人和联系方式是否仍可用。\n\n第三步：确认发票、设备和票证链路是否已收口并可重新启用。\n\n第四步：对关键业务做一次复业前演练。\n\n第五步：把发现的问题先收口，再正式恢复经营。",
+      "risk_warning": "（1）复业前不先体检税务链路，首月最容易集中报错。\n\n（2）业务恢复越快，税务底层没准备好时越容易失控。\n\n（3）把复业理解成“业务重启”而非“系统重启”，很容易漏掉关键问题。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "复业前检查,停业恢复经营,申报链路,发票链路,实名登记",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业复业阶段基本规则"
+        },
+        {
+          "policy_code": "SAT-SUS-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑线上链路与消息入口管理"
+        }
+      ],
+      "tags": [
+        "tag_declaration",
+        "tag_tax_registration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-TAX-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-RISK-005",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间如果还在等一项历史更正申报结果，复业时要不要先等结果出来？",
+      "question_plain": "企业停业期间已经提交了某项历史更正申报、补报或风险资料，但尚未完全出结果时，如果又想恢复经营，是否需要先等这一事项彻底落定，再考虑复业？",
+      "stage_code": "SUS",
+      "module_code": "DEC",
+      "question_type": "type_whether",
+      "one_line_answer": "是否必须等历史更正事项完全落定后再复业，关键要看这项未结事项是否会直接阻断复业后的申报、开票或办税链路；不是所有未完事项都必须先等结果。",
+      "detailed_answer": "停业期间提交历史更正、补报或风险资料后，企业常会卡在一个判断上：是不是必须先等这个事情彻底出结果，才能恢复经营？更稳妥的判断标准并不是“有没有事项在处理中”，而是这个事项会不会直接影响复业后的基础链路。\n\n如果未结事项本身不阻断新的申报、开票和办税能力，企业未必一定要等到完全结案才复业；但如果它直接影响税务状态、信用状态或系统办理能力，那么贸然复业通常会把问题带入新经营周期。",
+      "core_definition": "复业与未结历史事项的关系，关键不在于是否“全部归零”，而在于是否存在直接阻断性。",
+      "applicable_conditions": "适用于企业停业期间仍有历史更正申报、补报或风险资料在处理中，同时计划恢复经营的情形。",
+      "exceptions_boundary": "（1）若事项本身已导致非正常状态或模块受限，应优先处理。\n\n（2）若事项只是一般性补件或非阻断性跟进，复业判断会不同。\n\n（3）不同业务模块和地区系统的阻断表现不完全一致。",
+      "practical_steps": "第一步：确认未结事项当前处于什么状态。\n\n第二步：判断其是否直接影响复业后的申报、开票或办理能力。\n\n第三步：对阻断性事项优先收口。\n\n第四步：对非阻断事项可结合经营计划谨慎安排复业。\n\n第五步：复业前保留一份未结事项清单和跟进责任人。",
+      "risk_warning": "（1）把所有未结事项都当成必须先等，会无谓拖延复业。\n\n（2）把阻断性事项当成可先不管，则会把旧问题直接带入新周期。\n\n（3）没有清单和责任人，复业后最容易忘记继续跟进。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业更正申报,复业前等待结果,未结事项,补报,风险资料",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业复业阶段判断框架"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑更正与后续程序处理口径"
+        }
+      ],
+      "tags": [
+        "tag_declaration",
+        "tag_risk_warning",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-DEC-004",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SUS-TAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

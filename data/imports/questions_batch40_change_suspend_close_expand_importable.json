@@ -1,0 +1,464 @@
+{
+  "questions": [
+    {
+      "question_title": "企业变更经营地址但不跨区，税务上除了改地址，还要同步检查哪些链路？",
+      "question_plain": "企业只是同一主管税务机关辖区内变更经营地址或注册地址，没有发生跨区迁移时，税务上除了提交地址变更，还应同步检查哪些基础链路，才算真正改完整？",
+      "stage_code": "CHG",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "地址变更不是把地址字段改掉就结束了；企业还应同步核对文书送达、办税联系人、银行信息、发票开票信息和电子税务局登记状态，否则后续仍可能反复受限。",
+      "detailed_answer": "很多企业以为地址变更是一个单点动作，只要在系统里把注册地址或经营地址提交更新，就算处理完成。实际上一旦地址发生变化，税务端受影响的往往不只是地址文本本身，还包括文书送达链路、办税联系人可达性、发票销方信息、税务系统中的关联基础资料等。\n\n因此，不跨区并不等于影响很小。恰恰因为同区变更更容易被低估，企业才更容易在“已经提交变更”之后忽略后续验证，结果一到发票、申报、文书或抽查环节才发现并没有真正收口。",
+      "core_definition": "地址变更的完成标准，不是单个字段修改成功，而是与地址相关的办税识别和送达链路同步恢复一致。",
+      "applicable_conditions": "适用于企业在同一主管税务机关辖区内变更注册地址或经营地址，但不涉及跨区迁移的情形。",
+      "exceptions_boundary": "（1）若企业实际已涉及跨区或跨县迁移，处理逻辑会显著不同。\n\n（2）若地址变更同时伴随法定代表人、财务负责人或银行信息变动，应并行处理。\n\n（3）地方对特定行业或高风险纳税人的地址核验要求可能更严格。",
+      "practical_steps": "第一步：完成地址变更提交并保存回执。\n\n第二步：同步检查文书送达地址、办税联系人和联系方式。\n\n第三步：核对电子税务局、发票系统和其他涉税登记信息是否同步更新。\n\n第四步：复测与地址相关的关键业务入口是否恢复正常。\n\n第五步：对短期内仍异常的模块继续跟进核验。",
+      "risk_warning": "（1）地址已改但送达链路没改，后续最容易错过通知。\n\n（2）发票和登记信息不同步，会造成经营中的持续摩擦。\n\n（3）表面变更完成并不代表系统层面已经完全生效。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_clear",
+      "keywords": "地址变更,同区变更,税务登记,送达地址,电子税务局同步",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-REG-001",
+          "support_type": "support_direct",
+          "support_note": "支撑登记事项真实准确义务"
+        },
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑登记变更和线上办理流程"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_register",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-002",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-REG-017",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业更换基本户或新增一般户后，税务上只做存款账户报告就够了吗？",
+      "question_plain": "企业在经营过程中更换基本存款账户或新增一般户后，税务上是否只要补做存款账户报告即可，还是还需同步检查扣款、电子税务局和相关办税链路？",
+      "stage_code": "CHG",
+      "module_code": "REG",
+      "question_type": "type_whether",
+      "one_line_answer": "账户变化后只做存款账户报告通常不够；企业还应同步核对扣款协议、默认缴款账户、电子税务局显示和相关银行链路是否一起更新。",
+      "detailed_answer": "银行账户变化看似只是财务动作，但在税务场景里，它通常会影响到扣款、缴税、信息一致性和后续风险判断。如果企业只补做了账户报告，却没有同步检查扣款协议和实际缴税链路，很多问题会在真正缴税节点才暴露。\n\n因此，账户变更后的关键不是“有没有报上去”，而是“报上去以后，真正要扣款、要缴税的时候能不能顺利执行”。新增一般户时尤其如此，企业很容易把账户报备和实际使用链路混为一谈。",
+      "core_definition": "存款账户报告是备案动作，扣款协议和实际缴税链路是使用动作，两者不能简单等同。",
+      "applicable_conditions": "适用于企业变更基本户、销户重开或新增一般户后，对税务处理范围的判断。",
+      "exceptions_boundary": "（1）若新账户暂不作为缴税账户使用，影响路径会不同。\n\n（2）若账户变化叠加地址迁移或主管税务机关变化，应综合处理。\n\n（3）不同地区银行扣款链路的同步时效可能不同。",
+      "practical_steps": "第一步：完成账户变更或新增后的备案。\n\n第二步：核对电子税务局中的账户显示是否更新。\n\n第三步：检查扣款协议和默认缴税账户是否仍正确。\n\n第四步：在正式缴税前做一次链路验证。\n\n第五步：对旧账户和新账户的使用边界做内部留痕。",
+      "risk_warning": "（1）备案已做但扣款链路没更新，是最常见的隐藏问题。\n\n（2）账户切换时最怕临近申报缴款截止日才发现异常。\n\n（3）只看页面显示正确，不等于银行侧和税务侧已真正打通。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "更换基本户,一般户,存款账户报告,扣款协议,缴税账户",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑账户信息和登记办理链路"
+        },
+        {
+          "policy_code": "SAT-TAX-001",
+          "support_type": "support_definition",
+          "support_note": "支撑税务登记与账户信息管理规则"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_payment",
+        "tag_tax_registration"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-001",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "SET-ETAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后想把以前月份的申报数据一起改掉，应该先改当前登记还是先改历史申报？",
+      "question_plain": "企业在变更地址、法定代表人、账户或其他基础信息后，又想同步更正以前月份的申报数据时，处理顺序上应先修当前登记链路，还是先回头改历史申报？",
+      "stage_code": "CHG",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "企业变更后涉及历史申报更正时，通常应先把当前登记和可达链路修稳，再进入历史更正；底层信息链条不稳时，直接回头改历史申报容易边改边卡。",
+      "detailed_answer": "变更和更正申报叠加时，企业很容易陷入顺序混乱：一会儿去改登记，一会儿去改历史申报，一会儿又发现扣款和实名链条有问题。实际上，底层识别和当前办税链路不稳定时，直接回头处理历史属期，往往效率很差。\n\n更稳妥的思路通常是先把当前状态下的登记、实名、账户和办税链路修稳，让系统先恢复到一个“能正常办”的状态，再按历史属期逐步进入更正申报。这样更容易控制处理顺序和留痕。",
+      "core_definition": "变更后的历史申报更正，实质上是当前链路修复和历史数据纠正的组合动作，顺序很重要。",
+      "applicable_conditions": "适用于企业发生基础信息变更后，又需同时处理历史月份更正申报的情形。",
+      "exceptions_boundary": "（1）若历史申报更正本身有紧急时限，应在不影响底层修复的前提下同步推进。\n\n（2）若当前登记状态本身就阻断历史更正入口，应优先处理阻断项。\n\n（3）个别税种和地方系统的前后顺序可能有差异。",
+      "practical_steps": "第一步：确认当前变更事项是否已真正生效。\n\n第二步：先修复实名、账户、登录和申报等基础链路。\n\n第三步：列出需更正的历史属期和税种清单。\n\n第四步：按优先级逐项进入更正申报，而不是无序回改。\n\n第五步：保留变更和更正两条线的衔接留痕。",
+      "risk_warning": "（1）底层链路不稳时直接处理历史更正，容易反复报错。\n\n（2）变更和更正同时乱序推进，会导致责任和回执难以追溯。\n\n（3）没有先做清单化拆分，最容易遗漏属期或税种。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后更正申报,历史申报,登记变更,处理顺序,更正路径",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑征管和申报更正规则"
+        },
+        {
+          "policy_code": "POL-DEC-002",
+          "support_type": "support_risk",
+          "support_note": "支撑更正与后续处理程序口径"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_declaration",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-002",
+          "relation_type": "see_also"
+        },
+        {
+          "question_code": "OPR-DEC-045",
+          "relation_type": "related"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后，已经开的发票抬头和新信息不一致，会不会影响后续入账和申报？",
+      "question_plain": "企业在名称、地址、账户或其他基础信息变更后，发现变更前已经开出的发票抬头或销方信息与现在的新信息不一致时，这种情况会不会影响后续入账、报销和税务申报？",
+      "stage_code": "CHG",
+      "module_code": "INV",
+      "question_type": "type_whether",
+      "one_line_answer": "变更前已合法开具的发票，不会因为企业后来信息更新就自动失效；关键要看发票开具时点是否真实、合规，以及后续入账和申报是否能说明前后衔接关系。",
+      "detailed_answer": "企业变更后最常见的焦虑之一，就是回头看以前开出的发票，发现抬头、地址、银行账户或其他字段和现在的新信息不一致，于是担心这些票是不是都不能用了。实际上，发票的有效性核心在于开具当时的真实状态和合规性，而不是之后企业是否发生信息更新。\n\n因此，更值得关注的不是“前后不一致”本身，而是能否说明变更发生时间、发票开具时间和企业身份连续性。如果这些链条能解释清楚，通常不应机械把历史票都视为无效。",
+      "core_definition": "企业信息变更后的历史发票判断，核心在开具时点真实性和企业主体连续性，而不是是否与最新信息完全一致。",
+      "applicable_conditions": "适用于企业信息变更后，回看变更前已开具发票并担心后续使用影响的情形。",
+      "exceptions_boundary": "（1）若发票本身开具时就存在错误或虚假，不在本问题讨论范围。\n\n（2）若因变更导致主体实际发生法律层面的重大变化，应结合具体交易判断。\n\n（3）后续重开、红冲或调整票据时，应按变更后的新状态进入处理。",
+      "practical_steps": "第一步：确认历史发票开具时点和企业当时信息状态。\n\n第二步：保留变更前后信息连续性的证明和内部留痕。\n\n第三步：在入账、报销或说明时能清楚解释变更时序。\n\n第四步：对变更后新增发票按新信息规范开具。\n\n第五步：若个别票本身存在问题，再单独判断是否需重开或收口。",
+      "risk_warning": "（1）把所有历史票一概推倒重来，会制造不必要返工。\n\n（2）没有保留变更时点和连续性说明，后续解释成本会升高。\n\n（3）历史票有效，不等于变更后还能继续沿用旧信息开新票。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后发票抬头,历史发票,信息不一致,入账凭证,发票有效性",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_direct",
+          "support_note": "支撑发票真实性与管理要求"
+        },
+        {
+          "policy_code": "SAT-INV-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑后续发票处理和留痕口径"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_invoice",
+        "tag_invoice_issue"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-INV-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CHG-FEE-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "企业变更后短期内连续收到多个系统提示，怎么判断哪些是同步延迟，哪些是真问题？",
+      "question_plain": "企业完成地址、账户、实名或主体信息变更后，短时间内连续收到电子税务局、申报、发票、扣款等多个系统提示时，应该怎样区分哪些只是同步延迟，哪些属于真正要处理的问题？",
+      "stage_code": "CHG",
+      "module_code": "RISK",
+      "question_type": "type_how",
+      "one_line_answer": "变更后连续提示并不都等于真实风险；应先区分提示是否来自同一变更引起的同步差，再识别其中会直接影响申报、开票、扣款和实名链路的实质问题。",
+      "detailed_answer": "企业信息变更后的一段时间里，系统连续弹出多种提示是很常见的：有的是模块同步延迟，有的是旧缓存，有的则是真正暴露出的链路问题。企业最容易犯的错，是要么全都当系统毛病不管，要么全都当重大风险一起扑，结果两头都低效。\n\n更好的做法是先把提示按来源和影响范围分类：哪些只是状态同步提醒，哪些会直接阻断实际业务，哪些说明底层信息根本还没修到位。分类一旦做清，处理顺序也就清楚了。",
+      "core_definition": "变更后系统提示的管理重点，是按来源和影响层级做分流，而不是统一理解为“系统乱了”或“企业出事了”。",
+      "applicable_conditions": "适用于企业信息变更后，短期内收到多个系统提示、通知或轻微限制，需要判断优先级的情形。",
+      "exceptions_boundary": "（1）若提示已经明确指向欠税、未申报、风险核查等事项，应按正式提示优先处理。\n\n（2）若企业同时还有历史异常，不能把所有提示都归因于本次变更。\n\n（3）不同模块同步时间差本身可能存在客观延迟。",
+      "practical_steps": "第一步：记录全部提示内容、出现时间和对应模块。\n\n第二步：区分哪些只是状态提示，哪些已影响具体办理能力。\n\n第三步：优先处理会阻断申报、开票、扣款和实名链路的问题。\n\n第四步：对明显同步延迟类提示做短期复测，而不是立即重复操作。\n\n第五步：保留提示和处理结果，便于后续排查是否已真正收口。",
+      "risk_warning": "（1）把所有提示都当成同步延迟，容易错过真正的阻断项。\n\n（2）把所有提示都当成重大异常，会导致精力被错误分散。\n\n（3）不记录提示来源，后面很难回溯哪个问题还没收口。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后系统提示,同步延迟,电子税务局,风险判断,多提示分流",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-2024-033",
+          "support_type": "support_procedure",
+          "support_note": "支撑变更办理和线上系统衔接"
+        },
+        {
+          "policy_code": "SAT-RISK-003",
+          "support_type": "support_risk",
+          "support_note": "支撑风险识别和后续处理口径"
+        }
+      ],
+      "tags": [
+        "tag_change",
+        "tag_risk_warning",
+        "tag_risk_control"
+      ],
+      "relations": [
+        {
+          "question_code": "CHG-ETAX-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-ETAX-004",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "发票开出后客户说信息错了，但我们这边其实业务也还没完全确认，先红冲还是先等？",
+      "question_plain": "企业已开具发票后，客户反馈信息有误，但交易事实、价税口径或最终结算还未完全确认时，应该马上红冲处理，还是先把业务事实确认清楚再决定票据动作？",
+      "stage_code": "OPR",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "客户一说有误，不等于企业就应立刻红冲；在交易事实和结算口径尚未确认清楚时，更稳妥的做法通常是先厘清业务事实，再决定是否红冲、重开或其他收口路径。",
+      "detailed_answer": "很多发票问题并不是纯粹的票面录入错误，而是交易双方对金额、项目、税率、结算方式还没有完全确认。这时如果企业只因为客户说“票有问题”就立刻红冲，后面一旦业务事实又变化，可能会出现反复开票、反复冲红的混乱。\n\n因此，票据处理不能脱离业务事实。只有先把到底错在票面、错在结算还是交易本身搞清楚，后续才知道是红冲、作废、重开，还是暂时先不动票据。先厘清事实，通常比立刻操作更稳。",
+      "core_definition": "发票处理的前提是交易事实和结算口径明确；票据动作不能先于事实判断。",
+      "applicable_conditions": "适用于发票已开出后，客户反馈信息有误，但交易或结算口径仍存在待确认事项的情形。",
+      "exceptions_boundary": "（1）若票面存在明确且无需争议的技术性错误，可按相应规则及时处理。\n\n（2）若已明显不符合开票事实基础，不应长期拖着不处理。\n\n（3）客户催促并不改变发票处理应基于真实交易的原则。",
+      "practical_steps": "第一步：先确认客户反馈的问题到底是票面错误还是业务事实未定。\n\n第二步：把交易事实、金额、税率和项目口径确认清楚。\n\n第三步：根据最终判断选择红冲、重开或其他规范路径。\n\n第四步：避免在事实未明时连续重复操作票据。\n\n第五步：保存沟通留痕和票据处理依据。",
+      "risk_warning": "（1）事实未清就红冲，后面容易反复开错又重开。\n\n（2）只听客户口头意见，不核对自身交易资料，风险很高。\n\n（3）发票问题和业务问题混在一起处理，最容易导致链路混乱。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "客户说票错了,先红冲还是先确认,发票处理,交易事实,结算口径",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-INV-001",
+          "support_type": "support_direct",
+          "support_note": "支撑发票真实合规开具原则"
+        },
+        {
+          "policy_code": "SAT-INV-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑红字和后续票据处理流程"
+        }
+      ],
+      "tags": [
+        "tag_invoice",
+        "tag_red_invoice",
+        "tag_invoice_issue"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-INV-031",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "OPR-INV-013",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "连续几个月都是零申报，但突然有一个月补开发票，这个月应该从哪里开始重新核对？",
+      "question_plain": "企业前几个月一直零申报，后来某个月突然发生补开发票、补确认收入或补处理历史业务时，这个月的申报应从哪些方面重新核对，避免把原来的零申报逻辑直接套过来？",
+      "stage_code": "OPR",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "连续零申报后某个月突然发生补开发票或补确认业务，不能沿用原来的零申报思路；企业应从收入归属、开票时点、税种联动和历史属期影响四个层面重新核对。",
+      "detailed_answer": "企业连续几个月零申报后，最容易形成惯性操作：到了新月份，还是沿着“反正之前都报零”的思路走。但一旦某个月出现补开发票、补确认收入、补做历史业务处理，原来的零申报路径就不再适用。企业此时若不重新核对，就容易把历史事项和当前属期混淆，甚至把本应更正的事项错放到当前期。\n\n因此，真正重要的不是“这个月终于不是零了”，而是先搞清楚这笔业务究竟属于当前期新增，还是历史事项在当前期被发现或被处理。这个判断会直接影响申报路径。",
+      "core_definition": "零申报惯性一旦被打破，企业应重新回到“业务事实属于哪个属期、影响哪些税种”的基础判断，而不是继续沿用旧模板。",
+      "applicable_conditions": "适用于企业连续零申报后，某一期间出现补开发票、补确认收入或补处理历史事项的情形。",
+      "exceptions_boundary": "（1）若只是当期正常新增业务，判断会相对简单。\n\n（2）若涉及历史属期错误，应优先判断是否需要更正申报。\n\n（3）发票开具时点和收入确认时点不一定完全重合，不能机械套用。",
+      "practical_steps": "第一步：确认这笔业务属于当前期还是历史事项。\n\n第二步：核对发票时点、收入确认口径和税种影响。\n\n第三步：判断应走当前申报、补报还是更正申报路径。\n\n第四步：不要继续按零申报模板机械处理。\n\n第五步：处理后复核是否还影响前期记录和后续风险提示。",
+      "risk_warning": "（1）零申报惯性最容易让企业在恢复业务时走错申报路径。\n\n（2）历史事项和当前事项不拆开，会造成错期申报。\n\n（3）一旦又开票又补收入，主税和附加税联动更容易出错。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "连续零申报后开票,补开发票,补确认收入,更正申报,零申报惯性",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "GOV-Tax-001",
+          "support_type": "support_direct",
+          "support_note": "支撑按期申报与征管义务"
+        },
+        {
+          "policy_code": "SAT-VAT-004",
+          "support_type": "support_procedure",
+          "support_note": "支撑申报管理和联动判断"
+        }
+      ],
+      "tags": [
+        "tag_zero_report",
+        "tag_declaration",
+        "tag_invoice"
+      ],
+      "relations": [
+        {
+          "question_code": "OPR-DEC-013",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "RSK-DEC-003",
+          "relation_type": "see_also"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间想直接转注销，但系统里还有零星待办，应该怎么分轻重缓急？",
+      "question_plain": "企业停业一段时间后决定不再复业，想直接转入注销，但系统里还残留一些消息、待办、风险提示或历史小问题时，应该怎样区分哪些必须先清、哪些可以并行处理？",
+      "stage_code": "SUS",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "one_line_answer": "停业转注销时，不必把所有残留事项都当成同一优先级；应先识别会直接阻断清税和注销的项目，再处理一般性提醒或可并行收口的问题。",
+      "detailed_answer": "停业企业准备直接转注销时，很容易因为看到系统里还有一些零星提示就陷入两个极端：要么觉得都不重要，直接冲流程；要么觉得什么都得先清干净，结果迟迟不敢启动。更有效的方式是先把残留事项按“是否直接阻断清税和注销”分层。\n\n只要会影响申报完整性、票证收口、欠税、风险状态或登记链路的事项，就应优先处理；那些仅属于一般性提醒、展示性提示或可并行完成的动作，则不必机械排在最前面。停业转注销最重要的是优先级判断，而不是无差别清单焦虑。",
+      "core_definition": "停业转注销的关键，不是把所有问题一次清零，而是先识别真正的注销阻断项。",
+      "applicable_conditions": "适用于企业停业后决定直接转入注销，但系统里仍有零星待办、提示或历史事项需要处理的情形。",
+      "exceptions_boundary": "（1）若企业已明确存在非正常户、欠税或历史重大风险，优先级会明显上升。\n\n（2）不同地区清税和简易注销路径要求可能不同。\n\n（3）表面零星提示并不一定都构成阻断项，但必须分类判断。",
+      "practical_steps": "第一步：把残留事项按申报、票证、风险、欠税、登记和一般提醒分类。\n\n第二步：优先处理会直接阻断清税和注销的项目。\n\n第三步：对一般提醒类事项判断是否可并行收口。\n\n第四步：在处理过程中同步验证是否已具备注销条件。\n\n第五步：带着分类结果进入注销路径，而不是被零散提示牵着走。",
+      "risk_warning": "（1）不分轻重缓急，最容易在错误事项上耗时。\n\n（2）把阻断项当成普通提示，会直接导致注销退回。\n\n（3）把普通提示当成重大障碍，也会无谓拖延转注销时点。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业转注销,零星待办,清税阻断项,优先级判断,注销前处理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑优化税务注销流程"
+        },
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑前置条件和简化路径判断"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-TAX-004",
+          "relation_type": "see_also"
+        },
+        {
+          "question_code": "CLS-ETAX-005",
+          "relation_type": "related"
+        }
+      ]
+    },
+    {
+      "question_title": "停业期间还没解除异常，就想先办注销，哪些情况会被直接卡住？",
+      "question_plain": "企业停业期间如果仍存在非正常状态、风险提示未收口、实名失效或申报异常，却希望直接先推进注销，通常哪些情况会被系统或税务机关直接卡住？",
+      "stage_code": "SUS",
+      "module_code": "CLEAR",
+      "question_type": "type_risk",
+      "one_line_answer": "停业期间未解除的异常并不会因为企业想注销就自动消失；凡是会影响申报完整性、身份可达性、票证收口、欠税或风险状态的异常，通常都可能直接卡住注销。",
+      "detailed_answer": "企业处于停业状态时，常常会出现一种心理：反正都不经营了，异常先别管，直接注销应该更省事。但实务上，注销并不是绕开异常的捷径。只要异常本身会影响清税前置条件、纳税人身份识别、申报完整性、票证链条或风险状态，系统就很可能直接把企业卡在注销入口。\n\n因此，停业未解除异常时想注销，关键不是“能不能碰碰运气先申请”，而是先判断这些异常会不会构成前置阻断。只要属于阻断项，越早收口越省时间。",
+      "core_definition": "异常状态与注销不是替代关系；会阻断清税条件的异常，必须优先处理。",
+      "applicable_conditions": "适用于停业企业仍存在非正常状态、申报异常、实名问题、风险提示或其他限制，却希望直接先办注销的情形。",
+      "exceptions_boundary": "（1）若异常仅为轻微展示提示且不影响实际办理，应以实际阻断性判断。\n\n（2）不同地区对非正常户解除和注销衔接的执行细节可能不同。\n\n（3）若企业还存在欠税或票证问题，不能只盯异常状态本身。",
+      "practical_steps": "第一步：确认当前异常具体名称和影响范围。\n\n第二步：判断其是否直接影响申报、票证、身份识别或清税路径。\n\n第三步：把会阻断注销的异常列为优先处理项。\n\n第四步：异常收口后再验证注销入口是否恢复。\n\n第五步：不要把“停业”误当作可以跳过异常处理的理由。",
+      "risk_warning": "（1）异常未解就冲注销，最容易浪费一次完整申请机会。\n\n（2）系统卡住后再回头排查，通常比前置收口更费时间。\n\n（3）异常、欠税、票证问题常常是叠加出现，不能只处理表面一项。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "停业异常注销,非正常户,注销被卡,风险提示,清税前置条件",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "POL-SUS-001",
+          "support_type": "support_definition",
+          "support_note": "支撑停业阶段基础规则"
+        },
+        {
+          "policy_code": "SAT-CLEAR-002",
+          "support_type": "support_procedure",
+          "support_note": "支撑注销前置条件和阻断项判断"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_清税",
+        "tag_risk_warning"
+      ],
+      "relations": [
+        {
+          "question_code": "SUS-RISK-005",
+          "relation_type": "see_also"
+        },
+        {
+          "question_code": "OPR-CLEAR-004",
+          "relation_type": "related"
+        }
+      ]
+    },
+    {
+      "question_title": "注销后又收到历史风险提示或补税要求，企业已经没了还要谁来处理？",
+      "question_plain": "企业已经完成税务注销或主体层面的注销，但后续又收到历史风险提示、补税要求、调查通知或类似事项时，现实中通常由谁继续处理、承担说明和配合义务？",
+      "stage_code": "CLS",
+      "module_code": "RISK",
+      "question_type": "type_whether",
+      "one_line_answer": "企业注销后并不意味着所有历史税务问题都会自动消失；一旦后续仍有历史事项需要处理，通常还要回到清算组、股东、原法定代表人或相关责任链条中去判断由谁承接。",
+      "detailed_answer": "很多人把注销理解成“主体消失、问题也随之消失”。但税务上，注销更多是程序终结，不当然等于历史事实终结。只要历史申报、票证、清算或其他税务事实仍存在后续核查空间，企业注销后仍可能出现补税、补资料、说明或调查配合问题。\n\n此时关键不是纠结“公司都没了怎么还来找”，而是回到原清算和责任链条：谁对历史资料最有掌握、谁在清算中承担过职责、谁需要配合说明。注销后的问题，往往比存续期更依赖留痕和责任链清晰。",
+      "core_definition": "注销终结的是主体存续程序，不当然终结与历史税务事实相关的追溯和配合责任。",
+      "applicable_conditions": "适用于企业注销后，后续仍收到历史风险提示、补税要求、资料通知或类似事项的情形。",
+      "exceptions_boundary": "（1）不同事项的责任承接主体可能不同，不能一概而论。\n\n（2）若企业注销前留痕完整，后续处理会明显更容易。\n\n（3）是否承担最终责任，还要结合具体事实和法律关系判断。",
+      "practical_steps": "第一步：确认通知涉及的是历史申报、票证、清算还是其他事项。\n\n第二步：回溯原清算组、股东、法定代表人和资料保管链条。\n\n第三步：由最适合掌握事实和材料的一方先行整理说明。\n\n第四步：保留注销前后全部关键留痕，避免事实失联。\n\n第五步：对可能延伸的责任和配合义务及时评估，不要因主体已注销而完全不理会。",
+      "risk_warning": "（1）注销后最怕资料、人员和责任链一起断掉。\n\n（2）以为注销后完全无人需要处理，容易放大后续风险。\n\n（3）历史问题越复杂，越依赖清算阶段的留痕质量。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销后补税,历史风险提示,谁来处理,清算组,股东责任",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        {
+          "policy_code": "SAT-CLEAR-001",
+          "support_type": "support_procedure",
+          "support_note": "支撑清税和注销衔接规则"
+        },
+        {
+          "policy_code": "CLEAR-POL-001",
+          "support_type": "support_definition",
+          "support_note": "支撑注销登记基础规则"
+        }
+      ],
+      "tags": [
+        "tag_税务注销",
+        "tag_risk_warning",
+        "tag_注销清算"
+      ],
+      "relations": [
+        {
+          "question_code": "CLS-RISK-003",
+          "relation_type": "related"
+        },
+        {
+          "question_code": "CLS-CLEAR-018",
+          "relation_type": "see_also"
+        }
+      ]
+    }
+  ]
+}

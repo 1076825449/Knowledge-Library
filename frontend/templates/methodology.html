@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}方法说明 - 企业税务知识库{% endblock %}
+{% block meta_description %}了解本知识库如何组织问题卡片、政策依据、标签、更新记录和内容边界。{% endblock %}
+
+{% block main %}
+<section class="doc-page">
+    <h1>方法说明</h1>
+    <p class="doc-lead">本知识库按“问题卡片优先、政策依据独立、结构化字段完整、先检索后扩写”的原则构建。</p>
+
+    <section class="doc-section">
+        <h2>内容组织方式</h2>
+        <ul class="doc-list">
+            <li>每条知识项以独立问题卡片存在，而不是长文文章片段。</li>
+            <li>问题与政策依据分表管理，通过关联关系连接，避免把法规硬写进正文字段。</li>
+            <li>扩展优先通过新增问题、标签、关联问题和更新记录完成，而不是频繁重构顶层目录。</li>
+        </ul>
+    </section>
+
+    <section class="doc-section">
+        <h2>一条标准卡片至少包含什么</h2>
+        <ul class="doc-list">
+            <li>一句话结论</li>
+            <li>详细解答</li>
+            <li>适用条件</li>
+            <li>例外与边界</li>
+            <li>实务处理步骤</li>
+            <li>风险提示</li>
+            <li>政策依据、标签、更新记录、关联问题</li>
+        </ul>
+    </section>
+
+    <section class="doc-section">
+        <h2>为什么要强调边界</h2>
+        <p>税务知识最容易失真的地方，不是结论本身，而是把有条件规则写成绝对规则。本库默认要求在适用条件、例外边界和风险提示中把不确定性写清楚。</p>
+    </section>
+
+    <section class="doc-section">
+        <h2>内容时效与复审</h2>
+        <p>本库已经建立更新记录和质量巡检机制，但仍建议对高频问题、争议问题和地方口径问题按固定节奏复审，而不是把“已发布”理解为“永久正确”。</p>
+    </section>
+</section>
+{% endblock %}

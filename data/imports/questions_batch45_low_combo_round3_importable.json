@@ -1,0 +1,592 @@
+{
+  "questions": [
+    {
+      "question_title": "企业变更组织形式后，以前年度亏损弥补台账要不要按新主体口径重整？",
+      "question_plain": "企业发生组织形式、名称或内部结构调整后，以前年度亏损结转弥补的台账和说明资料是否还可以继续沿用，还是应按变更后的主体和口径重新整理？",
+      "stage_code": "CHG",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "变更后以前年度亏损并不会当然失效，但亏损来源、承接主体和后续弥补口径应重新核对，台账不能长期照搬旧版本。",
+      "detailed_answer": "企业变更后，亏损弥补最怕的不是数字错，而是主体承接链说不清。若继续沿用旧台账、不补变更说明，后续年度汇算时很容易出现口径断层。\n\n因此，更稳妥的做法是把亏损来源年度、变更节点和当前承接主体重新串起来，再继续使用。",
+      "core_definition": "亏损弥补的连续性依赖主体承接链和资料口径连续，而不是只看账面余额。",
+      "applicable_conditions": "适用于企业变更名称、组织形式或内部架构后，仍需继续使用以前年度亏损弥补资料的情形。",
+      "exceptions_boundary": "（1）若只是轻微信息变更，重整压力相对较小。\n\n（2）若涉及主体实质变化，应更谨慎判断承接逻辑。\n\n（3）最终仍需以年度汇算事实为准。",
+      "practical_steps": "第一步：核对亏损来源年度和余额。\n\n第二步：明确变更节点及承接主体。\n\n第三步：补做变更前后衔接说明。\n\n第四步：更新亏损弥补台账。\n\n第五步：在汇算前专项复核一次。",
+      "risk_warning": "（1）只改主体信息、不改亏损台账，后续最难解释。\n\n（2）主体承接逻辑不清，可能影响亏损继续使用。\n\n（3）没有衔接说明，易被要求补资料。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后亏损弥补,企业所得税,台账重整,主体承接,历史亏损",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-CIT-001", "support_type": "support_direct", "support_note": "支撑企业所得税一般规则" },
+        { "policy_code": "SAT-TAX-002", "support_type": "support_procedure", "support_note": "支撑年度申报表口径衔接" }
+      ],
+      "tags": ["tag_change", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-CIT-004", "relation_type": "related" },
+        { "question_code": "SET-CIT-003", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更当月旧税种认定和新税种认定交叠时，申报应该先看哪个口径？",
+      "question_plain": "企业刚完成变更，系统里旧税种认定尚未完全退出，新认定又已经生效。遇到同月申报时，企业应优先以哪个状态判断申报责任？",
+      "stage_code": "CHG",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "变更当月认定口径交叠时，不能只看页面显示，应以当前生效状态、应税事实和可提交结果综合判断申报责任。",
+      "detailed_answer": "变更期最常见的问题之一，就是系统状态切换慢于实际办理节奏。此时若只按旧页面习惯申报，容易把变更前后的责任混掉。\n\n因此，应优先确认当前实际生效状态，再核对申报入口和回执结果，而不是凭“哪个入口还在”来判断。",
+      "core_definition": "认定状态交叠并不等于责任重复，申报判断要以生效状态和事实期间为核心。",
+      "applicable_conditions": "适用于企业变更当月税费种认定处于旧状态退出、新状态生效的交叠期。",
+      "exceptions_boundary": "（1）若仅为页面缓存，处理压力较小。\n\n（2）若涉及主管税务机关变化，应更谨慎。\n\n（3）不同税种切换节奏可能不同。",
+      "practical_steps": "第一步：确认变更生效节点。\n\n第二步：核对当前税费种认定状态。\n\n第三步：用最小动作验证可提交入口。\n\n第四步：保留回执和报错留痕。\n\n第五步：对交叠月份做专项备注。",
+      "risk_warning": "（1）只按页面残留入口操作，容易错报。\n\n（2）旧新认定混用，会造成后续解释困难。\n\n（3）没有回执留痕，难证明当时按什么口径处理。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更当月申报,税费种认定,认定交叠,申报口径,变更期",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-DEC-006", "support_type": "support_direct", "support_note": "支撑税费种认定便利化规则" },
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑变更办理链路" }
+      ],
+      "tags": ["tag_change", "tag_declaration", "tag_dic"],
+      "relations": [
+        { "question_code": "CHG-DEC-004", "relation_type": "related" },
+        { "question_code": "SET-TAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后电子税务局还显示旧主管税务机关入口，这时该怎么判断？",
+      "question_plain": "企业完成变更后，电子税务局里仍然出现旧主管税务机关、旧办税大厅或旧事项入口。此时企业应该如何判断当前真正有效的办理路径？",
+      "stage_code": "CHG",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "变更后仍显示旧主管税务机关入口，多数是系统过渡现象，判断时应优先看当前主管归属和实际提交结果，不应只看页面名称。",
+      "detailed_answer": "页面残留常让企业误以为旧路径仍然可用，但真正决定办理有效性的，还是当前主管归属和系统提交结果。变更后界面滞后并不少见。\n\n因此，应先确认当前归属，再验证哪条路径能生成有效回执，把旧入口更多当作过渡显示看待。",
+      "core_definition": "电子税务局界面展示并不等于真实主管归属，办理有效性要以当前状态和回执结果判断。",
+      "applicable_conditions": "适用于企业变更后电子税务局仍展示旧主管税务机关或旧办税入口的情形。",
+      "exceptions_boundary": "（1）不同地区系统同步速度不同。\n\n（2）若旧入口仍可有效提交，应结合结果判断。\n\n（3）若存在异常限制，入口问题可能只是表象。",
+      "practical_steps": "第一步：确认当前主管归属。\n\n第二步：核对变更生效回执。\n\n第三步：用新旧入口分别做最小化验证。\n\n第四步：保留截图和回执。\n\n第五步：按有效路径继续后续事项。",
+      "risk_warning": "（1）错走旧入口，容易形成无效办理。\n\n（2）不留过渡期证据，后续难解释。\n\n（3）长期依赖旧入口会放大变更期混乱。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后旧主管税务机关,电子税务局入口,主管归属,系统过渡,办理路径",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-2024-033", "support_type": "support_direct", "support_note": "支撑变更登记线上办理" },
+        { "policy_code": "SAT-TAX-001", "support_type": "support_definition", "support_note": "支撑登记管理程序判断" }
+      ],
+      "tags": ["tag_change", "tag_ca_cert", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-ETAX-004", "relation_type": "related" },
+        { "question_code": "RSK-ETAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更前后同一项服务跨期发生，费用留痕应该怎么切开？",
+      "question_plain": "企业在变更前签了服务合同，变更后服务继续发生并付款，整项服务跨越了变更节点。税务上这笔费用的留痕和归属应如何切分？",
+      "stage_code": "CHG",
+      "module_code": "FEE",
+      "question_type": "type_how",
+      "one_line_answer": "跨越变更节点的服务费用不能整笔笼统处理，应按服务期间、合同事实和付款节点把前后口径拆开留痕。",
+      "detailed_answer": "这类费用最容易出问题的地方，在于大家只看合同签署时间或付款时间，而忽视服务实际发生区间。变更节点一旦夹在中间，留痕必须更细。\n\n因此，建议把服务期间、验收节点、付款时间和主体状态对应起来，避免前后费用混成一笔解释。",
+      "core_definition": "跨期服务费用处理的核心是服务事实期间与变更节点的对应关系。",
+      "applicable_conditions": "适用于合同签于变更前、服务和付款跨越变更节点的费用项目。",
+      "exceptions_boundary": "（1）若服务一次性完成，切分压力较小。\n\n（2）若仅名称变更而主体实质未变，说明重点会不同。\n\n（3）仍需结合票据和合同条款判断。",
+      "practical_steps": "第一步：确认服务起止期间。\n\n第二步：标记变更节点。\n\n第三步：按服务事实划分前后费用。\n\n第四步：留存验收、付款和合同补充说明。\n\n第五步：在台账中区分前后主体状态。",
+      "risk_warning": "（1）整笔混记最难解释。\n\n（2）只有付款记录没有服务节点，证据链很弱。\n\n（3）跨期不切分，后续扣除口径容易被质疑。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更前后跨期费用,服务合同,费用留痕,费用切分,税前扣除",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_definition", "support_note": "支撑费用处理一般规则" }
+      ],
+      "tags": ["tag_change", "tag_payment", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-FEE-004", "relation_type": "related" },
+        { "question_code": "OPR-FEE-034", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业法定代表人变更后，当月工资个税申报里“负责人”口径要不要同步改？",
+      "question_plain": "企业发生法定代表人或财务负责人变更后，当月仍需正常发薪并办理个税扣缴申报。此时个税申报链路中的实名负责人和系统信息是否要同步调整？",
+      "stage_code": "CHG",
+      "module_code": "IIT",
+      "question_type": "type_whether",
+      "one_line_answer": "负责人变更后，个税扣缴申报链路不宜长期沿用旧实名信息，应尽快把当前负责人与实名办税链同步起来。",
+      "detailed_answer": "个税扣缴的常见问题并不只是工资表本身，而是申报主体、实名链和责任链是否一致。负责人已经变更但系统仍挂旧人，会给后续解释带来麻烦。\n\n因此，即使当月工资照发，也应尽快把实名和负责人链同步到当前状态，再继续申报。",
+      "core_definition": "个税扣缴链路需要收入、申报主体和实名责任链三者一致。",
+      "applicable_conditions": "适用于企业负责人变更后仍需办理当月个税扣缴申报的情形。",
+      "exceptions_boundary": "（1）若只是内部岗位调整而非法定或实名层面变化，影响较小。\n\n（2）若系统同步存在时差，应保留过渡期说明。\n\n（3）不同地区实名认证细节可能不同。",
+      "practical_steps": "第一步：确认负责人变更节点。\n\n第二步：核对个税扣缴端实名信息。\n\n第三步：更新授权和联系人资料。\n\n第四步：保留变更和过渡说明。\n\n第五步：再完成当月扣缴申报。",
+      "risk_warning": "（1）旧负责人长期挂账，责任链会失真。\n\n（2）实名不同步，可能影响后续事项办理。\n\n（3）不留过渡说明，后续难说明为何由旧链路申报。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "负责人变更,个税申报,实名办税,扣缴义务,变更期个税",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-IIT-001", "support_type": "support_direct", "support_note": "支撑个税征管衔接要求" },
+        { "policy_code": "POL-WHT-003", "support_type": "support_procedure", "support_note": "支撑代扣代缴处理规则" }
+      ],
+      "tags": ["tag_change", "tag_withholding", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-IIT-004", "relation_type": "related" },
+        { "question_code": "SUS-IIT-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业变更后旧抬头先付的预付款，后续收票应该按哪个主体口径处理？",
+      "question_plain": "企业在变更前已经向供应商支付了预付款，但供应商在变更后才开票或交付。此时发票抬头和费用留痕应如何判断，才不容易出问题？",
+      "stage_code": "CHG",
+      "module_code": "INV",
+      "question_type": "type_how",
+      "one_line_answer": "旧抬头预付款在变更后收票，不能只看付款时间，应综合业务发生时点、主体衔接和票据真实性来处理。",
+      "detailed_answer": "预付款跨越变更节点时，最常见的误区是简单认为“钱是旧主体付的，就一定按旧抬头收票”。但税务上更关注的是业务事实和主体连续性是否讲得清楚。\n\n因此，应把付款、收货或服务发生、开票和变更节点一并核对，再决定票据和留痕口径。",
+      "core_definition": "跨变更节点预付款收票的关键，是业务事实、付款事实和主体衔接说明同时成立。",
+      "applicable_conditions": "适用于企业变更前付款、变更后收票或交付的预付款业务。",
+      "exceptions_boundary": "（1）若变更不影响主体连续性，处理压力较小。\n\n（2）若供应商信息也有变动，应同步核对。\n\n（3）仅靠付款记录不足以支撑全部口径。",
+      "practical_steps": "第一步：确认付款、交付、开票和变更时间点。\n\n第二步：核对合同主体和实际业务承接主体。\n\n第三步：补做前后衔接说明。\n\n第四步：保存供应商确认和票据留痕。\n\n第五步：再进行入账和申报处理。",
+      "risk_warning": "（1）票据口径只看付款，不看业务事实，风险较高。\n\n（2）主体衔接说不清，后续容易被质疑。\n\n（3）旧抬头和新状态混用时最需要留痕。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "变更后收票,预付款,发票抬头,主体衔接,发票管理",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理一般要求" },
+        { "policy_code": "SAT-CIT-001", "support_type": "support_aux", "support_note": "支撑凭证与业务真实性留痕" }
+      ],
+      "tags": ["tag_change", "tag_invoice", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CHG-INV-004", "relation_type": "related" },
+        { "question_code": "OPR-INV-031", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业短期内连续变更多项登记信息，会不会被税务系统当成风险信号？",
+      "question_plain": "企业在短时间内连续变更地址、法定代表人、经营范围、账户等多项信息。这样的高频变更行为本身会不会触发税务风控关注，企业应如何降低误伤？",
+      "stage_code": "CHG",
+      "module_code": "RISK",
+      "question_type": "type_risk",
+      "one_line_answer": "连续变更多项登记信息不一定当然构成风险，但若缺乏真实业务背景和留痕，确实更容易被系统关注。",
+      "detailed_answer": "税务系统并不会因为企业变更就自动认定异常，但频繁、多项、短周期变更往往会被视为需要进一步观察的信号。尤其当变更后又伴随发票、申报或实名异常时，风险会叠加。\n\n因此，降低误伤的关键不是少变更，而是让每次变更都有清楚业务原因、及时同步和完整留痕。",
+      "core_definition": "高频变更的风险重点在于变更是否真实、连续、可解释，而不是次数本身。",
+      "applicable_conditions": "适用于企业在短时间内连续办理多项登记变更、担心触发税务风险关注的情形。",
+      "exceptions_boundary": "（1）若属于合规调整并同步完整，风险相对可控。\n\n（2）若同时存在异常申报或发票问题，应综合判断。\n\n（3）不同地区风控模型细节可能不同。",
+      "practical_steps": "第一步：整理每次变更的业务原因。\n\n第二步：确保工商、税务和系统同步一致。\n\n第三步：保留决议、合同和证明材料。\n\n第四步：变更后关注发票和申报状态。\n\n第五步：发现提示时及时做自查说明。",
+      "risk_warning": "（1）多项连续变更最怕没有业务背景说明。\n\n（2）变更后不同步，会放大系统误判。\n\n（3）同时叠加发票和申报异常时，风险上升更快。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "连续变更登记,税务风控,风险信号,登记变更,异常关注",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-RISK-001", "support_type": "support_risk", "support_note": "支撑风险管理背景" },
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑变更登记办理链路" }
+      ],
+      "tags": ["tag_change", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "CHG-RISK-004", "relation_type": "related" },
+        { "question_code": "RSK-REG-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业注销当月还收到系统滞纳金提示，应该先申报还是先处理欠税？",
+      "question_plain": "企业已经进入注销阶段，但当月系统仍提示历史欠税或滞纳金。此时企业在申报、缴款和清税顺序上应该怎么安排更稳妥？",
+      "stage_code": "CLS",
+      "module_code": "DEC",
+      "question_type": "type_how",
+      "one_line_answer": "注销当月出现欠税或滞纳金提示时，不应只追求先把流程点完，通常要先把欠税状态和申报状态理清，再推进清税。",
+      "detailed_answer": "注销期最怕的不是发现问题，而是边发现边硬闯流程。系统提示欠税或滞纳金时，往往说明清税基础还没完全闭合。\n\n因此，应先核实欠税来源、申报状态和缴款责任，再决定顺序，避免反复退回。",
+      "core_definition": "清税流程建立在申报完整和税款状态清晰之上，欠税和滞纳金提示不能视为普通提醒。",
+      "applicable_conditions": "适用于企业注销当月出现历史欠税、滞纳金或相关系统提示的情形。",
+      "exceptions_boundary": "（1）若只是展示延迟，应结合到账状态判断。\n\n（2）若同时存在漏报，优先级会更高。\n\n（3）不同地区系统同步节奏不同。",
+      "practical_steps": "第一步：核对欠税和滞纳金来源。\n\n第二步：确认相关税种申报是否已完成。\n\n第三步：处理缴款和回执留痕。\n\n第四步：复核系统状态是否恢复。\n\n第五步：再继续清税和注销流程。",
+      "risk_warning": "（1）带着欠税提示继续走流程，常被打回。\n\n（2）只看页面不核对缴款结果，容易误判。\n\n（3）缺少回执留痕，后续难说明已处理。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销当月欠税,滞纳金提示,清税顺序,申报缴款,注销申报",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "TAX-POL-001", "support_type": "support_direct", "support_note": "支撑滞纳金规则" },
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_procedure", "support_note": "支撑税务注销流程" }
+      ],
+      "tags": ["tag_declaration", "tag_清税", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-CLEAR-001", "relation_type": "see_also" },
+        { "question_code": "RSK-CLEAR-004", "relation_type": "related" }
+      ]
+    },
+    {
+      "question_title": "企业注销清算时给股东支付的清算分配款，个人所得税扣缴最先要看什么？",
+      "question_plain": "企业进入清算后，需要向自然人股东支付清算分配款。面对这类分配，企业在个人所得税代扣代缴上最先要判断什么？",
+      "stage_code": "CLS",
+      "module_code": "IIT",
+      "question_type": "type_how",
+      "one_line_answer": "清算分配涉及自然人股东时，个税处理不能只看付款动作，首先要判断款项性质、成本扣除口径和是否属于应扣缴情形。",
+      "detailed_answer": "企业注销时向股东付款，看起来像结算动作，但税务上更关心这笔钱的性质。若不先区分投资收回、未分配利润分配和其他补偿，就容易把个税扣缴做乱。\n\n因此，应先识别款项结构，再安排扣缴和留痕，而不是只在付款当天临时判断。",
+      "core_definition": "清算分配的个税处理起点，是先识别分配性质和股东身份，再决定扣缴口径。",
+      "applicable_conditions": "适用于企业清算阶段向自然人股东支付清算分配款、退回投资或其他相关款项的情形。",
+      "exceptions_boundary": "（1）法人股东与自然人股东口径不同。\n\n（2）不同类型清算款项不能混为一类。\n\n（3）仍需结合清算报告和分配方案判断。",
+      "practical_steps": "第一步：区分各笔分配款的性质。\n\n第二步：核对股东身份和投资成本资料。\n\n第三步：测算可能的应扣缴情形。\n\n第四步：保留清算报告、决议和付款留痕。\n\n第五步：完成对应扣缴申报。",
+      "risk_warning": "（1）不区分款项性质，最容易扣缴出错。\n\n（2）只看支付金额不看投资成本，会导致口径失真。\n\n（3）没有清算资料支撑，后续很难复核。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "清算分配款,个人所得税,自然人股东,代扣代缴,注销期个税",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-WHT-002", "support_type": "support_direct", "support_note": "支撑个人所得税基本规则" },
+        { "policy_code": "POL-WHT-003", "support_type": "support_procedure", "support_note": "支撑代扣代缴要求" }
+      ],
+      "tags": ["tag_withholding", "tag_注销清算", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-CIT-001", "relation_type": "see_also" },
+        { "question_code": "SUS-IIT-002", "relation_type": "related" }
+      ]
+    },
+    {
+      "question_title": "企业注销前尚未用完的小微优惠口径，需要单独做收口说明吗？",
+      "question_plain": "企业在注销年度仍然处于可适用小微优惠等状态，但经营很快结束。对这种“优惠尚未走完整年”的情况，企业是否需要单独做优惠口径的收口和留痕说明？",
+      "stage_code": "CLS",
+      "module_code": "PREF",
+      "question_type": "type_whether",
+      "one_line_answer": "注销前优惠口径未必需要单独备案收尾，但更稳妥的做法是把优惠适用期间、终止节点和申报依据整理清楚。",
+      "detailed_answer": "很多企业在注销年忽略优惠口径，认为反正企业要结束了，不需要再解释。但恰恰因为经营终止，优惠适用的截止节点和当年申报逻辑更容易被回头看。\n\n因此，至少应把优惠适用期间、停止节点和申报依据整理出来，避免后来说不清。",
+      "core_definition": "优惠收口的重点是适用期间和终止节点清楚，而不是额外做复杂动作。",
+      "applicable_conditions": "适用于企业在注销年度仍涉及小微优惠等政策适用，需要确认终止和留痕口径的情形。",
+      "exceptions_boundary": "（1）不同优惠项目留痕要求不同。\n\n（2）若注销前已完全无适用事实，处理会更简单。\n\n（3）地方优惠可能另有口径。",
+      "practical_steps": "第一步：确认当年已适用的优惠项目。\n\n第二步：标记优惠终止节点。\n\n第三步：保留申报表和测算底稿。\n\n第四步：整理一页口径说明。\n\n第五步：与注销材料一起归档。",
+      "risk_warning": "（1）注销年忽视优惠收口，后续容易回头补证。\n\n（2）适用期间不清，会影响申报解释。\n\n（3）没有底稿时最难说明为何享受或停止。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前优惠收口,小微优惠,优惠留痕,注销年度,优惠政策",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-PREF-001", "support_type": "support_direct", "support_note": "支撑小微优惠政策背景" },
+        { "policy_code": "POL-PREF-003", "support_type": "support_aux", "support_note": "支撑所得税优惠口径" }
+      ],
+      "tags": ["tag_policy_benefit", "tag_注销清算", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "SUS-PREF-004", "relation_type": "see_also" },
+        { "question_code": "CLS-CIT-004", "relation_type": "related" }
+      ]
+    },
+    {
+      "question_title": "企业注销前发现历史印花税漏处理，能并入清税一起收口吗？",
+      "question_plain": "企业准备办理清税时，才发现以前年度合同、借款或产权类事项存在印花税漏处理。此时是需要单独补做，还是可以在清税过程中一并收口？",
+      "stage_code": "CLS",
+      "module_code": "TAX",
+      "question_type": "type_how",
+      "one_line_answer": "历史印花税漏处理不能因为进入清税就自动忽略，通常仍要先把漏项补清，再让清税状态真正闭环。",
+      "detailed_answer": "清税并不是把历史小税种一笔带过的机会。印花税虽然金额常不大，但若在注销前才暴露，说明历史涉税台账本身存在缺口。\n\n因此，更稳妥的路径是先把漏项识别和补齐，再把结果纳入清税收口，而不是边注销边碰运气。",
+      "core_definition": "清税收口要求历史应处理事项尽量闭合，小税种漏项也可能影响整体状态。",
+      "applicable_conditions": "适用于企业注销前发现历史印花税或其他综合税费事项漏处理的情形。",
+      "exceptions_boundary": "（1）若只是资料归档问题而非申报漏项，处理压力较小。\n\n（2）不同地区综合税费模块展示方式可能不同。\n\n（3）仍需结合具体期间和事项判断。",
+      "practical_steps": "第一步：识别漏处理事项和期间。\n\n第二步：补齐对应申报或缴款动作。\n\n第三步：保留合同和测算依据。\n\n第四步：复核系统状态更新。\n\n第五步：再继续清税流程。",
+      "risk_warning": "（1）小税种漏项也可能卡住清税。\n\n（2）只补税不留依据，后续难复核。\n\n（3）不先识别期间，容易漏补或错补。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前印花税,清税收口,历史漏税,税务综合,注销尾项",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑基础征管要求" },
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_procedure", "support_note": "支撑清税流程" }
+      ],
+      "tags": ["tag_清税", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "RSK-CLEAR-005", "relation_type": "see_also" },
+        { "question_code": "CLS-REG-005", "relation_type": "related" }
+      ]
+    },
+    {
+      "question_title": "企业注销前最后一次增值税申报同时有留抵和未开票收入，先盯哪个？",
+      "question_plain": "企业在注销前的最后一个申报周期里，既存在留抵税额，又有未开票收入或尾款事项。面对这种复杂尾项，企业应先从哪里下手梳理？",
+      "stage_code": "CLS",
+      "module_code": "VAT",
+      "question_type": "type_how",
+      "one_line_answer": "注销前最后一次增值税申报遇到留抵和未开票收入并存时，不能只盯其中一项，应先把销售事实、开票状态和留抵形成原因一并拉清。",
+      "detailed_answer": "最后一期申报最容易因为时间紧而只抓一个点，但留抵和未开票收入往往互相牵动。若只处理留抵、不看收入事实，或者只补收入、不回头看进项结构，都容易留下尾项。\n\n因此，第一步应该是把销项、进项和开票状态放到同一张底稿里看清楚，再决定动作顺序。",
+      "core_definition": "注销前增值税尾项处理的核心，是把销项、进项、开票和留抵形成逻辑放在同一口径下复核。",
+      "applicable_conditions": "适用于企业注销前最后一期增值税申报中同时存在留抵税额、未开票收入或尾款事项的情形。",
+      "exceptions_boundary": "（1）若未开票收入尚未达到纳税义务发生条件，判断会不同。\n\n（2）留抵是否可退还需另行判断。\n\n（3）不同业务类型的开票和确认时点可能不同。",
+      "practical_steps": "第一步：列出最后一期全部销项和进项事项。\n\n第二步：核对未开票收入事实和时间点。\n\n第三步：分析留抵形成原因。\n\n第四步：在同一底稿中整理票款表关系。\n\n第五步：再完成最后一期申报。",
+      "risk_warning": "（1）只盯一头，尾项更容易漏。\n\n（2）销项、进项和开票状态不在同一底稿里，最难核对。\n\n（3）最后一期申报错误会直接影响注销节奏。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "注销前最后一期增值税,留抵税额,未开票收入,尾项申报,增值税注销",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-VAT-004", "support_type": "support_direct", "support_note": "支撑增值税申报管理要求" },
+        { "policy_code": "POL-PREF-008", "support_type": "support_aux", "support_note": "支撑留抵退税相关背景" }
+      ],
+      "tags": ["tag_refund", "tag_declaration", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "CLS-VAT-004", "relation_type": "related" },
+        { "question_code": "SUS-VAT-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业被质疑成本真实性时，企业所得税自查第一批证据应该先抓哪些？",
+      "question_plain": "企业在风险处理中被提示成本费用真实性不足，准备开展企业所得税自查。此时最先应该抓哪一批证据，才能尽快判断问题轻重？",
+      "stage_code": "RSK",
+      "module_code": "CIT",
+      "question_type": "type_how",
+      "one_line_answer": "企业所得税成本真实性自查时，第一批证据应先围绕合同、发票、付款、验收和实际业务形成链路抓取，而不是先从账务分录下手。",
+      "detailed_answer": "成本真实性问题一旦被点到，很多企业第一反应是回看分录和科目，但税务上最先看的往往是业务证据链。若合同、发票、付款和验收都对不上，账务再漂亮也站不住。\n\n因此，第一批证据要先抓业务链，再去看账务映射，这样判断效率更高。",
+      "core_definition": "成本真实性判断的核心，是业务事实链完整，而不是单看账务呈现结果。",
+      "applicable_conditions": "适用于企业在风险提示、自查或解释阶段，被要求说明企业所得税成本费用真实性的情形。",
+      "exceptions_boundary": "（1）若问题集中在单一项目，可缩小范围。\n\n（2）若涉及关联交易，应增加定价和审批材料。\n\n（3）不同费用类别证据重点略有不同。",
+      "practical_steps": "第一步：拉取合同、订单和业务背景资料。\n\n第二步：匹配发票、付款和验收记录。\n\n第三步：核对货物或服务实际发生证据。\n\n第四步：再回看账务分录和申报口径。\n\n第五步：形成风险分层清单。",
+      "risk_warning": "（1）先看账不看业务，容易判断失真。\n\n（2）证据链断在验收或付款环节，风险很高。\n\n（3）只靠口头解释，基本不能解决实质问题。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "成本真实性,企业所得税自查,证据链,费用风险,税务自查",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-CIT-001", "support_type": "support_direct", "support_note": "支撑税前扣除凭证要求" },
+        { "policy_code": "SAT-FEE-001", "support_type": "support_risk", "support_note": "支撑企业所得税若干费用处理背景" }
+      ],
+      "tags": ["tag_self_check", "tag_risk_warning", "tag_payment"],
+      "relations": [
+        { "question_code": "RSK-CIT-006", "relation_type": "related" },
+        { "question_code": "RSK-INV-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "采购发票上的品名和合同里的简称不完全一致，会直接被认定异常吗？",
+      "question_plain": "企业采购业务中，合同、入库单和发票上的品名表述存在简称、型号缩写或细微差异。这样的不完全一致会不会直接被认定为异常发票风险？",
+      "stage_code": "RSK",
+      "module_code": "INV",
+      "question_type": "type_risk",
+      "one_line_answer": "品名表述不完全一致并不等于当然异常，但若无法通过型号、用途和业务链解释清楚，确实容易被放大为风险点。",
+      "detailed_answer": "实务中合同、订单和发票品名不可能永远逐字一致，尤其存在简称、行业术语和型号表达差异时更常见。问题关键不是字面完全相同，而是能否证明指向的是同一真实业务。\n\n因此，企业应把型号、规格、用途和收货记录串起来说明，而不是只盯着文字差别本身。",
+      "core_definition": "发票品名一致性判断重在业务可对应，而非机械要求完全同字同句。",
+      "applicable_conditions": "适用于合同、订单、入库单与发票品名存在简称或表述差异的采购业务。",
+      "exceptions_boundary": "（1）若差异实质改变货物性质，风险会明显升高。\n\n（2）若无收货和验收记录，解释空间很小。\n\n（3）若涉及专票抵扣，应更谨慎。",
+      "practical_steps": "第一步：比对合同、发票和入库资料。\n\n第二步：整理型号、规格和用途说明。\n\n第三步：补齐验收和收货记录。\n\n第四步：对差异较大的项目做专项说明。\n\n第五步：必要时统一内部命名口径。",
+      "risk_warning": "（1）字面差异可解释，不代表可以完全不管。\n\n（2）缺少型号和验收支撑时，风险会放大。\n\n（3）长期内部命名混乱，会累积发票风险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "发票品名不一致,合同简称,异常发票,采购发票,风险判断",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理一般要求" },
+        { "policy_code": "SAT-CIT-001", "support_type": "support_aux", "support_note": "支撑业务真实性凭证链" }
+      ],
+      "tags": ["tag_invoice", "tag_risk_warning", "tag_self_check"],
+      "relations": [
+        { "question_code": "RSK-INV-004", "relation_type": "related" },
+        { "question_code": "OPR-INV-030", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业被提示“优惠享受异常”时，第一轮自查最应该看哪几项？",
+      "question_plain": "企业收到系统或税务提示，认为某项优惠享受存在异常或需复核。面对这种提醒，第一轮自查最应该优先看哪些点？",
+      "stage_code": "RSK",
+      "module_code": "PREF",
+      "question_type": "type_how",
+      "one_line_answer": "优惠享受异常自查时，第一轮应先看适用条件、申报口径、支持资料和期间边界四项，不要一上来只盯税额大小。",
+      "detailed_answer": "优惠异常最容易让企业先去算差额，但真正决定问题性质的往往是条件和资料。若适用条件一开始就不稳，税额测算再精细也没有意义。\n\n因此，自查应先抓资格条件、申报栏次、资料留痕和适用期间，再决定问题深度。",
+      "core_definition": "优惠异常自查的顺序，应先看资格和资料，再看金额影响。",
+      "applicable_conditions": "适用于企业被提示小微、高新、研发、留抵退税等优惠享受异常，需要开展首轮自查的情形。",
+      "exceptions_boundary": "（1）不同优惠项目的核心条件不同。\n\n（2）若系统提示已明确问题点，可优先针对性排查。\n\n（3）地方优惠还需同步看地方口径。",
+      "practical_steps": "第一步：确认异常对应的优惠项目。\n\n第二步：核对适用条件是否满足。\n\n第三步：复核申报栏次和计算口径。\n\n第四步：检查支持资料和期间边界。\n\n第五步：再测算可能影响金额。",
+      "risk_warning": "（1）只算税额不看条件，会误判问题性质。\n\n（2）资料缺失会让本来可解释的问题变被动。\n\n（3）跨年度优惠边界不清，容易扩大风险。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "优惠享受异常,税收优惠自查,首轮排查,优惠风险,资料复核",
+      "high_frequency_flag": true,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "POL-PREF-001", "support_type": "support_direct", "support_note": "支撑优惠政策背景" },
+        { "policy_code": "SAT-RISK-001", "support_type": "support_risk", "support_note": "支撑风险管理口径" }
+      ],
+      "tags": ["tag_policy_benefit", "tag_self_check", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "RSK-PREF-001", "relation_type": "related" },
+        { "question_code": "SUS-PREF-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "企业跨区迁移没办完又被限制办理，登记修复时先解异常还是先继续迁移？",
+      "question_plain": "企业正在做跨区迁移或主管税务机关调整，但流程中又被系统限制办理、提示登记异常。此时应先解决异常还是继续迁移流程？",
+      "stage_code": "RSK",
+      "module_code": "REG",
+      "question_type": "type_how",
+      "one_line_answer": "迁移过程中被限制办理时，通常应先判断异常是否已影响主体识别和权限链；若已影响主流程，应优先解异常再继续迁移。",
+      "detailed_answer": "跨区迁移本身就依赖稳定的登记和权限链，一旦中途叠加异常，继续硬推迁移往往效率很低。因为迁移与异常可能共用同一基础信息链。\n\n因此，应先判断异常是否已经触及主体识别、实名和办理权限，若是，就先修基座再迁移。",
+      "core_definition": "迁移与登记异常并发时，优先级取决于异常是否破坏主流程依赖的基础信息链。",
+      "applicable_conditions": "适用于企业跨区迁移、主管调整过程中又出现系统限制或登记异常的情形。",
+      "exceptions_boundary": "（1）若异常仅为轻微资料提示，可能可并行处理。\n\n（2）若已影响实名和主管归属，应优先修复。\n\n（3）地区间系统衔接差异较大。",
+      "practical_steps": "第一步：识别异常是否影响主体识别和权限。\n\n第二步：确认迁移流程当前节点。\n\n第三步：优先处理阻断主流程的异常。\n\n第四步：保留迁移和修复双线留痕。\n\n第五步：恢复后继续推进迁移。",
+      "risk_warning": "（1）基础异常不修，迁移流程容易反复中断。\n\n（2）并发事项不分主次，会放大混乱。\n\n（3）不留双线记录，后续难还原过程。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "跨区迁移,登记异常,限制办理,先解异常还是先迁移,风险登记",
+      "high_frequency_flag": false,
+      "newbie_flag": false,
+      "policy_links": [
+        { "policy_code": "SAT-2024-033", "support_type": "support_procedure", "support_note": "支撑变更迁移办理链路" },
+        { "policy_code": "GOV-Tax-001", "support_type": "support_direct", "support_note": "支撑登记管理基础要求" }
+      ],
+      "tags": ["tag_cross_region", "tag_register", "tag_risk_warning"],
+      "relations": [
+        { "question_code": "RSK-REG-004", "relation_type": "related" },
+        { "question_code": "CHG-ETAX-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业首年没有主营收入，只有银行利息，还要考虑企业所得税预缴吗？",
+      "question_plain": "新设企业刚成立，暂时没有主营业务收入，但银行账户里产生了少量利息收入。面对这种情况，企业所得税上是否要把利息收入纳入预缴和后续汇算考虑？",
+      "stage_code": "SET",
+      "module_code": "CIT",
+      "question_type": "type_whether",
+      "one_line_answer": "首年没有主营收入但有银行利息，并不等于企业所得税就完全不用看；利息收入仍应纳入企业所得税口径和后续申报判断。",
+      "detailed_answer": "新设企业容易把“没开业”理解成“没所得”，但银行利息本身也是收入事实。金额通常不大，却能影响企业对首年申报义务的理解。\n\n因此，不能因为没有主营收入就完全忽略企业所得税口径，至少要把利息收入纳入台账和申报判断。",
+      "core_definition": "企业所得税判断看的是实际所得事实，不只限于主营业务收入。",
+      "applicable_conditions": "适用于新设企业首年暂无主营收入，但产生银行利息或类似零星收入的情形。",
+      "exceptions_boundary": "（1）预缴金额和申报方式仍需结合整体情况判断。\n\n（2）若仅有极少量利息，也不能替代完整申报判断。\n\n（3）仍应以年度汇算口径收口。",
+      "practical_steps": "第一步：把利息收入单独建台账。\n\n第二步：核对首年企业所得税申报责任。\n\n第三步：保留银行回单和账务处理。\n\n第四步：预缴期内持续关注是否新增其他收入。\n\n第五步：在年度汇算时统一收口。",
+      "risk_warning": "（1）把利息收入完全忽略，会导致首年口径失真。\n\n（2）只看主营收入，不看其他所得，是常见误区。\n\n（3）没有收入台账，后续汇算容易遗漏。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业利息收入,企业所得税预缴,首年申报,银行利息,首年汇算",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "GOV-CIT-001", "support_type": "support_direct", "support_note": "支撑企业所得税一般收入规则" },
+        { "policy_code": "TAX-POL-007", "support_type": "support_procedure", "support_note": "支撑汇算清缴背景" }
+      ],
+      "tags": ["tag_setup", "tag_newbie", "tag_declaration"],
+      "relations": [
+        { "question_code": "SET-CIT-004", "relation_type": "related" },
+        { "question_code": "SET-TAX-005", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业刚领票又决定终止项目，发票和清税收尾先处理哪个更稳？",
+      "question_plain": "新设企业刚领过发票或税控设备，还没正式做业务就决定终止项目。面对这种情况，发票缴销和清税注销的收尾顺序应该怎样安排更稳妥？",
+      "stage_code": "SET",
+      "module_code": "CLEAR",
+      "question_type": "type_how",
+      "one_line_answer": "新设企业领票后即终止项目时，不宜把发票问题留到最后，通常应先核清票、设备和领用状态，再推进清税收尾。",
+      "detailed_answer": "刚设立就终止项目，看似事项少，但一旦已经领票，收尾就不再只是“没经营”。发票、设备和票种状态如果不先清楚，清税流程很容易被反复卡住。\n\n因此，建议先把票和设备状态核清，再推进清税和注销。",
+      "core_definition": "领票后的主体即使未经营，发票状态也会成为清税收尾的关键前置项。",
+      "applicable_conditions": "适用于新设企业已领票或取得税控设备后，很快决定终止经营项目的情形。",
+      "exceptions_boundary": "（1）若从未领票，处理压力显著降低。\n\n（2）若已有开票记录，还需核对应税事实。\n\n（3）不同票种的收尾要求可能不同。",
+      "practical_steps": "第一步：核对已领票和设备状态。\n\n第二步：确认是否存在已开未报或未缴销项目。\n\n第三步：处理票和设备收尾。\n\n第四步：保留回执和清单。\n\n第五步：再继续清税和注销流程。",
+      "risk_warning": "（1）先跑清税、不清票，常见被退回。\n\n（2）领票后以为“没经营”就能省事，是误区。\n\n（3）没有票据收尾回执，后续解释困难。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业领票后注销,发票缴销,清税顺序,税控设备,项目终止",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "SAT-CLEAR-001", "support_type": "support_procedure", "support_note": "支撑税务注销流程" },
+        { "policy_code": "POL-INV-001", "support_type": "support_direct", "support_note": "支撑发票管理要求" }
+      ],
+      "tags": ["tag_setup", "tag_发票缴销", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-CLEAR-004", "relation_type": "related" },
+        { "question_code": "CLS-REG-001", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业首次登录电子税务局后，哪些提醒最好当天就处理？",
+      "question_plain": "新办企业第一次进入电子税务局后，系统里往往会出现多个待办、提醒和确认事项。哪些内容更适合当天就处理，避免后面越拖越乱？",
+      "stage_code": "SET",
+      "module_code": "ETAX",
+      "question_type": "type_how",
+      "one_line_answer": "首次登录电子税务局时，应优先处理影响后续办税链路的基础待办，例如实名、联系方式、税费种认定和系统通知确认。",
+      "detailed_answer": "首次登录最怕的不是事项多，而是没有顺序。很多后续问题，其实都源于最开始几个基础待办没有及时确认。\n\n因此，不必追求把所有按钮都点完，但应优先把会影响后续办税入口和责任链的基础项先处理。",
+      "core_definition": "首次登录处理顺序，应优先保障后续办税链路可用，而不是追求一次做完全部事项。",
+      "applicable_conditions": "适用于新办企业首次登录电子税务局、准备搭建基础办税链路的情形。",
+      "exceptions_boundary": "（1）不同地区系统待办列表可能不同。\n\n（2）若已由代理机构提前处理部分事项，范围会缩小。\n\n（3）发票、社保等事项还需结合主体实际情况。",
+      "practical_steps": "第一步：确认实名和联系方式。\n\n第二步：查看税费种认定和基础待办。\n\n第三步：处理影响申报和发票的关键提醒。\n\n第四步：保存首次登录后的状态截图。\n\n第五步：建立后续定期查看习惯。",
+      "risk_warning": "（1）首次待办长期不处理，后续问题会累积。\n\n（2）只看首页不看通知和待办，是典型新手误区。\n\n（3）实名链不稳，后续很多入口都会受影响。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "首次登录电子税务局,新办企业待办,实名办税,税费种认定,系统提醒",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "SAT-DEC-006", "support_type": "support_direct", "support_note": "支撑税费种认定便利化" },
+        { "policy_code": "SAT-TAX-001", "support_type": "support_procedure", "support_note": "支撑登记管理程序" }
+      ],
+      "tags": ["tag_first_tax", "tag_ca_cert", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-ETAX-004", "relation_type": "related" },
+        { "question_code": "SET-RISK-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业只雇了一名员工，社保费上最先要确认哪两个口径？",
+      "question_plain": "新设企业刚开始运营，只招了一名员工或负责人兼任员工。此时社保费管理上，最先应该确认哪些核心口径，避免后续补手续？",
+      "stage_code": "SET",
+      "module_code": "SSF",
+      "question_type": "type_how",
+      "one_line_answer": "新设企业人数少时，社保费管理最先应确认用工关系是否成立、参保和申报链路是否已打通，而不是简单理解为人少就能先放着。",
+      "detailed_answer": "人数少不代表社保管理简单。新设企业最容易因为“先忙业务”而把参保、申报和人员状态的基础动作拖后。\n\n因此，第一步应先确认劳动关系和社保登记链路是否已建立，再决定后续节奏。",
+      "core_definition": "社保费管理的起点，是用工事实和参保链路同步成立。",
+      "applicable_conditions": "适用于新设企业仅有一名员工或少量员工，需要建立社保费管理基础的情形。",
+      "exceptions_boundary": "（1）若仅为股东本人且不形成用工关系，口径会不同。\n\n（2）地方社保办理细节存在差异。\n\n（3）与个税扣缴链路也需同步关注。",
+      "practical_steps": "第一步：确认是否形成劳动关系。\n\n第二步：核对社保登记和参保入口。\n\n第三步：确认申报周期和责任人。\n\n第四步：保存合同和登记回执。\n\n第五步：建立月度检查清单。",
+      "risk_warning": "（1）人少就搁置社保，是常见误区。\n\n（2）劳动关系和参保状态不一致，会留下尾项。\n\n（3）不建清单，后续容易漏月度动作。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业社保费,一名员工,社保登记,参保申报,设立期社保",
+      "high_frequency_flag": false,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "POL-SSF-001", "support_type": "support_direct", "support_note": "支撑社会保险费征缴规则" },
+        { "policy_code": "SSF-POL-001", "support_type": "support_definition", "support_note": "支撑社保登记基础要求" }
+      ],
+      "tags": ["tag_ssf", "tag_setup", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-SSF-004", "relation_type": "related" },
+        { "question_code": "SUS-SSF-004", "relation_type": "see_also" }
+      ]
+    },
+    {
+      "question_title": "新设企业首月还没开票，但收了定金，增值税上要先看什么？",
+      "question_plain": "新设企业刚开始试运营，还没正式开票，但已经收到了客户定金或预付款。面对这笔钱，增值税上最先应该关注什么？",
+      "stage_code": "SET",
+      "module_code": "VAT",
+      "question_type": "type_how",
+      "one_line_answer": "首月收到定金时，增值税上不能只看“有没有开票”，更要先判断业务性质、纳税义务时间和后续履约安排。",
+      "detailed_answer": "很多新设企业把收钱和开票完全绑定，但增值税判断未必只看发票动作。定金、预付款和正式销售款，在不同业务里触发点并不完全一样。\n\n因此，第一步应先搞清楚这笔钱是什么性质，再决定申报和开票节奏。",
+      "core_definition": "增值税判断应先识别款项性质，再判断纳税义务时间和票据安排。",
+      "applicable_conditions": "适用于新设企业首月收到定金、预付款或试单款项，但尚未正式开票的情形。",
+      "exceptions_boundary": "（1）不同业务类型纳税义务时间可能不同。\n\n（2）若随后业务取消，还要考虑退款和票据衔接。\n\n（3）是否开票不是唯一判断标准。",
+      "practical_steps": "第一步：确认款项属于定金、预付款还是正式货款。\n\n第二步：核对合同约定和履约节点。\n\n第三步：判断纳税义务时间。\n\n第四步：安排发票和申报口径。\n\n第五步：保留收款和合同留痕。",
+      "risk_warning": "（1）只看是否开票，容易忽略纳税义务时间。\n\n（2）款项性质不清，后续申报容易错位。\n\n（3）没有合同和收款留痕，难说明业务背景。",
+      "scope_level": "scope_national",
+      "answer_certainty": "certain_condition",
+      "keywords": "新设企业收定金,增值税纳税义务,预付款,首月开票,设立期增值税",
+      "high_frequency_flag": true,
+      "newbie_flag": true,
+      "policy_links": [
+        { "policy_code": "SAT-VAT-001", "support_type": "support_direct", "support_note": "支撑纳税义务时间判断" },
+        { "policy_code": "GOV-VAT-001", "support_type": "support_definition", "support_note": "支撑增值税基本规则" }
+      ],
+      "tags": ["tag_vat_special", "tag_setup", "tag_newbie"],
+      "relations": [
+        { "question_code": "SET-VAT-004", "relation_type": "related" },
+        { "question_code": "SUS-VAT-004", "relation_type": "see_also" }
+      ]
+    }
+  ]
+}

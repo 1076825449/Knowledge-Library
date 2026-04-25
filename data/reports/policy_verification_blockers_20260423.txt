@@ -1,0 +1,679 @@
+============================================================
+政策复核阻断问题清单
+生成时间: 2026-04-23 11:59:07
+总计: 337 条 active 问题
+============================================================
+1. [OPR-PREF-007] 小规模纳税人3%征收率减按1%征收的政策如何适用？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-002,POL-PREF-009,POL-VAT-008,POL-LOCAL-GD-002
+2. [OPR-PREF-001] 小规模纳税人免税政策适用条件是什么？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-002,POL-PREF-009,POL-VAT-003
+3. [SET-PREF-001] 新设立企业可以享受哪些税收优惠？
+   stage=SET, module=PREF, high_frequency=1, policies=POL-PREF-001,POL-PREF-002,POL-PREF-006
+4. [OPR-CIT-026] 企业同时符合高新技术企业和小型微利企业优惠，能否叠加享受？如何选择更优方案？
+   stage=OPR, module=CIT, high_frequency=1, policies=POL-PREF-003,POL-PREF-006
+5. [RSK-CLEAR-005] 企业刚解除税务异常，多久后再申请简易注销会更稳妥？
+   stage=RSK, module=CLEAR, high_frequency=1, policies=POL-RISK-001,SAT-CLEAR-002
+6. [OPR-DEC-003] 小规模纳税人到底按月申报还是按季申报？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004,POL-DEC-001
+7. [OPR-DEC-005] 小规模纳税人季度开票超过30万元了，怎么处理？还能享受免税吗？
+   stage=OPR, module=DEC, high_frequency=1, policies=POL-DEC-001,POL-PREF-009
+8. [SET-DEC-002] 公司刚成立，第一个月就要报税吗？
+   stage=SET, module=DEC, high_frequency=1, policies=SAT-VAT-004,POL-DEC-001
+9. [SET-DEC-009] 新办企业按季申报，但在季度中途就开票了，首次正式申报前还要重点核对什么？
+   stage=SET, module=DEC, high_frequency=1, policies=SAT-VAT-004,SAT-DEC-006
+10. [RSK-ETAX-001] 电子税务局提示企业状态异常、无法办理业务时，如何在线查询原因并判断先处理什么？
+   stage=RSK, module=ETAX, high_frequency=1, policies=SAT-RISK-001,POL-RISK-001
+11. [OPR-INV-004] 客户要开专用发票，我们是小规模纳税人，能开吗？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-002,POL-VAT-001
+12. [OPR-INV-005] 企业取得了进项发票，增值税专用发票和普通发票有什么区别？
+   stage=OPR, module=INV, high_frequency=1, policies=SAT-VAT-001,POL-INV-002
+13. [OPR-INV-007] 企业取得增值税专用发票后，发票上的开票日期已经过了好久，还能认证抵扣吗？
+   stage=OPR, module=INV, high_frequency=1, policies=SAT-VAT-001,POL-INV-004
+14. [OPR-INV-012] 增值税普通发票和专用发票有什么区别？对方不要专票怎么办？
+   stage=OPR, module=INV, high_frequency=1, policies=GOV-VAT-001,POL-INV-002
+15. [OPR-INV-014] 发票开错了但对方没认证，可以直接作废吗？
+   stage=OPR, module=INV, high_frequency=1, policies=SAT-VAT-003,POL-INV-003
+16. [OPR-INV-026] 增值税专用发票与普通发票，在税务处理和法律效力上有何本质区别？
+   stage=OPR, module=INV, high_frequency=1, policies=GOV-VAT-002,POL-INV-002
+17. [OPR-INV-027] 发票作废与发票红冲，在适用情形和税务处理上有何本质区别？
+   stage=OPR, module=INV, high_frequency=1, policies=GOV-VAT-002,POL-INV-003
+18. [OPR-PREF-002] 小微企业所得税优惠的适用条件是什么？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-001,POL-PREF-003
+19. [OPR-PREF-009] 个体工商户可以享受哪些增值税和个人所得税优惠？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-003,POL-PREF-009
+20. [OPR-PREF-011] 小规模纳税人季度销售额超过30万元免税额度，如何计算应纳税额？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-002,POL-PREF-009
+21. [OPR-PREF-012] 小微企业和小型微利企业是一回事吗？分别指什么？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-001,POL-PREF-002
+22. [OPR-PREF-021] 小微企业为什么要主动申请税收优惠？不申请会自动享受吗？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-PREF-001,POL-PREF-003
+23. [RSK-PREF-005] 企业被提示“优惠享受异常”时，第一轮自查最应该看哪几项？
+   stage=RSK, module=PREF, high_frequency=1, policies=SAT-RISK-001,POL-PREF-001
+24. [CLS-RISK-006] 企业注销后历史风险提示又跳出来，最先要确认是不是哪类“旧尾项”？
+   stage=CLS, module=RISK, high_frequency=1, policies=SAT-RISK-001,SAT-CLEAR-002
+25. [OPR-RISK-002] 什么情况下企业会变成'非正常户'？如何解除？
+   stage=OPR, module=RISK, high_frequency=1, policies=SAT-RISK-001,POL-RISK-001
+26. [RSK-RISK-026] 企业因税务违法被处以罚款后，如何进行信用修复？纳税信用等级能恢复吗？
+   stage=RSK, module=RISK, high_frequency=1, policies=SAT-RISK-001,SAT-RISK-002
+27. [RSK-RISK-033] 收到纳税信用降级或扣分提示后，应该先补资料还是先等年度评价结果？
+   stage=RSK, module=RISK, high_frequency=1, policies=SAT-RISK-001,SAT-RISK-003
+28. [SET-RISK-004] 新设企业首年多个税种都长期零申报，怎样做才不容易被系统预警？
+   stage=SET, module=RISK, high_frequency=1, policies=SAT-RISK-001,POL-RISK-001
+29. [SET-RISK-005] 新设企业首年已经零申报几个月，突然收到风险提示，第一步应该先查什么？
+   stage=SET, module=RISK, high_frequency=1, policies=SAT-RISK-001,POL-RISK-001
+30. [SUS-RISK-003] 企业停业期间被纳税信用扣分或风险扫描命中，应该当成复业后再处理，还是停业期间就要修？
+   stage=SUS, module=RISK, high_frequency=1, policies=SAT-RISK-001,SAT-RISK-003
+31. [OPR-TAX-021] 小规模纳税人与一般纳税人，在税率、申报和发票使用上有何核心差异？
+   stage=OPR, module=TAX, high_frequency=1, policies=GOV-VAT-001,GOV-VAT-002
+32. [OPR-VAT-007] 增值税专用发票丢失后应如何处理？还能作为进项抵扣凭证吗？
+   stage=OPR, module=VAT, high_frequency=1, policies=SAT-VAT-005,POL-INV-004
+33. [OPR-VAT-017] 增值税小规模纳税人适用哪些免税政策？月销售额多少以内可以免征增值税？
+   stage=OPR, module=VAT, high_frequency=1, policies=POL-VAT-001,POL-PREF-009
+34. [OPR-VAT-018] 企业出口货物或服务，增值税有哪些退税政策？退税率如何确定？
+   stage=OPR, module=VAT, high_frequency=1, policies=POL-VAT-001,POL-VAT-003
+35. [SET-VAT-005] 新设企业首月还没开票，但收了定金，增值税上要先看什么？
+   stage=SET, module=VAT, high_frequency=1, policies=SAT-VAT-001,GOV-VAT-001
+36. [SUS-VAT-001] 企业停业期间（无收入）是否需要申报增值税？如何进行零申报？
+   stage=SUS, module=VAT, high_frequency=1, policies=GOV-VAT-001,SAT-VAT-004
+37. [SUS-VAT-003] 企业停业期间没有开票，也没有收入，还需要关注增值税哪些尾项风险？
+   stage=SUS, module=VAT, high_frequency=1, policies=GOV-VAT-001,POL-VAT-006
+38. [OPR-CIT-002] 企业对外支付的款项，境内和境外的税务处理有什么不同？
+   stage=OPR, module=CIT, high_frequency=1, policies=SAT-SSF-001
+39. [OPR-CIT-003] 企业对外支付特许权使用费，如何计算代扣代缴税款？
+   stage=OPR, module=CIT, high_frequency=1, policies=SAT-SSF-001
+40. [OPR-CIT-025] 企业向境外支付特许权使用费，代扣代缴的增值税和所得税如何计算？
+   stage=OPR, module=CIT, high_frequency=1, policies=POL-VAT-001
+41. [CLS-CLEAR-001] 企业注销时，清税证明是怎么办理的？
+   stage=CLS, module=CLEAR, high_frequency=1, policies=GOV-CLS-001
+42. [CLS-CLEAR-017] 企业走简易注销公示期间，才发现还有漏报、漏票或未处理风险，应该怎么办？
+   stage=CLS, module=CLEAR, high_frequency=1, policies=SAT-CLEAR-002
+43. [OPR-CLEAR-003] 简易注销和一般注销有什么区别？企业应该选哪种？
+   stage=OPR, module=CLEAR, high_frequency=1, policies=GOV-CLS-001
+44. [OPR-CLEAR-029] 企业注销时为什么要进行清算所得税处理？和普通年度汇算清缴有什么不同？
+   stage=OPR, module=CLEAR, high_frequency=1, policies=GOV-CLS-001
+45. [RSK-CLEAR-002] 企业存在欠税、非正常户或异常发票风险时，还能走简易注销吗？
+   stage=RSK, module=CLEAR, high_frequency=1, policies=POL-RISK-001
+46. [RSK-CLEAR-003] 企业已经进入注销准备，但还存在少量历史瑕疵时，应该先补历史问题还是先直接试着走简易注销？
+   stage=RSK, module=CLEAR, high_frequency=1, policies=SAT-CLEAR-002
+47. [RSK-CLEAR-004] 企业已经走到简易注销公告阶段，税务又发现历史漏报，还能继续简易注销吗？
+   stage=RSK, module=CLEAR, high_frequency=1, policies=SAT-CLEAR-002
+48. [CHG-DEC-005] 企业变更当月旧税种认定和新税种认定交叠时，申报应该先看哪个口径？
+   stage=CHG, module=DEC, high_frequency=1, policies=SAT-DEC-006
+49. [CHG-DEC-006] 企业变更当月已经做过一次申报，后来发现主管口径切换了，还要重走吗？
+   stage=CHG, module=DEC, high_frequency=1, policies=SAT-DEC-006
+50. [CLS-DEC-004] 正常注销与简易注销，在税务清算流程和时限要求上有何不同？
+   stage=CLS, module=DEC, high_frequency=1, policies=GOV-CLS-001
+51. [OPR-DEC-001] 零申报和未申报有什么区别？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004
+52. [OPR-DEC-002] 公司长期零申报有什么风险？
+   stage=OPR, module=DEC, high_frequency=1, policies=POL-RISK-001
+53. [OPR-DEC-004] 企业未经营也没有开票，可以一直零申报吗？有什么风险？
+   stage=OPR, module=DEC, high_frequency=1, policies=POL-RISK-001
+54. [OPR-DEC-011] 公司刚成立还没收入，税务上算'零申报'吗？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004
+55. [OPR-DEC-012] 零申报的具体操作流程是什么？电子税务局怎么填？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004
+56. [OPR-DEC-046] 增值税已经报完了，附加税忘了申报，应该怎么补？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004
+57. [OPR-DEC-047] 连续几个月都是零申报，但突然有一个月补开发票，这个月应该从哪里开始重新核对？
+   stage=OPR, module=DEC, high_frequency=1, policies=SAT-VAT-004
+58. [RSK-DEC-001] 企业因逾期申报、错报或零申报异常被列入申报风险后，应按什么顺序补报、更正和消除风险？
+   stage=RSK, module=DEC, high_frequency=1, policies=SAT-VAT-004
+59. [SET-DEC-001] 企业没有收入，是否必须申报纳税？
+   stage=SET, module=DEC, high_frequency=1, policies=SAT-VAT-001
+60. [SET-DEC-004] 企业如何判断自己是一般纳税人还是小规模纳税人？
+   stage=SET, module=DEC, high_frequency=1, policies=SAT-VAT-001
+61. [SET-DEC-005] 新办企业是小规模纳税人好还是一般纳税人好？有什么区别？
+   stage=SET, module=DEC, high_frequency=1, policies=POL-PREF-009
+62. [SET-DEC-006] 新企业税务登记后，多长时间要进行第一次申报？
+   stage=SET, module=DEC, high_frequency=1, policies=SAT-VAT-004
+63. [CHG-ETAX-003] 企业更换办税员、手机号或法人实名认证后，电子税务局多久会同步生效，期间哪些业务最容易卡住？
+   stage=CHG, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+64. [CLS-ETAX-004] 企业提交清税申请后被退回时，应该直接重新提交，还是先按退回原因逐项整改？
+   stage=CLS, module=ETAX, high_frequency=1, policies=SAT-CLEAR-002
+65. [CLS-ETAX-005] 注销前系统显示没待办，但清税申请还是提不上去，应该优先怀疑哪一类问题？
+   stage=CLS, module=ETAX, high_frequency=1, policies=SAT-CLEAR-002
+66. [OPR-ETAX-003] 企业开业后首次登录电子税务局时，应该先做哪些设置，才能避免后面申报和扣款连环报错？
+   stage=OPR, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+67. [RSK-ETAX-002] 收到税务风险提示函后，如何在电子税务局中上传资料、提交说明并跟踪处理进度？
+   stage=RSK, module=ETAX, high_frequency=1, policies=SAT-RISK-001
+68. [RSK-ETAX-003] 电子税务局突然只能看不能办，或部分功能灰掉时，怎么判断是账号问题还是税务风控限制？
+   stage=RSK, module=ETAX, high_frequency=1, policies=SAT-RISK-003
+69. [RSK-ETAX-004] 企业在电子税务局上传风险说明和资料后，怎样判断事项是真的在推进，而不是只是'传上去了'？
+   stage=RSK, module=ETAX, high_frequency=1, policies=SAT-RISK-003
+70. [RSK-ETAX-005] 风险提示已经显示解除，但系统还是不能开票或申报，下一步该怎么查？
+   stage=RSK, module=ETAX, high_frequency=1, policies=SAT-RISK-003
+71. [SET-ETAX-002] 新设企业第一次在电子税务局做税费种认定和存款账户报告，先后顺序是什么？
+   stage=SET, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+72. [SET-ETAX-003] 新设企业完成税费种认定后，如果系统里看得到税种但没有申报任务，应该怎么判断是不是正常？
+   stage=SET, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+73. [SET-ETAX-004] 新办企业扣款协议还没签好，能不能先完成首次申报？
+   stage=SET, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+74. [SET-ETAX-005] 新设企业首次登录电子税务局后，哪些提醒最好当天就处理？
+   stage=SET, module=ETAX, high_frequency=1, policies=SAT-DEC-006
+75. [CHG-IIT-002] 企业补发以前月份工资、奖金或离职补偿时，个人所得税应按哪个月份扣缴？
+   stage=CHG, module=IIT, high_frequency=1, policies=POL-WHT-003
+76. [CHG-IIT-003] 员工年中更换任职单位后，新单位代扣个税时能不能直接按全年累计预扣？
+   stage=CHG, module=IIT, high_frequency=1, policies=POL-WHT-003
+77. [CLS-IIT-005] 企业注销清算时给股东支付的清算分配款，个人所得税扣缴最先要看什么？
+   stage=CLS, module=IIT, high_frequency=1, policies=POL-WHT-003
+78. [CLS-IIT-006] 企业注销时给个人股东退回往来款，个税上为什么不能只看打款备注？
+   stage=CLS, module=IIT, high_frequency=1, policies=POL-WHT-003
+79. [OPR-IIT-001] 公司给员工发工资，为什么要代扣代缴个人所得税？
+   stage=OPR, module=IIT, high_frequency=1, policies=POL-WHT-003
+80. [OPR-IIT-002] 企业为员工报销的通信费、交通补贴，需要缴纳个人所得税吗？
+   stage=OPR, module=IIT, high_frequency=1, policies=POL-WHT-003
+81. [OPR-IIT-005] 企业为员工提供的通讯补贴、交通补贴需要缴纳个人所得税吗？
+   stage=OPR, module=IIT, high_frequency=1, policies=POL-WHT-003
+82. [SET-IIT-001] 企业什么时候开始要申报个人所得税？
+   stage=SET, module=IIT, high_frequency=1, policies=POL-WHT-003
+83. [SUS-IIT-004] 企业停业期间补发员工停业前工资，个人所得税应按哪个时间点扣缴？
+   stage=SUS, module=IIT, high_frequency=1, policies=POL-WHT-003
+84. [OPR-INV-001] 企业发生退款后，是否就不用开具发票了？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-003
+85. [OPR-INV-002] 企业首次领用发票需要准备什么？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-002
+86. [OPR-INV-003] 开错的发票是作废还是开红字发票？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-003
+87. [OPR-INV-006] 已经认证的增值税专用发票还能开红字发票吗？怎么开？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-003
+88. [OPR-INV-011] 企业如何申领增值税专用发票？和小规模纳税人有什么区别？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-002
+89. [OPR-INV-013] 什么是红字发票？什么情况下需要开具红字发票？
+   stage=OPR, module=INV, high_frequency=1, policies=POL-INV-003
+90. [OPR-PREF-005] 增值税留抵退税的申请条件是什么？如何操作？
+   stage=OPR, module=PREF, high_frequency=1, policies=POL-VAT-003
+91. [OPR-PREF-017] 广西小规模纳税人季度销售额未超过30万元，免征增值税的优惠如何适用？
+   stage=OPR, module=PREF, high_frequency=1, policies=GOV-VAT-001
+92. [OPR-REG-008] 公司增加了新业务，税务上需要变更经营范围吗？
+   stage=OPR, module=REG, high_frequency=1, policies=GOV-BIZ-001
+93. [SET-REG-005] 企业刚完成税务登记，接下来要做什么税费种认定？
+   stage=SET, module=REG, high_frequency=1, policies=SAT-DEC-006
+94. [SET-REG-010] 新企业要不要申请认定税种？自己可以选吗？
+   stage=SET, module=REG, high_frequency=1, policies=SAT-DEC-006
+95. [CHG-RISK-004] 企业变更后短期内连续收到多个系统提示，怎么判断哪些是同步延迟，哪些是真问题？
+   stage=CHG, module=RISK, high_frequency=1, policies=SAT-RISK-003
+96. [CHG-RISK-006] 企业变更后系统连续提示异常，但业务都正常，先保存哪些证据最值钱？
+   stage=CHG, module=RISK, high_frequency=1, policies=SAT-RISK-001
+97. [OPR-RISK-001] 公司被认定为非正常户，会影响正常开发票吗？
+   stage=OPR, module=RISK, high_frequency=1, policies=POL-RISK-001
+98. [OPR-RISK-008] 企业有发票要红冲，应该怎么处理？
+   stage=OPR, module=RISK, high_frequency=1, policies=POL-INV-003
+99. [OPR-RISK-010] 企业收到税务风险预警通知后，应该怎么应对？
+   stage=OPR, module=RISK, high_frequency=1, policies=SAT-RISK-001
+100. [RSK-RISK-016] 企业未履行个人所得税代扣代缴义务，会面临哪些税务风险？
+   stage=RSK, module=RISK, high_frequency=1, policies=POL-WHT-003
+101. [RSK-RISK-028] 走逃失联企业与正常经营企业，在税务处理和发票管理上有何本质区别？
+   stage=RSK, module=RISK, high_frequency=1, policies=POL-RISK-001
+102. [RSK-RISK-029] 虚开发票与善意取得发票，税务处理和法律后果有何本质区别？
+   stage=RSK, module=RISK, high_frequency=1, policies=TAX-POL-002
+103. [SUS-RISK-004] 企业停业期间被认定非正常户或状态异常时，应该先恢复经营，还是先把异常处理掉？
+   stage=SUS, module=RISK, high_frequency=1, policies=POL-RISK-001
+104. [SUS-RISK-005] 停业期间如果连续忽略风险提示，复业前会放大成哪些具体障碍？
+   stage=SUS, module=RISK, high_frequency=1, policies=SAT-RISK-001
+105. [CLS-VAT-005] 企业注销前最后一次增值税申报同时有留抵和未开票收入，先盯哪个？
+   stage=CLS, module=VAT, high_frequency=1, policies=SAT-VAT-004
+106. [CLS-VAT-006] 企业注销前最后一期增值税没有销售，但历史票据还没全收口，申报时重点看什么？
+   stage=CLS, module=VAT, high_frequency=1, policies=SAT-VAT-004
+107. [OPR-VAT-005] 农产品收购发票可以抵扣进项税额吗？收购凭证与销售发票有什么区别？
+   stage=OPR, module=VAT, high_frequency=1, policies=POL-VAT-004
+108. [SUS-VAT-005] 企业停业期间以前开的票后来整单取消了，增值税上先退钱还是先看票？
+   stage=SUS, module=VAT, high_frequency=1, policies=SAT-VAT-001
+109. [OPR-INV-017] 小规模纳税人享受增值税免税优惠期间，开具了增值税专用发票，还能免税吗？
+   stage=OPR, module=INV, high_frequency=0, policies=GOV-VAT-001,SAT-VAT-003,POL-VAT-001,POL-PREF-001
+110. [OPR-INV-018] 企业同时有应税收入和免税收入，增值税发票应如何分别开具？
+   stage=OPR, module=INV, high_frequency=0, policies=SAT-VAT-001,GOV-VAT-001,POL-VAT-001,POL-PREF-001
+111. [OPR-INV-019] 企业符合增值税即征即退条件，发票开具时税率和普通发票有什么不同？
+   stage=OPR, module=INV, high_frequency=0, policies=GOV-VAT-001,SAT-VAT-003,POL-VAT-001
+112. [OPR-REG-014] 企业被认定为风险纳税人后，发票领用和申报会受到哪些限制？如何快速解除？
+   stage=OPR, module=REG, high_frequency=0, policies=SAT-RISK-001,POL-RISK-001,POL-RISK-002
+113. [OPR-REG-021] 小规模纳税人转登记为一般纳税人后，之前享受的增值税免税优惠还能追溯享受吗？
+   stage=OPR, module=REG, high_frequency=0, policies=GOV-VAT-001,POL-VAT-001,POL-PREF-002
+114. [RSK-RISK-002] 企业被认定为非正常户会有什么后果？发票还能用吗？纳税信用会受什么影响？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-001,POL-RISK-002,SAT-RISK-002
+115. [RSK-RISK-010] 解除非正常户后，纳税信用等级多久能恢复正常？
+   stage=RSK, module=RISK, high_frequency=0, policies=SAT-RISK-001,SAT-RISK-002,SAT-RISK-003
+116. [OPR-CIT-013] 高新技术企业享受15%优惠税率，需要满足哪些条件？如何认定？
+   stage=OPR, module=CIT, high_frequency=0, policies=SAT-VAT-003,POL-PREF-006
+117. [CLS-CLEAR-010] 简易注销和普通注销在税务处理上有何不同？
+   stage=CLS, module=CLEAR, high_frequency=0, policies=LOCAL-GX-002,SAT-CLEAR-002
+118. [CLS-CLEAR-016] 一般注销与简易注销有什么区别？公司满足什么条件才能走简易注销？
+   stage=CLS, module=CLEAR, high_frequency=0, policies=GOV-CLS-001,LOCAL-GX-002
+119. [SET-CLEAR-003] 个体工商户申请注销，是否需要办理税务注销？与公司注销有什么不同？
+   stage=SET, module=CLEAR, high_frequency=0, policies=LOCAL-GX-001,LOCAL-GX-002
+120. [OPR-DEC-039] 企业逾期申报了增值税和所得税，产生了罚款和滞纳金，在电子税务局上可以申请减免吗？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-RISK-001,SAT-RISK-002
+121. [OPR-DEC-042] 增值税月报与季报，在申报频率和现金流量上有何不同影响？
+   stage=OPR, module=DEC, high_frequency=0, policies=GOV-VAT-001,GOV-VAT-002
+122. [OPR-FEE-004] 增值税专用发票丢了要怎么处理？
+   stage=OPR, module=FEE, high_frequency=0, policies=POL-INV-004,POL-VAT-006
+123. [OPR-FEE-014] 企业购买办公用品、劳保用品取得的发票，税率是多少？能否抵扣增值税？
+   stage=OPR, module=FEE, high_frequency=0, policies=SAT-VAT-001,POL-VAT-001
+124. [OPR-FEE-018] 企业向农户个人收购废旧物资，可以自行开具收购发票吗？收购发票能抵扣多少进项？
+   stage=OPR, module=FEE, high_frequency=0, policies=GOV-VAT-002,POL-VAT-004
+125. [SET-FEE-005] 新设企业第一年需要申报哪些税种？每个月要报哪些报表？申报期限是什么时候？
+   stage=SET, module=FEE, high_frequency=0, policies=GOV-VAT-001,SAT-VAT-004
+126. [OPR-INV-028] 柳州市柳江区企业想申请农产品收购发票，应当如何办理？
+   stage=OPR, module=INV, high_frequency=0, policies=GOV-VAT-001,GOV-VAT-002
+127. [SUS-INV-002] 企业停业后申请恢复经营，发票核定和最高开票限额如何处理？
+   stage=SUS, module=INV, high_frequency=0, policies=SAT-VAT-003,POL-INV-002
+128. [CHG-PREF-007] 企业从一般纳税人转登记为小规模纳税人，当年的企业所得税小型微利企业优惠还能享受吗？
+   stage=CHG, module=PREF, high_frequency=0, policies=POL-PREF-002,POL-PREF-003
+129. [CLS-PREF-005] 企业注销前尚未用完的小微优惠口径，需要单独做收口说明吗？
+   stage=CLS, module=PREF, high_frequency=0, policies=POL-PREF-001,POL-PREF-003
+130. [RSK-PREF-001] 企业享受税收优惠后被税务机关检查，主要查什么？
+   stage=RSK, module=PREF, high_frequency=0, policies=POL-PREF-001,POL-PREF-006
+131. [SET-PREF-003] 初创期企业如何利用好各项税收优惠政策降低税负？
+   stage=SET, module=PREF, high_frequency=0, policies=POL-PREF-002,POL-PREF-006
+132. [SET-PREF-004] 新设企业可以享受哪些税收优惠政策？如何知道自己的企业符合哪些优惠？
+   stage=SET, module=PREF, high_frequency=0, policies=POL-PREF-001,POL-PREF-003
+133. [SET-PREF-005] 新设小规模纳税人企业，第一年可以享受哪些增值税和所得税优惠？如何快速判断自己适用哪些？
+   stage=SET, module=PREF, high_frequency=0, policies=POL-PREF-002,POL-PREF-003
+134. [SUS-PREF-003] 企业停业期间，小型微利企业优惠是否需要每年重新认定？停业状态如何享受优惠？
+   stage=SUS, module=PREF, high_frequency=0, policies=POL-PREF-002,POL-PREF-003
+135. [OPR-REG-013] 企业的税务状态显示异常（如非正常户、风险纳税人等），如何查询原因并解除？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-RISK-002,SAT-RISK-002
+136. [OPR-REG-019] 企业跨省迁移后，之前享受的税收优惠政策还能继续适用吗？迁移前后政策如何衔接？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-PREF-001,POL-PREF-002
+137. [OPR-REG-020] 企业遗失了税收优惠备案材料，还能继续享受优惠政策吗？如何补救？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-PREF-001,POL-PREF-002
+138. [CHG-RISK-002] 企业变更主管税务机关后，纳税信用评价结果会同步转移吗？
+   stage=CHG, module=RISK, high_frequency=0, policies=SAT-RISK-001,SAT-RISK-003
+139. [OPR-RISK-004] 企业收到一张失控发票（发票联次不齐全或被作废的发票），财务怎么处理？
+   stage=OPR, module=RISK, high_frequency=0, policies=SAT-VAT-001,POL-VAT-006
+140. [RSK-RISK-004] 非正常户企业开具的发票，收票方还能用吗？已经抵扣的进项税要转出吗？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-002,SAT-RISK-002
+141. [RSK-RISK-005] 企业逾期未完成纳税申报，该怎么处理？有什么后果？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-VAT-001,POL-RISK-002
+142. [RSK-RISK-006] 企业收到税务风险预警通知后，应该怎么应对？处理步骤是什么？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-001,SAT-RISK-002
+143. [RSK-RISK-007] 税局通知企业自查补报，自查的范围和期限是多少？可以拒绝吗？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-VAT-001,POL-RISK-001
+144. [RSK-RISK-008] 收到异常凭证（上游走逃等）后，如何处理才能避免进项税额转出？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-INV-002,SAT-RISK-002
+145. [RSK-RISK-009] 非正常户认定后，企业的具体经营限制到底有哪些？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-001,POL-RISK-002
+146. [RSK-RISK-030] 税务约谈与税务稽查，在程序性质和应对策略上有何本质不同？
+   stage=RSK, module=RISK, high_frequency=0, policies=TAX-POL-003,TAX-POL-004
+147. [OPR-TAX-015] 企业收到税务稽查通知书后，应该如何准备材料？有哪些注意事项？
+   stage=OPR, module=TAX, high_frequency=0, policies=TAX-POL-003,TAX-POL-004
+148. [RSK-TAX-007] 企业被列入纳税信用等级D级，有什么后果？如何修复？
+   stage=RSK, module=TAX, high_frequency=0, policies=SAT-RISK-001,SAT-RISK-002
+149. [RSK-TAX-009] 企业收到《税务事项通知书》要求自查，是什么意思？企业应该怎么处理？
+   stage=RSK, module=TAX, high_frequency=0, policies=TAX-POL-003,TAX-POL-004
+150. [RSK-TAX-010] 企业被举报偷税，税务机关通常如何处理？企业应该注意什么？
+   stage=RSK, module=TAX, high_frequency=0, policies=TAX-POL-003,TAX-POL-004
+151. [CLS-VAT-002] 企业注销时，留抵进项税额对应的存货或固定资产分配给股东，增值税如何处理？
+   stage=CLS, module=VAT, high_frequency=0, policies=SAT-VAT-001,POL-VAT-001
+152. [CLS-VAT-003] 企业注销时，增值税进项税额留抵税额能否申请退税？有哪些注意事项？
+   stage=CLS, module=VAT, high_frequency=0, policies=GOV-VAT-002,POL-VAT-008
+153. [CLS-VAT-004] 企业注销前把库存低价处理给关联方，增值税上只看合同价就行吗？
+   stage=CLS, module=VAT, high_frequency=0, policies=SAT-VAT-001,GOV-VAT-001
+154. [OPR-VAT-009] 企业丢失已开具的增值税专用发票该怎么办？还能认证抵扣吗？
+   stage=OPR, module=VAT, high_frequency=0, policies=GOV-VAT-001,POL-INV-004
+155. [OPR-VAT-010] 小规模纳税人开具增值税专用发票和普通发票，税务处理有什么不同？
+   stage=OPR, module=VAT, high_frequency=0, policies=GOV-VAT-001,POL-DEC-001
+156. [OPR-VAT-011] 小规模纳税人享受免征增值税优惠，月销售额多少以内免征？超过后如何计算缴纳？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-DEC-001,POL-VAT-003
+157. [OPR-VAT-013] 企业将自产或委托加工的货物用于集体福利、个人消费，或用于无偿赠送，增值税如何处理？是否视同销售？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-VAT-001,TAX-POL-008
+158. [OPR-VAT-016] 增值税为什么要实行抵扣链机制？环环相抵的设计逻辑是什么？
+   stage=OPR, module=VAT, high_frequency=0, policies=SAT-VAT-001,POL-VAT-001
+159. [RSK-VAT-007] 企业税负率明显偏低被预警，税务机关通常关注哪些指标？如何提前做好风险防控？
+   stage=RSK, module=VAT, high_frequency=0, policies=SAT-VAT-004,SAT-RISK-001
+160. [SET-VAT-004] 新设企业第一次申领增值税发票（税务UKey或金税盘），具体流程是什么？需要多少时间？
+   stage=SET, module=VAT, high_frequency=0, policies=GOV-VAT-001,SAT-VAT-003
+161. [SUS-VAT-002] 企业停业期间，签订新订单或取得营业收入，增值税纳税义务是否仍然发生？
+   stage=SUS, module=VAT, high_frequency=0, policies=SAT-VAT-004,POL-VAT-001
+162. [CHG-CIT-002] 企业注册资本减少（减资），涉及哪些税务处理？自然人股东和法人股东的税务处理有何不同？
+   stage=CHG, module=CIT, high_frequency=0, policies=GOV-IIT-001
+163. [CHG-CIT-005] 企业变更组织形式后，以前年度亏损弥补台账要不要按新主体口径重整？
+   stage=CHG, module=CIT, high_frequency=0, policies=SAT-TAX-002
+164. [OPR-CIT-009] 小型微利企业所得税优惠的条件是什么？应纳税所得额、从业人数、资产总额分别是什么标准？
+   stage=OPR, module=CIT, high_frequency=0, policies=POL-PREF-002
+165. [OPR-CIT-011] 非居民个人取得特许权使用费如何在中国申报缴纳个人所得税？
+   stage=OPR, module=CIT, high_frequency=0, policies=SAT-SSF-002
+166. [OPR-CIT-012] 企业与企业集团成员之间发生关联交易，税务上有哪些合规要求？
+   stage=OPR, module=CIT, high_frequency=0, policies=SAT-TAX-003
+167. [OPR-CIT-017] 总机构在广西，分支机构在外省，企业所得税如何汇总缴纳？需要分摊多少给广西？
+   stage=OPR, module=CIT, high_frequency=0, policies=SAT-TAX-002
+168. [OPR-CIT-019] 企业向境外支付特许权使用费，源泉扣缴的所得税率是多少？哪些协定优惠税率可以适用？
+   stage=OPR, module=CIT, high_frequency=0, policies=POL-WHT-003
+169. [RSK-CIT-003] 收了假发票已经入账了，会计和老板要承担什么责任？
+   stage=RSK, module=CIT, high_frequency=0, policies=SAT-VAT-005
+170. [RSK-CIT-004] 非居民企业享受协定待遇后被查到有哪些风险？
+   stage=RSK, module=CIT, high_frequency=0, policies=SAT-SSF-002
+171. [CHG-CLEAR-004] 企业注销前，存货和固定资产怎么处置涉税最少？
+   stage=CHG, module=CLEAR, high_frequency=0, policies=POL-VAT-001
+172. [CHG-CLEAR-006] 企业准备做重大变更时，如果顺便想清理历史税务尾巴，哪些最适合在变更前先处理？
+   stage=CHG, module=CLEAR, high_frequency=0, policies=SAT-CLEAR-002
+173. [CLS-CLEAR-005] 企业注销时还有留抵进项税额，能申请退税吗？
+   stage=CLS, module=CLEAR, high_frequency=0, policies=GOV-VAT-002
+174. [CLS-CLEAR-013] 企业注销清算过程中，存货过期变质无法销售，税务上如何处理？
+   stage=CLS, module=CLEAR, high_frequency=0, policies=POL-VAT-001
+175. [CLS-CLEAR-015] 企业注销时，税务注销与工商注销的先后顺序是什么？
+   stage=CLS, module=CLEAR, high_frequency=0, policies=GOV-CLS-001
+176. [OPR-CLEAR-007] 企业申请简易注销被驳回后，还能再申请吗？应该怎么办？
+   stage=OPR, module=CLEAR, high_frequency=0, policies=LOCAL-GX-002
+177. [OPR-CLEAR-026] 公司注销时，有留抵进项税额可以申请退税吗？怎么处理最合适？
+   stage=OPR, module=CLEAR, high_frequency=0, policies=POL-VAT-001
+178. [OPR-CLEAR-028] 企业在注销清算中，清算组成员的法律责任是什么？清算组成员有过错的，承担什么后果？
+   stage=OPR, module=CLEAR, high_frequency=0, policies=GOV-CLS-001
+179. [RSK-CLEAR-001] 公司已经注销，但税务机关后来发现了偷税行为，税务机关可以向谁追征？
+   stage=RSK, module=CLEAR, high_frequency=0, policies=GOV-CLS-001
+180. [SET-CLEAR-001] 新设企业在哪些情况下会被要求进行税务清算？清算程序是什么？
+   stage=SET, module=CLEAR, high_frequency=0, policies=SAT-CLEAR-002
+181. [SUS-CLEAR-001] 企业在停业期间是否可以申请办理税务注销？还是必须先恢复经营？
+   stage=SUS, module=CLEAR, high_frequency=0, policies=GOV-CLS-001
+182. [SUS-CLEAR-004] 企业被认定为非正常户后，如何才能恢复正常？
+   stage=SUS, module=CLEAR, high_frequency=0, policies=POL-RISK-001
+183. [SUS-CLEAR-006] 停业期间想直接转注销，但系统里还有零星待办，应该怎么分轻重缓急？
+   stage=SUS, module=CLEAR, high_frequency=0, policies=SAT-CLEAR-002
+184. [SUS-CLEAR-007] 停业期间还没解除异常，就想先办注销，哪些情况会被直接卡住？
+   stage=SUS, module=CLEAR, high_frequency=0, policies=SAT-CLEAR-002
+185. [CHG-DEC-001] 企业经营地址变更后，增值税和所得税的申报主管税务机关会改变吗？
+   stage=CHG, module=DEC, high_frequency=0, policies=SAT-DEC-006
+186. [CHG-DEC-003] 企业变更经营项目（行业或经营范围），增值税税率和征收率是否会自动调整？
+   stage=CHG, module=DEC, high_frequency=0, policies=SAT-DEC-006
+187. [CLS-DEC-001] 注销前须完成当期所有税种申报，包括增值税、企业所得税和个税吗？
+   stage=CLS, module=DEC, high_frequency=0, policies=GOV-CLS-001
+188. [CLS-DEC-003] 企业注销时，简易注销和一般注销在税务处理时限上有什么区别？
+   stage=CLS, module=DEC, high_frequency=0, policies=SAT-CLEAR-002
+189. [OPR-DEC-008] 企业有出口业务，怎么申请出口退税？需要具备什么资质？
+   stage=OPR, module=DEC, high_frequency=0, policies=POL-VAT-001
+190. [OPR-DEC-009] 企业签订合同后，对方违约收取的违约金是否需要缴纳增值税？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-VAT-001
+191. [OPR-DEC-034] 如何在电子税务局中查询企业的申报记录、缴款记录和完税证明？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-VAT-004
+192. [OPR-DEC-035] 登录电子税务局后，如何快速找到当期需要申报的所有税种和申报期限？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-VAT-004
+193. [OPR-DEC-036] 如何在电子税务局中查看企业已认定的税种和纳税人资格（如一般纳税人/小规模纳税人）？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-VAT-004
+194. [OPR-DEC-037] 申报后发现申报数据有误，如何在电子税务局中申请更正申报？
+   stage=OPR, module=DEC, high_frequency=0, policies=SAT-VAT-004
+195. [OPR-DEC-038] 企业所得税年度汇算清缴在电子税务局中如何操作？申报后发现有漏填项目如何补救？
+   stage=OPR, module=DEC, high_frequency=0, policies=POL-PREF-003
+196. [OPR-DEC-040] 享受税收优惠后，申报表中如何正确填报？免税收入和加计扣除是否需要分别填报？
+   stage=OPR, module=DEC, high_frequency=0, policies=POL-PREF-003
+197. [OPR-DEC-043] 柳州市柳江区企业申报增值税，在申报期限上有无特殊规定？
+   stage=OPR, module=DEC, high_frequency=0, policies=GOV-VAT-001
+198. [SET-DEC-007] 柳州市柳江区新办企业申报期限是否有特殊规定？
+   stage=SET, module=DEC, high_frequency=0, policies=LOCAL-GX-001
+199. [SET-DEC-008] 新设企业第一个季度报税，具体要报哪些税？申报时间分别是什么时候？
+   stage=SET, module=DEC, high_frequency=0, policies=GOV-VAT-001
+200. [SET-DEC-010] 新办企业首个申报期没有主营收入，但收到银行利息，算不算真正的零申报？
+   stage=SET, module=DEC, high_frequency=0, policies=SAT-VAT-004
+201. [SUS-DEC-001] 停业期间如何办理零申报？操作流程是什么？
+   stage=SUS, module=DEC, high_frequency=0, policies=SAT-VAT-004
+202. [SUS-DEC-002] 企业停业期间，员工都已离职，社保和个税还需要处理吗？
+   stage=SUS, module=DEC, high_frequency=0, policies=POL-WHT-003
+203. [SUS-DEC-003] 企业停业期间如果收到以前属期的更正申报要求，应按停业期申报还是按原属期更正？
+   stage=SUS, module=DEC, high_frequency=0, policies=SAT-VAT-004
+204. [CLS-ETAX-002] 企业注销前，如何在电子税务局中先自查还有哪些未办结事项会卡住清税？
+   stage=CLS, module=ETAX, high_frequency=0, policies=SAT-CLEAR-002
+205. [OPR-ETAX-002] 企业如何在电子税务局网上申请增值税留抵退税？操作流程是什么？
+   stage=OPR, module=ETAX, high_frequency=0, policies=POL-VAT-001
+206. [OPR-FEE-005] 企业向农户收购农产品可以自行开具收购发票吗？
+   stage=OPR, module=FEE, high_frequency=0, policies=POL-VAT-004
+207. [OPR-FEE-009] 企业购买农产品（水果）作为员工福利，取得的发票可以抵扣增值税吗？要不要视同销售？
+   stage=OPR, module=FEE, high_frequency=0, policies=TAX-POL-008
+208. [OPR-FEE-013] 公司给客户送礼品（样品、宣传品），税务上怎么处理？能否税前扣除？
+   stage=OPR, module=FEE, high_frequency=0, policies=GOV-VAT-001
+209. [OPR-FEE-015] 企业发生差旅费支出，报销时需要注意哪些税务问题？火车票、飞机票能抵扣增值税吗？
+   stage=OPR, module=FEE, high_frequency=0, policies=GOV-VAT-001
+210. [OPR-FEE-016] 企业发生会议费支出，取得的发票能抵扣增值税吗？会议费税前扣除有什么要求？
+   stage=OPR, module=FEE, high_frequency=0, policies=POL-VAT-001
+211. [OPR-FEE-017] 企业发生的餐饮费支出，能否抵扣增值税？企业所得税前扣除有什么限制？
+   stage=OPR, module=FEE, high_frequency=0, policies=POL-VAT-001
+212. [OPR-FEE-020] 企业购买燃油费、通行费取得的发票，能否抵扣增值税？哪些通行费可以抵扣？
+   stage=OPR, module=FEE, high_frequency=0, policies=GOV-VAT-001
+213. [RSK-FEE-004] 企业取得虚开发票被查，责任人要承担什么责任？企业需要补缴多少税款和罚款？
+   stage=RSK, module=FEE, high_frequency=0, policies=TAX-POL-002
+214. [RSK-FEE-005] 企业发票逾期未认证（超过360天），对应的进项税额还能抵扣吗？有什么补救方法？
+   stage=RSK, module=FEE, high_frequency=0, policies=POL-VAT-001
+215. [SET-FEE-001] 广西小规模纳税人地方税种附加费有什么减免政策？
+   stage=SET, module=FEE, high_frequency=0, policies=SAT-VAT-005
+216. [SET-FEE-002] 新设企业第一年可以享受哪些增值税和企业所得税优惠？
+   stage=SET, module=FEE, high_frequency=0, policies=SAT-VAT-001
+217. [SET-FEE-003] 新公司注册后还没收入，但银行回单上已有手续费支出，这些能税前扣除吗？
+   stage=SET, module=FEE, high_frequency=0, policies=GOV-VAT-001
+218. [CHG-IIT-001] 企业实施股权激励（股票期权、限制性股票），个人所得税如何计算？能否申请递延纳税？
+   stage=CHG, module=IIT, high_frequency=0, policies=IIT-POL-001
+219. [CHG-IIT-005] 企业法定代表人变更后，当月工资个税申报里“负责人”口径要不要同步改？
+   stage=CHG, module=IIT, high_frequency=0, policies=POL-WHT-003
+220. [CLS-IIT-001] 企业注销时向自然人股东分配清算款项，如何代扣代缴个人所得税？
+   stage=CLS, module=IIT, high_frequency=0, policies=GOV-IIT-001
+221. [CLS-IIT-002] 注销时自然人股东减资退股，收到的减资款超过原始出资
+   stage=CLS, module=IIT, high_frequency=0, policies=GOV-CLS-001
+222. [CLS-IIT-003] 注销前资本公积转增注册资本，自然人股东须缴纳多少个人所得税？
+   stage=CLS, module=IIT, high_frequency=0, policies=GOV-CLS-001
+223. [CLS-IIT-004] 企业注销时，自然人股东从清算分配中取得的剩余财产，超过原始出资额的部分如何缴纳个人所得税？
+   stage=CLS, module=IIT, high_frequency=0, policies=GOV-IIT-001
+224. [OPR-IIT-007] 个人独资企业和合伙企业的投资者，工资薪金如何缴纳个人所得税？
+   stage=OPR, module=IIT, high_frequency=0, policies=GOV-IIT-001
+225. [OPR-IIT-008] 企业员工的个人所得税专项附加扣除，员工需要提交什么资料？企业如何操作？
+   stage=OPR, module=IIT, high_frequency=0, policies=POL-WHT-003
+226. [OPR-IIT-031] 员工离职当月既有工资又有报销补发，个税应该怎么拆分看？
+   stage=OPR, module=IIT, high_frequency=0, policies=POL-WHT-003
+227. [RSK-IIT-002] 个人转让股权没申报个税，会被怎么查？
+   stage=RSK, module=IIT, high_frequency=0, policies=SAT-VAT-003
+228. [RSK-IIT-005] 企业实施股权激励，员工要交多少个人所得税？有哪些优惠政策可以申请？
+   stage=RSK, module=IIT, high_frequency=0, policies=IIT-POL-001
+229. [SET-IIT-005] 个体工商户业主、合伙企业合伙人，如何缴纳个人所得税？新办执照后从何时开始申报？
+   stage=SET, module=IIT, high_frequency=0, policies=GOV-IIT-001
+230. [SET-IIT-006] 新办企业只有法人一个人、暂时不发工资，个税扣缴申报从什么时候才开始看？
+   stage=SET, module=IIT, high_frequency=0, policies=POL-WHT-003
+231. [SUS-IIT-001] 停业期间企业是否仍有个人所得税代扣代缴义务？具体要如何处理？
+   stage=SUS, module=IIT, high_frequency=0, policies=GOV-IIT-001
+232. [SUS-IIT-002] 停业期间向个人股东分红，是否仍须代扣代缴个人所得税？
+   stage=SUS, module=IIT, high_frequency=0, policies=GOV-IIT-001
+233. [SUS-IIT-005] 企业停业期间补发年终奖，个人所得税上要和补发工资分开看吗？
+   stage=SUS, module=IIT, high_frequency=0, policies=POL-WHT-003
+234. [CHG-INV-001] 企业办理变更税务登记时，发票核定信息会自动变更吗？库存发票和开票系统如何处理？
+   stage=CHG, module=INV, high_frequency=0, policies=POL-INV-002
+235. [CHG-INV-002] 企业名称等核心信息变更后，须立即核查库存发票与企业
+   stage=CHG, module=INV, high_frequency=0, policies=POL-INV-002
+236. [CHG-INV-003] 企业名称变更后，电子发票、数电票和开票系统里的销方信息要怎么切换？
+   stage=CHG, module=INV, high_frequency=0, policies=POL-INV-003
+237. [CLS-INV-002] 注销前若已开具发票并发生退货或折让，须开具红字发票
+   stage=CLS, module=INV, high_frequency=0, policies=POL-INV-003
+238. [OPR-INV-009] 企业对外支付运费，收到个人代开的增值税发票，能抵扣吗？
+   stage=OPR, module=INV, high_frequency=0, policies=POL-VAT-001
+239. [OPR-INV-010] 企业购买了一套财务软件，发生的软件服务费能否抵扣增值税？
+   stage=OPR, module=INV, high_frequency=0, policies=POL-VAT-001
+240. [OPR-INV-020] 增值税发票有哪几种类型？卷式发票、折叠式发票、电子发票分别适用于什么情况？
+   stage=OPR, module=INV, high_frequency=0, policies=SAT-VAT-003
+241. [OPR-INV-022] 企业丢失空白发票或已开具发票，如何登报声明作废？税务上如何处理？
+   stage=OPR, module=INV, high_frequency=0, policies=POL-INV-004
+242. [OPR-INV-029] 柳州市柳江区企业如何申请农产品收购发票？收购发票的进项税额如何计算和申报抵扣？
+   stage=OPR, module=INV, high_frequency=0, policies=POL-VAT-001
+243. [RSK-INV-001] 什么是虚开增值税发票？企业被认定为虚开发票有什么后果？
+   stage=RSK, module=INV, high_frequency=0, policies=TAX-POL-002
+244. [RSK-INV-003] 企业购买发票或借用他人发票，有什么风险？税务如何认定？
+   stage=RSK, module=INV, high_frequency=0, policies=TAX-POL-002
+245. [SET-INV-003] 新设企业第一次领用增值税发票，有哪些注意事项可以避免风险？
+   stage=SET, module=INV, high_frequency=0, policies=POL-INV-002
+246. [SET-INV-004] 新设企业第一次申领增值税发票，最高开票限额是多少？申请提升限额需要什么条件？
+   stage=SET, module=INV, high_frequency=0, policies=SAT-VAT-003
+247. [CHG-PREF-001] 企业转为一般纳税人后，还能享受之前的小规模免税优惠吗？
+   stage=CHG, module=PREF, high_frequency=0, policies=POL-PREF-009
+248. [CHG-PREF-006] 企业享受即征即退增值税优惠，变更经营范围后还能继续吗？
+   stage=CHG, module=PREF, high_frequency=0, policies=GOV-VAT-001
+249. [CLS-PREF-001] 注销前已备案的税收优惠资格（如小型微利企业、高新技术企业等）还要收口吗？
+   stage=CLS, module=PREF, high_frequency=0, policies=POL-PREF-001
+250. [CLS-PREF-003] 注销时账面上的增值税留抵税额不能申请退税，须做进项
+   stage=CLS, module=PREF, high_frequency=0, policies=GOV-VAT-001
+251. [CLS-PREF-004] 企业注销时，增值税留抵税额和即征即退资格如何处理？留抵税额能否退税？
+   stage=CLS, module=PREF, high_frequency=0, policies=GOV-VAT-002
+252. [CLS-PREF-006] 企业注销前优惠台账还没整理完，会直接影响清税吗？
+   stage=CLS, module=PREF, high_frequency=0, policies=POL-PREF-001
+253. [OPR-PREF-004] 高新企业认定需要满足哪些条件？如何申请？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-PREF-006
+254. [OPR-PREF-006] 软件企业两免三减半优惠如何申请？适用条件是什么？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-VAT-009
+255. [OPR-PREF-008] 企业同时符合高新技术企业和软件企业优惠条件，能否叠加享受？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-PREF-006
+256. [OPR-PREF-013] 企业申请软件企业两免三减半优惠，需要满足哪些条件？哪些收入可以计入减免基数？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-PREF-002
+257. [OPR-PREF-015] 集成电路企业享受企业所得税优惠，需要符合哪些条件？哪些环节可以享受减免？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-PREF-002
+258. [OPR-PREF-022] 广西北部湾经济区（含钦州港、北海铁山港）企业，在税务上享受哪些不同于其他地区的特殊优惠？
+   stage=OPR, module=PREF, high_frequency=0, policies=POL-PREF-006
+259. [RSK-PREF-002] 企业被取消高新企业资格后，需要补缴多少税款？
+   stage=RSK, module=PREF, high_frequency=0, policies=POL-PREF-006
+260. [RSK-PREF-004] 企业被取消高新资格后，已享受的优惠税款需要补缴吗？补缴的滞纳金如何计算？
+   stage=RSK, module=PREF, high_frequency=0, policies=POL-PREF-006
+261. [SUS-PREF-002] 企业停业期间，高新技术企业资格是否还能保留？是否还需要进行研发费用加计扣除申报？
+   stage=SUS, module=PREF, high_frequency=0, policies=POL-PREF-006
+262. [SUS-PREF-004] 企业停业后不再继续享受优惠了，以前年度优惠备案和留痕资料还要保留吗？
+   stage=SUS, module=PREF, high_frequency=0, policies=POL-PREF-001
+263. [SUS-PREF-005] 企业停业后准备复业，原来享受过的优惠要先复核哪几类资料？
+   stage=SUS, module=PREF, high_frequency=0, policies=POL-PREF-001
+264. [CHG-REG-004] 企业经营范围变更涉及前置审批，税务登记的办理顺序是什么？
+   stage=CHG, module=REG, high_frequency=0, policies=GOV-BIZ-001
+265. [CHG-REG-006] 企业名称变更后，税务登记如何处理？之前签订的合同和发票还能继续使用吗？
+   stage=CHG, module=REG, high_frequency=0, policies=SAT-VAT-003
+266. [CHG-REG-007] 企业类型从有限公司变更为股份有限公司，税务登记需要重新办理吗？
+   stage=CHG, module=REG, high_frequency=0, policies=GOV-CLS-001
+267. [CLS-REG-001] 企业注销须先结清所有税务事项，缴销发票和税控设备
+   stage=CLS, module=REG, high_frequency=0, policies=GOV-CLS-001
+268. [CLS-REG-003] 分支机构注销是否必须先于母公司完成？流程与普通注销相同吗？
+   stage=CLS, module=REG, high_frequency=0, policies=LOCAL-GX-002
+269. [OPR-REG-004] 企业可以同时享受多种税收优惠政策吗？自动叠加还是需要分别申请？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-PREF-001
+270. [OPR-REG-005] 享受税收优惠政策需要事先向税务机关备案或申请吗？哪些是自动享受的？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-PREF-002
+271. [OPR-REG-006] 企业错误享受了不应享受的税收优惠，会有什么后果？如何主动纠正？
+   stage=OPR, module=REG, high_frequency=0, policies=POL-PREF-001
+272. [OPR-REG-017] 企业注册地址变更后，在电子税务局上需要同步更新哪些信息？操作路径是什么？
+   stage=OPR, module=REG, high_frequency=0, policies=GOV-BIZ-001
+273. [OPR-REG-022] 柳州市柳江区跨区域经营的企业，税务登记和申报地点如何确定？
+   stage=OPR, module=REG, high_frequency=0, policies=GOV-VAT-001
+274. [SET-REG-012] 广西新办企业税务登记有什么特别规定？
+   stage=SET, module=REG, high_frequency=0, policies=LOCAL-GX-001
+275. [SET-REG-015] 广西新办企业想申请成为一般纳税人，在当地有什么特殊流程或要求？
+   stage=SET, module=REG, high_frequency=0, policies=GOV-VAT-002
+276. [CHG-RISK-003] 企业变更法定代表人，原法定代表人还需对变更前的税务违规行为承担责任吗？
+   stage=CHG, module=RISK, high_frequency=0, policies=POL-RISK-001
+277. [CHG-RISK-005] 企业短期内连续变更多项登记信息，会不会被税务系统当成风险信号？
+   stage=CHG, module=RISK, high_frequency=0, policies=SAT-RISK-001
+278. [CLS-RISK-002] 企业注销后发现存在虚开增值税专用发票行为，税务机关如何处理？
+   stage=CLS, module=RISK, high_frequency=0, policies=TAX-POL-002
+279. [OPR-RISK-005] 企业收到税局的风险提示函，应该怎么应对和处理？
+   stage=OPR, module=RISK, high_frequency=0, policies=POL-RISK-001
+280. [OPR-RISK-006] 企业收到税局的《税务检查通知书》，要怎么办？
+   stage=OPR, module=RISK, high_frequency=0, policies=POL-RISK-001
+281. [OPR-RISK-007] 企业被税局通知要接受税务稽查，要怎么应对？
+   stage=OPR, module=RISK, high_frequency=0, policies=POL-RISK-001
+282. [OPR-RISK-009] 企业收到一张异常凭证，要怎么处理才能避免进项转出？
+   stage=OPR, module=RISK, high_frequency=0, policies=POL-VAT-001
+283. [OPR-RISK-012] 企业欠税了，应该怎么办？
+   stage=OPR, module=RISK, high_frequency=0, policies=POL-RISK-001
+284. [OPR-RISK-013] 欠税滞纳金能否申请减免或暂缓？
+   stage=OPR, module=RISK, high_frequency=0, policies=SAT-RISK-003
+285. [OPR-RISK-017] 企业被举报偷税后接受税务检查期间能否申领发票？
+   stage=OPR, module=RISK, high_frequency=0, policies=SAT-VAT-005
+286. [RSK-RISK-001] 非正常户的认定标准是什么？哪些情形会被列入非正常户？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-002
+287. [RSK-RISK-003] 如何解除非正常户状态？需要结清哪些款项？流程是什么？
+   stage=RSK, module=RISK, high_frequency=0, policies=POL-RISK-002
+288. [RSK-RISK-011] 企业收到税局"双随机"检查通知，检查范围是什么？企业如何准备？
+   stage=RSK, module=RISK, high_frequency=0, policies=TAX-POL-003
+289. [RSK-RISK-012] 企业收到"一案双查"通知，稽查和纪检监察同时进行，企业应该怎么应对？
+   stage=RSK, module=RISK, high_frequency=0, policies=TAX-POL-004
+290. [RSK-RISK-019] 企业欠税不缴，法人和财务负责人会被限制出境吗？
+   stage=RSK, module=RISK, high_frequency=0, policies=SAT-SUS-003
+291. [RSK-RISK-021] 企业被列入非正常户，法人购买机票会受影响吗？
+   stage=RSK, module=RISK, high_frequency=0, policies=SAT-SUS-003
+292. [RSK-RISK-024] 企业取得虚开发票（善意取得）已抵扣，税局通知要做进项转出，企业如何维权？
+   stage=RSK, module=RISK, high_frequency=0, policies=TAX-POL-002
+293. [SET-RISK-001] 新设企业如何避免被认定为非正常户？
+   stage=SET, module=RISK, high_frequency=0, policies=SAT-VAT-005
+294. [SUS-RISK-001] 企业长期停业不处理，税务机关会如何处理？会有什么后果？
+   stage=SUS, module=RISK, high_frequency=0, policies=POL-RISK-001
+295. [SUS-RISK-002] 企业长期停业不处理也不注销，税务机关会将其转为非正常户吗？有什么后果？
+   stage=SUS, module=RISK, high_frequency=0, policies=POL-RISK-001
+296. [CHG-SSF-001] 境外投资者撤资，企业要代扣所得税吗？
+   stage=CHG, module=SSF, high_frequency=0, policies=SAT-SSF-001
+297. [CHG-SSF-002] 企业经营范围变更后社保缴费基数需要调整吗？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+298. [CHG-SSF-003] 企业增减员工时社保如何办理增减员？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+299. [CHG-SSF-004] 企业调整社保缴费基数如何操作？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+300. [CHG-SSF-005] 企业变更法定代表人后社保关系需要变更吗？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+301. [CHG-SSF-006] 企业变更社保登记事项有哪些常见情形？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+302. [CHG-SSF-007] 企业如何在网上办理社保变更登记？
+   stage=CHG, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+303. [CLS-SSF-001] 企业注销时社保账户如何办理注销结算？
+   stage=CLS, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+304. [CLS-SSF-002] 企业注销时员工的社保关系如何处理？
+   stage=CLS, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+305. [CLS-SSF-003] 企业注销前还有欠缴社保费怎么处理？
+   stage=CLS, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+306. [CLS-SSF-004] 企业注销后员工社保如何查询和转移？
+   stage=CLS, module=SSF, high_frequency=0, policies=GOV-BIZ-001
+307. [OPR-SSF-007] 企业向境外个人支付租金，要代扣个税吗？
+   stage=OPR, module=SSF, high_frequency=0, policies=SAT-SSF-001
+308. [RSK-SSF-003] 非居民企业取得股息红利所得如何享受协定优惠？
+   stage=RSK, module=SSF, high_frequency=0, policies=SAT-SSF-002
+309. [CHG-TAX-001] 企业股权转让后如何进行税务处理？
+   stage=CHG, module=TAX, high_frequency=0, policies=SAT-VAT-003
+310. [CHG-TAX-004] 企业减少注册资本（金），自然人股东收到的减资款超过
+   stage=CHG, module=TAX, high_frequency=0, policies=GOV-CLS-001
+311. [CLS-TAX-002] 企业注销时，认缴资本未到位部分转让给其他股东，转让方是否需要缴纳个人所得税？
+   stage=CLS, module=TAX, high_frequency=0, policies=IIT-POL-001
+312. [CLS-TAX-003] 税务行政处罚的裁量基准是什么？企业如何避免被从重处罚？
+   stage=CLS, module=TAX, high_frequency=0, policies=LOCAL-GX-001
+313. [OPR-TAX-001] 企业发生关联交易必须同期资料吗？
+   stage=OPR, module=TAX, high_frequency=0, policies=SAT-TAX-003
+314. [OPR-TAX-003] 企业境外承包工程所得如何享受税收协定待遇？
+   stage=OPR, module=TAX, high_frequency=0, policies=SAT-SSF-002
+315. [OPR-TAX-004] 年度所得税汇算清缴，5月31日后还能补救吗？
+   stage=OPR, module=TAX, high_frequency=0, policies=SAT-TAX-002
+316. [OPR-TAX-006] 企业错过了所得税汇算清缴截止日期（5月31日），该怎么补救？会有什么后果？
+   stage=OPR, module=TAX, high_frequency=0, policies=POL-LOCAL-GD-003
+317. [OPR-TAX-007] 总分机构之间的货物调拨，需要开具发票吗？企业所得税如何缴纳？
+   stage=OPR, module=TAX, high_frequency=0, policies=TAX-POL-008
+318. [OPR-TAX-009] 企业收到税务机关的风险提示函（或风险提醒通知书），应该如何应对？
+   stage=OPR, module=TAX, high_frequency=0, policies=POL-RISK-001
+319. [OPR-TAX-011] 企业税务注销和工商注销是什么关系？先后顺序是什么？
+   stage=OPR, module=TAX, high_frequency=0, policies=GOV-CLS-001
+320. [OPR-TAX-012] 小规模纳税人是否可以转为一般纳税人？转登记后之前购进的固定资产进项税还能抵扣吗？
+   stage=OPR, module=TAX, high_frequency=0, policies=GOV-VAT-001
+321. [OPR-TAX-019] 企业进行关联申报时，关联交易类型有哪几种？分别需要披露哪些内容？
+   stage=OPR, module=TAX, high_frequency=0, policies=SAT-TAX-003
+322. [OPR-TAX-025] 经营期里有些税务问题明明不大，为什么总是拖着拖着就变成风险提示？
+   stage=OPR, module=TAX, high_frequency=0, policies=SAT-RISK-003
+323. [RSK-TAX-004] 暂估成本没发票，所得税汇算时怎么处理？
+   stage=RSK, module=TAX, high_frequency=0, policies=SAT-TAX-002
+324. [RSK-TAX-008] 企业存在关联交易但未进行关联申报，有什么税务风险？
+   stage=RSK, module=TAX, high_frequency=0, policies=SAT-TAX-003
+325. [RSK-TAX-012] 企业被税务稽查选案，通常因为哪些风险指标被选中？被选中后多久会下达稽查通知书？
+   stage=RSK, module=TAX, high_frequency=0, policies=TAX-POL-003
+326. [SET-TAX-001] 新设企业首年如何申报关联业务往来报告表？
+   stage=SET, module=TAX, high_frequency=0, policies=SAT-TAX-003
+327. [SET-TAX-002] 新设企业首月如何办理税费种认定？哪些税种是必须认定的？
+   stage=SET, module=TAX, high_frequency=0, policies=GOV-VAT-001
+328. [CLS-VAT-001] 企业注销时，增值税留抵税额能否申请退税？
+   stage=CLS, module=VAT, high_frequency=0, policies=GOV-VAT-002
+329. [OPR-VAT-001] 小规模纳税人享受增值税免税的月销售额标准是多少？超过后如何计算缴税？
+   stage=OPR, module=VAT, high_frequency=0, policies=SAT-VAT-004
+330. [OPR-VAT-012] 企业购买商品、原材料取得增值税专用发票，如何判断是否为虚开或异常发票？收到后多久内必须认证？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-VAT-001
+331. [OPR-VAT-014] 企业发生退货、销售折让，如何开具红字增值税专用发票？已经抵扣的进项税额如何转出？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-INV-003
+332. [OPR-VAT-015] 增值税即征即退、先征后退政策适用于哪些行业和企业？如何申请？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-VAT-009
+333. [OPR-VAT-019] 柳州市柳江区企业如何申领和使用广西增值税电子发票（区块链电子发票）？与传统纸质发票有何区别？
+   stage=OPR, module=VAT, high_frequency=0, policies=POL-VAT-001
+334. [RSK-VAT-003] 企业取得虚开发票但已申报抵扣，如何将损失降到最低？
+   stage=RSK, module=VAT, high_frequency=0, policies=GOV-VAT-001
+335. [RSK-VAT-006] 企业接受虚开的增值税发票但不知情，已经认证抵扣了，税务机关会如何处理？企业如何证明善意取得？
+   stage=RSK, module=VAT, high_frequency=0, policies=TAX-POL-002
+336. [SET-VAT-003] 新设企业第一次申领发票，需要带什么材料？一次能领多少？
+   stage=SET, module=VAT, high_frequency=0, policies=GOV-VAT-001
+337. [SUS-VAT-004] 企业停业期间把之前收的预收款退回客户，增值税申报上要注意什么？
+   stage=SUS, module=VAT, high_frequency=0, policies=SAT-VAT-001

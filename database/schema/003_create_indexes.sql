@@ -19,6 +19,8 @@ CREATE INDEX IF NOT EXISTS idx_pb_policy_level    ON policy_basis(policy_level);
 CREATE INDEX IF NOT EXISTS idx_pb_current_status ON policy_basis(current_status);
 CREATE INDEX IF NOT EXISTS idx_pb_region_scope   ON policy_basis(region_scope);
 CREATE INDEX IF NOT EXISTS idx_pb_policy_code    ON policy_basis(policy_code);
+CREATE INDEX IF NOT EXISTS idx_pb_verification_status ON policy_basis(verification_status);
+CREATE INDEX IF NOT EXISTS idx_pb_last_verified_at    ON policy_basis(last_verified_at);
 
 -- ===== tag_dict 索引 =====
 CREATE INDEX IF NOT EXISTS idx_td_tag_category  ON tag_dict(tag_category);

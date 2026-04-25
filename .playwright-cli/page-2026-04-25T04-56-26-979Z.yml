@@ -1,0 +1,436 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "税问" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "按阶段浏览" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "按税种和查询" [ref=e7] [cursor=pointer]:
+          - /url: /questions
+        - link "风险自查" [ref=e8] [cursor=pointer]:
+          - /url: /admin/quality
+        - link "政策速递" [ref=e9] [cursor=pointer]:
+          - /url: /methodology
+        - link "复核状态" [ref=e10] [cursor=pointer]:
+          - /url: /launch-readiness
+        - link "新建问题" [ref=e11] [cursor=pointer]:
+          - /url: /question/new
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: 问题检索
+        - heading "按场景筛选问题" [level=1] [ref=e16]
+      - generic [ref=e17]:
+        - text: ⌕
+        - textbox "搜索你的税务问题，例如“零申报是不是不用报”..." [ref=e18]
+        - button "查询" [ref=e19] [cursor=pointer]
+    - generic [ref=e20]:
+      - generic [ref=e21]: 生命周期：
+      - link "全部" [ref=e22] [cursor=pointer]:
+        - /url: /questions
+      - link "设立期" [ref=e23] [cursor=pointer]:
+        - /url: /questions
+      - link "开业/日常经营期" [ref=e24] [cursor=pointer]:
+        - /url: /questions
+      - link "变更期" [ref=e25] [cursor=pointer]:
+        - /url: /questions
+      - link "风险异常期" [ref=e26] [cursor=pointer]:
+        - /url: /questions
+      - link "停业期" [ref=e27] [cursor=pointer]:
+        - /url: /questions
+      - link "注销期" [ref=e28] [cursor=pointer]:
+        - /url: /questions
+    - generic [ref=e29]:
+      - generic [ref=e30]: 税种事项：
+      - link "全部" [ref=e31] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "登记管理" [ref=e32] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税务综合" [ref=e33] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "申报纳税" [ref=e34] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票管理" [ref=e35] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "增值税" [ref=e36] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "企业所得税" [ref=e37] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "个人所得税" [ref=e38] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "社保费" [ref=e39] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "成本费用" [ref=e40] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "优惠政策" [ref=e41] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "风险应对" [ref=e42] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "清税注销" [ref=e43] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "电子税务局/系统办理" [ref=e44] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - generic [ref=e45]:
+      - generic [ref=e46]: 标签：
+      - link "全部" [ref=e47] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "登记设立" [ref=e48] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税务登记与变更" [ref=e49] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "零申报" [ref=e50] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票管理" [ref=e51] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "变更登记" [ref=e52] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "风险警示" [ref=e53] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "注销清算" [ref=e54] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "清税" [ref=e55] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税务注销" [ref=e56] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票缴销" [ref=e57] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "简易注销" [ref=e58] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "一般注销" [ref=e59] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "清算所得税" [ref=e60] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税费种认定" [ref=e61] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票领用" [ref=e62] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税控设备" [ref=e63] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "红字发票" [ref=e64] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "重大税收违法" [ref=e65] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "失信惩戒" [ref=e66] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "注册资本变更" [ref=e67] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "资本公积转增" [ref=e68] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "经营范围变更" [ref=e69] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "纳税证明" [ref=e70] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "银行贷款" [ref=e71] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "跨区迁移" [ref=e72] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "清算资产" [ref=e73] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票认证" [ref=e74] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "失控发票" [ref=e75] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "善意取得" [ref=e76] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Cross Border" [ref=e77] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Withholding" [ref=e78] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Royalty" [ref=e79] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Small Scale" [ref=e80] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Overdue" [ref=e81] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Export" [ref=e82] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Freight Invoice" [ref=e83] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Intangible" [ref=e84] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Self Inspection" [ref=e85] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Work Injury" [ref=e86] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Ssf" [ref=e87] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Refund" [ref=e88] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "Payment" [ref=e89] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "新手必看" [ref=e90] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "首次涉税" [ref=e91] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "新办企业" [ref=e92] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "申报纳税" [ref=e93] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "申报周期" [ref=e94] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税务登记" [ref=e95] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "统一社会信用代码" [ref=e96] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "CA证书" [ref=e97] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "广西" [ref=e98] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "柳州" [ref=e99] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "柳江区" [ref=e100] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "三证合一" [ref=e101] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "多证合一" [ref=e102] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "纳税信用" [ref=e103] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "首违不罚" [ref=e104] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "企业开办" [ref=e105] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "优惠政策" [ref=e106] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "免税收入" [ref=e107] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "增值税专用发票" [ref=e108] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "一般纳税人" [ref=e109] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票开具" [ref=e110] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "退货处理" [ref=e111] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "发票作废" [ref=e112] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "失控发票" [ref=e113] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "风险警示" [ref=e114] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "纳税自查" [ref=e115] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "纳税信用" [ref=e116] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "税务风控" [ref=e117] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - generic [ref=e118]:
+      - generic [ref=e119]: 地区：
+      - link "全部" [ref=e120] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "全国通用" [ref=e121] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "地方口径" [ref=e122] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - generic [ref=e123]:
+      - generic [ref=e124]: 状态：
+      - link "全部" [ref=e125] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "正常" [ref=e126] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "草稿" [ref=e127] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "归档" [ref=e128] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - generic [ref=e129]:
+      - generic [ref=e130]: 类型：
+      - link "全部" [ref=e131] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "澄清类" [ref=e132] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "比较类" [ref=e133] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "合规类" [ref=e134] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "定义类" [ref=e135] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "怎么办类" [ref=e136] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "办理类" [ref=e137] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "风险类" [ref=e138] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "步骤类" [ref=e139] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "时限类" [ref=e140] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "是什么类" [ref=e141] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "是否类" [ref=e142] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "为什么类" [ref=e143] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - generic [ref=e144]:
+      - generic [ref=e145]: 常用入口：
+      - link "只看高频" [ref=e146] [cursor=pointer]:
+        - /url: /questions?stage=SET
+      - link "只看新手" [ref=e147] [cursor=pointer]:
+        - /url: /questions?stage=SET
+    - paragraph [ref=e148]: 当前筛出 84 条问题。点击问题卡片查看完整答案、处理步骤和政策依据。
+    - list [ref=e149]:
+      - listitem [ref=e150]:
+        - link "SET-RISK-005 设立期 风险应对 高频 新手 有条件 新设企业成立后连续零申报了几个月，突然在系统里收到风险提醒或异常提示。此时企业第一步最应该先查哪一项，避免误判方向？ 简答：新设企业收到首个风险提示时，第一步不应先猜原因，而应先确认提示对应的是申报、登记、发票、实名还是待办链路中的哪一层。 更新：2026-04-22 ›" [ref=e151] [cursor=pointer]:
+          - /url: /question/SET-RISK-005
+          - generic [ref=e152]:
+            - generic [ref=e153]: SET-RISK-005
+            - generic [ref=e154]: 设立期
+            - generic [ref=e155]: 风险应对
+            - generic [ref=e156]: 高频
+            - generic [ref=e157]: 新手
+            - generic [ref=e158]: 有条件
+          - generic [ref=e159]: 新设企业成立后连续零申报了几个月，突然在系统里收到风险提醒或异常提示。此时企业第一步最应该先查哪一项，避免误判方向？
+          - generic [ref=e160]: 简答：新设企业收到首个风险提示时，第一步不应先猜原因，而应先确认提示对应的是申报、登记、发票、实名还是待办链路中的哪一层。
+          - generic [ref=e161]: 更新：2026-04-22
+          - generic [ref=e162]: ›
+      - listitem [ref=e163]:
+        - link "SET-CLEAR-005 设立期 清税注销 高频 新手 有条件 新设企业刚领过发票或税控设备，还没正式做业务就决定终止项目。面对这种情况，发票缴销和清税注销的收尾顺序应该怎样安排更稳妥？ 简答：新设企业领票后即终止项目时，不宜把发票问题留到最后，通常应先核清票、设备和领用状态，再推进清税收尾。 更新：2026-04-22 ›" [ref=e164] [cursor=pointer]:
+          - /url: /question/SET-CLEAR-005
+          - generic [ref=e165]:
+            - generic [ref=e166]: SET-CLEAR-005
+            - generic [ref=e167]: 设立期
+            - generic [ref=e168]: 清税注销
+            - generic [ref=e169]: 高频
+            - generic [ref=e170]: 新手
+            - generic [ref=e171]: 有条件
+          - generic [ref=e172]: 新设企业刚领过发票或税控设备，还没正式做业务就决定终止项目。面对这种情况，发票缴销和清税注销的收尾顺序应该怎样安排更稳妥？
+          - generic [ref=e173]: 简答：新设企业领票后即终止项目时，不宜把发票问题留到最后，通常应先核清票、设备和领用状态，再推进清税收尾。
+          - generic [ref=e174]: 更新：2026-04-22
+          - generic [ref=e175]: ›
+      - listitem [ref=e176]:
+        - link "SET-ETAX-005 设立期 电子税务局/系统办理 高频 新手 有条件 新办企业第一次进入电子税务局后，系统里往往会出现多个待办、提醒和确认事项。哪些内容更适合当天就处理，避免后面越拖越乱？ 简答：首次登录电子税务局时，应优先处理影响后续办税链路的基础待办，例如实名、联系方式、税费种认定和系统通知确认。 更新：2026-04-22 ›" [ref=e177] [cursor=pointer]:
+          - /url: /question/SET-ETAX-005
+          - generic [ref=e178]:
+            - generic [ref=e179]: SET-ETAX-005
+            - generic [ref=e180]: 设立期
+            - generic [ref=e181]: 电子税务局/系统办理
+            - generic [ref=e182]: 高频
+            - generic [ref=e183]: 新手
+            - generic [ref=e184]: 有条件
+          - generic [ref=e185]: 新办企业第一次进入电子税务局后，系统里往往会出现多个待办、提醒和确认事项。哪些内容更适合当天就处理，避免后面越拖越乱？
+          - generic [ref=e186]: 简答：首次登录电子税务局时，应优先处理影响后续办税链路的基础待办，例如实名、联系方式、税费种认定和系统通知确认。
+          - generic [ref=e187]: 更新：2026-04-22
+          - generic [ref=e188]: ›
+      - listitem [ref=e189]:
+        - link "SET-VAT-005 设立期 增值税 高频 新手 有条件 新设企业刚开始试运营，还没正式开票，但已经收到了客户定金或预付款。面对这笔钱，增值税上最先应该关注什么？ 简答：首月收到定金时，增值税上不能只看“有没有开票”，更要先判断业务性质、纳税义务时间和后续履约安排。 更新：2026-04-22 ›" [ref=e190] [cursor=pointer]:
+          - /url: /question/SET-VAT-005
+          - generic [ref=e191]:
+            - generic [ref=e192]: SET-VAT-005
+            - generic [ref=e193]: 设立期
+            - generic [ref=e194]: 增值税
+            - generic [ref=e195]: 高频
+            - generic [ref=e196]: 新手
+            - generic [ref=e197]: 有条件
+          - generic [ref=e198]: 新设企业刚开始试运营，还没正式开票，但已经收到了客户定金或预付款。面对这笔钱，增值税上最先应该关注什么？
+          - generic [ref=e199]: 简答：首月收到定金时，增值税上不能只看“有没有开票”，更要先判断业务性质、纳税义务时间和后续履约安排。
+          - generic [ref=e200]: 更新：2026-04-22
+          - generic [ref=e201]: ›
+      - listitem [ref=e202]:
+        - link "SET-CLEAR-004 设立期 清税注销 高频 新手 有条件 企业刚设立并办完税务登记，还没真正开展经营活动就决定不做了。此时因为几乎没有业务，是否可以直接不管，还是仍然需要按清税注销流程处理？ 简答：即使新设企业尚未正式经营，只要已经形成登记主体和涉税状态，原则上也不能直接放着不管，仍应按实际状态判断并办理清税或注销收尾。 更新：2026-04-22 ›" [ref=e203] [cursor=pointer]:
+          - /url: /question/SET-CLEAR-004
+          - generic [ref=e204]:
+            - generic [ref=e205]: SET-CLEAR-004
+            - generic [ref=e206]: 设立期
+            - generic [ref=e207]: 清税注销
+            - generic [ref=e208]: 高频
+            - generic [ref=e209]: 新手
+            - generic [ref=e210]: 有条件
+          - generic [ref=e211]: 企业刚设立并办完税务登记，还没真正开展经营活动就决定不做了。此时因为几乎没有业务，是否可以直接不管，还是仍然需要按清税注销流程处理？
+          - generic [ref=e212]: 简答：即使新设企业尚未正式经营，只要已经形成登记主体和涉税状态，原则上也不能直接放着不管，仍应按实际状态判断并办理清税或注销收尾。
+          - generic [ref=e213]: 更新：2026-04-22
+          - generic [ref=e214]: ›
+      - listitem [ref=e215]:
+        - link "SET-RISK-004 设立期 风险应对 高频 新手 有条件 新设企业成立后暂时没有收入，多个税种连续几个月都是零申报。企业如果确实还在起步阶段，怎样做才能降低被系统当成异常主体预警的概率？ 简答：首年连续零申报不是当然违规，但不能只做零申报本身；企业还应同步维护登记、实名、经营留痕和待办核对，避免让系统看到的是“长期静默主体”。 更新：2026-04-22 ›" [ref=e216] [cursor=pointer]:
+          - /url: /question/SET-RISK-004
+          - generic [ref=e217]:
+            - generic [ref=e218]: SET-RISK-004
+            - generic [ref=e219]: 设立期
+            - generic [ref=e220]: 风险应对
+            - generic [ref=e221]: 高频
+            - generic [ref=e222]: 新手
+            - generic [ref=e223]: 有条件
+          - generic [ref=e224]: 新设企业成立后暂时没有收入，多个税种连续几个月都是零申报。企业如果确实还在起步阶段，怎样做才能降低被系统当成异常主体预警的概率？
+          - generic [ref=e225]: 简答：首年连续零申报不是当然违规，但不能只做零申报本身；企业还应同步维护登记、实名、经营留痕和待办核对，避免让系统看到的是“长期静默主体”。
+          - generic [ref=e226]: 更新：2026-04-22
+          - generic [ref=e227]: ›
+      - listitem [ref=e228]:
+        - link "SET-ETAX-004 设立期 电子税务局/系统办理 高频 新手 有条件 新设企业已经完成税费种认定并进入首个申报期，但银行扣款协议还没签好时，是否可以先完成首次申报，再补扣款协议和缴款动作？ 简答：扣款协议没签好，不一定影响企业先提交首次申报，但会直接影响后续缴款闭环；企业不能把“已经报了”误当成“已经办完了”。 更新：2026-04-22 ›" [ref=e229] [cursor=pointer]:
+          - /url: /question/SET-ETAX-004
+          - generic [ref=e230]:
+            - generic [ref=e231]: SET-ETAX-004
+            - generic [ref=e232]: 设立期
+            - generic [ref=e233]: 电子税务局/系统办理
+            - generic [ref=e234]: 高频
+            - generic [ref=e235]: 新手
+            - generic [ref=e236]: 有条件
+          - generic [ref=e237]: 新设企业已经完成税费种认定并进入首个申报期，但银行扣款协议还没签好时，是否可以先完成首次申报，再补扣款协议和缴款动作？
+          - generic [ref=e238]: 简答：扣款协议没签好，不一定影响企业先提交首次申报，但会直接影响后续缴款闭环；企业不能把“已经报了”误当成“已经办完了”。
+          - generic [ref=e239]: 更新：2026-04-22
+          - generic [ref=e240]: ›
+      - listitem [ref=e241]:
+        - link "SET-REG-017 设立期 登记管理 高频 新手 明确（无条件） 新设企业已经开立对公银行账户，但没有及时在电子税务局完成存款账户报告时，后续申报、扣款、发票和其他在线办税动作会受到什么影响？ 简答：新办企业开好银行账户后长期不做存款账户报告，未必会立刻让所有业务都停掉，但很容易影响扣款链路、账户备案一致性和后续风险判断；不能等到申报扣款失败了才补报。 更新：2026-04-22 ›" [ref=e242] [cursor=pointer]:
+          - /url: /question/SET-REG-017
+          - generic [ref=e243]:
+            - generic [ref=e244]: SET-REG-017
+            - generic [ref=e245]: 设立期
+            - generic [ref=e246]: 登记管理
+            - generic [ref=e247]: 高频
+            - generic [ref=e248]: 新手
+            - generic [ref=e249]: 明确（无条件）
+          - generic [ref=e250]: 新设企业已经开立对公银行账户，但没有及时在电子税务局完成存款账户报告时，后续申报、扣款、发票和其他在线办税动作会受到什么影响？
+          - generic [ref=e251]: 简答：新办企业开好银行账户后长期不做存款账户报告，未必会立刻让所有业务都停掉，但很容易影响扣款链路、账户备案一致性和后续风险判断；不能等到申报扣款失败了才补报。
+          - generic [ref=e252]: 更新：2026-04-22
+          - generic [ref=e253]: ›
+      - listitem [ref=e254]:
+        - link "SET-INV-006 设立期 发票管理 高频 新手 明确（无条件） 新设企业已经完成发票申领或具备开票资格，但第一次正式对外开票前，还应提前检查哪些基础信息和系统设置，避免开票后发现抬头、税率、身份或票种有问题？ 简答：新办企业第一次开票前，不能只看“票领到了没有”，还应先核对纳税人身份、票种权限、税率适用、销方信息和开票系统入口是否一致，否则第一张票就容易开错。 更新：2026-04-22 ›" [ref=e255] [cursor=pointer]:
+          - /url: /question/SET-INV-006
+          - generic [ref=e256]:
+            - generic [ref=e257]: SET-INV-006
+            - generic [ref=e258]: 设立期
+            - generic [ref=e259]: 发票管理
+            - generic [ref=e260]: 高频
+            - generic [ref=e261]: 新手
+            - generic [ref=e262]: 明确（无条件）
+          - generic [ref=e263]: 新设企业已经完成发票申领或具备开票资格，但第一次正式对外开票前，还应提前检查哪些基础信息和系统设置，避免开票后发现抬头、税率、身份或票种有问题？
+          - generic [ref=e264]: 简答：新办企业第一次开票前，不能只看“票领到了没有”，还应先核对纳税人身份、票种权限、税率适用、销方信息和开票系统入口是否一致，否则第一张票就容易开错。
+          - generic [ref=e265]: 更新：2026-04-22
+          - generic [ref=e266]: ›
+      - listitem [ref=e267]:
+        - link "SET-DEC-009 设立期 申报纳税 高频 新手 明确（无条件） 新设企业采用按季申报口径，虽然还没到季度申报截止，但已经在季度中途发生了开票或收入，此时在首次正式申报前应重点检查哪些数据和链路，避免季度末集中出错？ 简答：按季申报的新办企业即使还没到申报截止日，只要季度中途已经开票或有收入，就应提前核对发票、收入、税率、附加税和扣款链路，不能等到季度末再一次性碰运气。 更新：2026-04-22 ›" [ref=e268] [cursor=pointer]:
+          - /url: /question/SET-DEC-009
+          - generic [ref=e269]:
+            - generic [ref=e270]: SET-DEC-009
+            - generic [ref=e271]: 设立期
+            - generic [ref=e272]: 申报纳税
+            - generic [ref=e273]: 高频
+            - generic [ref=e274]: 新手
+            - generic [ref=e275]: 明确（无条件）
+          - generic [ref=e276]: 新设企业采用按季申报口径，虽然还没到季度申报截止，但已经在季度中途发生了开票或收入，此时在首次正式申报前应重点检查哪些数据和链路，避免季度末集中出错？
+          - generic [ref=e277]: 简答：按季申报的新办企业即使还没到申报截止日，只要季度中途已经开票或有收入，就应提前核对发票、收入、税率、附加税和扣款链路，不能等到季度末再一次性碰运气。
+          - generic [ref=e278]: 更新：2026-04-22
+          - generic [ref=e279]: ›
+    - generic [ref=e280]:
+      - link "1" [ref=e281] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=1
+      - link "2" [ref=e282] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=2
+      - link "3" [ref=e283] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=3
+      - link "4" [ref=e284] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=4
+      - generic [ref=e285]: …
+      - link "9" [ref=e286] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=9
+      - link "下一页" [ref=e287] [cursor=pointer]:
+        - /url: /questions?stage=SET&module=&tag=&keyword=&region=&status=&qtype=&page=2
+      - generic [ref=e288]: 第 1 / 9 页，共 84 条
+  - contentinfo [ref=e289]:
+    - generic [ref=e290]:
+      - generic [ref=e291]:
+        - link "项目说明" [ref=e292] [cursor=pointer]:
+          - /url: /about
+        - link "方法说明" [ref=e293] [cursor=pointer]:
+          - /url: /methodology
+        - link "上线准备" [ref=e294] [cursor=pointer]:
+          - /url: /launch-readiness
+      - paragraph [ref=e295]: 企业税务知识库 · 数据来源于公开税务政策与结构化整理，不构成个案法律、税务或审计意见。

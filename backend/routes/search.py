@@ -19,5 +19,18 @@ def search():
     if not keyword:
         return jsonify({'questions': [], 'total': 0})
 
-    result = svc.search_questions(keyword, page, page_size)
+    result = svc.list_questions(
+        stage=request.args.get('stage'),
+        module=request.args.get('module'),
+        tag=request.args.get('tag'),
+        page=page,
+        page_size=page_size,
+        keyword=keyword,
+        region=request.args.get('region'),
+        status=request.args.get('status'),
+        qtype=request.args.get('qtype'),
+        hf=request.args.get('hf'),
+        newbie=request.args.get('newbie'),
+    )
+    result['keyword'] = keyword
     return jsonify(result)

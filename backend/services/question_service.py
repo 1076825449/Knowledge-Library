@@ -366,45 +366,9 @@ class QuestionService:
 
     # ---------- 搜索 ----------
     def search_questions(self, keyword, page=1, page_size=20):
-        offset = (page - 1) * page_size
-        pattern = f"%{keyword}%"
-        conditions = """
-            q.status = 'active' AND (
-                q.question_title LIKE ? OR q.keywords LIKE ? OR q.one_line_answer LIKE ?
-            )
-        """
-        params = (pattern, pattern, pattern)
-
-        # 统计
-        total = self._query_one(
-            f"SELECT COUNT(*) as total FROM question_master q WHERE {conditions}",
-            params
-        )['total']
-
-        # 列表
-        sql = f"""
-            SELECT
-                q.question_code, q.question_title, q.one_line_answer,
-                q.stage_code, q.module_code, q.answer_certainty,
-                q.high_frequency_flag, q.newbie_flag
-            FROM question_master q
-            WHERE {conditions}
-            ORDER BY
-                CASE WHEN q.question_title LIKE ? THEN 0 ELSE 1 END,
-                q.high_frequency_flag DESC,
-                q.updated_at DESC
-            LIMIT ? OFFSET ?
-        """
-        params_with_priority = (pattern, pattern, pattern, pattern, page_size, offset)
-        questions = self._query(sql, params_with_priority)
-
-        return {
-            'keyword': keyword,
-            'questions': questions,
-            'total': total,
-            'page': page,
-            'page_size': page_size
-        }
+        result = self.list_questions(keyword=keyword, page=page, page_size=page_size)
+        result['keyword'] = keyword
+        return result
 
     # ---------- 标签 ----------
     def get_all_tags(self):
@@ -453,6 +417,91 @@ class QuestionService:
             'total_newbie': total_newbie,
             'total_policies': total_policies
         }
+
+    def get_all_active_question_codes(self):
+        """返回 sitemap 等场景需要的轻量问题索引"""
+        return self._query("""
+            SELECT question_code, updated_at
+            FROM question_master
+            WHERE status = 'active'
+            ORDER BY updated_at DESC, question_code
+        """)
+
+    def get_quality_gaps(self, limit=100):
+        """返回内容质量缺口清单，供管理端补强使用"""
+        rows = self._query("""
+            SELECT DISTINCT
+                q.question_code, q.question_title, q.stage_code, q.module_code,
+                q.question_type, q.answer_certainty,
+                q.high_frequency_flag, q.newbie_flag,
+                q.updated_at,
+                (q.applicable_conditions IS NULL OR q.applicable_conditions='') as miss_cond,
+                (q.exceptions_boundary IS NULL OR q.exceptions_boundary='') as miss_exc,
+                (q.practical_steps IS NULL OR q.practical_steps='') as miss_step,
+                (q.risk_warning IS NULL OR q.risk_warning='') as miss_risk
+            FROM question_master q
+            WHERE q.status='active'
+              AND (
+                  (q.applicable_conditions IS NULL OR q.applicable_conditions='')
+               OR (q.exceptions_boundary IS NULL OR q.exceptions_boundary='')
+               OR (q.practical_steps IS NULL OR q.practical_steps='')
+               OR (q.risk_warning IS NULL OR q.risk_warning='')
+              )
+            ORDER BY q.high_frequency_flag DESC, q.newbie_flag DESC, q.updated_at ASC, q.question_code
+            LIMIT ?
+        """, (limit,))
+
+        for row in rows:
+            missing = []
+            if row['miss_cond']:
+                missing.append('适用条件')
+            if row['miss_exc']:
+                missing.append('例外边界')
+            if row['miss_step']:
+                missing.append('实务步骤')
+            if row['miss_risk']:
+                missing.append('风险提示')
+            row['missing_fields'] = missing
+            row['missing_count'] = len(missing)
+            row['priority'] = self._gap_priority(row)
+        return rows
+
+    def get_quality_gap_summary(self):
+        """返回内容质量缺口汇总"""
+        conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
+        cur = conn.cursor()
+        summary = {}
+        for key, field in (
+            ('missing_conditions', 'applicable_conditions'),
+            ('missing_boundaries', 'exceptions_boundary'),
+            ('missing_steps', 'practical_steps'),
+            ('missing_risks', 'risk_warning'),
+        ):
+            cur.execute(f"""
+                SELECT COUNT(*)
+                FROM question_master
+                WHERE status='active' AND ({field} IS NULL OR {field} = '')
+            """)
+            summary[key] = cur.fetchone()[0]
+        conn.close()
+        return summary
+
+    def _gap_priority(self, row):
+        score = row.get('missing_count', 0) * 2
+        if row.get('high_frequency_flag') and row.get('newbie_flag'):
+            score += 8
+        elif row.get('high_frequency_flag'):
+            score += 5
+        elif row.get('newbie_flag'):
+            score += 3
+        if score >= 12:
+            return '极高'
+        if score >= 8:
+            return '高'
+        if score >= 5:
+            return '中'
+        return '一般'
 
     # ---------- 新增问题 ----------
     def _generate_code(self, stage_code, module_code):

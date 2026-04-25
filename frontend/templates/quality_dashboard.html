@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% macro stage_label(code) %}{{ stage_labels.get(code, code) }}{% endmacro %}
+{% macro module_label(code) %}{{ module_labels.get(code, code) }}{% endmacro %}
+{% macro question_type_label(code) %}{{ question_type_meta.get(code, {}).get('label', code) }}{% endmacro %}
+
+{% block title %}质量补强台 - 企业税务知识库{% endblock %}
+
+{% block main %}
+<div class="page-header">
+    <h1>质量补强台</h1>
+    <a href="/questions" class="back-link">返回问题列表</a>
+</div>
+
+<div class="quality-summary-grid">
+    <div class="quality-summary-card">
+        <div class="quality-summary-label">缺适用条件</div>
+        <div class="quality-summary-value">{{ summary.missing_conditions }}</div>
+    </div>
+    <div class="quality-summary-card">
+        <div class="quality-summary-label">缺例外边界</div>
+        <div class="quality-summary-value">{{ summary.missing_boundaries }}</div>
+    </div>
+    <div class="quality-summary-card">
+        <div class="quality-summary-label">缺实务步骤</div>
+        <div class="quality-summary-value">{{ summary.missing_steps }}</div>
+    </div>
+    <div class="quality-summary-card">
+        <div class="quality-summary-label">缺风险提示</div>
+        <div class="quality-summary-value">{{ summary.missing_risks }}</div>
+    </div>
+</div>
+
+{% if gaps %}
+<p class="result-count">当前展示前 {{ gaps|length }} 条待补强问题，排序规则为：高频/新手优先，其次看更新时间和缺口数。</p>
+<ul class="quality-gap-list">
+    {% for q in gaps %}
+    <li class="quality-gap-item">
+        <div class="quality-gap-top">
+            <div class="quality-gap-meta">
+                <span class="q-code">{{ q.question_code }}</span>
+                <span class="q-badge stage">{{ stage_label(q.stage_code) }}</span>
+                <span class="q-badge module">{{ module_label(q.module_code) }}</span>
+                <span class="q-badge">{{ question_type_label(q.question_type) }}</span>
+                {% if q.high_frequency_flag %}<span class="q-badge hf">高频</span>{% endif %}
+                {% if q.newbie_flag %}<span class="q-badge newbie">新手</span>{% endif %}
+                <span class="quality-priority priority-{{ 'critical' if q.priority == '极高' else 'high' if q.priority == '高' else 'medium' if q.priority == '中' else 'normal' }}">{{ q.priority }}</span>
+            </div>
+            <a href="/question/{{ q.question_code }}/edit" class="edit-btn">去补强</a>
+        </div>
+        <div class="quality-gap-title">
+            <a href="/question/{{ q.question_code }}">{{ q.question_title }}</a>
+        </div>
+        <div class="quality-gap-missing">
+            缺失字段：
+            {% for field in q.missing_fields %}
+            <span class="missing-chip">{{ field }}</span>
+            {% endfor %}
+        </div>
+        <div class="q-updated">最近更新：{{ q.updated_at[:10] if q.updated_at else '—' }}</div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">当前没有结构字段缺口。</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,176 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "企业税务知识库" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "首页" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "问题列表" [ref=e7] [cursor=pointer]:
+          - /url: /questions
+        - link "项目说明" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "方法说明" [ref=e9] [cursor=pointer]:
+          - /url: /methodology
+        - link "上线准备" [ref=e10] [cursor=pointer]:
+          - /url: /launch-readiness
+        - link "新建问题" [ref=e11] [cursor=pointer]:
+          - /url: /question/new
+        - link "质量补强台" [ref=e12] [cursor=pointer]:
+          - /url: /admin/quality
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "首页" [ref=e16] [cursor=pointer]:
+          - /url: /
+        - text: ">"
+        - link "问题列表" [ref=e17] [cursor=pointer]:
+          - /url: /questions
+      - generic [ref=e18]:
+        - generic [ref=e19]: CHG-DEC-005
+        - generic [ref=e20]: 变更期
+        - generic [ref=e21]: 申报纳税
+        - generic [ref=e22]: 高频
+        - generic [ref=e23]: 有条件
+        - generic [ref=e24]: 怎么办类
+        - generic [ref=e25]: v1
+        - generic [ref=e26]: 正常
+        - link "编辑" [ref=e27] [cursor=pointer]:
+          - /url: /question/CHG-DEC-005/edit
+    - heading "企业刚完成变更，系统里旧税种认定尚未完全退出，新认定又已经生效。遇到同月申报时，企业应优先以哪个状态判断申报责任？" [level=1] [ref=e28]
+    - generic [ref=e29]:
+      - strong [ref=e30]: 使用提示：
+      - text: 本页用于企业税务常见问题的快速判断，不替代针对具体交易、争议事项和重大金额场景的正式专业意见。
+    - generic [ref=e31]:
+      - generic [ref=e32]: 一句话结论
+      - generic [ref=e33]: 变更当月认定口径交叠时，不能只看页面显示，应以当前生效状态、应税事实和可提交结果综合判断申报责任。
+    - generic [ref=e34]:
+      - heading "详细解答" [level=3] [ref=e35]
+      - generic [ref=e36]: 变更期最常见的问题之一，就是系统状态切换慢于实际办理节奏。此时若只按旧页面习惯申报，容易把变更前后的责任混掉。 因此，应优先确认当前实际生效状态，再核对申报入口和回执结果，而不是凭“哪个入口还在”来判断。
+    - generic [ref=e37]:
+      - heading "核心定义" [level=3] [ref=e38]
+      - generic [ref=e39]: 认定状态交叠并不等于责任重复，申报判断要以生效状态和事实期间为核心。
+    - generic [ref=e40]:
+      - heading "适用条件" [level=3] [ref=e41]
+      - generic [ref=e42]: 适用于企业变更当月税费种认定处于旧状态退出、新状态生效的交叠期。
+    - generic [ref=e43]:
+      - heading "例外与边界" [level=3] [ref=e44]
+      - generic [ref=e45]: （1）若仅为页面缓存，处理压力较小。 （2）若涉及主管税务机关变化，应更谨慎。 （3）不同税种切换节奏可能不同。
+    - generic [ref=e46]:
+      - heading "实务处理步骤" [level=3] [ref=e47]
+      - generic [ref=e48]: 第一步：确认变更生效节点。 第二步：核对当前税费种认定状态。 第三步：用最小动作验证可提交入口。 第四步：保留回执和报错留痕。 第五步：对交叠月份做专项备注。
+    - generic [ref=e49]:
+      - heading "风险提示" [level=3] [ref=e50]
+      - generic [ref=e51]: （1）只按页面残留入口操作，容易错报。 （2）旧新认定混用，会造成后续解释困难。 （3）没有回执留痕，难证明当时按什么口径处理。
+    - generic [ref=e52]: 适用地区：全国通用
+    - generic [ref=e53]:
+      - heading "阅读口径" [level=3] [ref=e54]
+      - generic [ref=e55]: 建议优先看“一句话结论”，再核对“适用条件”和“例外与边界”；如果涉及地方差异、历史属期、异常状态或较大金额，请继续查看政策依据和关联问题。
+    - generic [ref=e56]:
+      - heading "政策依据" [level=3] [ref=e57]
+      - generic [ref=e58]:
+        - generic [ref=e59]: 直接依据
+        - list [ref=e60]:
+          - listitem [ref=e61]:
+            - generic [ref=e62]: 关于进一步推进税费种认定便利化的公告 （文号：国家税务总局公告2019年第34号）
+            - generic [ref=e63]: 条款：全文
+            - generic [ref=e64]: 支撑税费种认定便利化规则
+            - generic [ref=e65]:
+              - generic [ref=e66]: 直接依据
+              - generic [ref=e67]: 部门规章
+              - generic [ref=e68]: 生效：2019-07-01
+              - generic [ref=e69]: 状态待核
+      - generic [ref=e70]:
+        - generic [ref=e71]: 办理依据
+        - list [ref=e72]:
+          - listitem [ref=e73]:
+            - generic [ref=e74]: 关于优化税务登记管理有关问题的公告（文号：国家税务总局公告2024年第33号）
+            - generic [ref=e75]: 条款：第一条、第二条
+            - generic [ref=e76]: 支撑变更办理链路
+            - generic [ref=e77]:
+              - generic [ref=e78]: 办理依据
+              - generic [ref=e79]: 部门规章
+              - generic [ref=e80]: 现行有效
+    - generic [ref=e81]:
+      - heading "标签" [level=3] [ref=e82]
+      - generic [ref=e83]:
+        - link "变更登记" [ref=e84] [cursor=pointer]:
+          - /url: /questions?tag=tag_change
+        - link "申报纳税" [ref=e85] [cursor=pointer]:
+          - /url: /questions?tag=tag_declaration
+        - link "税费种认定" [ref=e86] [cursor=pointer]:
+          - /url: /questions?tag=tag_dic
+    - generic [ref=e87]:
+      - heading "关联问题" [level=3] [ref=e88]
+      - list [ref=e89]:
+        - listitem [ref=e90]:
+          - link "相关问题 CHG-DEC-004 企业变更后想把以前月份的申报数据一起改掉，应该先改当前登记还是先改历史申报？ 企业变更后涉及历史申报更正时，通常应先把当前登记和可达链路修稳，再进入历史更正；底层信息链条不稳时，直接回头改历史申报容易边改边卡。" [ref=e91] [cursor=pointer]:
+            - /url: /question/CHG-DEC-004
+            - generic [ref=e92]: 相关问题
+            - generic [ref=e93]: CHG-DEC-004
+            - generic [ref=e94]: 企业变更后想把以前月份的申报数据一起改掉，应该先改当前登记还是先改历史申报？
+            - generic [ref=e95]: 企业变更后涉及历史申报更正时，通常应先把当前登记和可达链路修稳，再进入历史更正；底层信息链条不稳时，直接回头改历史申报容易边改边卡。
+        - listitem [ref=e96]:
+          - link "交叉参考 SET-TAX-005 新设企业拿到第一笔政府补贴，税务上应该先看申报口径还是先看是否要缴税？ 新设企业收到第一笔政府补贴时，不能先凭直觉判断免税或应税，优先要看补贴性质、资金用途、文件条件和会税口径，再决定申报方式。" [ref=e97] [cursor=pointer]:
+            - /url: /question/SET-TAX-005
+            - generic [ref=e98]: 交叉参考
+            - generic [ref=e99]: SET-TAX-005
+            - generic [ref=e100]: 新设企业拿到第一笔政府补贴，税务上应该先看申报口径还是先看是否要缴税？
+            - generic [ref=e101]: 新设企业收到第一笔政府补贴时，不能先凭直觉判断免税或应税，优先要看补贴性质、资金用途、文件条件和会税口径，再决定申报方式。
+        - listitem [ref=e102]:
+          - link "相关问题 CHG-DEC-006 企业变更当月已经做过一次申报，后来发现主管口径切换了，还要重走吗？ 变更当月先按旧口径申报后又发现切换生效时，不能只凭提交成功判断有效性，应尽快核对回执结果和主管口径，再决定是否补救。" [ref=e103] [cursor=pointer]:
+            - /url: /question/CHG-DEC-006
+            - generic [ref=e104]: 相关问题
+            - generic [ref=e105]: CHG-DEC-006
+            - generic [ref=e106]: 企业变更当月已经做过一次申报，后来发现主管口径切换了，还要重走吗？
+            - generic [ref=e107]: 变更当月先按旧口径申报后又发现切换生效时，不能只凭提交成功判断有效性，应尽快核对回执结果和主管口径，再决定是否补救。
+    - generic [ref=e108]:
+      - heading "下一步推荐" [level=3] [ref=e109]
+      - paragraph [ref=e110]: 以下是该业务线的下一个生命周期阶段问题
+      - list [ref=e111]:
+        - listitem [ref=e112]:
+          - link "下一步 RSK-DEC-005 风险异常期 更正申报已经提交了，滞纳金或罚款提示还没消失，是不是说明还没处理完？ 更正申报提交成功后，滞纳金或罚款提示没有立刻消失，并不一定表示前一步失败；企业应继续区分是税款、滞纳金、处罚程序尚未收口，还是系统状态尚未同步。" [ref=e113] [cursor=pointer]:
+            - /url: /question/RSK-DEC-005
+            - generic [ref=e114]: 下一步
+            - generic [ref=e115]: RSK-DEC-005
+            - generic [ref=e116]: 风险异常期
+            - generic [ref=e117]: 更正申报已经提交了，滞纳金或罚款提示还没消失，是不是说明还没处理完？
+            - generic [ref=e118]: 更正申报提交成功后，滞纳金或罚款提示没有立刻消失，并不一定表示前一步失败；企业应继续区分是税款、滞纳金、处罚程序尚未收口，还是系统状态尚未同步。
+        - listitem [ref=e119]:
+          - link "下一步 RSK-DEC-004 风险异常期 企业收到责令限期改正或催报提醒后，第一时间应该留什么记录，后面才不容易说不清？ 企业收到责令限期改正或催报提醒后，不能只顾着赶紧补报，还应第一时间把通知内容、收到时间、责任人、整改动作和提交回执完整留痕，否则后面很容易说不清已经做了什么、何时做的、谁负责的。" [ref=e120] [cursor=pointer]:
+            - /url: /question/RSK-DEC-004
+            - generic [ref=e121]: 下一步
+            - generic [ref=e122]: RSK-DEC-004
+            - generic [ref=e123]: 风险异常期
+            - generic [ref=e124]: 企业收到责令限期改正或催报提醒后，第一时间应该留什么记录，后面才不容易说不清？
+            - generic [ref=e125]: 企业收到责令限期改正或催报提醒后，不能只顾着赶紧补报，还应第一时间把通知内容、收到时间、责任人、整改动作和提交回执完整留痕，否则后面很容易说不清已经做了什么、何时做的、谁负责的。
+        - listitem [ref=e126]:
+          - link "下一步 RSK-DEC-003 风险异常期 企业收到连续零申报或长期未申报预警后，应该先更正数据、先补报，还是先提交情况说明？ 企业收到连续零申报或长期未申报预警后，通常应先核实事实并尽快补报或更正，再按需要提交情况说明；不能把“先说明”当成替代补报整改的办法。" [ref=e127] [cursor=pointer]:
+            - /url: /question/RSK-DEC-003
+            - generic [ref=e128]: 下一步
+            - generic [ref=e129]: RSK-DEC-003
+            - generic [ref=e130]: 风险异常期
+            - generic [ref=e131]: 企业收到连续零申报或长期未申报预警后，应该先更正数据、先补报，还是先提交情况说明？
+            - generic [ref=e132]: 企业收到连续零申报或长期未申报预警后，通常应先核实事实并尽快补报或更正，再按需要提交情况说明；不能把“先说明”当成替代补报整改的办法。
+    - group [ref=e133]:
+      - generic "更新记录 (1 条)" [ref=e134] [cursor=pointer]
+      - list [ref=e135]:
+        - listitem [ref=e136]:
+          - generic [ref=e137]: v1
+          - generic [ref=e138]: 2026-04-22 20:01:52
+          - generic [ref=e139]: create
+          - generic [ref=e140]: 批量导入
+          - generic [ref=e141]: 创建问题 CHG-DEC-005
+          - generic [ref=e142]: batch_import
+          - generic [ref=e143]: 审核：batch_import
+    - generic [ref=e144]: 版本 v1 · 更新于 2026-04-22 20:01:52
+  - contentinfo [ref=e145]:
+    - generic [ref=e146]:
+      - generic [ref=e147]:
+        - link "项目说明" [ref=e148] [cursor=pointer]:
+          - /url: /about
+        - link "方法说明" [ref=e149] [cursor=pointer]:
+          - /url: /methodology
+        - link "上线准备" [ref=e150] [cursor=pointer]:
+          - /url: /launch-readiness
+      - paragraph [ref=e151]: 企业税务知识库 · 数据来源于公开税务政策与结构化整理，不构成个案法律、税务或审计意见。

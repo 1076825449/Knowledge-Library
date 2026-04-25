@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}项目说明 - 企业税务知识库{% endblock %}
+{% block meta_description %}了解企业税务知识库的定位、当前阶段、使用边界和适合场景。{% endblock %}
+
+{% block main %}
+<section class="doc-page">
+    <h1>项目说明</h1>
+    <p class="doc-lead">这是一个围绕企业全生命周期税务问题构建的结构化知识库网站，不是博客聚合页，也不是纯 AI 即时问答机器人。</p>
+
+    <div class="doc-grid">
+        <div class="doc-card">
+            <h2>当前阶段</h2>
+            <p>站点已经具备产品级底座和可用的前台闭环，当前属于可上线打磨的 Beta 产品。</p>
+        </div>
+        <div class="doc-card">
+            <h2>当前规模</h2>
+            <p>当前已收录 <strong>{{ stats.total_questions }}</strong> 条活跃问题、<strong>{{ stats.total_policies }}</strong> 条政策依据。</p>
+        </div>
+        <div class="doc-card">
+            <h2>适合谁用</h2>
+            <p>适合企业老板、财务、运营、内控或内容编辑快速查“要不要、能不能、先做什么”。</p>
+        </div>
+    </div>
+
+    <section class="doc-section">
+        <h2>这个站解决什么问题</h2>
+        <p>它把企业税务问题拆成可以独立展示和检索的问题卡片，每条卡片尽量提供一句话结论、适用条件、例外边界、实务步骤、风险提示和政策依据，帮助使用者先做判断，再决定是否进一步处理。</p>
+    </section>
+
+    <section class="doc-section">
+        <h2>它不替代什么</h2>
+        <ul class="doc-list">
+            <li>不替代个案税务筹划、审计意见、律师意见或正式代理服务。</li>
+            <li>不替代主管税务机关对地方口径、个案争议和最新执行细节的确认。</li>
+            <li>不提供无依据自动生成并直接发布的正式知识结论。</li>
+        </ul>
+    </section>
+
+    <section class="doc-section">
+        <h2>推荐使用方式</h2>
+        <ul class="doc-list">
+            <li>先搜真实问题表达，例如“没收入要不要申报”“地址变了税务怎么办”。</li>
+            <li>先看一句话结论，再看适用条件与例外边界。</li>
+            <li>最后顺着关联问题和政策依据继续深挖，而不是只读标题。</li>
+        </ul>
+    </section>
+</section>
+{% endblock %}

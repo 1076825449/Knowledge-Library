@@ -20,6 +20,7 @@ def list_questions():
     keyword = request.args.get('keyword')
     region = request.args.get('region')
     status = request.args.get('status')
+    qtype = request.args.get('qtype')
     hf = request.args.get('hf')
     newbie = request.args.get('newbie')
 
@@ -32,6 +33,7 @@ def list_questions():
         keyword=keyword,
         region=region,
         status=status,
+        qtype=qtype,
         hf=hf,
         newbie=newbie
     )
