@@ -20,11 +20,12 @@ QUESTION_TYPE_META = {
 }
 
 ANSWER_CERTAINTY_META = {
-    "certain_clear": {"label": "明确（无条件）"},
-    "certain_condition": {"label": "有条件"},
-    "certain_conditional": {"label": "有条件"},
-    "certain_dispute": {"label": "有争议"},
-    "certain_practice": {"label": "实务做法"},
+    "certain_clear": {"label": "明确（无条件）", "active": True},
+    "certain_condition": {"label": "有条件", "active": True},
+    # 历史别名，已合并到 certain_condition，兼容展示，不建议新录入使用
+    "certain_conditional": {"label": "有条件", "active": False},
+    "certain_dispute": {"label": "有争议", "active": True},
+    "certain_practice": {"label": "实务做法", "active": True},
 }
 
 SCOPE_LEVEL_META = {
