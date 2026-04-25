@@ -565,7 +565,7 @@ class QuestionService:
             data.get('keywords', ''),
             1 if data.get('high_frequency_flag') else 0,
             1 if data.get('newbie_flag') else 0,
-            data.get('status', 'active'),
+            data.get('status', 'draft'),
             now, now
         ))
         question_id = cur.lastrowid

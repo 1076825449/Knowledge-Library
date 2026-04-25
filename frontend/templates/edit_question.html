@@ -8,6 +8,47 @@
     <a href="/question/{{ detail.question_code }}" class="back-link">取消，返回详情</a>
 </div>
 
+{# ========== 状态信息横幅 ========== #}
+<div style="margin-bottom:16px;padding:10px 14px;border-radius:6px;border-left:4px solid
+    {%- if detail.status == 'draft' -%} #ffc107
+    {%- elif detail.status == 'pending_review' -%} #17a2b8
+    {%- elif detail.status == 'active' -%} #28a745
+    {%- elif detail.status == 'rejected' -%} #dc3545
+    {%- elif detail.status == 'archived' -%} #6c757d
+    {%- else -%} #ccc{%- endif -%;background:#f8f9fa;">
+    <strong>当前状态：</strong>
+    {% if detail.status == 'draft' %}🟡 草稿（可编辑，编辑完成后请提交审核）{% endif %}
+    {% if detail.status == 'pending_review' %}🔵 待审核（请等待 reviewer 审核，编辑将退出审核状态）{% endif %}
+    {% if detail.status == 'active' %}🟢 正常（已发布）{% endif %}
+    {% if detail.status == 'rejected' %}🔴 已退回（已退回修改，请完善后重新提交审核）{% endif %}
+    {% if detail.status == 'archived' %}⚪ 已归档（不可编辑，如需修改请联系管理员）{% endif %}
+</div>
+
+{# 仅 editor 编辑草稿/退回时可提交审核 #}
+{% if current_user and current_user.role in ['admin', 'editor'] and detail.status in ['draft', 'rejected'] %}
+<div style="margin-bottom:12px;">
+    <button type="button" onclick="doSubmitReview('{{ detail.question_code }}')"
+        style="background:#007bff;color:#fff;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:1em;">
+        提交审核
+    </button>
+    <span id="edit-review-msg" style="margin-left:10px;color:#666;font-size:0.9em;"></span>
+</div>
+{% endif %}
+
+{# 仅 reviewer/admin 编辑待审核时可强制发布 #}
+{% if current_user and current_user.role in ['admin', 'reviewer'] and detail.status == 'pending_review' %}
+<div style="margin-bottom:12px;background:#fff3cd;border:1px solid #ffeeba;padding:8px 12px;border-radius:4px;">
+    ⚠️ 此问题处于<strong>待审核</strong>状态，保存将覆盖审核信息。
+</div>
+{% endif %}
+
+{# archived 不可编辑提示 #}
+{% if detail.status == 'archived' %}
+<div style="margin-bottom:12px;background:#f8f9fa;border:1px solid #ddd;padding:8px 12px;border-radius:4px;">
+    ⚪ 此问题已归档，仅管理员可恢复编辑。
+</div>
+{% endif %}
+
 <form action="/question/{{ detail.question_code }}/edit" method="POST" class="question-form">
     {# ========== 基本信息 ========== #}
     <fieldset class="form-fieldset">
@@ -118,11 +159,23 @@
 
         <div class="form-group">
             <label for="status">条目状态</label>
+            {% if current_user and current_user.role in ['admin', 'reviewer'] %}
                 <select name="status" id="status">
-                    <option value="active" {% if detail.status == 'active' %}selected{% endif %}>正常</option>
                     <option value="draft" {% if detail.status == 'draft' %}selected{% endif %}>草稿</option>
+                    <option value="pending_review" {% if detail.status == 'pending_review' %}selected{% endif %}>待审核</option>
+                    <option value="active" {% if detail.status == 'active' %}selected{% endif %}>正常</option>
                     <option value="archived" {% if detail.status == 'archived' %}selected{% endif %}>归档</option>
                 </select>
+                <p class="field-hint">⚠️ 建议通过审核流程发布</p>
+            {% else %}
+                {# editor: only draft/rejected #}
+                <input type="hidden" name="status" value="{{ detail.status }}">
+                <p style="color:#666;">
+                    当前状态：<strong>{{ detail.status }}</strong>
+                    {% if detail.status == 'active' %}，如需修改请联系 reviewer{% endif %}
+                    {% if detail.status == 'pending_review' %}，请等待 reviewer 审核{% endif %}
+                </p>
+            {% endif %}
         </div>
 
         <div class="form-group">
@@ -300,6 +353,27 @@ function createTagInline(btn) {
         }
     };
     xhr.send(JSON.stringify({tag_code: code, tag_name: tagName}));
+}
+
+function showEditMsg(msg, isError) {
+    var el = document.getElementById('edit-review-msg');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = isError ? '#dc3545' : '#28a745';
+}
+function doSubmitReview(code) {
+    fetch('/api/questions/' + code + '/submit-review', {method: 'POST', credentials: 'same-origin'})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+        if (d.success) {
+            var w = d.warnings && d.warnings.length ? '，提示：' + d.warnings.join('；') : '';
+            showEditMsg('已提交审核' + w, false);
+            setTimeout(function() { location.reload(); }, 1500);
+        } else {
+            showEditMsg((d.details || [d.error]).join('；'), true);
+        }
+    })
+    .catch(function(e) { showEditMsg('提交失败：' + e, true); });
 }
 </script>
 

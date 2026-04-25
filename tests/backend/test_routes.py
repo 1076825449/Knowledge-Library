@@ -34,7 +34,8 @@ def make_auth_client(role="admin"):
     """创建指定角色的已认证 test client（依赖 session 降级逻辑，不需 mock）"""
     app = create_app()
     app.config["TESTING"] = True
-    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+    # 直接设置 app.secret_key（Flask session 用此签名；Config.SECRET_KEY 无默认值始终为 None）
+    app.secret_key = "test-secret-key-for-testing-only"
     with app.test_client() as client:
         user = TEST_USERS[role]
         with client.session_transaction() as sess:
@@ -49,7 +50,7 @@ def anon_client():
     """匿名 client（未认证），用于测试未登录拦截路径"""
     app = create_app()
     app.config["TESTING"] = True
-    app.config["SECRET_KEY"] = "test-secret-key-for-testing-only"
+    app.secret_key = "test-secret-key-for-testing-only"
     with app.test_client() as client:
         yield client
 

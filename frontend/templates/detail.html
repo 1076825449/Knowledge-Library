@@ -58,9 +58,70 @@
         <span class="q-badge">{{ question_type_label(detail.question_type) }}</span>
         <span class="q-badge version">v{{ detail.version_no }}</span>
         <span class="q-badge status-{{ detail.status }}">{{ status_label(detail.status) }}</span>
+        {% if current_user and current_user.role in ['admin', 'editor', 'reviewer'] %}
         <a href="/question/{{ detail.question_code }}/edit" class="edit-btn">编辑</a>
+        {% endif %}
     </div>
 </div>
+
+{# ========== 审核操作按钮（根据角色和状态展示） ========== #}
+{% if current_user %}
+<div class="review-actions" style="margin:12px 0 16px;padding:12px;background:#f8f9fa;border-radius:6px;border:1px solid #e9ecef;">
+    <strong>审核操作：</strong>
+    <span id="review-msg" style="margin-left:8px;color:#666;font-size:0.9em;"></span>
+
+    {# editor: 提交审核 #}
+    {% if current_user.role in ['admin', 'editor'] and detail.status in ['draft', 'rejected'] %}
+    <button class="btn-review-action" id="btn-submit-review"
+        onclick="doSubmitReview('{{ detail.question_code }}')"
+        style="background:#007bff;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;margin-right:8px;">
+        提交审核
+    </button>
+    {% endif %}
+
+    {# editor: 等待审核状态 #}
+    {% if current_user.role in ['admin', 'editor'] and detail.status == 'pending_review' %}
+    <span style="color:#856404;background:#fff3cd;padding:4px 12px;border-radius:4px;border:1px solid #ffeeba;">
+        ⏳ 等待审核中，请联系 reviewer 审核
+    </span>
+    {% endif %}
+
+    {# reviewer: 审核通过 / 退回 #}
+    {% if current_user.role in ['admin', 'reviewer'] and detail.status == 'pending_review' %}
+    <button class="btn-review-action" id="btn-approve"
+        onclick="doApprove('{{ detail.question_code }}')"
+        style="background:#28a745;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;margin-right:8px;">
+        审核通过 ✅
+    </button>
+    <button class="btn-review-action" id="btn-reject"
+        onclick="doReject('{{ detail.question_code }}')"
+        style="background:#dc3545;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;margin-right:8px;">
+        退回修改 ❌
+    </button>
+    {% endif %}
+
+    {# admin/reviewer: 归档 active #}
+    {% if current_user.role in ['admin', 'reviewer'] and detail.status == 'active' %}
+    <button class="btn-review-action" id="btn-archive"
+        onclick="doArchive('{{ detail.question_code }}')"
+        style="background:#6c757d;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;">
+        归档 📁
+    </button>
+    {% endif %}
+</div>
+
+{# 退回原因输入弹窗 #}
+<div id="reject-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:24px;border-radius:8px;max-width:400px;width:90%;">
+        <h3 style="margin-top:0;">退回原因</h3>
+        <textarea id="reject-reason" rows="4" style="width:100%;padding:8px;border-radius:4px;border:1px solid #ccc;" placeholder="请输入退回原因（必填）"></textarea>
+        <div style="margin-top:12px;display:flex;justify-content:flex-end;gap:8px;">
+            <button onclick="closeRejectModal()" style="padding:6px 16px;border-radius:4px;border:1px solid #ccc;cursor:pointer;">取消</button>
+            <button onclick="confirmReject('{{ detail.question_code }}')" style="padding:6px 16px;border-radius:4px;border:none;background:#dc3545;color:#fff;cursor:pointer;">确认退回</button>
+        </div>
+    </div>
+</div>
+{% endif %}
 
 {# ========== 问题标题 ========== #}
 <h1 class="detail-title">{{ detail.question_plain if detail.question_plain else detail.question_title }}</h1>
@@ -319,4 +380,88 @@
 <div class="detail-footer">
     <span>版本 v{{ detail.version_no }} · 更新于 {{ detail.updated_at }}</span>
 </div>
+
+<script>
+function showMsg(msg, isError) {
+    var el = document.getElementById('review-msg');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = isError ? '#dc3545' : '#28a745';
+}
+function doSubmitReview(code) {
+    fetch('/api/questions/' + code + '/submit-review', {method: 'POST', credentials: 'same-origin'})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+        if (d.success) {
+            var w = d.warnings && d.warnings.length ? '\n提示：' + d.warnings.join('；') : '';
+            showMsg('已提交审核' + w, false);
+            setTimeout(function() { location.reload(); }, 1500);
+        } else {
+            showMsg((d.details || [d.error]).join('；'), true);
+        }
+    })
+    .catch(function(e) { showMsg('提交失败：' + e, true); });
+}
+function doApprove(code) {
+    if (!confirm('确认审核通过，发布这条内容？')) return;
+    fetch('/api/questions/' + code + '/approve', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'reviewer_note='
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+        if (d.success) {
+            var w = d.warnings && d.warnings.length ? '\n提示：' + d.warnings.join('；') : '';
+            showMsg('审核通过' + w, false);
+            setTimeout(function() { location.reload(); }, 1500);
+        } else {
+            showMsg((d.details || [d.error]).join('；'), true);
+        }
+    })
+    .catch(function(e) { showMsg('审核失败：' + e, true); });
+}
+function doReject(code) {
+    document.getElementById('reject-modal').style.display = 'flex';
+}
+function closeRejectModal() {
+    document.getElementById('reject-modal').style.display = 'none';
+}
+function confirmReject(code) {
+    var reason = document.getElementById('reject-reason').value.trim();
+    if (!reason) { alert('请填写退回原因'); return; }
+    closeRejectModal();
+    fetch('/api/questions/' + code + '/reject', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({reason: reason})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+        if (d.success) {
+            showMsg('已退回修改', false);
+            setTimeout(function() { location.reload(); }, 1500);
+        } else {
+            showMsg(d.error || '退回失败', true);
+        }
+    })
+    .catch(function(e) { showMsg('退回失败：' + e, true); });
+}
+function doArchive(code) {
+    if (!confirm('确认归档这条内容？归档后将从列表隐藏。')) return;
+    fetch('/api/questions/' + code + '/archive', {method: 'POST', credentials: 'same-origin'})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+        if (d.success) {
+            showMsg('已归档', false);
+            setTimeout(function() { location.reload(); }, 1500);
+        } else {
+            showMsg(d.error || '归档失败', true);
+        }
+    })
+    .catch(function(e) { showMsg('归档失败：' + e, true); });
+}
+</script>
 {% endblock %}

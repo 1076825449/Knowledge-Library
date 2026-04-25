@@ -37,7 +37,9 @@ SCOPE_LEVEL_META = {
 STATUS_META = {
     "active": {"label": "正常"},
     "draft": {"label": "草稿"},
-    "pending": {"label": "待复核"},
+    "pending_review": {"label": "待审核"},
+    "pending": {"label": "待复核"},     # 历史兼容
+    "rejected": {"label": "已退回"},
     "archived": {"label": "归档"},
     "obsolete": {"label": "过时"},
 }

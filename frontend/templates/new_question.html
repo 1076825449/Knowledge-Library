@@ -122,14 +122,22 @@
             </select>
         </div>
 
+        {# 仅 reviewer/admin 可以选择 active 并带有提示；editor 只能建草稿 #}
+        {% if current_user and current_user.role in ['reviewer', 'admin'] %}
         <div class="form-group">
             <label for="status">条目状态</label>
             <select name="status" id="status">
-                <option value="draft" selected>草稿（创建后需编辑公开）</option>
-                <option value="active">正常（创建后直接公开）</option>
+                <option value="draft" selected>草稿（需提交审核）</option>
+                <option value="active">正常（直接公开）⚠️ 需通过审核才能公开</option>
             </select>
-            <p class="field-hint">默认草稿，录入完成后可在编辑页改为"正常"公开</p>
+            <p class="field-hint">建议先保存草稿并提交审核，通过后由 reviewer 发布</p>
         </div>
+        {% else %}
+        <input type="hidden" name="status" value="draft">
+        <p class="field-hint" style="background:#f8f8f0;border:1px solid #ddd;padding:8px;border-radius:4px;">
+            🟡 新建内容默认保存为<strong>草稿</strong>，录入完成后可在编辑页<strong>提交审核</strong>，由 reviewer 审核后发布。
+        </p>
+        {% endif %}
 
         <div class="form-group">
             <label>标记</label>

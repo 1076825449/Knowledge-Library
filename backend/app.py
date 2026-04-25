@@ -36,10 +36,13 @@ def create_app():
 
     @app.context_processor
     def inject_metadata():
+        # 不在此处查 DB，防止 AppFactory 模式下连接失败。
+        # 真实 current_user 由各路由显式注入。
         return {
             'site_name': Config.SITE_NAME,
             'site_url': Config.SITE_URL.rstrip('/'),
             'site_description': Config.SITE_DESCRIPTION,
+            'current_user': None,
             'question_type_meta': QUESTION_TYPE_META,
             'answer_certainty_meta': ANSWER_CERTAINTY_META,
             'scope_level_meta': SCOPE_LEVEL_META,
@@ -55,8 +58,9 @@ def create_app():
             'answer_certainty_options': all_options(ANSWER_CERTAINTY_META),
             'scope_level_options': all_options(SCOPE_LEVEL_META),
             'status_options': [
-                {'code': 'active', 'label': STATUS_META['active']['label']},
                 {'code': 'draft', 'label': STATUS_META['draft']['label']},
+                {'code': 'pending_review', 'label': STATUS_META['pending_review']['label']},
+                {'code': 'active', 'label': STATUS_META['active']['label']},
                 {'code': 'archived', 'label': STATUS_META['archived']['label']},
             ],
             'support_type_options': all_options(SUPPORT_TYPE_META),
@@ -382,7 +386,7 @@ def create_app():
                                keyword=keyword,
                                current_region=current_region, current_status=current_status,
                                question_types=question_types, current_qtype=qtype)
-
+    # ---------- 问题详情页 ----------
     @app.route('/question/<question_code>')
     def question_detail(question_code):
         from services.question_service import QuestionService
@@ -392,12 +396,18 @@ def create_app():
             return "问题不存在", 404
         stages = svc.get_stages()
         modules = svc.get_modules()
+        user = None
+        try:
+            user = get_authenticated_user()
+        except Exception:
+            pass
         return render_template('detail.html',
-                               detail=detail, stages=stages, modules=modules)
+                               detail=detail, stages=stages, modules=modules,
+                               current_user=user)
 
     # ---------- 新增问题页面 ----------
     @app.route('/question/new', methods=['GET', 'POST'])
-    @require_admin
+    @require_auth(['admin', 'editor'])
     def new_question():
         from services.question_service import QuestionService
         svc = QuestionService()
@@ -440,7 +450,7 @@ def create_app():
 
     # ---------- 编辑问题页面 ----------
     @app.route('/question/<question_code>/edit', methods=['GET', 'POST'])
-    @require_admin
+    @require_auth(['admin', 'editor'])
     def edit_question(question_code):
         from services.question_service import QuestionService
         svc = QuestionService()
@@ -453,6 +463,7 @@ def create_app():
         all_tags = svc.get_all_tags()
         business_tags = [t for t in all_tags if t['tag_category'] == 'business']
         all_policies = svc.get_all_policies()
+        user = get_authenticated_user()
 
         if request.method == 'POST':
             data = request.form.to_dict()
@@ -501,32 +512,43 @@ def create_app():
                                        detail=detail, stages=stages, modules=modules,
                                        all_tags=all_tags, business_tags=business_tags,
                                        all_policies=all_policies,
-                                       form_error=str(e)), 400
+                                       form_error=str(e), current_user=user), 400
             except Exception as e:
                 return f"<script>alert('更新失败：{e}');window.history.back();</script>"
 
         return render_template('edit_question.html',
                                detail=detail, stages=stages, modules=modules,
                                all_tags=all_tags, business_tags=business_tags,
-                               all_policies=all_policies)
+                               all_policies=all_policies,
+                               current_user=user)
 
     # ---------- 审核操作 API ----------
     @app.route('/api/questions/<question_code>/submit-review', methods=['POST'])
     @require_auth('editor')
     def submit_for_review(question_code):
-        """将问题从 draft 提交为 pending_review"""
+        """将问题从 draft 提交为 pending_review，带质量门禁预检"""
+        from services.quality_gate import QualityGate
+        gate = QualityGate()
+        result = gate.validate_for_review(question_code)
+        if not result['ok']:
+            return jsonify({
+                'error': '提交前校验未通过',
+                'details': result['errors'],
+                'warnings': result.get('warnings', []),
+            }), 400
+        # warnings 不阻止提交，但返回给前端提示
         import sqlite3
         db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
         user = get_authenticated_user()
         conn = sqlite3.connect(db_path)
         cur = conn.cursor()
         cur.execute(
-            "UPDATE question_master SET status = 'pending_review' WHERE question_code = ? AND status = 'draft'",
+            "UPDATE question_master SET status = 'pending_review' WHERE question_code = ? AND status IN ('draft', 'rejected')",
             (question_code,)
         )
         if cur.rowcount == 0:
             conn.close()
-            return jsonify({'error': '只有草稿状态的问题可以提交审核'}), 400
+            return jsonify({'error': '只有草稿/退回状态的问题可以提交审核'}), 400
         cur.execute(
             "INSERT INTO question_update_log (question_id, version_no, update_date, update_type, updated_by, change_summary) "
             "SELECT id, COALESCE(MAX(version_no),0)+1, datetime('now'), 'submit_review', ?, '提交待审核' "
@@ -535,12 +557,23 @@ def create_app():
         )
         conn.commit()
         conn.close()
-        return jsonify({'success': True})
+        resp = {'success': True, 'warnings': result.get('warnings', [])}
+        return jsonify(resp)
 
     @app.route('/api/questions/<question_code>/approve', methods=['POST'])
     @require_auth('reviewer')
     def approve_question(question_code):
-        """审核通过 → active"""
+        """审核通过 → active，必须通过质量门禁"""
+        from services.quality_gate import QualityGate
+        reviewer_note = request.form.get('reviewer_note', '') if request.form else ''
+        gate = QualityGate()
+        result = gate.validate_for_publish(question_code, reviewer_override_note=reviewer_note)
+        if not result['ok']:
+            return jsonify({
+                'error': '质量门禁未通过，不能发布',
+                'details': result['errors'],
+                'warnings': result.get('warnings', []),
+            }), 400
         import sqlite3
         db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
         user = get_authenticated_user()
@@ -561,7 +594,7 @@ def create_app():
         )
         conn.commit()
         conn.close()
-        return jsonify({'success': True})
+        return jsonify({'success': True, 'warnings': result.get('warnings', [])})
 
     @app.route('/api/questions/<question_code>/reject', methods=['POST'])
     @require_auth('reviewer')
@@ -570,7 +603,13 @@ def create_app():
         import sqlite3
         db_path = str(Path(__file__).parent.parent / 'database' / 'db' / 'tax_knowledge.db')
         user = get_authenticated_user()
-        reason = request.form.get('reason', '').strip() or '未说明原因'
+        reason = ''
+        if request.is_json:
+            reason = request.get_json().get('reason', '').strip()
+        else:
+            reason = request.form.get('reason', '').strip()
+        if not reason:
+            reason = '未说明原因'
         conn = sqlite3.connect(db_path)
         cur = conn.cursor()
         cur.execute(
